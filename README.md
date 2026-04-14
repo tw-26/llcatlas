@@ -1,43 +1,62 @@
-# Astro Starter Kit: Minimal
+# LLCAtlas
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Minimal Astro starter for an SEO-first affiliate site in the LLC formation space.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Tech Stack
 
-## 🚀 Project Structure
+- `Astro` for static, content-first page generation
+- `Tailwind CSS v4` for layout and typography
+- Static hosting friendly output for GitHub Pages or similar platforms
+- No CMS, no blog engine, no auth, no database, no dark mode
 
-Inside of your Astro project, you'll see the following folders and files:
+## Current Scope
+
+V1 intentionally starts with one simple homepage shell so the project can be committed and extended
+without extra app complexity.
+
+Included right now:
+
+- responsive header
+- main content area
+- sticky desktop CTA rail that collapses naturally on mobile
+- footer with affiliate disclosure
+- placeholder homepage content for the first LLCAtlas messaging
+
+Planned next:
+
+- `/best-llc-services`
+- `/llc/wyoming`
+- `/llc/new-york`
+- `/llc/new-mexico`
+- `/llc/california`
+- `/llc/colorado`
+
+## Project Structure
 
 ```text
 /
 ├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── layouts/
+│   │   └── site-layout.astro
+│   ├── pages/
+│   │   └── index.astro
+│   └── styles/
+│       └── global.css
+├── astro.config.mjs
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Commands
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- `npm install` installs dependencies
+- `npm run dev` starts the local Astro dev server
+- `npm run build` builds the production site into `dist/`
+- `npm run preview` previews the production build locally
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Notes
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Styling uses a clean light theme with system-first fonts and generous spacing.
+- The layout is intentionally simple so future state pages can reuse the same shell.
+- Analytics, affiliate click tracking, and content modeling should be added after the initial pages
+  exist.

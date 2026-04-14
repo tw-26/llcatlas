@@ -1,17 +1,178 @@
 ---
+import SiteLayout from '../layouts/site-layout.astro';
 
+const featuredStates = [
+  { name: 'Wyoming', label: 'Fast, low-friction launch state' },
+  { name: 'New York', label: 'High intent, high search opportunity' },
+  { name: 'New Mexico', label: 'Strong privacy angle' },
+  { name: 'California', label: 'Expensive, but massive demand' },
+  { name: 'Colorado', label: 'Straightforward filing process' },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<SiteLayout
+  title="LLCAtlas | Form Your LLC Without Guesswork"
+  description="Opinionated LLC formation guides that help founders choose the right path and the right filing partner."
+>
+  <section class="space-y-6">
+    <span class="inline-flex rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900">
+      Free LLC formation guides for high-intent founders
+    </span>
+
+    <div class="space-y-5">
+      <h1>Form your LLC with less noise and one clear recommendation.</h1>
+      <p class="max-w-3xl text-lg text-slate-600">
+        LLCAtlas is a focused content funnel for founders comparing LLC formation options. We
+        simplify the process, call out the tradeoffs, and point readers to the best-value partner
+        instead of dumping them into a generic list.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-4 sm:flex-row">
+      <a
+        id="primary-cta"
+        href="#featured-states"
+        class="inline-flex items-center justify-center rounded-full bg-amber-500 px-6 py-3 text-base font-semibold text-slate-950 transition hover:bg-amber-400"
+      >
+        Explore the first state guides
+      </a>
+      <a
+        href="#how-it-works"
+        class="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-base font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50"
+      >
+        See the page structure
+      </a>
+    </div>
+  </section>
+
+  <section class="grid gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:grid-cols-3">
+    <div class="space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Positioning</p>
+      <p class="text-base text-slate-700">Opinionated guidance, not neutral directories.</p>
+    </div>
+    <div class="space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Monetization</p>
+      <p class="text-base text-slate-700">Affiliate CTAs to registered agent and formation partners.</p>
+    </div>
+    <div class="space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">V1 scope</p>
+      <p class="text-base text-slate-700">Homepage, five state guides, and one comparison page.</p>
+    </div>
+  </section>
+
+  <section id="featured-states" class="space-y-6">
+    <div class="space-y-3">
+      <h2>Initial state pages</h2>
+      <p class="max-w-2xl">
+        These are placeholder cards for the first SEO entry points. The eventual goal is one shared
+        template that turns each state into a conversion-focused guide instead of a generic article.
+      </p>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      {
+        featuredStates.map((state) => (
+          <div class="rounded-2xl border border-slate-200 p-5">
+            <p class="text-lg font-semibold text-slate-950">{state.name} LLC Formation</p>
+            <p class="mt-2 text-sm text-slate-600">{state.label}</p>
+            <p class="mt-4 text-sm text-slate-500">
+              Placeholder for filing fees, timeline, process steps, and a single recommendation.
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="space-y-6 rounded-3xl border border-amber-200 bg-amber-50 p-6">
+    <div class="space-y-3">
+      <h2>What this homepage needs to do</h2>
+      <p class="max-w-3xl">
+        The homepage is a router, not a masterpiece. Its job is to explain the offer quickly,
+        establish trust, and send users into high-intent state pages and the comparison page.
+      </p>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-3">
+      <div class="rounded-2xl bg-white p-5">
+        <h3>Reduce confusion</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Surface the filing costs, timeline, and requirements without making people hunt through
+          state sites.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-white p-5">
+        <h3>Take a stance</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Recommend one partner clearly, with enough reasoning to remove decision fatigue.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-white p-5">
+        <h3>Drive one action</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Push users toward the best LLC service page or their state guide, then into the affiliate
+          click.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="space-y-6">
+    <div class="space-y-3">
+      <h2>Planned site flow</h2>
+      <p class="max-w-3xl">
+        Every future page should follow the same pattern: verdict first, proof second, CTA repeated
+        at natural decision points.
+      </p>
+    </div>
+
+    <ol class="grid gap-4 md:grid-cols-3">
+      <li class="rounded-2xl border border-slate-200 p-5">
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Step 1</p>
+        <h3 class="mt-3">Capture search intent</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Target high-intent queries like state formation pages and LLC service comparisons.
+        </p>
+      </li>
+      <li class="rounded-2xl border border-slate-200 p-5">
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Step 2</p>
+        <h3 class="mt-3">Answer the actual question</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Cover fees, process, timing, and whether a state or provider is the right fit.
+        </p>
+      </li>
+      <li class="rounded-2xl border border-slate-200 p-5">
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Step 3</p>
+        <h3 class="mt-3">Convert with one obvious CTA</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Present a decisive recommendation with a clear path into the affiliate partner.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <div slot="sidebar" class="space-y-4">
+    <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Primary CTA</p>
+      <h2 class="mt-3 text-2xl">Start with the best LLC service page.</h2>
+      <p class="mt-3 text-sm text-slate-600">
+        This space is reserved for the highest-intent recommendation and affiliate CTA.
+      </p>
+      <a
+        href="/best-llc-services"
+        class="mt-5 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+      >
+        View best LLC services
+      </a>
+    </div>
+
+    <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Placeholder rail</p>
+      <ul class="mt-4 text-sm text-slate-600">
+        <li>Top affiliate recommendation</li>
+        <li>Quick state navigation</li>
+        <li>Trust note and disclosure</li>
+      </ul>
+    </div>
+  </div>
+</SiteLayout>

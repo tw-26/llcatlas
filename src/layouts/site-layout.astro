@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="min-h-screen">
+      <header class="border-b border-slate-200">
+        <div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-5 sm:px-6 lg:px-8">
+          <a href="/" class="flex items-center gap-3 text-sm font-semibold tracking-[0.18em] text-slate-950 uppercase">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">
+              LA
+            </span>
+            LLCAtlas
+          </a>
+
+          <nav aria-label="Primary" class="hidden items-center gap-6 text-sm text-slate-600 md:flex">
+            <a href="/" class="transition hover:text-slate-950">Home</a>
+            <a href="#featured-states" class="transition hover:text-slate-950">States</a>
+            <a href="#how-it-works" class="transition hover:text-slate-950">How It Works</a>
+            <a
+              href="#primary-cta"
+              class="rounded-full bg-amber-500 px-4 py-2 font-semibold text-slate-950 transition hover:bg-amber-400"
+            >
+              View Best Service
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+          <article class="min-w-0 space-y-12">
+            <slot />
+          </article>
+
+          <aside class="lg:sticky lg:top-8">
+            <slot name="sidebar" />
+          </aside>
+        </div>
+      </main>
+
+      <footer class="border-t border-slate-200 bg-slate-50">
+        <div class="mx-auto max-w-6xl space-y-4 px-4 py-8 sm:px-6 lg:px-8">
+          <p class="text-sm font-semibold text-slate-950">Affiliate disclosure</p>
+          <p class="max-w-3xl text-sm text-slate-600">
+            LLCAtlas may earn a commission if you click a partner link and purchase a service.
+            That does not change our editorial stance. We do not form LLCs, file paperwork, or
+            provide legal or tax advice.
+          </p>
+          <p class="text-sm text-slate-500">© {currentYear} LLCAtlas. Built for clear LLC decisions.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
