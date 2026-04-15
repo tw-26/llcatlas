@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local AI skill folders
+.claude/
+.codex/
+.cursor/skills/

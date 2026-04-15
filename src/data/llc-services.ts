@@ -132,6 +132,7 @@ export const llcServices: LlcService[] = [
     privacyTake:
       'The free first-year registered agent offer helps keep your home address off the filing, which is meaningful for home-based owners.',
     ctaLabel: 'Start with Bizee',
+    // -- T# TODO: Replace this placeholder with your real Bizee affiliate link.
     affiliateUrl: 'https://example.com/affiliate/bizee',
     sources: [
       'https://bizee.com/limited-liability-company/',
@@ -200,6 +201,7 @@ export const llcServices: LlcService[] = [
     privacyTake:
       'Privacy is the core reason Northwest keeps showing up in LLC conversations. They explicitly sell the idea that their address goes on the public filing instead of yours.',
     ctaLabel: 'Start with Northwest',
+    // -- T# TODO: Replace this placeholder with your real Northwest affiliate link.
     affiliateUrl: 'https://example.com/affiliate/northwest',
     sources: [
       'https://www.northwestregisteredagent.com/39-nw-llc-offer',
@@ -273,6 +275,7 @@ export const llcServices: LlcService[] = [
     privacyTake:
       'Privacy is available if you add or bundle the registered agent, but it is not part of the cheapest package.',
     ctaLabel: 'Start with ZenBusiness',
+    // -- T# TODO: Replace this placeholder with your real ZenBusiness affiliate link.
     affiliateUrl: 'https://example.com/affiliate/zenbusiness',
     sources: [
       'https://zenbusiness.com/pricing-formation-plans',
@@ -341,6 +344,7 @@ export const llcServices: LlcService[] = [
     privacyTake:
       'The privacy benefit exists if you pay for the registered agent, but the premium is hard to justify when cheaper providers offer the same core privacy function.',
     ctaLabel: 'See LegalZoom pricing',
+    // -- T# TODO: Replace this placeholder with your real LegalZoom affiliate link.
     affiliateUrl: 'https://example.com/affiliate/legalzoom',
     sources: [
       'https://www.legalzoom.com/business/business-formation/llc-overview.html',

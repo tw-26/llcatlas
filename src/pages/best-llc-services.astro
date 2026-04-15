@@ -2,7 +2,6 @@
 import AffiliateCard from '../components/affiliate-card.astro';
 import SiteLayout from '../layouts/site-layout.astro';
 import {
-  choiceRecommendations,
   featuredStateGuideSlugs,
   llcServices,
   llcServicesFaq,
@@ -19,9 +18,32 @@ const pageUrl = 'https://llcatlas.com/best-llc-services/';
 
 const rankedServices = [...llcServices].sort((left, right) => left.realYearOneTotal - right.realYearOneTotal);
 const topPick = rankedServices[0];
+const legalZoom = rankedServices.find((service) => service.slug === 'legalzoom');
 const featuredStateGuides = featuredStateGuideSlugs
   .map((slug) => states.find((state) => state.slug === slug))
   .filter(Boolean);
+const comparisonSummaryRows = [
+  {
+    label: "What you'll actually pay year 1",
+    getValue: (service) => service.realYearOneTotalLabel,
+  },
+  {
+    label: 'Registered agent in year 1',
+    getValue: (service) => service.registeredAgentLabel,
+  },
+  {
+    label: 'Registered agent renewal',
+    getValue: (service) => service.registeredAgentRenewalLabel,
+  },
+  {
+    label: 'Upsell pressure',
+    getValue: (service) => service.checkoutExperience,
+  },
+  {
+    label: 'Best for',
+    getValue: (service) => service.bestFor,
+  },
+] as const;
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -130,7 +152,7 @@ const structuredData = [
         <div>
           <p class="llc-helper">Quick comparison</p>
           <p class="mt-1 text-sm text-slate-600">
-            Ranked by real year-one cost before the state filing fee.
+            The column that matters is what you will actually pay in year one before the state fee.
           </p>
         </div>
         <span class="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-amber-900">
@@ -143,7 +165,7 @@ const structuredData = [
           <tr>
             <th class="llc-table-head px-5 py-4 text-left">Service</th>
             <th class="llc-table-head px-5 py-4 text-left">Advertised price</th>
-            <th class="llc-table-head px-5 py-4 text-left">Real year-1 total</th>
+            <th class="llc-table-head px-5 py-4 text-left">What you will actually pay year 1</th>
             <th class="llc-table-head px-5 py-4 text-left">Registered agent</th>
             <th class="llc-table-head px-5 py-4 text-left">Upsells</th>
             <th class="llc-table-head px-5 py-4 text-left">Our verdict</th>
@@ -198,6 +220,32 @@ const structuredData = [
     </div>
   </section>
 
+  <section class="llc-card border-rose-200 bg-rose-50/50 space-y-4">
+    <p class="llc-helper text-rose-700">Who we do not recommend</p>
+    <h2>We do not recommend LegalZoom for most people</h2>
+    <p class="llc-section-copy text-slate-700">
+      LegalZoom is the easiest big brand to overpay for. The company is real, the filing works, and
+      some founders still like the name. But once you compare the cheapest usable path against
+      Bizee, Northwest, and ZenBusiness, the markup is hard to defend.
+    </p>
+    <div class="grid gap-4 md:grid-cols-3">
+      <div class="llc-card bg-white">
+        <p class="llc-helper">Year-1 cost</p>
+        <p class="mt-3 text-lg font-semibold text-slate-950">{legalZoom?.realYearOneTotalLabel}</p>
+      </div>
+      <div class="llc-card bg-white">
+        <p class="llc-helper">Registered agent renewal</p>
+        <p class="mt-3 text-lg font-semibold text-slate-950">{legalZoom?.registeredAgentRenewalLabel}</p>
+      </div>
+      <div class="llc-card bg-white">
+        <p class="llc-helper">Bottom line</p>
+        <p class="mt-3 text-sm leading-7 text-slate-600">
+          Choose LegalZoom only if the brand name itself matters to you more than value.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section class="space-y-6">
     <div class="space-y-3">
       <h2>Ranked reviews</h2>
@@ -232,7 +280,7 @@ const structuredData = [
               </a>
             </div>
 
-            <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
               <div class="llc-card-subtle">
                 <p class="llc-helper">Price</p>
                 <p class="mt-3 text-lg font-semibold text-slate-950">{service.headlinePriceLabel}</p>
@@ -248,6 +296,10 @@ const structuredData = [
               <div class="llc-card-subtle">
                 <p class="llc-helper">Best for</p>
                 <p class="mt-3 text-lg font-semibold text-slate-950">{service.bestFor}</p>
+              </div>
+              <div class="llc-card-subtle">
+                <p class="llc-helper">Renewal pricing</p>
+                <p class="mt-3 text-lg font-semibold text-slate-950">{service.registeredAgentRenewalLabel}</p>
               </div>
             </div>
 
@@ -274,6 +326,9 @@ const structuredData = [
                 </ul>
                 <p class="mt-4 text-sm font-semibold text-slate-950">
                   Real total cost year 1: {service.realYearOneTotalLabel}
+                </p>
+                <p class="mt-2 text-sm font-semibold text-slate-950">
+                  Registered agent after year 1: {service.registeredAgentRenewalLabel}
                 </p>
               </div>
             </div>
@@ -360,30 +415,60 @@ const structuredData = [
 
     <div class="space-y-6">
       {
-        serviceComparisons.map((comparison) => (
-          <section id={comparison.id} class="llc-card space-y-4 scroll-mt-8">
-            <div class="space-y-2">
-              <h3>{comparison.title}</h3>
-              <p class="text-sm font-semibold text-slate-950">Winner: {comparison.winner}</p>
-            </div>
-            <p class="text-sm text-slate-500">
-              Jump to the full reviews:{' '}
-              {comparison.providerSlugs.map((slug, index) => (
-                <>
-                  <a href={`#${slug}`} class="font-medium text-slate-700 hover:text-slate-950">
-                    {rankedServices.find((service) => service.slug === slug)?.name}
-                  </a>
-                  {index === 0 ? ' and ' : ''}
-                </>
-              ))}
-            </p>
-            <div class="space-y-4">
-              {comparison.paragraphs.map((paragraph) => (
-                <p class="llc-section-copy text-slate-700">{paragraph}</p>
-              ))}
-            </div>
-          </section>
-        ))
+        serviceComparisons.map((comparison) => {
+          const leftService = rankedServices.find((service) => service.slug === comparison.providerSlugs[0]);
+          const rightService = rankedServices.find((service) => service.slug === comparison.providerSlugs[1]);
+
+          if (!leftService || !rightService) {
+            return null;
+          }
+
+          return (
+            <section id={comparison.id} class="llc-card space-y-5 scroll-mt-8">
+              <div class="space-y-2">
+                <h3>{comparison.title}</h3>
+                <p class="text-sm font-semibold text-slate-950">Winner: {comparison.winner}</p>
+              </div>
+              <p class="text-sm text-slate-500">
+                Jump to the full reviews:{' '}
+                <a href={`#${leftService.slug}`} class="font-medium text-slate-700 hover:text-slate-950">
+                  {leftService.name}
+                </a>{' '}
+                and{' '}
+                <a href={`#${rightService.slug}`} class="font-medium text-slate-700 hover:text-slate-950">
+                  {rightService.name}
+                </a>
+              </p>
+
+              <div class="llc-card-subtle overflow-hidden !p-0">
+                <table class="min-w-full divide-y divide-slate-200">
+                  <thead class="bg-slate-50">
+                    <tr>
+                      <th class="llc-table-head px-5 py-4 text-left">Compare</th>
+                      <th class="llc-table-head px-5 py-4 text-left">{leftService.name}</th>
+                      <th class="llc-table-head px-5 py-4 text-left">{rightService.name}</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white">
+                    {comparisonSummaryRows.map((row) => (
+                      <tr>
+                        <td class="px-5 py-4 font-semibold text-slate-950">{row.label}</td>
+                        <td class="px-5 py-4 text-slate-700">{row.getValue(leftService)}</td>
+                        <td class="px-5 py-4 text-slate-700">{row.getValue(rightService)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="space-y-4">
+                {comparison.paragraphs.map((paragraph) => (
+                  <p class="llc-section-copy text-slate-700">{paragraph}</p>
+                ))}
+              </div>
+            </section>
+          );
+        })
       }
     </div>
   </section>
@@ -392,19 +477,57 @@ const structuredData = [
     <div class="space-y-3">
       <h2>How to choose the right LLC service</h2>
       <p class="llc-section-copy text-slate-600">
-        The best provider depends on what you are trying to optimize. Most founders are really
-        choosing between lowest year-one cost, lowest hassle, and the comfort of a familiar brand.
+        Match the provider to the situation. Do not overcomplicate this.
       </p>
     </div>
 
-    <div class="grid gap-4 md:grid-cols-2">
-      {choiceRecommendations.map((choice) => (
-        <div class="llc-card-subtle">
-          <p class="font-semibold text-slate-950">{choice.prompt}</p>
-          <p class="mt-3 text-base font-semibold text-slate-950">{choice.recommendation}</p>
-          <p class="mt-2 text-slate-600">{choice.details}</p>
-        </div>
-      ))}
+    <div class="llc-card-subtle space-y-4">
+      <div class="flex flex-col gap-2 border-b border-slate-200 pb-4 md:flex-row md:items-start md:justify-between">
+        <p class="font-semibold text-slate-950">Want everything handled, no surprises?</p>
+        <p class="text-slate-700">→ Northwest Registered Agent</p>
+      </div>
+      <div class="flex flex-col gap-2 border-b border-slate-200 pb-4 md:flex-row md:items-start md:justify-between">
+        <p class="font-semibold text-slate-950">On a tight budget, okay managing details?</p>
+        <p class="text-slate-700">→ Bizee first, ZenBusiness Starter second</p>
+      </div>
+      <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+        <p class="font-semibold text-slate-950">Need a brand name for investor optics?</p>
+        <p class="text-slate-700">→ LegalZoom, but you will overpay</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="llc-card-subtle space-y-5">
+    <div class="space-y-3">
+      <h2>What you do not need to buy</h2>
+      <p class="llc-section-copy text-slate-600">
+        This is where a lot of founders get nickeled and dimed. Most first-time owners can skip the
+        routine add-ons below and do them themselves.
+      </p>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-3">
+      <div class="llc-card bg-white">
+        <p class="llc-helper">Skip the EIN upsell</p>
+        <p class="mt-3 text-sm leading-7 text-slate-600">
+          The IRS gives you an EIN for free. Paying $79 to $99 for someone else to click through the
+          form is usually wasted money.
+        </p>
+      </div>
+      <div class="llc-card bg-white">
+        <p class="llc-helper">Skip the operating agreement template upsell</p>
+        <p class="mt-3 text-sm leading-7 text-slate-600">
+          Most providers resell a template you can draft yourself or buy far more cheaply elsewhere.
+          Useful document, bad place to buy it.
+        </p>
+      </div>
+      <div class="llc-card bg-white">
+        <p class="llc-helper">Skip paid compliance alerts if you are organized</p>
+        <p class="mt-3 text-sm leading-7 text-slate-600">
+          Annual reminders are helpful, but not worth $99 a year for many owners. A calendar and
+          direct state notices cover the basics.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -418,15 +541,38 @@ const structuredData = [
       </p>
     </div>
 
-    <div class="flex flex-wrap gap-3">
-      {featuredStateGuides.map((state) => (
+    <div class="space-y-4">
+      {featuredStateGuides[0] && (
         <a
-          href={`/llc/${state.slug}`}
-          class="inline-flex items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50"
+          href={`/llc/${featuredStateGuides[0].slug}`}
+          class="llc-card-highlight block transition hover:border-amber-400"
         >
-          {state.name} LLC guide
+          <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p class="llc-helper">Live now</p>
+              <p class="mt-2 text-lg font-semibold text-slate-950">
+                Start with the {featuredStateGuides[0].name} LLC guide
+              </p>
+              <p class="mt-2 text-sm leading-7 text-slate-600">
+                If you want a real state page example first, Ohio is the strongest live guide on the
+                site right now.
+              </p>
+            </div>
+            <span class="text-sm font-semibold text-slate-950">Read Ohio guide →</span>
+          </div>
         </a>
-      ))}
+      )}
+
+      <div class="flex flex-wrap gap-3">
+        {featuredStateGuides.slice(1).map((state) => (
+          <a
+            href={`/llc/${state.slug}`}
+            class="inline-flex items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50"
+          >
+            {state.name} LLC guide
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 

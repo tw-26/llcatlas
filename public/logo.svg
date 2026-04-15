@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 56" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">LLCAtlas</title>
+  <desc id="logoDesc">Minimal LLCAtlas logo with a location pin and business icon.</desc>
+  <path
+    d="M28 6c-10.5 0-19 8.5-19 19 0 13.8 16.7 27.2 18.6 28.7a.64.64 0 0 0 .8 0C30.3 52.2 47 38.8 47 25 47 14.5 38.5 6 28 6Z"
+    fill="#0f172a"
+  />
+  <path
+    d="M20 31.5h16M18.5 34.5h19"
+    fill="none"
+    stroke="#fff"
+    stroke-linecap="round"
+    stroke-width="2.4"
+  />
+  <path
+    d="M19.5 23.5h17l-8.5-5.5-8.5 5.5ZM21.5 31.5v-8M28 31.5v-8M34.5 31.5v-8"
+    fill="none"
+    stroke="#fff"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2.4"
+  />
+  <circle cx="39.5" cy="14.5" r="4.5" fill="#f59e0b" />
+  <path d="M39.5 12.5v4M37.5 14.5h4" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.8" />
+  <text
+    x="64"
+    y="33"
+    fill="#0f172a"
+    font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="20"
+    font-weight="800"
+    letter-spacing="3.6"
+  >
+    LLCATLAS
+  </text>
+</svg>
