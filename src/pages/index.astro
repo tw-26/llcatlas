@@ -1,6 +1,7 @@
 ---
 import SiteLayout from '../layouts/site-layout.astro';
 
+const pageUrl = 'https://llcatlas.com/';
 const featuredStates = [
   { name: 'Ohio', slug: 'ohio', label: 'First draft state guide' },
   { name: 'Wyoming', slug: 'wyoming', label: 'Fast, low-friction launch state' },
@@ -9,11 +10,37 @@ const featuredStates = [
   { name: 'California', slug: 'california', label: 'Expensive, but massive demand' },
   { name: 'Colorado', slug: 'colorado', label: 'Straightforward filing process' },
 ];
+const title = 'LLCAtlas | Free guides to forming your LLC in any state. No upsells. No guesswork.';
+const description =
+  'Opinionated LLC formation guides that help founders choose the right path and the right filing partner.';
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url: pageUrl,
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: pageUrl,
+      },
+    ],
+  },
+];
 ---
 
 <SiteLayout
-  title="LLCAtlas | Form Your LLC Without Guesswork"
-  description="Opinionated LLC formation guides that help founders choose the right path and the right filing partner."
+  title={title}
+  description={description}
+  structuredData={structuredData}
 >
   <section class="space-y-6">
     <span class="inline-flex rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900">
