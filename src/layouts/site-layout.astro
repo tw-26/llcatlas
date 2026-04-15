@@ -8,6 +8,7 @@ interface Props {
 
 const { title, description } = Astro.props;
 const currentYear = new Date().getFullYear();
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <!doctype html>
@@ -18,12 +19,13 @@ const currentYear = new Date().getFullYear();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
   </head>
   <body>
     <div class="min-h-screen">
       <header class="border-b border-slate-200">
-        <div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-5 sm:px-6 lg:px-8">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-5 sm:px-6 lg:px-8">
           <a href="/" class="flex items-center gap-3 text-sm font-semibold tracking-[0.18em] text-slate-950 uppercase">
             <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">
               LA
@@ -45,7 +47,7 @@ const currentYear = new Date().getFullYear();
         </div>
       </header>
 
-      <main class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
           <article class="min-w-0 space-y-16">
             <slot />
@@ -58,7 +60,7 @@ const currentYear = new Date().getFullYear();
       </main>
 
       <footer class="border-t border-slate-200 bg-slate-50">
-        <div class="mx-auto max-w-6xl space-y-4 px-4 py-8 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl space-y-4 px-4 py-8 sm:px-6 lg:px-8">
           <p class="text-sm font-semibold text-slate-950">Affiliate disclosure</p>
           <p class="max-w-3xl text-sm text-slate-600">
             LLCAtlas may earn a commission if you click a partner link and purchase a service.
