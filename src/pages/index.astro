@@ -2,11 +2,12 @@
 import SiteLayout from '../layouts/site-layout.astro';
 
 const featuredStates = [
-  { name: 'Wyoming', label: 'Fast, low-friction launch state' },
-  { name: 'New York', label: 'High intent, high search opportunity' },
-  { name: 'New Mexico', label: 'Strong privacy angle' },
-  { name: 'California', label: 'Expensive, but massive demand' },
-  { name: 'Colorado', label: 'Straightforward filing process' },
+  { name: 'Ohio', slug: 'ohio', label: 'First draft state guide' },
+  { name: 'Wyoming', slug: 'wyoming', label: 'Fast, low-friction launch state' },
+  { name: 'New York', slug: 'new-york', label: 'High intent, high search opportunity' },
+  { name: 'New Mexico', slug: 'new-mexico', label: 'Strong privacy angle' },
+  { name: 'California', slug: 'california', label: 'Expensive, but massive demand' },
+  { name: 'Colorado', slug: 'colorado', label: 'Straightforward filing process' },
 ];
 ---
 
@@ -72,13 +73,16 @@ const featuredStates = [
     <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
       {
         featuredStates.map((state) => (
-          <div class="rounded-2xl border border-slate-200 p-5">
+          <a
+            href={`/llc/${state.slug}`}
+            class="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300 hover:bg-slate-50"
+          >
             <p class="text-lg font-semibold text-slate-950">{state.name} LLC Formation</p>
             <p class="mt-2 text-sm text-slate-600">{state.label}</p>
             <p class="mt-4 text-sm text-slate-500">
               Placeholder for filing fees, timeline, process steps, and a single recommendation.
             </p>
-          </div>
+          </a>
         ))
       }
     </div>

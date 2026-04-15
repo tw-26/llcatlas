@@ -1,0 +1,196 @@
+---
+import AffiliateCard from './affiliate-card.astro';
+import SiteLayout from '../layouts/site-layout.astro';
+import type { StateData } from '../data/states';
+
+interface Props {
+  state: StateData;
+}
+
+const { state } = Astro.props;
+const currentYear = new Date().getFullYear();
+const costBreakdown = state.costBreakdown ?? [];
+const faqItems = state.faq ?? [];
+
+const formatCurrency = (value: number | null) => {
+  if (value === null || value <= 0) {
+    return 'Research pending';
+  }
+
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  }).format(value);
+};
+
+const formatRequirement = (value: boolean) => {
+  if (state.contentStatus === 'placeholder' && state.slug !== 'ohio') {
+    return 'Research pending';
+  }
+
+  return value ? 'Yes' : 'No';
+};
+
+const title = `How to Start an LLC in ${state.name} (${currentYear}) - Steps, Costs, Timeline | LLCAtlas`;
+const description = `Learn how to start an LLC in ${state.name} in ${currentYear}, including filing fees, timeline, core steps, and when using a registered agent service makes sense.`;
+---
+
+<SiteLayout title={title} description={description}>
+  <section class="space-y-6">
+    <div class="space-y-5">
+      <h1>How to start an LLC in {state.name}</h1>
+      <p class="max-w-3xl text-lg text-slate-600">{state.intro}</p>
+    </div>
+
+    <div class="grid gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:grid-cols-2 xl:grid-cols-4">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Filing fee</p>
+        <p class="mt-2 text-lg font-semibold text-slate-950">{formatCurrency(state.filingFee)}</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Filing time</p>
+        <p class="mt-2 text-lg font-semibold text-slate-950">{state.filingTime}</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Annual report</p>
+        <p class="mt-2 text-lg font-semibold text-slate-950">{state.annualReportDue}</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Publication</p>
+        <p class="mt-2 text-lg font-semibold text-slate-950">{formatRequirement(state.requiresPublication)}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="space-y-6">
+    <div class="space-y-3">
+      <h2>How to form an LLC in {state.name}</h2>
+      <p class="max-w-3xl">
+        These are the core steps most founders will work through when forming an LLC in {state.name}.
+        Keep the copy practical, direct, and tied to the decision the reader needs to make next.
+      </p>
+    </div>
+
+    <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+      <h3>What you'll need</h3>
+      <p class="mt-3 max-w-3xl text-sm text-slate-700">{state.whatYoullNeed}</p>
+    </div>
+
+    <ol class="space-y-4">
+      {
+        state.steps.map((step, index) => (
+          <li class="rounded-3xl border border-slate-200 p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Step {index + 1}</p>
+            <h3 class="mt-3">{step.title}</h3>
+            <p class="mt-3 text-sm text-slate-600">{step.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="rounded-3xl border border-amber-200 bg-amber-50 p-6">
+    <AffiliateCard
+      partnerName="Northwest Registered Agent"
+      href="https://example.com/affiliate/northwest"
+      stateName={state.name}
+      placement="inline"
+      eyebrow="Inline CTA"
+      description={`Placeholder recommendation copy for ${state.name}. This should eventually explain why one partner is the easiest default choice for most readers.`}
+    />
+  </section>
+
+  <section class="space-y-6">
+    <div class="space-y-3">
+      <h2>{state.name} LLC cost breakdown</h2>
+      <p class="max-w-3xl">
+        People searching for LLC formation costs usually want a simple total, not a paragraph. This
+        table should stay brutally clear.
+      </p>
+    </div>
+
+    <div class="overflow-hidden rounded-3xl border border-slate-200">
+      <table class="min-w-full divide-y divide-slate-200">
+        <thead class="bg-slate-50">
+          <tr>
+            <th class="px-5 py-4 text-left text-sm font-semibold text-slate-700">Item</th>
+            <th class="px-5 py-4 text-left text-sm font-semibold text-slate-700">Cost</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200 bg-white">
+          {
+            costBreakdown.map((row) => (
+              <tr class={row.isEmphasized ? 'bg-amber-50' : undefined}>
+                <td class={['px-5 py-4 text-sm', row.isEmphasized ? 'font-semibold text-slate-950' : 'text-slate-700'].join(' ')}>
+                  {row.item}
+                </td>
+                <td class={['px-5 py-4 text-sm', row.isEmphasized ? 'font-semibold text-slate-950' : 'text-slate-600'].join(' ')}>
+                  {row.cost}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="space-y-6">
+    <div class="space-y-3">
+      <h2>{state.name} LLC pros and cons</h2>
+      <p class="max-w-3xl">
+        Use this section to keep the page honest. Strong affiliate pages convert better when they
+        clearly state tradeoffs instead of pretending every option is perfect.
+      </p>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-2">
+      <div class="rounded-3xl border border-emerald-200 bg-emerald-50 p-6">
+        <h3>Pros</h3>
+        <ul class="mt-4 text-sm text-slate-700">
+          {state.proscons.pros.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="rounded-3xl border border-rose-200 bg-rose-50 p-6">
+        <h3>Cons</h3>
+        <ul class="mt-4 text-sm text-slate-700">
+          {state.proscons.cons.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="space-y-6">
+    <div class="space-y-3">
+      <h2>FAQ</h2>
+      <p class="max-w-3xl">
+        This section is here for long-tail intent and objection handling. Keep answers direct and
+        specific enough that they can stand alone in search.
+      </p>
+    </div>
+
+    <div class="space-y-3">
+      {
+        faqItems.map((item) => (
+          <details class="group rounded-2xl border border-slate-200 bg-white p-5">
+            <summary class="cursor-pointer list-none pr-8 text-base font-semibold text-slate-950 marker:hidden">
+              {item.question}
+            </summary>
+            <p class="mt-3 text-sm text-slate-600">{item.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+
+  <div slot="sidebar" class="space-y-4">
+    <AffiliateCard
+      partnerName="Northwest Registered Agent"
+      href="https://example.com/affiliate/northwest"
+      stateName={state.name}
+      placement="sidebar"
+      description={`Placeholder sidebar CTA for ${state.name}. Replace this with the real partner pitch once your positioning is finalized.`}
+    />
+  </div>
+</SiteLayout>
