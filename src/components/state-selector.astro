@@ -1,0 +1,116 @@
+---
+import { states, type StateData } from '../data/states';
+
+interface Props {
+  items?: StateData[];
+}
+
+const { items = states } = Astro.props as Props;
+
+const stateItems = [...items].sort((left, right) => {
+  if (left.contentStatus !== right.contentStatus) {
+    return left.contentStatus === 'ready' ? -1 : 1;
+  }
+
+  return left.name.localeCompare(right.name);
+});
+
+const getFeeLabel = (state: StateData) =>
+  state.filingFee > 0 ? `$${state.filingFee} filing fee` : null;
+---
+
+<div data-state-selector class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white">
+  <div class="border-b border-slate-200 px-4 py-4 sm:px-5">
+    <label for="state-search" class="mb-2 block text-[15px] font-medium text-slate-700">
+      Search by state name
+    </label>
+    <input
+      id="state-search"
+      type="search"
+      placeholder="Type a state"
+      autocomplete="off"
+      spellcheck="false"
+      data-state-search
+      class="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-lg text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-amber-500 focus:ring-4 focus:ring-amber-100"
+    />
+  </div>
+
+  <ul class="max-h-[34rem] divide-y divide-slate-200 overflow-y-auto">
+    {
+      stateItems.map((state) => {
+        const isLive = state.contentStatus === 'ready';
+
+        return (
+          <li data-state-card data-state-name={state.name.toLowerCase()} class="px-4 py-4 sm:px-5">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div class="min-w-0">
+                <p class="text-lg font-semibold text-slate-950">{state.name}</p>
+                {getFeeLabel(state) && (
+                  <p class="text-[15px] leading-7 text-slate-600">{getFeeLabel(state)}</p>
+                )}
+              </div>
+
+              {isLive ? (
+                <a
+                  href={`/llc/${state.slug}`}
+                  class="inline-flex items-center text-[15px] font-semibold text-amber-700 transition hover:text-amber-800"
+                >
+                  Read guide →
+                </a>
+              ) : (
+                <span class="text-[15px] font-medium text-slate-500">Guide coming soon</span>
+              )}
+            </div>
+          </li>
+        );
+      })
+    }
+  </ul>
+
+  <p hidden data-state-empty aria-live="polite" class="border-t border-slate-200 px-4 py-4 text-[15px] text-slate-600 sm:px-5">
+    No match yet. Try the full state name.
+  </p>
+</div>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector('[data-state-selector]');
+
+    if (!(root instanceof HTMLElement)) {
+      return;
+    }
+
+    const input = root.querySelector('[data-state-search]');
+    const emptyState = root.querySelector('[data-state-empty]');
+    const cards = Array.from(root.querySelectorAll('[data-state-card]'));
+
+    if (!(input instanceof HTMLInputElement) || !(emptyState instanceof HTMLElement)) {
+      return;
+    }
+
+    const applyFilter = () => {
+      const query = input.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        if (!(card instanceof HTMLElement)) {
+          return;
+        }
+
+        const stateName = card.dataset.stateName ?? '';
+        const matches = query.length === 0 || stateName.includes(query);
+
+        card.hidden = !matches;
+
+        if (matches) {
+          visibleCount += 1;
+        }
+      });
+
+      emptyState.hidden = visibleCount > 0;
+    };
+
+    input.addEventListener('input', applyFilter);
+    input.addEventListener('search', applyFilter);
+  })();
+</script>

@@ -1,0 +1,40 @@
+# LLCAtlas Design Context
+
+## Audience
+- Primary audience: first-time solo founders and side-hustlers forming their first US LLC.
+- Typical reader is anxious, unfamiliar with legal filings, and trying to avoid overpaying for formation services.
+- Optimize for people reading carefully late at night, not expert operators or power users.
+
+## Brand Voice
+- Plainspoken, protective, decisive.
+- Sound like a trustworthy guide who explains the tradeoffs clearly and tells the reader what to do next.
+- Avoid theatrical, salesy, corporate-media, or faux-legal-professional language.
+
+## Visual Direction
+- Modern consumer guide with a clean editorial feel.
+- Recommendation-first hierarchy: verdict, next step, and supporting reason should appear quickly.
+- Light mode only.
+- Keep the UI restrained, calm, and highly readable.
+
+## Anti-Directions
+- Do not drift into fake law-firm luxury.
+- Do not use generic fintech SaaS patterns like gradient blobs or abstract startup visuals.
+- Do not make it feel like a government portal.
+- Do not make it feel like a dense content farm or ad-heavy media site.
+
+## Color And Typography
+- Keep warm orange or amber as the primary action color.
+- Avoid blue and green brand associations.
+- Use mostly white and neutral grays for structure and surfaces.
+- Favor large readable body text: 16px minimum, 18px preferred where appropriate.
+- Use generous line height and clear hierarchy for careful reading.
+
+## Accessibility
+- Meet WCAG AA expectations.
+- Prioritize clarity, calm spacing, and low cognitive load over decorative flair.
+
+## Design Principle
+- Reduce anxiety through clarity.
+- Protect the reader from noise.
+- Earn trust with restraint.
+- Optimize for careful reading.
