@@ -112,10 +112,11 @@
     line-height: 1.5;
     @apply font-medium uppercase tracking-[0.14em];
   }
-
+/*
   .llc-section-copy {
     max-width: 42rem;
   }
+*/
 
   .llc-table-head {
     color: var(--text-muted);

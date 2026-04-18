@@ -44,8 +44,12 @@ const publicationValue = formatRequirement(state.requiresPublication) === 'No' ?
 const publicationNote = formatRequirement(state.requiresPublication) === 'No'
   ? 'No newspaper requirement'
   : 'Publication step required';
-const filingTimeValue = '3–7 days';
-const filingTimeNote = 'Standard estimate. Expedited available.';
+const filingTimeValue = state.filingTimeShort && state.filingTimeShort !== 'Research pending'
+  ? state.filingTimeShort
+  : 'Research pending';
+const filingTimeNote = state.expeditedFee
+  ? 'Standard estimate. Expedited available.'
+  : 'Standard estimate.';
 const filingFeeNote = 'One-time state filing fee';
 
 const title = `How to Start an LLC in ${state.name} (${currentYear}) - Steps, Costs, Timeline | LLCAtlas`;
@@ -168,7 +172,7 @@ const structuredData = [
   {
     officialLinks.length > 0 && (
       <section class="space-y-5">
-        <h2>Official Ohio resources</h2>
+        <h2>Official {state.name} resources</h2>
         <div class="grid gap-4 sm:grid-cols-2">
           {officialLinks.map((resource, index) => (
             <a
@@ -227,7 +231,7 @@ const structuredData = [
 
   <section class="py-2">
     <AffiliateCard
-      partnerName="statutory agent services"
+      partnerName={`${state.agentTerm} services`}
       href="https://example.com/affiliate/northwest"
       stateName={state.name}
       placement="inline"
@@ -287,8 +291,8 @@ const structuredData = [
         <div class="space-y-4">
           <h2>{state.name} tax and compliance notes</h2>
           <p class="llc-section-copy">
-            This is where Ohio gets less simple than the filing itself. These are the state-specific
-            issues that generic LLC guides usually gloss over.
+            This is where {state.name} gets less simple than the filing itself. These are the
+            state-specific issues that generic LLC guides usually gloss over.
           </p>
         </div>
 
@@ -309,8 +313,8 @@ const structuredData = [
         <div class="space-y-4">
           <h2>{state.name} vs other LLC states</h2>
           <p class="llc-section-copy">
-            This is the simple comparison most founders actually want. Ohio’s biggest advantage is
-            that a standard LLC does not file an annual report.
+            This is the simple comparison most founders actually want. Keep an eye on the ongoing
+            state cost column — that is where states with cheap filing fees can still get expensive.
           </p>
         </div>
 
@@ -410,7 +414,7 @@ const structuredData = [
 
   <div slot="sidebar" class="space-y-4">
     <AffiliateCard
-      partnerName="statutory agent services"
+      partnerName={`${state.agentTerm} services`}
       href="https://example.com/affiliate/northwest"
       stateName={state.name}
       placement="sidebar"
