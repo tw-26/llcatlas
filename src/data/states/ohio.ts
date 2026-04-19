@@ -42,7 +42,8 @@ export const ohio: StateOverride = {
   stateTaxRate: 'Ohio CAT applies only to taxable gross receipts above $6 million, at 0.26% on the amount over that threshold.',
   stateTax:
     'Ohio LLCs are generally pass-through entities, but founders should still watch Ohio CAT and municipal income tax obligations as the business grows.',
-  annualReportDue: 'None ever for standard LLCs',
+  annualReportDue: 'None',
+  annualReportNote: 'No recurring state filings for standard LLCs',
   requiresOperatingAgreement: false,
   steps: [
     {

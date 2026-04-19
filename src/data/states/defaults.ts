@@ -108,6 +108,7 @@ export const buildDefaultState = ({ slug, name, abbreviation }: StateSeed): Stat
   requiresPublication: slug === 'new-york',
   stateTax: 'Research pending',
   annualReportDue: 'Research pending',
+  annualReportNote: 'Research pending',
   steps: buildSteps(name),
   costBreakdown: buildCostBreakdown(name),
   faq: buildFaq(name),

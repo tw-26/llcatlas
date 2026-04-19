@@ -16,45 +16,69 @@ const {
   stateName,
   placement = 'sidebar',
   eyebrow = 'Recommended partner',
-  heading = `Use ${partnerName} for your ${stateName} LLC`,
-  description = 'This placeholder CTA is where your single, opinionated recommendation will live.',
-  buttonLabel = `Start with ${partnerName}`,
+  heading,
+  description,
+  buttonLabel,
 } = Astro.props;
 
 const isSidebar = placement === 'sidebar';
+
+const resolvedHeading = heading
+  ?? (isSidebar
+    ? `${partnerName} for ${stateName}`
+    : `Our pick for ${stateName}: ${partnerName}`);
+
+const resolvedDescription = description
+  ?? (isSidebar
+    ? `Acts as your registered agent so your home address stays off the public ${stateName} filing.`
+    : `${partnerName} is the service we point most first-time ${stateName} founders to. They keep your home address off the public record and do not push aggressive upsells at checkout.`);
+
+const resolvedButtonLabel = buttonLabel
+  ?? (isSidebar ? `Visit ${partnerName}` : `Start with ${partnerName}`);
+
+const isPlaceholderLink = !href || href === '#';
 ---
 
-<div class={isSidebar ? 'llc-card-cta' : 'llc-card-cta'}>
+<aside class="llc-card-cta" aria-label={`${eyebrow}: ${partnerName}`}>
   <p class="llc-helper">{eyebrow}</p>
-  <h2 class={['mt-3', isSidebar ? 'text-xl' : 'text-2xl'].join(' ')}>{heading}</h2>
-  <p class={['mt-3', isSidebar ? 'text-[15px] leading-7 max-w-none' : 'llc-section-copy'].join(' ')}>
-    {description}
+  <h3
+    class={[
+      'mt-3 leading-snug',
+      isSidebar ? 'text-[1.0625rem]' : 'text-xl',
+    ].join(' ')}
+  >
+    {resolvedHeading}
+  </h3>
+  <p
+    class={[
+      'mt-3 text-ink-soft',
+      isSidebar
+        ? 'text-[14px] leading-6 max-w-none'
+        : 'text-[15px] leading-7 max-w-[60ch]',
+    ].join(' ')}
+  >
+    {resolvedDescription}
   </p>
-
-  <ul class={['mt-5 text-[15px] text-slate-700', isSidebar ? 'space-y-2' : 'space-y-3'].join(' ')}>
-    <li>Compare cost, privacy, and support quality.</li>
-    <li>Best fit if you do not want your own address on the filing.</li>
-    {!isSidebar && <li>Recheck live pricing before publishing because provider offers change.</li>}
-  </ul>
 
   <a
     href={href}
     target="_blank"
     rel="sponsored noopener noreferrer"
-    data-affiliate-click
+    aria-disabled={isPlaceholderLink ? 'true' : undefined}
+    data-affiliate-click={isPlaceholderLink ? undefined : ''}
     data-event-name="affiliate_click"
     data-partner={partnerName}
     data-placement={placement}
     data-state={stateName}
-    class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-amber-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-amber-400"
+    class="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-accent px-5 py-3 text-center text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
   >
-    {buttonLabel}
+    {resolvedButtonLabel}
   </a>
 
-  <p class="mt-3 text-[13px] leading-5 text-slate-500">
-    Affiliate disclosure: LLCAtlas may earn a commission if you purchase after clicking this link.
+  <p class="mt-3 text-[12px] leading-5 text-ink-muted">
+    Affiliate link &mdash; LLCAtlas may earn a commission.
   </p>
-</div>
+</aside>
 
 <script is:inline>
   if (!window.__llcAtlasAffiliateTrackingBound) {

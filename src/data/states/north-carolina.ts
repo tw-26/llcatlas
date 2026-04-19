@@ -82,7 +82,8 @@ export const northCarolina: StateOverride = {
     'NC individual income tax is 3.99% flat for 2026. Corporate Income Tax is 2.00% (C-corp-elected entities only) and on a statutory phase-out to 0% by 2030. The elective Pass-Through Entity tax runs at the same 3.99% rate for eligible pass-throughs as a SALT-cap workaround.',
   stateTax:
     'Default-taxed NC LLCs (single-member disregarded, multi-member partnership) owe no franchise tax and no state-level entity income tax. Members pick up their share at NC’s 3.99% individual rate. NC has no CAT and no municipal income tax.',
-  annualReportDue: 'April 15 each year following formation ($200 paper / +$2 ACH or +$3 card online)',
+  annualReportDue: 'April 15',
+  annualReportNote: '$200 paper / +$2 ACH or +$3 card online, due each year following formation',
   requiresOperatingAgreement: false,
   requiresPublication: false,
   steps: [

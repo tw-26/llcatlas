@@ -55,6 +55,7 @@ export type StateData = {
   requiresPublication: boolean;
   stateTax: string;
   annualReportDue: string;
+  annualReportNote: string;
   steps: Step[];
   costBreakdown: CostBreakdownItem[];
   faq: FaqItem[];

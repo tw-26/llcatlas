@@ -74,7 +74,8 @@ export const michigan: StateOverride = {
     'Michigan individual income tax is 4.25% flat for 2026. Corporate Income Tax is 6% and applies only to C-corps. The elective Flow-Through Entity tax runs at the same 4.25% rate and is a SALT-cap workaround for eligible pass-throughs.',
   stateTax:
     'Most Michigan LLCs default to pass-through taxation, so income is taxed at the owner level at 4.25%. Michigan has no CAT or gross-receipts tax. The real state-specific burden is municipal income tax in 24 cities.',
-  annualReportDue: 'February 15 each year (Annual Statement, $25)',
+  annualReportDue: 'February 15',
+  annualReportNote: 'Annual Statement, $25 each year',
   requiresOperatingAgreement: false,
   requiresPublication: false,
   steps: [

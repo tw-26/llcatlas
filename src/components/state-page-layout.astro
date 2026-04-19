@@ -1,4 +1,5 @@
 ---
+import AffiliateCard from './affiliate-card.astro';
 import SiteLayout from '../layouts/site-layout.astro';
 import type { StateData } from '../data/states';
 
@@ -8,6 +9,10 @@ interface Props {
 
 const { state } = Astro.props;
 const currentYear = new Date().getFullYear();
+
+// T# TODO: Replace with the real Northwest Registered Agent affiliate URL.
+const northwestAffiliateUrl = '#';
+const northwestPartnerName = 'Northwest Registered Agent';
 const costBreakdown = state.costBreakdown ?? [];
 const faqItems = state.faq ?? [];
 const officialLinks = state.officialLinks ?? [];
@@ -40,22 +45,24 @@ const formatRequirement = (value: boolean) => {
   return value ? 'Yes' : 'No';
 };
 
+const formatLinkDomain = (rawUrl: string) => {
+  try {
+    return new URL(rawUrl).hostname.replace(/^www\./, '');
+  } catch {
+    return rawUrl;
+  }
+};
+
 const introCopy = isResearchPending
   ? `We are still verifying the full ${state.name} LLC guide. This page only shows confirmed details and the safest next steps for now.`
   : state.intro;
 const whatYoullNeedCopy = isResearchPending
   ? `Before you file in ${state.name}, confirm the state filing fee, filing agency instructions, and whether you want to handle the ${state.agentTerm} role yourself.`
   : state.whatYoullNeed;
-const annualReportValue = isResearchPending
-  ? 'Research pending'
-  : state.annualReportDue.toLowerCase().includes('none')
-    ? 'None'
-    : state.annualReportDue;
+const annualReportValue = isResearchPending ? 'Research pending' : state.annualReportDue;
 const annualReportNote = isResearchPending
   ? 'We are verifying the annual filing schedule.'
-  : state.annualReportDue.toLowerCase().includes('none')
-    ? 'No recurring state filings'
-    : state.annualReportDue;
+  : state.annualReportNote;
 const publicationRequirement = formatRequirement(state.requiresPublication);
 const publicationValue = publicationRequirement === 'Research pending'
   ? publicationRequirement
@@ -179,108 +186,153 @@ const structuredData = [
   <section class="space-y-8">
     <div class="space-y-6">
       <h1>How to start an LLC in {state.name}</h1>
-      <p class="llc-section-copy text-slate-600">{introCopy}</p>
+      <p class="llc-section-copy text-ink-soft">{introCopy}</p>
     </div>
 
-    <div class="llc-card-highlight space-y-5 !rounded-[1.5rem] !p-6 sm:!p-8">
+    <div class="llc-card-highlight space-y-6 !rounded-[1.5rem] !p-6 sm:!p-8">
       <div class="space-y-3">
         <p class="llc-helper">{topRecommendationEyebrow}</p>
         <h2>{topRecommendationTitle}</h2>
-        <p class="llc-section-copy text-slate-700">{topRecommendationCopy}</p>
+        <p class="llc-section-copy text-ink-soft">{topRecommendationCopy}</p>
       </div>
 
-      <div class="grid gap-4 md:grid-cols-3">
+      <dl class="grid gap-y-5 border-t border-accent-soft/70 pt-5 md:grid-cols-3 md:gap-x-8 md:gap-y-0 md:divide-x md:divide-accent-soft/70">
         {
           topRecommendationDetails.map((item) => (
-            <div class="space-y-2 rounded-[1rem] border border-slate-200 bg-white/80 p-4">
-              <p class="llc-helper text-slate-500">{item.label}</p>
-              <p class="text-[15px] leading-7 text-slate-700">{item.description}</p>
+            <div class="space-y-1.5 md:px-6 md:first:pl-0 md:last:pr-0">
+              <dt class="llc-helper">{item.label}</dt>
+              <dd class="text-[15px] leading-7 text-ink-soft">{item.description}</dd>
             </div>
           ))
         }
-      </div>
+      </dl>
 
       <div class="flex flex-col gap-3 sm:flex-row">
         <a
           href={topRecommendationPrimaryHref}
           target={hasOfficialAgencyLink ? '_blank' : undefined}
           rel={hasOfficialAgencyLink ? 'noopener noreferrer' : undefined}
-          class="inline-flex min-h-11 items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+          class="inline-flex min-h-11 items-center justify-center rounded-full bg-action px-5 py-3 text-sm font-semibold text-white transition hover:bg-action-hover"
         >
           {topRecommendationPrimaryLabel}
         </a>
         <a
           href="/best-llc-services"
-          class="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-white"
+          class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
         >
           Compare LLC services
         </a>
       </div>
     </div>
 
-    <div id="state-guide-basics" class="llc-card-subtle !p-6 sm:!p-8">
-      <div class="grid gap-4 sm:grid-cols-2">
-        <div class="llc-card flex min-h-40 flex-col justify-between">
-          <p class="llc-helper">Filing fee</p>
-          <div class="mt-6 space-y-3">
-            <p class="text-[30px] font-semibold leading-none tracking-tight text-slate-950">{formatCurrency(state.filingFee)}</p>
-            <p class="text-[14px] leading-6 text-slate-500">{filingFeeNote}</p>
-          </div>
-        </div>
-        <div class="llc-card flex min-h-40 flex-col justify-between">
-          <p class="llc-helper">Processing time</p>
-          <div class="mt-6 space-y-3">
-            <p class="text-[30px] font-semibold leading-none tracking-tight text-slate-950">{filingTimeValue}</p>
-            <p class="text-[14px] leading-6 text-slate-500">{filingTimeNote}</p>
-          </div>
-        </div>
-        <div class="llc-card flex min-h-40 flex-col justify-between">
-          <p class="llc-helper">Annual report</p>
-          <div class="mt-6 space-y-3">
-            <p class="text-[30px] font-semibold leading-none tracking-tight text-slate-950">{annualReportValue}</p>
-            <p class="text-[14px] leading-6 text-slate-500">{annualReportNote}</p>
-          </div>
-        </div>
-        <div class="llc-card flex min-h-40 flex-col justify-between">
-          <p class="llc-helper">Publication</p>
-          <div class="mt-6 space-y-3">
-            <p class="text-[30px] font-semibold leading-none tracking-tight text-slate-950">{publicationValue}</p>
-            <p class="text-[14px] leading-6 text-slate-500">{publicationNote}</p>
-          </div>
-        </div>
+    <dl
+      id="state-guide-basics"
+      class="grid gap-px overflow-hidden border-y border-rule bg-rule sm:grid-cols-2 lg:grid-cols-4"
+    >
+      <div class="bg-surface px-5 py-5 sm:px-6 sm:py-6">
+        <dt class="llc-helper">Filing fee</dt>
+        <dd class="mt-3 text-[28px] font-semibold leading-tight tracking-tight text-ink-strong tabular-nums">{formatCurrency(state.filingFee)}</dd>
+        <dd class="mt-1 text-[14px] leading-6 text-ink-muted">{filingFeeNote}</dd>
       </div>
-    </div>
+      <div class="bg-surface px-5 py-5 sm:px-6 sm:py-6">
+        <dt class="llc-helper">Processing time</dt>
+        <dd class="mt-3 text-[28px] font-semibold leading-tight tracking-tight text-ink-strong">{filingTimeValue}</dd>
+        <dd class="mt-1 text-[14px] leading-6 text-ink-muted">{filingTimeNote}</dd>
+      </div>
+      <div class="bg-surface px-5 py-5 sm:px-6 sm:py-6">
+        <dt class="llc-helper">Annual report</dt>
+        <dd class="mt-3 text-[28px] font-semibold leading-tight tracking-tight text-ink-strong">{annualReportValue}</dd>
+        <dd class="mt-1 text-[14px] leading-6 text-ink-muted">{annualReportNote}</dd>
+      </div>
+      <div class="bg-surface px-5 py-5 sm:px-6 sm:py-6">
+        <dt class="llc-helper">Publication</dt>
+        <dd class="mt-3 text-[28px] font-semibold leading-tight tracking-tight text-ink-strong">{publicationValue}</dd>
+        <dd class="mt-1 text-[14px] leading-6 text-ink-muted">{publicationNote}</dd>
+      </div>
+    </dl>
   </section>
 
   {
     officialLinks.length > 0 && (
       <section class="space-y-5">
         <h2>Official {state.name} resources</h2>
-        <div class="grid gap-4 sm:grid-cols-2">
-          {officialLinks.map((resource, index) => (
-            <a
-              href={resource.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class={[
-                index === 0
-                  ? 'llc-card-highlight group transition hover:border-amber-400 hover:bg-[var(--bg-highlight)]'
-                  : 'llc-card group bg-[var(--bg-subtle)] transition hover:border-slate-300 hover:bg-white',
-              ].join(' ')}
-            >
-              <div class="flex items-center justify-between gap-3">
-                <p class="llc-helper">Official source</p>
-                {index === 0 && <span class="rounded-full bg-amber-200 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-amber-900 whitespace-nowrap">Start here</span>}
-              </div>
-              <p class="mt-3 text-lg font-semibold text-slate-950">{resource.label}</p>
-              <p class="mt-2 text-[14px] leading-6 text-slate-600">Open the primary source for this step.</p>
-              <div class="mt-4 flex items-center justify-between gap-4">
-                <p class="break-all text-[13px] leading-5 text-slate-500">{resource.url}</p>
-                <span class="shrink-0 text-sm font-semibold text-slate-400 transition group-hover:text-slate-700">Open</span>
-              </div>
-            </a>
-          ))}
-        </div>
+
+        <a
+          href={officialLinks[0].url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group block rounded-[14px] border border-accent-soft bg-surface-warm p-6 transition hover:border-accent sm:p-7"
+        >
+          <div class="flex items-center justify-between gap-3">
+            <p class="llc-helper">Primary filing source</p>
+            <span class="rounded-full bg-accent-soft px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-accent-ink whitespace-nowrap">
+              Start here
+            </span>
+          </div>
+          <p class="mt-3 text-[1.0625rem] font-semibold text-ink-strong sm:text-lg">
+            {officialLinks[0].label}
+          </p>
+          <p class="mt-2 text-[14px] leading-6 text-ink-soft">
+            Open this first &mdash; it's the official source for the filing itself.
+          </p>
+          <div class="mt-5 flex items-center justify-between gap-4">
+            <p class="truncate text-[13px] leading-5 text-ink-muted">
+              {formatLinkDomain(officialLinks[0].url)}
+            </p>
+            <span class="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-ink-strong transition group-hover:gap-2">
+              Open
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-3.5 w-3.5"
+              >
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        {officialLinks.length > 1 && (
+          <ul class="!space-y-0 divide-y divide-rule border-y border-rule">
+            {officialLinks.slice(1).map((resource) => (
+              <li>
+                <a
+                  href={resource.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group flex items-center justify-between gap-4 py-4 transition hover:bg-surface-subtle sm:py-5"
+                >
+                  <div class="min-w-0 flex-1">
+                    <p class="truncate text-[15px] font-semibold text-ink-strong">{resource.label}</p>
+                    <p class="mt-0.5 truncate text-[13px] leading-5 text-ink-muted">
+                      {formatLinkDomain(resource.url)}
+                    </p>
+                  </div>
+                  <span class="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-ink-soft transition group-hover:text-ink-strong group-hover:gap-2">
+                    Open
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="h-3.5 w-3.5"
+                    >
+                      <path d="M3 8h10M9 4l4 4-4 4" />
+                    </svg>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     )
   }
@@ -295,8 +347,9 @@ const structuredData = [
       </p>
     </div>
 
-    <div class="llc-card-highlight">
-      <h3>What you'll need</h3>
+    <div class="llc-card-subtle">
+      <p class="llc-helper">Before you file</p>
+      <h3 class="mt-2">What you'll need</h3>
       <p class="mt-3 llc-section-copy">{whatYoullNeedCopy}</p>
     </div>
 
@@ -305,17 +358,27 @@ const structuredData = [
         <ol class="space-y-5">
           {
             state.steps.map((step, index) => (
-              <li class="llc-card">
-                <p class="llc-helper">Step {index + 1}</p>
-                <h3 class="mt-3">{step.title}</h3>
-                <p class="mt-3 llc-section-copy">{step.description}</p>
+              <li class="llc-card relative grid gap-3 sm:grid-cols-[auto_1fr] sm:gap-x-6">
+                <span
+                  aria-hidden="true"
+                  class="font-heading text-[2rem] font-semibold leading-none text-ink-muted/60 tabular-nums sm:text-[2.25rem]"
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div class="min-w-0">
+                  <p class="llc-helper">
+                    <span class="sr-only">Step </span>{index + 1} of {state.steps.length}
+                  </p>
+                  <h3 class="mt-2">{step.title}</h3>
+                  <p class="mt-3 llc-section-copy">{step.description}</p>
+                </div>
               </li>
             ))
           }
         </ol>
       ) : (
         <div class="llc-card">
-          <p class="llc-section-copy text-slate-700">
+          <p class="llc-section-copy text-ink-soft">
             The full filing walkthrough for {state.name} is still being finalized. For now, confirm
             the filing fee, filing agency, processing timeline, and any annual requirements before
             you submit the paperwork yourself.
@@ -324,6 +387,17 @@ const structuredData = [
       )
     }
   </section>
+
+  {/* T# TODO: Replace placeholder Northwest affiliate URL once the real link is ready. */}
+  <AffiliateCard
+    partnerName={northwestPartnerName}
+    href={northwestAffiliateUrl}
+    stateName={state.name}
+    placement="inline"
+    heading={`Our pick for ${state.name}: ${northwestPartnerName}`}
+    description={`If you want help filing your ${state.name} LLC, ${northwestPartnerName} is the service we point most first-time founders to. They keep your home address off the public record by acting as your ${state.agentTerm}, do not push aggressive upsells at checkout, and include the registered agent year one with no surprise renewals later.`}
+    buttonLabel={`Start with ${northwestPartnerName}`}
+  />
 
   <section class="space-y-5">
     <div class="space-y-4">
@@ -335,36 +409,38 @@ const structuredData = [
     </div>
 
     <div class="llc-card overflow-hidden !p-0">
-      <table class="min-w-full divide-y divide-slate-200">
-        <thead class="bg-slate-50">
-          <tr>
-            <th class="llc-table-head px-5 py-4 text-left">Item</th>
-            <th class="llc-table-head px-5 py-4 text-right">Cost</th>
-            {hasCostMeta && <th class="llc-table-head px-5 py-4 text-left">Required?</th>}
-            {hasCostMeta && <th class="llc-table-head hidden px-5 py-4 text-left lg:table-cell">Notes</th>}
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-slate-200 bg-white">
-          {
-            costBreakdown.map((row) => (
-              <tr class={row.isEmphasized ? 'bg-[var(--bg-highlight)]' : undefined}>
-                <td class={['px-5 py-4', row.isEmphasized ? 'font-semibold text-slate-950' : 'text-slate-700'].join(' ')}>
-                  {row.item}
-                </td>
-                <td class={['px-5 py-4 text-right', row.isEmphasized ? 'font-semibold text-slate-950' : 'text-slate-600'].join(' ')}>
-                  {row.cost}
-                </td>
-                {hasCostMeta && (
-                  <td class="px-5 py-4 text-slate-600">{row.required ?? '—'}</td>
-                )}
-                {hasCostMeta && (
-                  <td class="hidden px-5 py-4 text-slate-600 lg:table-cell">{row.notes ?? '—'}</td>
-                )}
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-rule">
+          <thead class="bg-surface-subtle">
+            <tr>
+              <th scope="col" class="llc-table-head px-5 py-4 text-left">Item</th>
+              <th scope="col" class="llc-table-head px-5 py-4 text-right">Cost</th>
+              {hasCostMeta && <th scope="col" class="llc-table-head px-5 py-4 text-left">Required?</th>}
+              {hasCostMeta && <th scope="col" class="llc-table-head hidden px-5 py-4 text-left lg:table-cell">Notes</th>}
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-rule bg-surface">
+            {
+              costBreakdown.map((row) => (
+                <tr class={row.isEmphasized ? 'bg-surface-warm' : undefined}>
+                  <td class={['px-5 py-4', row.isEmphasized ? 'font-semibold text-ink-strong' : 'text-ink-soft'].join(' ')}>
+                    {row.item}
+                  </td>
+                  <td class={['whitespace-nowrap px-5 py-4 text-right tabular-nums', row.isEmphasized ? 'font-semibold text-ink-strong' : 'text-ink-soft'].join(' ')}>
+                    {row.cost}
+                  </td>
+                  {hasCostMeta && (
+                    <td class="whitespace-nowrap px-5 py-4 text-ink-soft">{row.required ?? '—'}</td>
+                  )}
+                  {hasCostMeta && (
+                    <td class="hidden px-5 py-4 text-ink-soft lg:table-cell">{row.notes ?? '—'}</td>
+                  )}
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -402,31 +478,33 @@ const structuredData = [
         </div>
 
         <div class="llc-card overflow-hidden !p-0">
-          <table class="min-w-full divide-y divide-slate-200">
-            <thead class="bg-slate-50">
-              <tr>
-                <th class="llc-table-head px-5 py-4 text-left">State</th>
-                <th class="llc-table-head px-5 py-4 text-left">Annual report</th>
-                <th class="llc-table-head px-5 py-4 text-right">Upfront cost</th>
-                <th class="llc-table-head px-5 py-4 text-right">Ongoing state cost</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-200 bg-white">
-              {comparisonRows.map((row) => (
-                <tr class={row.state === state.name ? 'bg-[var(--bg-highlight)]' : undefined}>
-                  <td class="px-5 py-4 font-semibold text-slate-950">
-                    <div class="flex items-center gap-3">
-                      <span>{row.state}</span>
-                      {row.state === state.name && <span class="rounded-full bg-amber-200 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.06em] text-amber-900 whitespace-nowrap">This page</span>}
-                    </div>
-                  </td>
-                  <td class="px-5 py-4 text-slate-700">{row.annualReport}</td>
-                  <td class="px-5 py-4 text-right text-slate-700">{row.upfrontCost}</td>
-                  <td class="px-5 py-4 text-right text-slate-700">{row.ongoingStateCost}</td>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-rule">
+              <thead class="bg-surface-subtle">
+                <tr>
+                  <th scope="col" class="llc-table-head px-5 py-4 text-left">State</th>
+                  <th scope="col" class="llc-table-head px-5 py-4 text-left">Annual report</th>
+                  <th scope="col" class="llc-table-head px-5 py-4 text-right">Upfront cost</th>
+                  <th scope="col" class="llc-table-head px-5 py-4 text-right">Ongoing state cost</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody class="divide-y divide-rule bg-surface">
+                {comparisonRows.map((row) => (
+                  <tr class={row.state === state.name ? 'bg-surface-warm' : undefined}>
+                    <th scope="row" class="px-5 py-4 text-left font-semibold text-ink-strong">
+                      <div class="flex items-center gap-3">
+                        <span class="whitespace-nowrap">{row.state}</span>
+                        {row.state === state.name && <span class="rounded-full bg-accent-soft px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.06em] text-accent-ink whitespace-nowrap">This page</span>}
+                      </div>
+                    </th>
+                    <td class="px-5 py-4 text-ink-soft">{row.annualReport}</td>
+                    <td class="whitespace-nowrap px-5 py-4 text-right tabular-nums text-ink-soft">{row.upfrontCost}</td>
+                    <td class="px-5 py-4 text-right text-ink-soft">{row.ongoingStateCost}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     )
@@ -434,7 +512,7 @@ const structuredData = [
 
   {
     hasProsCons && (
-      <section class="space-y-5">
+      <section class="space-y-6">
         <div class="space-y-4">
           <h2>{state.name} LLC pros and cons</h2>
           <p class="llc-section-copy">
@@ -443,22 +521,16 @@ const structuredData = [
           </p>
         </div>
 
-        <div class="grid items-stretch gap-5 md:grid-cols-2">
-          <div class="llc-card h-full border-slate-300">
-            <div class="flex items-center gap-3">
-              <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-100 text-sm font-semibold text-amber-900">+</span>
-              <h3>Pros</h3>
-            </div>
-            <ul class="mt-4 text-slate-700">
+        <div class="grid gap-y-8 border-y border-rule py-7 md:grid-cols-2 md:gap-x-12 md:gap-y-0 md:divide-x md:divide-rule">
+          <div class="md:pr-2">
+            <p class="llc-helper">What works</p>
+            <ul class="llc-bullet-list mt-4 text-ink-soft">
               {state.proscons.pros.map((item) => <li>{item}</li>)}
             </ul>
           </div>
-          <div class="llc-card h-full border-rose-200">
-            <div class="flex items-center gap-3">
-              <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-rose-100 text-sm font-semibold text-rose-700">-</span>
-              <h3>Cons</h3>
-            </div>
-            <ul class="mt-4 text-slate-700">
+          <div class="md:pl-12">
+            <p class="llc-helper">Watch out for</p>
+            <ul class="llc-bullet-list mt-4 text-ink-soft">
               {state.proscons.cons.map((item) => <li>{item}</li>)}
             </ul>
           </div>
@@ -482,12 +554,23 @@ const structuredData = [
           {
             faqItems.map((item) => (
               <details class="group llc-card !p-0">
-                <summary class="flex cursor-pointer list-none items-start justify-between gap-4 px-5 py-5 pr-5 text-lg font-semibold text-slate-950 marker:hidden sm:px-6">
+                <summary class="flex cursor-pointer items-start justify-between gap-4 px-5 py-5 text-lg font-semibold text-ink-strong sm:px-6">
                   <span>{item.question}</span>
-                  <span class="mt-1 text-slate-400 transition group-open:rotate-180">⌄</span>
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="mt-2 h-3.5 w-3.5 shrink-0 text-ink-muted transition group-open:rotate-180"
+                  >
+                    <path d="M4 6l4 4 4-4" />
+                  </svg>
                 </summary>
-                <div class="border-t border-slate-200 px-5 py-5 sm:px-6">
-                  <p class="llc-section-copy text-slate-600">{item.answer}</p>
+                <div class="border-t border-rule px-5 py-5 sm:px-6">
+                  <p class="llc-section-copy text-ink-soft">{item.answer}</p>
                 </div>
               </details>
             ))
@@ -497,20 +580,40 @@ const structuredData = [
     )
   }
 
-  <div slot="sidebar" class="space-y-4">
-    <div class="llc-card-subtle">
-      <p class="llc-helper">Safest paid option</p>
-      <h2 class="mt-3 text-xl">Want help filing instead of doing it yourself?</h2>
-      <p class="mt-3 text-[15px] leading-7 text-slate-700">
-        {isResearchPending
-          ? `If you want help with your ${state.name} filing, compare the main LLC services before you pay for anything extra. Start with the safest default, then compare the cheaper viable option.`
-          : `${state.sidebarCtaDescription} Start with the safest default, then compare the cheaper viable option only if price is your main filter.`}
+  <div slot="sidebar" class="space-y-5">
+    {/* T# TODO: Replace placeholder Northwest affiliate URL once the real link is ready. */}
+    <AffiliateCard
+      partnerName={northwestPartnerName}
+      href={northwestAffiliateUrl}
+      stateName={state.name}
+      placement="sidebar"
+      heading={`${northwestPartnerName} for ${state.name}`}
+      description={`Acts as your ${state.agentTerm} so your home address stays off the public ${state.name} filing.`}
+      buttonLabel={`Visit ${northwestPartnerName}`}
+    />
+
+    <div class="rounded-[14px] border border-rule px-5 py-5 text-[14px] leading-6 text-ink-soft sm:px-6">
+      <p class="llc-helper">Or compare the field</p>
+      <p class="mt-3">
+        Not sold on one provider? See how the main LLC services compare on price, privacy, and renewals.
       </p>
       <a
         href="/best-llc-services"
-        class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+        class="mt-4 inline-flex items-center gap-1.5 text-[14px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
       >
         Compare LLC services
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-3.5 w-3.5"
+        >
+          <path d="M3 8h10M9 4l4 4-4 4" />
+        </svg>
       </a>
     </div>
   </div>

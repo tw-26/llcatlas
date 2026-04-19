@@ -26,9 +26,9 @@ const hasSidebar = Astro.slots.has('sidebar');
 const isHomePage = currentPath === '/';
 const isComparisonPage = currentPath === '/best-llc-services/' || currentPath === '/best-llc-services';
 const isStateGuidePage = currentPath.startsWith('/llc/');
-const homeLinkClass = isHomePage ? 'font-semibold text-slate-950' : 'transition hover:text-slate-950';
-const stateLinkClass = isStateGuidePage ? 'font-semibold text-slate-950' : 'transition hover:text-slate-950';
-const servicesLinkClass = isComparisonPage ? 'font-semibold text-slate-950' : 'transition hover:text-slate-950';
+const homeLinkClass = isHomePage ? 'font-semibold text-ink-strong' : 'transition hover:text-ink-strong';
+const stateLinkClass = isStateGuidePage ? 'font-semibold text-ink-strong' : 'transition hover:text-ink-strong';
+const servicesLinkClass = isComparisonPage ? 'font-semibold text-ink-strong' : 'transition hover:text-ink-strong';
 const primaryNavCta = isStateGuidePage
   ? { href: '/best-llc-services', label: 'Compare services' }
   : { href: '/#state-selector', label: 'Find your state' };
@@ -93,7 +93,7 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
   </head>
   <body>
     <div class="min-h-screen">
-      <header class="border-b border-slate-200 bg-white">
+      <header class="border-b border-rule bg-surface">
         <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-5 sm:px-6 lg:px-8">
           <a href="/" aria-label="LLCAtlas home" class="flex items-center">
             <img
@@ -106,7 +106,7 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
             />
           </a>
 
-          <nav aria-label="Primary" class="hidden items-center gap-6 text-sm text-slate-600 md:flex">
+          <nav aria-label="Primary" class="hidden items-center gap-6 text-sm text-ink-soft md:flex">
             <a href="/" class={homeLinkClass} aria-current={isHomePage ? 'page' : undefined}>Home</a>
             <a
               href="/#state-selector"
@@ -124,24 +124,24 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
             </a>
             <a
               href={primaryNavCta.href}
-              class="rounded-full bg-amber-500 px-4 py-2 font-semibold text-slate-950 transition hover:bg-amber-400"
+              class="rounded-full bg-accent px-4 py-2 font-semibold text-ink-strong transition hover:bg-accent/85"
             >
               {primaryNavCta.label}
             </a>
           </nav>
         </div>
 
-        <div class="border-t border-slate-200 md:hidden">
+        <div class="border-t border-rule md:hidden">
           <div class="mx-auto flex max-w-7xl flex-wrap gap-3 px-4 py-3 sm:px-6">
             <a
               href="/#state-selector"
-              class="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50"
+              class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-4 py-2 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
             >
               Find your state
             </a>
             <a
               href="/best-llc-services"
-              class="inline-flex min-h-11 items-center justify-center rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+              class="inline-flex min-h-11 items-center justify-center rounded-full bg-action px-4 py-2 text-sm font-semibold text-white transition hover:bg-action-hover"
             >
               Compare services
             </a>
@@ -153,7 +153,7 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
         {
           hasSidebar ? (
             <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
-              <article class="min-w-0 space-y-10">
+              <article class="min-w-0 space-y-12">
                 <slot />
               </article>
 
@@ -162,22 +162,22 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
               </aside>
             </div>
           ) : (
-            <article class={['mx-auto min-w-0 space-y-10', contentWidthClass].join(' ')}>
+            <article class={['mx-auto min-w-0 space-y-12', contentWidthClass].join(' ')}>
               <slot />
             </article>
           )
         }
       </main>
 
-      <footer class="border-t border-slate-200 bg-slate-50">
+      <footer class="border-t border-rule bg-surface-subtle">
         <div class="mx-auto max-w-7xl space-y-4 px-4 py-8 sm:px-6 lg:px-8">
-          <p class="text-sm font-semibold text-slate-950">Affiliate disclosure</p>
-          <p class="max-w-3xl text-sm text-slate-600">
+          <p class="text-sm font-semibold text-ink-strong">Affiliate disclosure</p>
+          <p class="max-w-3xl text-sm text-ink-soft">
             LLCAtlas may earn a commission if you click a partner link and purchase a service.
             That does not change our editorial stance. We do not form LLCs, file paperwork, or
             provide legal or tax advice.
           </p>
-          <p class="text-sm text-slate-500">© {currentYear} LLCAtlas. Built for clear LLC decisions.</p>
+          <p class="text-sm text-ink-muted">© {currentYear} LLCAtlas. Built for clear LLC decisions.</p>
         </div>
       </footer>
     </div>
