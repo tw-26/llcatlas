@@ -1,5 +1,4 @@
 ---
-import AffiliateCard from './affiliate-card.astro';
 import SiteLayout from '../layouts/site-layout.astro';
 import type { StateData } from '../data/states';
 
@@ -14,6 +13,11 @@ const faqItems = state.faq ?? [];
 const officialLinks = state.officialLinks ?? [];
 const taxHighlights = state.taxHighlights ?? [];
 const comparisonRows = state.comparisonRows ?? [];
+const isResearchPending = state.contentStatus === 'placeholder';
+const hasOfficialAgencyLink = Boolean(state.filingAgencyUrl) && !state.filingAgencyUrl.includes('example.com');
+const hasDetailedSteps = !isResearchPending && state.steps.length > 0;
+const hasFaqItems = !isResearchPending && faqItems.length > 0;
+const hasProsCons = !isResearchPending && (state.proscons.pros.length > 0 || state.proscons.cons.length > 0);
 const hasCostMeta = costBreakdown.some((row) => row.required || row.notes);
 
 const formatCurrency = (value: number | null) => {
@@ -29,28 +33,92 @@ const formatCurrency = (value: number | null) => {
 };
 
 const formatRequirement = (value: boolean) => {
-  if (state.contentStatus === 'placeholder' && state.slug !== 'ohio') {
+  if (isResearchPending) {
     return 'Research pending';
   }
 
   return value ? 'Yes' : 'No';
 };
 
-const annualReportValue = state.annualReportDue.toLowerCase().includes('none') ? 'None' : state.annualReportDue;
-const annualReportNote = state.annualReportDue.toLowerCase().includes('none')
-  ? 'No recurring state filings'
-  : state.annualReportDue;
-const publicationValue = formatRequirement(state.requiresPublication) === 'No' ? 'None' : 'Required';
-const publicationNote = formatRequirement(state.requiresPublication) === 'No'
-  ? 'No newspaper requirement'
-  : 'Publication step required';
+const introCopy = isResearchPending
+  ? `We are still verifying the full ${state.name} LLC guide. This page only shows confirmed details and the safest next steps for now.`
+  : state.intro;
+const whatYoullNeedCopy = isResearchPending
+  ? `Before you file in ${state.name}, confirm the state filing fee, filing agency instructions, and whether you want to handle the ${state.agentTerm} role yourself.`
+  : state.whatYoullNeed;
+const annualReportValue = isResearchPending
+  ? 'Research pending'
+  : state.annualReportDue.toLowerCase().includes('none')
+    ? 'None'
+    : state.annualReportDue;
+const annualReportNote = isResearchPending
+  ? 'We are verifying the annual filing schedule.'
+  : state.annualReportDue.toLowerCase().includes('none')
+    ? 'No recurring state filings'
+    : state.annualReportDue;
+const publicationRequirement = formatRequirement(state.requiresPublication);
+const publicationValue = publicationRequirement === 'Research pending'
+  ? publicationRequirement
+  : publicationRequirement === 'No'
+    ? 'None'
+    : 'Required';
+const publicationNote = publicationRequirement === 'Research pending'
+  ? 'We are verifying whether this state has a publication rule.'
+  : publicationRequirement === 'No'
+    ? 'No newspaper requirement'
+    : 'Publication step required';
 const filingTimeValue = state.filingTimeShort && state.filingTimeShort !== 'Research pending'
   ? state.filingTimeShort
   : 'Research pending';
-const filingTimeNote = state.expeditedFee
-  ? 'Standard estimate. Expedited available.'
-  : 'Standard estimate.';
+const filingTimeNote = filingTimeValue === 'Research pending'
+  ? 'We are verifying the standard processing time.'
+  : state.expeditedFee
+    ? 'Standard estimate. Expedited available.'
+    : 'Standard estimate.';
 const filingFeeNote = 'One-time state filing fee';
+const topRecommendationEyebrow = isResearchPending ? 'Verified basics only' : 'Best next step';
+const topRecommendationTitle = isResearchPending
+  ? `Use the official ${state.name} filing instructions first`
+  : `For most founders, start with the ${state.name} filing itself`;
+const topRecommendationCopy = isResearchPending
+  ? `This guide is still in progress. Use the confirmed basics on this page, double-check the official filing instructions, and avoid making a paid service decision until you know what ${state.name} actually requires.`
+  : `If you live and operate in ${state.name}, the safest default is usually to file in ${state.name} directly. Compare LLC services only if you want help with privacy, document handling, or having someone else handle the filing steps.`;
+const topRecommendationDetails = isResearchPending
+  ? [
+      {
+        label: 'Safest default',
+        description: 'Use the official filing instructions before you make any paid service decision.',
+      },
+      {
+        label: 'Cheaper viable option',
+        description: 'Wait to spend money until you know the filing fee, the agent requirement, and the annual-report reality in this state.',
+      },
+      {
+        label: 'Avoid overpaying',
+        description: 'Do not buy EIN, compliance, or privacy add-ons from a provider before the state basics are verified.',
+      },
+    ]
+  : [
+      {
+        label: 'Safest default',
+        description: `File directly with ${state.filingAgency} if you live and operate in ${state.name}.`,
+      },
+      {
+        label: 'Cheaper viable option',
+        description: `Handle the filing yourself if you are comfortable managing the ${state.agentTerm} role and the state paperwork.`,
+      },
+      {
+        label: 'Avoid overpaying',
+        description:
+          annualReportValue === 'None'
+            ? 'Do not pay for bundled extras before you decide whether you even need filing help.'
+            : 'Do not buy bundled extras until you confirm the filing fee, the annual schedule, and whether a service is solving a real problem for you.',
+      },
+    ];
+const topRecommendationPrimaryHref = hasOfficialAgencyLink ? state.filingAgencyUrl : '#state-guide-basics';
+const topRecommendationPrimaryLabel = hasOfficialAgencyLink
+  ? 'See official filing instructions'
+  : 'Review confirmed basics';
 
 const title = `How to Start an LLC in ${state.name} (${currentYear}) - Steps, Costs, Timeline | LLCAtlas`;
 const description = `Learn how to start an LLC in ${state.name} in ${currentYear}, including filing fees, timeline, core steps, and when using a registered agent service makes sense.`;
@@ -83,7 +151,7 @@ const structuredData = [
       },
     ],
   },
-  ...(faqItems.length > 0
+  ...(hasFaqItems
     ? [
         {
           '@context': 'https://schema.org',
@@ -111,10 +179,46 @@ const structuredData = [
   <section class="space-y-8">
     <div class="space-y-6">
       <h1>How to start an LLC in {state.name}</h1>
-      <p class="llc-section-copy text-slate-600">{state.intro}</p>
+      <p class="llc-section-copy text-slate-600">{introCopy}</p>
     </div>
 
-    <div class="llc-card-subtle !p-6 sm:!p-8">
+    <div class="llc-card-highlight space-y-5 !rounded-[1.5rem] !p-6 sm:!p-8">
+      <div class="space-y-3">
+        <p class="llc-helper">{topRecommendationEyebrow}</p>
+        <h2>{topRecommendationTitle}</h2>
+        <p class="llc-section-copy text-slate-700">{topRecommendationCopy}</p>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-3">
+        {
+          topRecommendationDetails.map((item) => (
+            <div class="space-y-2 rounded-[1rem] border border-slate-200 bg-white/80 p-4">
+              <p class="llc-helper text-slate-500">{item.label}</p>
+              <p class="text-[15px] leading-7 text-slate-700">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a
+          href={topRecommendationPrimaryHref}
+          target={hasOfficialAgencyLink ? '_blank' : undefined}
+          rel={hasOfficialAgencyLink ? 'noopener noreferrer' : undefined}
+          class="inline-flex min-h-11 items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+        >
+          {topRecommendationPrimaryLabel}
+        </a>
+        <a
+          href="/best-llc-services"
+          class="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-white"
+        >
+          Compare LLC services
+        </a>
+      </div>
+    </div>
+
+    <div id="state-guide-basics" class="llc-card-subtle !p-6 sm:!p-8">
       <div class="grid gap-4 sm:grid-cols-2">
         <div class="llc-card flex min-h-40 flex-col justify-between">
           <p class="llc-helper">Filing fee</p>
@@ -145,27 +249,6 @@ const structuredData = [
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="llc-card-subtle !p-6 sm:!p-8">
-    <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-      <div class="space-y-3">
-        <p class="llc-helper">Need help choosing a service?</p>
-        <h2>Compare the best LLC services before you file</h2>
-        <p class="llc-section-copy text-slate-600">
-          If you have already decided to form an LLC but you are still deciding who to pay, see our
-          full comparison of LLC services. We break down the real year-one cost, registered-agent
-          pricing, and which providers are actually worth using.
-        </p>
-      </div>
-
-      <a
-        href="/best-llc-services"
-        class="inline-flex shrink-0 items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-      >
-        See our full comparison of LLC services
-      </a>
     </div>
   </section>
 
@@ -206,48 +289,48 @@ const structuredData = [
     <div class="space-y-4">
       <h2>How to form an LLC in {state.name}</h2>
       <p class="llc-section-copy">
-        These are the core steps most founders will work through when forming an LLC in {state.name}.
-        Keep the copy practical, direct, and tied to the decision the reader needs to make next.
+        {hasDetailedSteps
+          ? `These are the core steps most founders will work through when forming an LLC in ${state.name}.`
+          : `We are still verifying the full step-by-step process for ${state.name}. Start with the confirmed state filing details and official resources before you submit anything.`}
       </p>
     </div>
 
     <div class="llc-card-highlight">
       <h3>What you'll need</h3>
-      <p class="mt-3 llc-section-copy">{state.whatYoullNeed}</p>
+      <p class="mt-3 llc-section-copy">{whatYoullNeedCopy}</p>
     </div>
 
-    <ol class="space-y-5">
-      {
-        state.steps.map((step, index) => (
-          <li class="llc-card">
-            <p class="llc-helper">Step {index + 1}</p>
-            <h3 class="mt-3">{step.title}</h3>
-            <p class="mt-3 llc-section-copy">{step.description}</p>
-          </li>
-        ))
-      }
-    </ol>
-  </section>
-
-  <section class="py-2">
-    <AffiliateCard
-      partnerName={`${state.agentTerm} services`}
-      href="https://example.com/affiliate/northwest"
-      stateName={state.name}
-      placement="inline"
-      eyebrow="Inline CTA"
-      heading={`Protect your address and avoid missed notices in ${state.name}`}
-      buttonLabel="Compare privacy-first agent services"
-      description={state.inlineCtaDescription}
-    />
+    {
+      hasDetailedSteps ? (
+        <ol class="space-y-5">
+          {
+            state.steps.map((step, index) => (
+              <li class="llc-card">
+                <p class="llc-helper">Step {index + 1}</p>
+                <h3 class="mt-3">{step.title}</h3>
+                <p class="mt-3 llc-section-copy">{step.description}</p>
+              </li>
+            ))
+          }
+        </ol>
+      ) : (
+        <div class="llc-card">
+          <p class="llc-section-copy text-slate-700">
+            The full filing walkthrough for {state.name} is still being finalized. For now, confirm
+            the filing fee, filing agency, processing timeline, and any annual requirements before
+            you submit the paperwork yourself.
+          </p>
+        </div>
+      )
+    }
   </section>
 
   <section class="space-y-5">
     <div class="space-y-4">
       <h2>{state.name} LLC cost breakdown</h2>
       <p class="llc-section-copy">
-        People searching for LLC formation costs usually want a simple total, not a paragraph. This
-        table should stay brutally clear.
+        Use this table to see the upfront cost, the likely add-ons, and where the total can climb
+        once you move past the bare filing fee.
       </p>
     </div>
 
@@ -349,78 +432,86 @@ const structuredData = [
     )
   }
 
-  <section class="space-y-5">
-    <div class="space-y-4">
-      <h2>{state.name} LLC pros and cons</h2>
-      <p class="llc-section-copy">
-        Use this section to keep the page honest. Strong affiliate pages convert better when they
-        clearly state tradeoffs instead of pretending every option is perfect.
-      </p>
-    </div>
-
-    <div class="grid items-stretch gap-5 md:grid-cols-2">
-      <div class="llc-card h-full border-emerald-200">
-        <div class="flex items-center gap-3">
-          <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">+</span>
-          <h3>Pros</h3>
+  {
+    hasProsCons && (
+      <section class="space-y-5">
+        <div class="space-y-4">
+          <h2>{state.name} LLC pros and cons</h2>
+          <p class="llc-section-copy">
+            This is the quick tradeoff view: where {state.name} helps, where it adds friction, and
+            what first-time founders should watch before they file.
+          </p>
         </div>
-        <ul class="mt-4 text-slate-700">
-          {state.proscons.pros.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-      <div class="llc-card h-full border-rose-200">
-        <div class="flex items-center gap-3">
-          <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-rose-100 text-sm font-semibold text-rose-700">-</span>
-          <h3>Cons</h3>
-        </div>
-        <ul class="mt-4 text-slate-700">
-          {state.proscons.cons.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <section class="space-y-5">
-    <div class="space-y-4">
-      <h2>FAQ</h2>
-      <p class="llc-section-copy">
-        This section is here for long-tail intent and objection handling. Keep answers direct and
-        specific enough that they can stand alone in search.
-      </p>
-    </div>
-
-    <div class="space-y-5">
-      {
-        faqItems.map((item) => (
-          <details class="group llc-card !p-0">
-            <summary class="flex cursor-pointer list-none items-start justify-between gap-4 px-5 py-5 pr-5 text-lg font-semibold text-slate-950 marker:hidden sm:px-6">
-              <span>{item.question}</span>
-              <span class="mt-1 text-slate-400 transition group-open:rotate-180">⌄</span>
-            </summary>
-            <div class="border-t border-slate-200 px-5 py-5 sm:px-6">
-              <p class="llc-section-copy text-slate-600">{item.answer}</p>
+        <div class="grid items-stretch gap-5 md:grid-cols-2">
+          <div class="llc-card h-full border-slate-300">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-100 text-sm font-semibold text-amber-900">+</span>
+              <h3>Pros</h3>
             </div>
-          </details>
-        ))
-      }
-    </div>
-  </section>
+            <ul class="mt-4 text-slate-700">
+              {state.proscons.pros.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+          <div class="llc-card h-full border-rose-200">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-rose-100 text-sm font-semibold text-rose-700">-</span>
+              <h3>Cons</h3>
+            </div>
+            <ul class="mt-4 text-slate-700">
+              {state.proscons.cons.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
-  <section class="llc-card-subtle space-y-5 border-slate-300 bg-[var(--bg-highlight)] !p-6 sm:!p-8">
-    <p class="llc-helper">Bottom line</p>
-    <h2>Final recommendation</h2>
-    <p class="llc-section-copy">{state.closing}</p>
-  </section>
+  {
+    hasFaqItems && (
+      <section class="space-y-5">
+        <div class="space-y-4">
+          <h2>FAQ</h2>
+          <p class="llc-section-copy">
+            These are the questions people usually ask right before deciding whether to file on
+            their own or pay a service.
+          </p>
+        </div>
+
+        <div class="space-y-5">
+          {
+            faqItems.map((item) => (
+              <details class="group llc-card !p-0">
+                <summary class="flex cursor-pointer list-none items-start justify-between gap-4 px-5 py-5 pr-5 text-lg font-semibold text-slate-950 marker:hidden sm:px-6">
+                  <span>{item.question}</span>
+                  <span class="mt-1 text-slate-400 transition group-open:rotate-180">⌄</span>
+                </summary>
+                <div class="border-t border-slate-200 px-5 py-5 sm:px-6">
+                  <p class="llc-section-copy text-slate-600">{item.answer}</p>
+                </div>
+              </details>
+            ))
+          }
+        </div>
+      </section>
+    )
+  }
 
   <div slot="sidebar" class="space-y-4">
-    <AffiliateCard
-      partnerName={`${state.agentTerm} services`}
-      href="https://example.com/affiliate/northwest"
-      stateName={state.name}
-      placement="sidebar"
-      heading={`Work from home? Keep your address off the filing.`}
-      buttonLabel="Compare agent service options"
-      description={state.sidebarCtaDescription}
-    />
+    <div class="llc-card-subtle">
+      <p class="llc-helper">Safest paid option</p>
+      <h2 class="mt-3 text-xl">Want help filing instead of doing it yourself?</h2>
+      <p class="mt-3 text-[15px] leading-7 text-slate-700">
+        {isResearchPending
+          ? `If you want help with your ${state.name} filing, compare the main LLC services before you pay for anything extra. Start with the safest default, then compare the cheaper viable option.`
+          : `${state.sidebarCtaDescription} Start with the safest default, then compare the cheaper viable option only if price is your main filter.`}
+      </p>
+      <a
+        href="/best-llc-services"
+        class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+      >
+        Compare LLC services
+      </a>
+    </div>
   </div>
 </SiteLayout>

@@ -6,10 +6,22 @@ const pageUrl = 'https://llcatlas.com/';
 const title = 'LLCAtlas — Free LLC Formation Guides for Every State (2026)';
 const description =
   "State-specific guides to forming your LLC. Real costs, honest recommendations, no hidden fees. Start with your state or compare the best LLC services.";
-const differences = [
-  "We start with your state, because that's what determines your fees, timeline, and requirements.",
-  'Only honest recommendation, not a confusing list, because decision fatigue kills action.',
-  'We show the real cost, not the advertised price, because $0 formation is never actually free.',
+const recommendationFramework = [
+  {
+    label: 'Safest default',
+    title: 'Northwest Registered Agent',
+    description: 'The cleanest paid option for most first-time founders who want help and fewer hassles.',
+  },
+  {
+    label: 'Cheaper viable option',
+    title: 'Bizee',
+    description: 'The lowest real year-one cost if price matters most and you can manage a rougher buying experience.',
+  },
+  {
+    label: 'Avoid overpaying',
+    title: 'LegalZoom',
+    description: 'The brand is familiar, but most first-time founders do not get enough extra value to justify the markup.',
+  },
 ];
 const structuredData = [
   {
@@ -38,10 +50,11 @@ const structuredData = [
 <SiteLayout title={title} description={description} structuredData={structuredData}>
   <section class="space-y-8">
     <div class="space-y-4">
-      <h1>Form your LLC with clear guidance, not confusing upsells.</h1>
-      <p class="text-lg leading-8 text-slate-700">
-        LLCAtlas gives you free, state-specific guides to forming your LLC — and tells you exactly
-        which service to use. No fluff. No $300 surprises.
+      <h1>Start your LLC with clear guidance, not confusing upsells.</h1>
+      <p class="max-w-4xl text-lg leading-8 text-slate-700">
+        If this is your first LLC, you probably do not need more options. You need the filing steps
+        explained clearly, the real costs called out, and a trustworthy next step. LLCAtlas helps
+        you start with your state or compare filing services without the usual upsell-heavy noise.
       </p>
     </div>
 
@@ -61,48 +74,59 @@ const structuredData = [
     </div>
   </section>
 
-  <section id="state-selector" class="space-y-5 scroll-mt-8">
-    <div class="space-y-3">
-      <h2>Start with your state</h2>
-      <p class="max-w-3xl text-lg leading-8 text-slate-700">
-        LLC rules, fees, and timelines vary by state. Pick yours to see exactly what&apos;s involved.
-      </p>
+  <section class="grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)] lg:items-start">
+    <div id="state-selector" class="space-y-5 scroll-mt-8">
+      <div class="space-y-3">
+        <h2>Start with your state</h2>
+        <p class="max-w-3xl text-lg leading-8 text-slate-700">
+          Filing fees, annual reports, publication rules, and processing times all depend on where
+          you form. Pick your state to see what the process actually looks like before you file.
+        </p>
+      </div>
+
+      <StateSelector />
     </div>
 
-    <StateSelector />
-  </section>
+    <div class="space-y-6 lg:sticky lg:top-10">
+      <div class="llc-card-subtle space-y-5 !rounded-[1.5rem] !p-6 sm:!p-7">
+        <p class="llc-helper">Need filing help?</p>
+        <h2>Compare LLC services</h2>
+        <p class="text-lg leading-8 text-slate-700">
+          Use the same recommendation framework we apply everywhere else: safest default first,
+          cheaper viable option second, and the provider most first-time founders should avoid
+          overpaying for.
+        </p>
+        <div class="space-y-4 border-t border-slate-200 pt-5">
+          {
+            recommendationFramework.map((item) => (
+              <div class="space-y-1">
+                <p class="llc-helper text-slate-500">{item.label}</p>
+                <p class="text-base font-semibold text-slate-950">{item.title}</p>
+                <p class="text-[15px] leading-7 text-slate-600">{item.description}</p>
+              </div>
+            ))
+          }
+        </div>
+        <a
+          href="/best-llc-services"
+          class="inline-flex min-h-11 items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+        >
+          Compare LLC services
+        </a>
+      </div>
 
-  <section class="space-y-5">
-    <div class="space-y-3">
-      <h2>Not sure which LLC service to use?</h2>
-      <p class="max-w-5xl text-lg leading-8 text-slate-700">
-        Most services advertise $0 formation, then charge $200+ in add-ons. We compared the real year-one cost of the top providers so you don&apos;t have to.
-      </p>
+      <div class="llc-card space-y-4 !rounded-[1.5rem] !p-6 sm:!p-7">
+        <p class="llc-helper">Why this is easier</p>
+        <p class="text-lg leading-8 text-slate-700">
+          Most LLC sites want the click first and the explanation later. LLCAtlas gives you one
+          clear framework before asking you to choose anything.
+        </p>
+        <div class="space-y-3 border-t border-slate-200 pt-5 text-[1.0625rem] leading-8 text-slate-700">
+          <p>Start with your state if you are still figuring out the filing itself.</p>
+          <p>Start with Northwest if you want the safest paid default.</p>
+          <p>Start with Bizee only if keeping year-one cost as low as possible matters more than polish.</p>
+        </div>
+      </div>
     </div>
-
-    <div class="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6 sm:p-7">
-      <p class="text-xl font-semibold text-slate-950">
-        Our #1 pick: Northwest Registered Agent — $39 + state fee, registered agent included
-      </p>
-      <p class="mt-3 max-w-3xl text-lg leading-8 text-slate-700">
-        If you want a service instead of filing on your own, this is the cleanest place to start.
-      </p>
-      <a
-        href="/best-llc-services"
-        class="mt-4 inline-flex items-center text-base font-semibold text-amber-700 transition hover:text-amber-800"
-      >
-        See the full comparison →
-      </a>
-    </div>
-  </section>
-
-  <section class="space-y-4">
-    <p class="max-w-3xl text-lg leading-8 text-slate-700">
-      Most LLC sites dump you into a list of services and hope you click. We do the opposite:
-    </p>
-
-    <ul class="list-disc space-y-3 pl-6 text-lg leading-8 text-slate-700 marker:text-amber-600">
-      {differences.map((item) => <li>{item}</li>)}
-    </ul>
   </section>
 </SiteLayout>

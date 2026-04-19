@@ -1,5 +1,6 @@
 import { buildDefaultState } from './defaults';
 import { michigan } from './michigan';
+import { northCarolina } from './north-carolina';
 import { ohio } from './ohio';
 import { stateSeeds } from './seeds';
 import type { StateData, StateOverride } from './types';
@@ -17,6 +18,7 @@ export type {
 
 const stateOverrides: Record<string, StateOverride> = {
   michigan,
+  'north-carolina': northCarolina,
   ohio,
 };
 
