@@ -1,0 +1,60 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  partnerName: string;
+  placement: string;
+  state?: string;
+  fullWidth?: boolean;
+  size?: 'md' | 'lg';
+  class?: string;
+}
+
+const {
+  href,
+  label,
+  partnerName,
+  placement,
+  state = 'national',
+  fullWidth = false,
+  size = 'md',
+  class: extraClass = '',
+} = Astro.props;
+
+const padding = size === 'lg' ? 'px-6 py-3' : 'px-5 py-3';
+const widthClass = fullWidth ? 'w-full' : 'shrink-0';
+const composedClass = [
+  'inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-accent text-sm font-semibold text-ink-strong transition hover:bg-accent/85',
+  padding,
+  widthClass,
+  extraClass,
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="sponsored noopener noreferrer"
+  data-affiliate-click
+  data-event-name="affiliate_click"
+  data-partner={partnerName}
+  data-placement={placement}
+  data-state={state}
+  class={composedClass}
+>
+  <span>{label}</span>
+  <svg
+    aria-hidden="true"
+    viewBox="0 0 16 16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="h-3.5 w-3.5"
+  >
+    <path d="M3 8h10M9 4l4 4-4 4" />
+  </svg>
+</a>
