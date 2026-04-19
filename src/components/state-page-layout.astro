@@ -1,6 +1,7 @@
 ---
 import AffiliateCard from './affiliate-card.astro';
 import SiteLayout from '../layouts/site-layout.astro';
+import { affiliates } from '../data/affiliates';
 import type { StateData } from '../data/states';
 
 interface Props {
@@ -10,8 +11,7 @@ interface Props {
 const { state } = Astro.props;
 const currentYear = new Date().getFullYear();
 
-// T# TODO: Replace with the real Northwest Registered Agent affiliate URL.
-const northwestAffiliateUrl = '#';
+const northwestAffiliateUrl = affiliates.northwest;
 const northwestPartnerName = 'Northwest Registered Agent';
 const costBreakdown = state.costBreakdown ?? [];
 const faqItems = state.faq ?? [];
@@ -388,7 +388,6 @@ const structuredData = [
     }
   </section>
 
-  {/* T# TODO: Replace placeholder Northwest affiliate URL once the real link is ready. */}
   <AffiliateCard
     partnerName={northwestPartnerName}
     href={northwestAffiliateUrl}
@@ -581,7 +580,6 @@ const structuredData = [
   }
 
   <div slot="sidebar" class="space-y-5">
-    {/* T# TODO: Replace placeholder Northwest affiliate URL once the real link is ready. */}
     <AffiliateCard
       partnerName={northwestPartnerName}
       href={northwestAffiliateUrl}

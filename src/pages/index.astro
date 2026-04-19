@@ -1,26 +1,37 @@
 ---
 import StateSelector from '../components/state-selector.astro';
 import SiteLayout from '../layouts/site-layout.astro';
+import { affiliates, isAffiliateConfigured, type AffiliatePartner } from '../data/affiliates';
+
+type FrameworkPick = {
+  label: string;
+  title: string;
+  description: string;
+  partner: AffiliatePartner;
+};
 
 const pageUrl = 'https://llcatlas.com/';
 const title = 'LLCAtlas — Free LLC Formation Guides for Every State (2026)';
 const description =
   "State-specific guides to forming your LLC. Real costs, honest recommendations, no hidden fees. Start with your state or compare the best LLC services.";
-const recommendationFramework = [
+const recommendationFramework: FrameworkPick[] = [
   {
     label: 'Safest default',
     title: 'Northwest Registered Agent',
     description: 'The cleanest paid option for most first-time founders who want help and fewer hassles.',
+    partner: 'northwest',
   },
   {
     label: 'Cheaper viable option',
     title: 'Bizee',
     description: 'The lowest real year-one cost if price matters most and you can manage a rougher buying experience.',
+    partner: 'bizee',
   },
   {
     label: 'Avoid overpaying',
     title: 'LegalZoom',
     description: 'The brand is familiar, but most first-time founders do not get enough extra value to justify the markup.',
+    partner: 'legalzoom',
   },
 ];
 const structuredData = [
@@ -101,7 +112,21 @@ const structuredData = [
             recommendationFramework.map((item) => (
               <div class="space-y-1">
                 <p class="llc-helper text-slate-500">{item.label}</p>
-                <p class="text-base font-semibold text-slate-950">{item.title}</p>
+                <p class="text-base font-semibold text-slate-950">
+                  <a
+                    href={affiliates[item.partner]}
+                    target="_blank"
+                    rel="sponsored noopener noreferrer"
+                    data-affiliate-click={isAffiliateConfigured(item.partner) ? '' : undefined}
+                    data-event-name="affiliate_click"
+                    data-partner={item.title}
+                    data-placement="home-framework"
+                    data-state="national"
+                    class="underline decoration-slate-300 underline-offset-4 transition hover:text-slate-700 hover:decoration-slate-500"
+                  >
+                    {item.title}
+                  </a>
+                </p>
                 <p class="text-[15px] leading-7 text-slate-600">{item.description}</p>
               </div>
             ))
@@ -123,8 +148,40 @@ const structuredData = [
         </p>
         <div class="space-y-3 border-t border-slate-200 pt-5 text-[1.0625rem] leading-8 text-slate-700">
           <p>Start with your state if you are still figuring out the filing itself.</p>
-          <p>Start with Northwest if you want the safest paid default.</p>
-          <p>Start with Bizee only if keeping year-one cost as low as possible matters more than polish.</p>
+          <p>
+            Start with{' '}
+            <a
+              href={affiliates.northwest}
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              data-affiliate-click={isAffiliateConfigured('northwest') ? '' : undefined}
+              data-event-name="affiliate_click"
+              data-partner="Northwest Registered Agent"
+              data-placement="home-why-easier"
+              data-state="national"
+              class="font-semibold text-slate-950 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-700 hover:decoration-slate-500"
+            >
+              Northwest
+            </a>{' '}
+            if you want the safest paid default.
+          </p>
+          <p>
+            Start with{' '}
+            <a
+              href={affiliates.bizee}
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              data-affiliate-click={isAffiliateConfigured('bizee') ? '' : undefined}
+              data-event-name="affiliate_click"
+              data-partner="Bizee"
+              data-placement="home-why-easier"
+              data-state="national"
+              class="font-semibold text-slate-950 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-700 hover:decoration-slate-500"
+            >
+              Bizee
+            </a>{' '}
+            only if keeping year-one cost as low as possible matters more than polish.
+          </p>
         </div>
       </div>
     </div>

@@ -108,6 +108,7 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
 
           <nav aria-label="Primary" class="hidden items-center gap-6 text-sm text-ink-soft md:flex">
             <a href="/" class={homeLinkClass} aria-current={isHomePage ? 'page' : undefined}>Home</a>
+            <!-- Hide for now 
             <a
               href="/#state-selector"
               class={stateLinkClass}
@@ -115,6 +116,7 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
             >
               State guides
             </a>
+            --> 
             <a
               href="/best-llc-services"
               class={servicesLinkClass}
@@ -168,6 +170,30 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
           )
         }
       </main>
+
+      <script is:inline>
+        if (!window.__llcAtlasAffiliateTrackingBound) {
+          window.__llcAtlasAffiliateTrackingBound = true;
+
+          document.addEventListener('click', (event) => {
+            const target = event.target instanceof Element ? event.target.closest('[data-affiliate-click]') : null;
+
+            if (!(target instanceof HTMLAnchorElement)) {
+              return;
+            }
+
+            const eventName = target.dataset.eventName || 'affiliate_click';
+            const payload = {
+              partner: target.dataset.partner,
+              placement: target.dataset.placement,
+              state: target.dataset.state,
+            };
+
+            window.plausible?.(eventName, { props: payload });
+            window.gtag?.('event', eventName, payload);
+          });
+        }
+      </script>
 
       <footer class="border-t border-rule bg-surface-subtle">
         <div class="mx-auto max-w-7xl space-y-4 px-4 py-8 sm:px-6 lg:px-8">
