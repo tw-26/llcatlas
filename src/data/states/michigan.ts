@@ -2,6 +2,10 @@ import type { StateOverride } from './types';
 
 export const michigan: StateOverride = {
   contentStatus: 'ready',
+  seoTitle: 'How to Start an LLC in Michigan (2026): $50 + LARA Steps | LLCAtlas',
+  seoDescription:
+    'Form a Michigan LLC for $50 through LARA. Real costs, the resident agent rule, and the $25 Annual Statement most guides get wrong.',
+  lastUpdated: '2026-04-19',
   intro:
     'Starting an LLC in Michigan is cheaper and cleaner than most states. The filing fee is $50, there is no publication requirement, and filing goes through the MiBusiness Registry Portal at LARA — not the Secretary of State. One thing to know up front: Michigan calls this role a resident agent, not a statutory agent or a registered agent. The real decisions are simple: pick a compliant name, appoint a resident agent with a Michigan street address, file Form CSCL/CD-700, get an EIN, and plan for the one ongoing filing Michigan actually requires — the $25 Annual Statement every February 15.',
   whatYoullNeed:

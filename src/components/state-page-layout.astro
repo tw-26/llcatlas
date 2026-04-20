@@ -2,7 +2,7 @@
 import AffiliateCard from './affiliate-card.astro';
 import SiteLayout from '../layouts/site-layout.astro';
 import { affiliates } from '../data/affiliates';
-import type { StateData } from '../data/states';
+import { states, type StateData } from '../data/states';
 
 interface Props {
   state: StateData;
@@ -127,9 +127,42 @@ const topRecommendationPrimaryLabel = hasOfficialAgencyLink
   ? 'See official filing instructions'
   : 'Review confirmed basics';
 
-const title = `How to Start an LLC in ${state.name} (${currentYear}) - Steps, Costs, Timeline | LLCAtlas`;
-const description = `Learn how to start an LLC in ${state.name} in ${currentYear}, including filing fees, timeline, core steps, and when using a registered agent service makes sense.`;
+const title =
+  state.seoTitle ??
+  `How to Start an LLC in ${state.name} (${currentYear}) - Steps, Costs, Timeline | LLCAtlas`;
+const description =
+  state.seoDescription ??
+  `Learn how to start an LLC in ${state.name} in ${currentYear}, including filing fees, timeline, core steps, and when using a registered agent service makes sense.`;
 const pageUrl = `https://llcatlas.com/llc/${state.slug}/`;
+
+const readyStateBySlug = new Map(
+  states
+    .filter((entry) => entry.contentStatus === 'ready')
+    .map((entry) => [entry.slug, entry]),
+);
+const readyStateByName = new Map(
+  Array.from(readyStateBySlug.values()).map((entry) => [entry.name, entry]),
+);
+const relatedStates = Array.from(readyStateBySlug.values()).filter(
+  (entry) => entry.slug !== state.slug,
+);
+const getStatePath = (slug: string) => `/llc/${slug}/`;
+const linkForStateName = (name: string): string | null => {
+  if (name === state.name) return null;
+  const target = readyStateByName.get(name);
+  return target ? getStatePath(target.slug) : null;
+};
+
+const lastUpdatedIso = state.lastUpdated;
+const lastUpdatedLabel = lastUpdatedIso
+  ? new Date(`${lastUpdatedIso}T00:00:00Z`).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    })
+  : null;
+
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -139,6 +172,12 @@ const structuredData = [
     url: pageUrl,
     inLanguage: 'en-US',
     about: `How to start an LLC in ${state.name}`,
+    ...(lastUpdatedIso
+      ? {
+          datePublished: lastUpdatedIso,
+          dateModified: lastUpdatedIso,
+        }
+      : {}),
   },
   {
     '@context': 'https://schema.org',
@@ -182,10 +221,16 @@ const structuredData = [
   description={description}
   ogType="article"
   structuredData={structuredData}
+  noindex={isResearchPending}
 >
   <section class="space-y-8">
     <div class="space-y-6">
       <h1>How to start an LLC in {state.name}</h1>
+      {lastUpdatedLabel && lastUpdatedIso && (
+        <p class="text-[13px] uppercase tracking-[0.08em] text-ink-muted">
+          Last updated <time datetime={lastUpdatedIso}>{lastUpdatedLabel}</time>
+        </p>
+      )}
       <p class="llc-section-copy text-ink-soft">{introCopy}</p>
     </div>
 
@@ -488,19 +533,35 @@ const structuredData = [
                 </tr>
               </thead>
               <tbody class="divide-y divide-rule bg-surface">
-                {comparisonRows.map((row) => (
-                  <tr class={row.state === state.name ? 'bg-surface-warm' : undefined}>
-                    <th scope="row" class="px-5 py-4 text-left font-semibold text-ink-strong">
-                      <div class="flex items-center gap-3">
-                        <span class="whitespace-nowrap">{row.state}</span>
-                        {row.state === state.name && <span class="rounded-full bg-accent-soft px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.06em] text-accent-ink whitespace-nowrap">This page</span>}
-                      </div>
-                    </th>
-                    <td class="px-5 py-4 text-ink-soft">{row.annualReport}</td>
-                    <td class="whitespace-nowrap px-5 py-4 text-right tabular-nums text-ink-soft">{row.upfrontCost}</td>
-                    <td class="px-5 py-4 text-right text-ink-soft">{row.ongoingStateCost}</td>
-                  </tr>
-                ))}
+                {comparisonRows.map((row) => {
+                  const internalHref = linkForStateName(row.state);
+                  return (
+                    <tr class={row.state === state.name ? 'bg-surface-warm' : undefined}>
+                      <th scope="row" class="px-5 py-4 text-left font-semibold text-ink-strong">
+                        <div class="flex items-center gap-3">
+                          {internalHref ? (
+                            <a
+                              href={internalHref}
+                              class="whitespace-nowrap underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+                            >
+                              {row.state}
+                            </a>
+                          ) : (
+                            <span class="whitespace-nowrap">{row.state}</span>
+                          )}
+                          {row.state === state.name && (
+                            <span class="rounded-full bg-accent-soft px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.06em] text-accent-ink whitespace-nowrap">
+                              This page
+                            </span>
+                          )}
+                        </div>
+                      </th>
+                      <td class="px-5 py-4 text-ink-soft">{row.annualReport}</td>
+                      <td class="whitespace-nowrap px-5 py-4 text-right tabular-nums text-ink-soft">{row.upfrontCost}</td>
+                      <td class="px-5 py-4 text-right text-ink-soft">{row.ongoingStateCost}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -534,6 +595,50 @@ const structuredData = [
             </ul>
           </div>
         </div>
+      </section>
+    )
+  }
+
+  {
+    relatedStates.length > 0 && (
+      <section class="space-y-5">
+        <div class="space-y-4">
+          <h2>Other state guides</h2>
+          <p class="llc-section-copy">
+            If {state.name} is not the right fit, these guides cover the other states most
+            first-time founders compare it against.
+          </p>
+        </div>
+
+        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {relatedStates.map((entry) => (
+            <li>
+              <a
+                href={getStatePath(entry.slug)}
+                class="group flex items-center justify-between gap-3 rounded-[14px] border border-rule px-5 py-4 transition hover:border-rule-strong hover:bg-surface-subtle"
+              >
+                <span class="text-[15px] font-semibold text-ink-strong">
+                  How to start an LLC in {entry.name}
+                </span>
+                <span class="inline-flex shrink-0 items-center gap-1.5 text-[13px] font-semibold text-ink-soft transition group-hover:gap-2 group-hover:text-ink-strong">
+                  Open
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-3.5 w-3.5"
+                  >
+                    <path d="M3 8h10M9 4l4 4-4 4" />
+                  </svg>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
     )
   }

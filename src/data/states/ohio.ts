@@ -2,6 +2,10 @@ import type { StateOverride } from './types';
 
 export const ohio: StateOverride = {
   contentStatus: 'ready',
+  seoTitle: 'How to Start an LLC in Ohio (2026): $99, No Annual Report | LLCAtlas',
+  seoDescription:
+    'File an Ohio LLC for $99 with no annual report. Real costs, statutory agent rules, and the Form 610 steps — without the upsells.',
+  lastUpdated: '2026-04-19',
   intro:
     'Starting an LLC in Ohio is relatively straightforward. The filing fee is $99, there is no annual report, and Ohio does not require newspaper publication. For most founders, the real decisions are simple: choose a compliant name, appoint a statutory agent, file Form 610, get an EIN, and decide whether handling the statutory agent role yourself is worth the privacy tradeoff.',
   whatYoullNeed:

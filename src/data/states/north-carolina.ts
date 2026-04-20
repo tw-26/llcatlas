@@ -2,6 +2,10 @@ import type { StateOverride } from './types';
 
 export const northCarolina: StateOverride = {
   contentStatus: 'ready',
+  seoTitle: 'How to Start an LLC in North Carolina (2026): $125 + April 15 Report | LLCAtlas',
+  seoDescription:
+    'File a North Carolina LLC for $125. Real costs, the registered agent rule, and the $200 annual report due every April 15 most guides bury.',
+  lastUpdated: '2026-04-19',
   intro:
     'Starting an LLC in North Carolina is straightforward but not the cheapest state to maintain. The filing fee is $125, there is no publication requirement, and you file Form L-01 with the NC Secretary of State. The thing most guides get wrong: NC uses registered agent (not statutory agent), NC has no Commercial Activity Tax (that is Ohio), and the real ongoing cost is the $200 annual report due every April 15 starting the year after you form. Decide on a compliant name, appoint a registered agent with a physical NC street address, file L-01, get an EIN, and put the April 15 annual report on the calendar.',
   whatYoullNeed:

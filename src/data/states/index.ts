@@ -4,6 +4,7 @@ import { northCarolina } from './north-carolina';
 import { ohio } from './ohio';
 import { stateSeeds } from './seeds';
 import type { StateData, StateOverride } from './types';
+import { wyoming } from './wyoming';
 
 export type {
   ComparisonRow,
@@ -20,6 +21,7 @@ const stateOverrides: Record<string, StateOverride> = {
   michigan,
   'north-carolina': northCarolina,
   ohio,
+  wyoming,
 };
 
 export const states: StateData[] = stateSeeds.map((seed) => {

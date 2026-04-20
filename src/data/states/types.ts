@@ -56,6 +56,9 @@ export type StateData = {
   stateTax: string;
   annualReportDue: string;
   annualReportNote: string;
+  seoTitle: string | null;
+  seoDescription: string | null;
+  lastUpdated: string | null;
   steps: Step[];
   costBreakdown: CostBreakdownItem[];
   faq: FaqItem[];
