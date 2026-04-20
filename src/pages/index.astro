@@ -18,19 +18,19 @@ const recommendationFramework: FrameworkPick[] = [
   {
     label: 'Safest default',
     title: 'Northwest Registered Agent',
-    description: 'The cleanest paid option for most first-time founders who want help and fewer hassles.',
+    description: "The cleanest paid option if you want help and don't want to think about it.",
     partner: 'northwest',
   },
   {
     label: 'Cheaper viable option',
     title: 'Bizee',
-    description: 'The lowest real year-one cost if price matters most and you can manage a rougher buying experience.',
+    description: "Lowest real year-one cost, if you can stomach a clunky checkout.",
     partner: 'bizee',
   },
   {
     label: 'Avoid overpaying',
     title: 'LegalZoom',
-    description: 'The brand is familiar, but most first-time founders do not get enough extra value to justify the markup.',
+    description: "Familiar name. Most first-time founders don't get enough extra to justify the price.",
     partner: 'legalzoom',
   },
 ];
@@ -61,11 +61,11 @@ const structuredData = [
 <SiteLayout title={title} description={description} structuredData={structuredData}>
   <section class="space-y-8">
     <div class="space-y-4">
-      <h1>Start your LLC with clear guidance, not confusing upsells.</h1>
+      <h1>Start your LLC without the upsells.</h1>
       <p class="max-w-4xl text-lg leading-8 text-slate-700">
-        If this is your first LLC, you probably do not need more options. You need the filing steps
-        explained clearly, the real costs called out, and a trustworthy next step. LLCAtlas helps
-        you start with your state or compare filing services without the usual upsell-heavy noise.
+        Most first-time owners don't need more options. You need the filing steps in plain English,
+        the real costs up front, and an honest next step. Pick your state below, or skip ahead and
+        compare filing services.
       </p>
     </div>
 
@@ -90,8 +90,8 @@ const structuredData = [
       <div class="space-y-3">
         <h2>Start with your state</h2>
         <p class="max-w-3xl text-lg leading-8 text-slate-700">
-          Filing fees, annual reports, publication rules, and processing times all depend on where
-          you form. Pick your state to see what the process actually looks like before you file.
+          Filing fees, annual reports, publication rules, processing times. They all change
+          depending on where you form. Pick your state to see what filing actually looks like.
         </p>
       </div>
 
@@ -103,9 +103,8 @@ const structuredData = [
         <p class="llc-helper">Need filing help?</p>
         <h2>Compare LLC services</h2>
         <p class="text-lg leading-8 text-slate-700">
-          Use the same recommendation framework we apply everywhere else: safest default first,
-          cheaper viable option second, and the provider most first-time founders should avoid
-          overpaying for.
+          Same framework we use everywhere else. Safest default first. Cheapest option that's
+          actually usable second. The brand most people overpay for last.
         </p>
         <div class="space-y-4 border-t border-slate-200 pt-5">
           {
@@ -143,11 +142,11 @@ const structuredData = [
       <div class="llc-card space-y-4 !rounded-[1.5rem] !p-6 sm:!p-7">
         <p class="llc-helper">Why this is easier</p>
         <p class="text-lg leading-8 text-slate-700">
-          Most LLC sites want the click first and the explanation later. LLCAtlas gives you one
-          clear framework before asking you to choose anything.
+          Most LLC sites want the click first and the explanation later. We give you the framework
+          first, then let you pick.
         </p>
         <div class="space-y-3 border-t border-slate-200 pt-5 text-[1.0625rem] leading-8 text-slate-700">
-          <p>Start with your state if you are still figuring out the filing itself.</p>
+          <p>Start with your state if you're still figuring out the filing itself.</p>
           <p>
             Start with{' '}
             <a
@@ -163,7 +162,7 @@ const structuredData = [
             >
               Northwest
             </a>{' '}
-            if you want the safest paid default.
+            if you want the safest paid option.
           </p>
           <p>
             Start with{' '}
@@ -180,7 +179,7 @@ const structuredData = [
             >
               Bizee
             </a>{' '}
-            only if keeping year-one cost as low as possible matters more than polish.
+            only if year-one cost matters more to you than polish.
           </p>
         </div>
       </div>

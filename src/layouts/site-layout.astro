@@ -27,10 +27,12 @@ const currentPath = Astro.url.pathname;
 const hasSidebar = Astro.slots.has('sidebar');
 const isHomePage = currentPath === '/';
 const isComparisonPage = currentPath === '/best-llc-services/' || currentPath === '/best-llc-services';
+const isBestStatePage = currentPath === '/best-state/' || currentPath === '/best-state';
 const isStateGuidePage = currentPath.startsWith('/llc/');
 const homeLinkClass = isHomePage ? 'font-semibold text-ink-strong' : 'transition hover:text-ink-strong';
 const stateLinkClass = isStateGuidePage ? 'font-semibold text-ink-strong' : 'transition hover:text-ink-strong';
 const servicesLinkClass = isComparisonPage ? 'font-semibold text-ink-strong' : 'transition hover:text-ink-strong';
+const bestStateLinkClass = isBestStatePage ? 'font-semibold text-ink-strong' : 'transition hover:text-ink-strong';
 const primaryNavCta = isStateGuidePage
   ? { href: '/best-llc-services', label: 'Compare services' }
   : { href: '/#state-selector', label: 'Find your state' };
@@ -124,6 +126,13 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
             </a>
             --> 
             <a
+              href="/best-state"
+              class={bestStateLinkClass}
+              aria-current={isBestStatePage ? 'page' : undefined}
+            >
+              Best state
+            </a>
+            <a
               href="/best-llc-services"
               class={servicesLinkClass}
               aria-current={isComparisonPage ? 'page' : undefined}
@@ -146,6 +155,13 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
               class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-4 py-2 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
             >
               Find your state
+            </a>
+            <a
+              href="/best-state"
+              class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-4 py-2 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
+              aria-current={isBestStatePage ? 'page' : undefined}
+            >
+              Best state
             </a>
             <a
               href="/best-llc-services"

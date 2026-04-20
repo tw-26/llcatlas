@@ -1,0 +1,574 @@
+---
+import AffiliateCard from '../components/affiliate-card.astro';
+import SiteLayout from '../layouts/site-layout.astro';
+import { affiliates } from '../data/affiliates';
+import { states } from '../data/states';
+
+const title =
+  "Best State to Form an LLC in 2026 — It's Probably Your Home State | LLCAtlas";
+const description =
+  "Wyoming, Delaware, and Nevada get all the hype. But for most founders, your home state is the best place to form an LLC. Here's why — and when it's not.";
+const pageUrl = 'https://llcatlas.com/best-state/';
+const lastUpdatedIso = '2026-04-20';
+const lastUpdatedLabel = new Date(`${lastUpdatedIso}T00:00:00Z`).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+
+const northwestAffiliateUrl = affiliates.northwest;
+const northwestPartnerName = 'Northwest Registered Agent';
+
+const readyStates = states
+  .filter((state) => state.contentStatus === 'ready')
+  .sort((left, right) => left.name.localeCompare(right.name));
+const upcomingStateCount = states.length - readyStates.length;
+
+type ComparisonRow = {
+  state: string;
+  slug?: string;
+  filingFee: string;
+  annualCost: string;
+  stateIncomeTax: string;
+  privacy: string;
+  foreignRegistrationRequired: string;
+  isHomeState?: boolean;
+};
+
+const comparisonRows: ComparisonRow[] = [
+  {
+    state: 'Your home state',
+    filingFee: 'Varies ($35–$500)',
+    annualCost: 'Varies ($0–$800)',
+    stateIncomeTax: 'You owe it either way',
+    privacy: 'Varies by state',
+    foreignRegistrationRequired: 'No — already domestic',
+    isHomeState: true,
+  },
+  {
+    state: 'Wyoming',
+    slug: 'wyoming',
+    filingFee: '$100',
+    annualCost: '$60 minimum',
+    stateIncomeTax: 'None at state level',
+    privacy: 'Members not on public record',
+    foreignRegistrationRequired: 'Yes, in your home state',
+  },
+  {
+    state: 'Delaware',
+    filingFee: '$110',
+    annualCost: '$300 franchise tax',
+    stateIncomeTax: 'None for non-DE income',
+    privacy: 'Members not on public record',
+    foreignRegistrationRequired: 'Yes, in your home state',
+  },
+  {
+    state: 'Nevada',
+    filingFee: '~$425 first year',
+    annualCost: '~$350/yr',
+    stateIncomeTax: 'None at state level',
+    privacy: 'Managers listed publicly',
+    foreignRegistrationRequired: 'Yes, in your home state',
+  },
+];
+
+const outOfStateScenarios = [
+  {
+    title: 'Real estate investing in another state',
+    description:
+      "Buying rental property in Texas while you live in Oregon? Form the LLC where the property sits. The LLC has nexus where the asset lives.",
+  },
+  {
+    title: 'Raising venture capital',
+    description:
+      "Most institutional investors expect a Delaware C-corp, not an LLC. If you're planning a priced round, talk to a startup attorney about Delaware before you form anything.",
+  },
+  {
+    title: 'Privacy-first holding company with no operations',
+    description:
+      "A Wyoming holding LLC that owns interests in other entities and doesn't operate on its own can legitimately live in Wyoming. The moment it earns money in another state, the foreign-registration math kicks in.",
+  },
+  {
+    title: 'Strong asset-protection needs (Wyoming, Nevada)',
+    description:
+      "Wyoming and Nevada have unusually strong charging-order protections, even for single-member LLCs. For most readers this is theoretical. For high-net-worth founders or professionals with real litigation exposure, it can be a genuine reason.",
+  },
+  {
+    title: 'You actually live or operate there',
+    description:
+      "If you live in Wyoming, form in Wyoming. If you live in Delaware, form in Delaware. The 'home state' rule is about where you live and work, not a rule against any particular state.",
+  },
+];
+
+const faqItems = [
+  {
+    question: 'Is Wyoming really the best state to form an LLC?',
+    answer:
+      "For Wyoming residents and a few holding-company setups, yes. For everyone else, almost certainly not. If you live and work in Ohio and form your LLC in Wyoming, Ohio still treats the business as Ohio's. You'll register the Wyoming LLC as a foreign LLC in Ohio (around $99), pay Ohio's taxes, and add Wyoming's $100 filing plus the $60 annual report. You pay two states to do what one state could do for less.",
+  },
+  {
+    question: 'Should I form my LLC in Delaware?',
+    answer:
+      "Delaware makes sense for venture-backed startups raising priced rounds. Even then, those companies are usually C-corps, not LLCs. For a normal small business, Delaware adds a $300 annual franchise tax and a foreign LLC filing in your home state, with no real upside. Delaware's famous Court of Chancery is built for corporate disputes between investors and boards. Most LLC owners never end up there.",
+  },
+  {
+    question: 'Can I form an LLC in a state I don\u2019t live in?',
+    answer:
+      "Yes. You can legally form an LLC in any state. The catch: where you form isn't where you operate. If you live in California and run your business from your kitchen table, California considers that LLC to be doing business in California, no matter where the paperwork was filed. You'll still owe California's $800 minimum franchise tax, and you'll need to register the out-of-state LLC as a foreign LLC in California.",
+  },
+  {
+    question: 'What is foreign LLC registration?',
+    answer:
+      "When an LLC formed in one state does business in another, the second state requires it to register as a 'foreign LLC' (foreign to that state, not international). That means filing a Certificate of Authority, paying a separate filing fee (usually $100–$300), keeping a registered agent in that state, and filing that state's annual report on top of your formation state's. It's the single biggest cost most people miss when they form out of state.",
+  },
+  {
+    question: "Does forming in Wyoming or Nevada save me on taxes?",
+    answer:
+      "Almost never. State income tax is owed where the income is earned, not where the LLC is filed. A New York resident running a New York consulting business through a Wyoming LLC still pays New York income tax on every dollar. The only LLC that legitimately escapes home-state income tax is one with no home-state nexus at all. Most readers don't have that.",
+  },
+  {
+    question: 'Is Nevada a good state for an LLC?',
+    answer:
+      "Nevada has strong asset-protection statutes. It's also one of the most expensive states to keep an LLC alive. Between the Articles of Organization, the Initial List of Managers, and the State Business License, you're looking at around $425 in year one and roughly $350 a year after. For most non-Nevada residents, that cost (plus foreign LLC registration at home) outweighs the asset-protection upside.",
+  },
+  {
+    question: 'What about an anonymous LLC for privacy?',
+    answer:
+      "Wyoming, New Mexico, and Delaware don't list members or managers on the public state record. That's a real privacy win on the state side. Federal Beneficial Ownership Information (BOI) reporting is a separate question and has been changing. Under FinCEN's March 2025 Interim Final Rule, domestic LLCs are currently exempt, but the rule is interim. If privacy is genuinely your top reason to form out of state, it can be a legitimate one. For most founders, it isn't.",
+  },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Best state to form an LLC in 2026',
+    description,
+    datePublished: lastUpdatedIso,
+    dateModified: lastUpdatedIso,
+    author: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com/',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com/',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://llcatlas.com/logo.svg',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://llcatlas.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Best state to form an LLC',
+        item: pageUrl,
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  },
+];
+---
+
+<SiteLayout
+  title={title}
+  description={description}
+  ogType="article"
+  structuredData={structuredData}
+>
+  <section class="space-y-8">
+    <div class="space-y-6">
+      <p class="llc-helper">Choosing a formation state</p>
+      <h1>Best state to form an LLC in 2026</h1>
+      <p class="text-[13px] uppercase tracking-[0.08em] text-ink-muted">
+        Last updated <time datetime={lastUpdatedIso}>{lastUpdatedLabel}</time>
+      </p>
+      <p class="llc-section-copy text-ink-soft">
+        For most first-time founders, the best state to form an LLC is the one you live and work
+        in. Wyoming, Delaware, and Nevada get the marketing budget. Form there and you usually pay
+        two states to do one state's job: your formation state plus a foreign LLC registration
+        back home. Unless you have a real reason, file at home.
+      </p>
+    </div>
+
+    <div class="llc-card-highlight space-y-6 !rounded-[1.5rem] !p-6 sm:!p-8">
+      <div class="space-y-3">
+        <p class="llc-helper">The verdict</p>
+        <h2>Form in your home state, not in Wyoming</h2>
+        <p class="llc-section-copy text-ink-soft">
+          The biggest mistake first-time founders make is reading a Wyoming or Delaware sales page
+          and assuming "best LLC state" means them. It almost never does. You owe tax and
+          registration where you live and operate, no matter what's printed on the Articles of
+          Organization.
+        </p>
+      </div>
+
+      <dl class="grid gap-y-5 border-t border-accent-soft/70 pt-5 md:grid-cols-3 md:gap-x-8 md:gap-y-0 md:divide-x md:divide-accent-soft/70">
+        <div class="space-y-1.5 md:px-6 md:first:pl-0 md:last:pr-0">
+          <dt class="llc-helper">Default answer</dt>
+          <dd class="text-[15px] leading-7 text-ink-soft">
+            File in the state where you live and run the business.
+          </dd>
+        </div>
+        <div class="space-y-1.5 md:px-6 md:first:pl-0 md:last:pr-0">
+          <dt class="llc-helper">When to deviate</dt>
+          <dd class="text-[15px] leading-7 text-ink-soft">
+            Real estate in another state. Raising VC (Delaware C-corp). Or a true holding company
+            with no single state of operations.
+          </dd>
+        </div>
+        <div class="space-y-1.5 md:px-6 md:first:pl-0 md:last:pr-0">
+          <dt class="llc-helper">Avoid</dt>
+          <dd class="text-[15px] leading-7 text-ink-soft">
+            Forming in Wyoming, Delaware, or Nevada to "save on taxes" while living somewhere else.
+            It usually costs more, not less.
+          </dd>
+        </div>
+      </dl>
+
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a
+          href="/#state-selector"
+          class="inline-flex min-h-11 items-center justify-center rounded-full bg-action px-5 py-3 text-sm font-semibold text-white transition hover:bg-action-hover"
+        >
+          Find your state guide
+        </a>
+        <a
+          href="/best-llc-services"
+          class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
+        >
+          Compare LLC services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-4">
+      <h2>Why your home state is usually right</h2>
+      <p class="llc-section-copy">
+        The Wyoming and Delaware pitch skips one fact: where you form isn't where you operate.
+        Form in Wyoming but live and work in Ohio? Ohio still treats your business as an Ohio
+        business. Ohio law requires you to register your out-of-state LLC there as a "foreign LLC"
+        before you can do business.
+      </p>
+    </div>
+
+    <div class="llc-card-subtle space-y-4">
+      <p class="llc-helper">The foreign LLC registration trap</p>
+      <p class="llc-section-copy text-ink-soft">
+        Here's what happens when an Ohio resident forms a Wyoming LLC for their freelance business:
+      </p>
+      <ul class="llc-bullet-list text-ink-soft">
+        <li>
+          Pay Wyoming's <strong>$100</strong> filing fee for the Articles of Organization.
+        </li>
+        <li>
+          Hire a Wyoming registered agent (you can't be your own from out of state). Usually
+          <strong>$99–$199 per year</strong>.
+        </li>
+        <li>
+          Register that Wyoming LLC as a "foreign LLC" in Ohio for around <strong>$99</strong>.
+        </li>
+        <li>
+          Keep a registered agent in Ohio too, since the foreign filing requires one.
+        </li>
+        <li>
+          File Wyoming's annual report (<strong>$60 minimum</strong>) every year, on the formation
+          anniversary.
+        </li>
+        <li>
+          Pay Ohio income tax on the income anyway. Ohio is where you actually earn it. The
+          Wyoming filing doesn't change that.
+        </li>
+      </ul>
+      <p class="llc-section-copy text-ink-soft">
+        That same Ohio resident filing a domestic Ohio LLC pays <strong>$99</strong> once and
+        <strong>$0</strong> in annual report fees. Ohio doesn't require one for standard LLCs.
+        The "Wyoming saves you money" pitch quietly costs about <strong>$300 more per year</strong>
+        in this scenario, before tax.
+      </p>
+      <p class="llc-section-copy text-ink-soft">
+        The numbers shift by state. The pattern doesn't. Forming out of state means two filing
+        fees, two annual reports, and two registered agents, for the same legal entity you'd get
+        with one of each.
+      </p>
+    </div>
+
+    <div class="llc-card space-y-4">
+      <p class="llc-helper">What "doing business" actually means</p>
+      <p class="llc-section-copy text-ink-soft">
+        Every state defines it slightly differently. The practical test is the same: an office,
+        employees, contractors, inventory, or substantial customers in a state means you're doing
+        business there. Most single-founder service businesses meet that test in exactly one
+        state. The one where the founder lives and works. Forming the LLC somewhere else doesn't
+        change the test. It just adds a second jurisdiction.
+      </p>
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-4">
+      <h2>When out-of-state actually makes sense</h2>
+      <p class="llc-section-copy">
+        These are the legitimate exceptions. They're exceptions, not the default. Most first-time
+        founders don't fit any of them. If you do, the math changes and the Wyoming or Delaware
+        pitch may actually fit.
+      </p>
+    </div>
+
+    <ol class="space-y-5">
+      {
+        outOfStateScenarios.map((item, index) => (
+          <li class="llc-card relative grid gap-3 sm:grid-cols-[auto_1fr] sm:gap-x-6">
+            <span
+              aria-hidden="true"
+              class="font-heading text-[2rem] font-semibold leading-none text-ink-muted/60 tabular-nums sm:text-[2.25rem]"
+            >
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <div class="min-w-0">
+              <p class="llc-helper">
+                <span class="sr-only">Scenario </span>
+                {index + 1} of {outOfStateScenarios.length}
+              </p>
+              <h3 class="mt-2">{item.title}</h3>
+              <p class="mt-3 llc-section-copy text-ink-soft">{item.description}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-4">
+      <h2>Wyoming vs Delaware vs Nevada vs your home state</h2>
+      <p class="llc-section-copy">
+        Here's the table the marketing pages don't show you. Watch the last column. That's the
+        cost most out-of-state pitches leave out.
+      </p>
+    </div>
+
+    <div class="llc-card overflow-hidden !p-0">
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-rule">
+          <thead class="bg-surface-subtle">
+            <tr>
+              <th scope="col" class="llc-table-head px-5 py-4 text-left">State</th>
+              <th scope="col" class="llc-table-head px-5 py-4 text-right">Filing fee</th>
+              <th scope="col" class="llc-table-head px-5 py-4 text-right">Annual state cost</th>
+              <th scope="col" class="llc-table-head px-5 py-4 text-left">State income tax</th>
+              <th scope="col" class="llc-table-head px-5 py-4 text-left">Privacy</th>
+              <th scope="col" class="llc-table-head px-5 py-4 text-left">Need foreign LLC at home?</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-rule bg-surface">
+            {
+              comparisonRows.map((row) => (
+                <tr class={row.isHomeState ? 'bg-surface-warm' : undefined}>
+                  <th scope="row" class="px-5 py-4 text-left font-semibold text-ink-strong">
+                    <div class="flex items-center gap-3">
+                      {row.slug ? (
+                        <a
+                          href={`/llc/${row.slug}/`}
+                          class="whitespace-nowrap underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+                        >
+                          {row.state}
+                        </a>
+                      ) : (
+                        <span class="whitespace-nowrap">{row.state}</span>
+                      )}
+                      {row.isHomeState && (
+                        <span class="rounded-full bg-accent-soft px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.06em] text-accent-ink whitespace-nowrap">
+                          Recommended
+                        </span>
+                      )}
+                    </div>
+                  </th>
+                  <td class="whitespace-nowrap px-5 py-4 text-right tabular-nums text-ink-soft">
+                    {row.filingFee}
+                  </td>
+                  <td class="whitespace-nowrap px-5 py-4 text-right tabular-nums text-ink-soft">
+                    {row.annualCost}
+                  </td>
+                  <td class="px-5 py-4 text-ink-soft">{row.stateIncomeTax}</td>
+                  <td class="px-5 py-4 text-ink-soft">{row.privacy}</td>
+                  <td class="px-5 py-4 text-ink-soft">{row.foreignRegistrationRequired}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="text-sm text-ink-muted">
+      Annual state cost is what you pay the formation state. It doesn't include the foreign LLC
+      registration fee or the annual report you'll owe in your home state when you form out of
+      state. Both apply on top.
+    </p>
+  </section>
+
+  <AffiliateCard
+    partnerName={northwestPartnerName}
+    href={northwestAffiliateUrl}
+    stateName="LLC"
+    placement="inline"
+    eyebrow="Recommended formation partner"
+    heading={`Once you've picked a state: ${northwestPartnerName}`}
+    description={`Whichever state you pick, ${northwestPartnerName} is the cleanest paid option for first-time founders. They act as your registered agent so your home address stays off the public record, don't push upsells at checkout, and include the registered agent year one with no surprise renewals later.`}
+    buttonLabel={`Start with ${northwestPartnerName}`}
+  />
+
+  <section class="space-y-5">
+    <div class="space-y-4">
+      <h2>Find your state guide</h2>
+      <p class="llc-section-copy">
+        We're publishing plain-English guides for each state. Filing fees, real timelines, annual
+        report rules, and where the costs actually hide. Live guides below;
+        {upcomingStateCount > 0 && ` ${upcomingStateCount} more states are in progress.`}
+      </p>
+    </div>
+
+    <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        readyStates.map((state) => (
+          <li>
+            <a
+              href={`/llc/${state.slug}/`}
+              class="group flex items-center justify-between gap-3 rounded-[14px] border border-rule px-5 py-4 transition hover:border-rule-strong hover:bg-surface-subtle"
+            >
+              <span class="text-[15px] font-semibold text-ink-strong">
+                How to start an LLC in {state.name}
+              </span>
+              <span class="inline-flex shrink-0 items-center gap-1.5 text-[13px] font-semibold text-ink-soft transition group-hover:gap-2 group-hover:text-ink-strong">
+                Open
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-3.5 w-3.5"
+                >
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="llc-section-copy text-ink-soft">
+      Don't see your state yet? Use the
+      <a
+        href="/#state-selector"
+        class="font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+      >
+        full state selector on the homepage
+      </a>
+      . It lists every state, with verified guides first and the rest marked as coming soon.
+    </p>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-4">
+      <h2>FAQ</h2>
+      <p class="llc-section-copy">
+        Questions people ask right before they commit to a state.
+      </p>
+    </div>
+
+    <div class="space-y-5">
+      {
+        faqItems.map((item) => (
+          <details class="group llc-card !p-0">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 px-5 py-5 text-lg font-semibold text-ink-strong sm:px-6">
+              <span>{item.question}</span>
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-2 h-3.5 w-3.5 shrink-0 text-ink-muted transition group-open:rotate-180"
+              >
+                <path d="M4 6l4 4 4-4" />
+              </svg>
+            </summary>
+            <div class="border-t border-rule px-5 py-5 sm:px-6">
+              <p class="llc-section-copy text-ink-soft">{item.answer}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="llc-card-highlight space-y-4 !rounded-[1.5rem] !p-6 sm:!p-8">
+    <p class="llc-helper">Bottom line</p>
+    <h2>For most founders, file in your home state and move on</h2>
+    <p class="llc-section-copy text-ink-soft">
+      Pick the state you actually live and operate in. Follow that state's filing instructions.
+      Put the time you'd have spent researching Wyoming versus Delaware into the parts of your
+      business that compound: your offer, your customers, your operating agreement. The
+      formation state is rarely where founders win or lose.
+    </p>
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <a
+        href="/#state-selector"
+        class="inline-flex min-h-11 items-center justify-center rounded-full bg-action px-5 py-3 text-sm font-semibold text-white transition hover:bg-action-hover"
+      >
+        Find your state guide
+      </a>
+      <a
+        href="/best-llc-services"
+        class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
+      >
+        Compare LLC services
+      </a>
+    </div>
+    <p class="text-sm text-ink-muted">
+      Affiliate disclosure: LLCAtlas is reader-supported. When you buy through our links, we may
+      earn a commission. That does not change our editorial position — which, on this page, is
+      that most readers should not buy anything related to forming out of state in the first
+      place.
+    </p>
+  </section>
+</SiteLayout>

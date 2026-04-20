@@ -112,10 +112,9 @@ const structuredData = [
         support, and how much nonsense they try to sell you during checkout.
       </p>
       <p class="llc-section-copy text-ink-soft">
-        We compared {rankedServices.length} LLC formation services using one framework: safest
-        default first, cheaper viable option second, and the provider most first-time founders
-        should avoid overpaying for. If you only read one section on this page, read the verdict
-        and the quick comparison below.
+        We compared {rankedServices.length} LLC services on one thing: real year-one cost, not the
+        headline price. Read the verdict and the table below. Skip the rest unless you want the
+        long version.
       </p>
     </div>
 
@@ -126,10 +125,9 @@ const structuredData = [
             Safest default
           </span>
           <div class="space-y-2">
-            <h2>{defaultPick.name} — {defaultPick.headlinePriceLabel}</h2>
+            <h2>{defaultPick.name}, {defaultPick.headlinePriceLabel}</h2>
             <p class="llc-section-copy text-ink-soft">
-              Start here if you want the cleanest paid option, the strongest privacy-first pitch,
-              and the least frustrating buying experience.
+              Cleanest paid option. Strongest privacy story. Least painful checkout. Start here.
             </p>
           </div>
           <ul class="llc-bullet-list text-ink-soft">
@@ -152,8 +150,7 @@ const structuredData = [
         <p class="llc-helper">Cheaper viable option</p>
         <h2 class="text-xl">{cheapestViablePick.name}</h2>
         <p class="text-[15px] leading-7 text-ink-soft">
-          Choose this only if year-one cost is your main filter and you are comfortable with a
-          rougher checkout experience.
+          Pick this if year-one cost is your main filter and a rough checkout doesn't bother you.
         </p>
         <p class="text-sm font-semibold text-ink-strong">
           Real year-one cost: {cheapestViablePick.realYearOneTotalLabel}
@@ -163,22 +160,21 @@ const structuredData = [
       <section class="llc-card-subtle space-y-3">
         <p class="llc-helper">How LLCAtlas recommends</p>
         <p class="text-[15px] leading-7 text-ink-soft">
-          We separate the safest default from the cheapest viable option. That keeps the decision
-          honest for first-time founders who care about both cost and hassle.
+          We split the safest default from the cheapest option that still works. That keeps the
+          choice honest if you care about both cost and hassle.
         </p>
         <p class="text-[15px] leading-7 text-ink-soft">
-          If you want the strongest all-around answer, start with {defaultPick.name}. If you only
-          care about the lowest usable year-one cost, check {cheapestViablePick.name} next. The
-          provider to avoid overpaying for is {avoidPick?.name}.
+          Want the all-around answer? Start with {defaultPick.name}. Care most about year-one cost?
+          Check {cheapestViablePick.name} next. The brand to skip is {avoidPick?.name}.
         </p>
       </section>
 
       <section class="llc-card-subtle space-y-3">
         <p class="llc-helper">Avoid overpaying</p>
-        <h2 class="text-xl">Skip {avoidPick?.name} for most standard LLC filings</h2>
+        <h2 class="text-xl">Skip {avoidPick?.name} for most standard filings</h2>
         <p class="text-[15px] leading-7 text-ink-soft">
-          {avoidPick?.name} is the familiar brand, but for most first-time founders the price
-          premium is too hard to justify once you compare it against the default and budget picks.
+          {avoidPick?.name} is the brand you've heard of. The price premium isn't worth it for a
+          normal LLC filing.
         </p>
         <p class="text-sm font-semibold text-ink-strong">
           Real year-one cost: {avoidPick?.realYearOneTotalLabel}
@@ -191,9 +187,8 @@ const structuredData = [
         <div>
           <p class="llc-helper">Quick comparison</p>
           <p class="mt-1 text-sm text-ink-soft">
-            The column that matters most is what you will actually pay in year one before the state
-            fee. Use this table to compare the default pick against the cheaper viable option and
-            the provider we would avoid overpaying for.
+            The column that matters is what you'll actually pay in year one, before the state fee.
+            Use the table to compare the default, the cheaper option, and the one we'd skip.
           </p>
         </div>
         <span class="inline-flex rounded-full border border-accent-soft bg-surface-warm px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-accent-ink">
@@ -207,7 +202,7 @@ const structuredData = [
             <tr>
               <th scope="col" class="llc-table-head px-5 py-4 text-left">Service</th>
               <th scope="col" class="llc-table-head px-5 py-4 text-left">Advertised price</th>
-              <th scope="col" class="llc-table-head px-5 py-4 text-left">What you will actually pay year 1</th>
+              <th scope="col" class="llc-table-head px-5 py-4 text-left">What you'll actually pay year 1</th>
               <th scope="col" class="llc-table-head px-5 py-4 text-left">Registered agent</th>
               <th scope="col" class="llc-table-head px-5 py-4 text-left">Upsells</th>
               <th scope="col" class="llc-table-head px-5 py-4 text-left">Our verdict</th>
@@ -247,8 +242,7 @@ const structuredData = [
     <div class="space-y-3">
       <h2>How we score LLC services</h2>
       <p class="llc-section-copy text-ink-soft">
-        Most people can skip this. Expand it only if you want to see the exact rules behind the
-        rankings.
+        Most people can skip this. Open it if you want the rules behind the rankings.
       </p>
     </div>
 
@@ -280,8 +274,8 @@ const structuredData = [
     <div class="space-y-3">
       <h2>Full reviews if you want the details</h2>
       <p class="llc-section-copy text-ink-soft">
-        The answer is already above. Use these only if you want the longer breakdown on checkout
-        friction, upsells, support, and privacy.
+        The answer's already above. Open one of these only if you want the longer breakdown on
+        checkout friction, upsells, support, and privacy.
       </p>
     </div>
 
@@ -405,8 +399,8 @@ const structuredData = [
                   <p class="llc-helper">Take action</p>
                   <p class="mt-3 text-lg font-semibold text-ink-strong">{service.name}</p>
                   <p class="mt-3 text-sm leading-7 text-ink-soft">
-                    If this is your best fit, use the cheapest path that still covers the
-                    registered agent if you want privacy.
+                    If this one fits, take the cheapest path that still includes the registered
+                    agent if privacy matters.
                   </p>
                   <AffiliateButton
                     href={service.affiliateUrl}
@@ -429,8 +423,8 @@ const structuredData = [
     <div class="space-y-3">
       <h2>Head-to-head comparisons</h2>
       <p class="llc-section-copy text-ink-soft">
-        Most people can skip these. Open the matchup you care about if you are deciding between two
-        specific brands.
+        Most people can skip these. Open the matchup you care about if you're stuck between two
+        brands.
       </p>
     </div>
 
@@ -517,7 +511,7 @@ const structuredData = [
     <div class="space-y-3">
       <h2>How to choose the right LLC service</h2>
       <p class="llc-section-copy text-ink-soft">
-        Match the provider to the framework below. Do not overcomplicate this.
+        Match the provider to the framework below. Don't overthink it.
       </p>
     </div>
 
@@ -552,10 +546,10 @@ const structuredData = [
 
   <section class="llc-card-subtle space-y-5">
     <div class="space-y-3">
-      <h2>What you do not need to buy</h2>
+      <h2>What you don't need to buy</h2>
       <p class="llc-section-copy text-ink-soft">
-        This is where a lot of founders get nickeled and dimed. Most first-time owners can skip the
-        routine add-ons below and do them themselves.
+        This is where founders get nickeled and dimed. Most can skip the add-ons below and handle
+        them themselves.
       </p>
     </div>
 
@@ -563,22 +557,22 @@ const structuredData = [
       <div class="llc-card">
         <p class="llc-helper">Skip the EIN upsell</p>
         <p class="mt-3 text-sm leading-7 text-ink-soft">
-          The IRS gives you an EIN for free. Paying $79 to $99 for someone else to click through the
-          form is usually wasted money.
+          The IRS gives you an EIN for free. Paying $79 to $99 for someone to click through the
+          form is wasted money.
         </p>
       </div>
       <div class="llc-card">
         <p class="llc-helper">Skip the operating agreement template upsell</p>
         <p class="mt-3 text-sm leading-7 text-ink-soft">
-          Most providers resell a template you can draft yourself or buy far more cheaply elsewhere.
-          Useful document, bad place to buy it.
+          These are templates you can write yourself or buy cheaper elsewhere. Useful document,
+          bad place to buy it.
         </p>
       </div>
       <div class="llc-card">
-        <p class="llc-helper">Skip paid compliance alerts if you are organized</p>
+        <p class="llc-helper">Skip paid compliance alerts if you're organized</p>
         <p class="mt-3 text-sm leading-7 text-ink-soft">
-          Annual reminders are helpful, but not worth $99 a year for many owners. A calendar and
-          direct state notices cover the basics.
+          Reminders are nice. They're not worth $99 a year. A calendar and the state's own notices
+          cover the basics.
         </p>
       </div>
     </div>
@@ -588,9 +582,9 @@ const structuredData = [
     <div class="space-y-3">
       <h2>State-specific LLC guides</h2>
       <p class="llc-section-copy text-ink-soft">
-        These providers work in all 50 states, but the filing fee, timeline, publication rules, and
-        annual-report headaches still depend on where you form. Start with one of these guides if
-        you want the state-level rules next.
+        These services work in all 50 states. The filing fee, timeline, publication rule, and
+        annual report still depend on where you form. Open a guide if you want the local rules
+        next.
       </p>
     </div>
 
@@ -607,7 +601,7 @@ const structuredData = [
                 Start with the {featuredStateGuides[0].name} LLC guide
               </p>
               <p class="mt-2 text-sm leading-7 text-ink-soft">
-                If you want a live state-level example first, start with the {featuredStateGuides[0].name} guide.
+                Want a real state-level example first? Start with the {featuredStateGuides[0].name} guide.
               </p>
             </div>
             <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-strong">
@@ -646,8 +640,8 @@ const structuredData = [
     <div class="space-y-3">
       <h2>FAQ</h2>
       <p class="llc-section-copy text-ink-soft">
-        These are the questions that usually show up right before someone decides whether to file
-        themselves or pay a service.
+        The questions people ask right before they decide whether to file themselves or pay a
+        service.
       </p>
     </div>
 
@@ -683,10 +677,9 @@ const structuredData = [
     <p class="llc-helper">Bottom line</p>
     <h2>Our final recommendation</h2>
     <p class="llc-section-copy text-ink-soft">
-      If you want the safest paid default, start with {defaultPick.name}. If you care most about
-      the cheapest viable year-one cost, {cheapestViablePick.name} is the budget pick to compare
-      next. The provider we would steer most first-time founders away from is {avoidPick?.name},
-      because the markup is too hard to justify for a standard LLC filing.
+      Want the safest paid option? Start with {defaultPick.name}. Care most about year-one cost?
+      Check {cheapestViablePick.name} next. The brand we'd steer most first-time founders away
+      from is {avoidPick?.name}. The markup isn't worth it for a standard filing.
     </p>
     <p class="text-sm text-ink-muted">
       Affiliate disclosure: LLCAtlas is reader-supported. When you buy through our links, we may
@@ -703,7 +696,7 @@ const structuredData = [
       eyebrow="Safest default"
       heading={`Start with ${defaultPick.name} if you want the cleanest paid option`}
       buttonLabel={defaultPick.ctaLabel}
-      description={`As of ${llcServicesLastUpdated}, ${defaultPick.name} is still the easiest service to recommend to first-time founders who want help, privacy, and fewer buying headaches.`}
+      description={`As of ${llcServicesLastUpdated}, ${defaultPick.name} is still the easiest service to point first-time founders to. You get help, privacy, and fewer buying headaches.`}
     />
 
     <div class="llc-card-subtle">
@@ -721,8 +714,8 @@ const structuredData = [
     <div class="llc-card-subtle">
       <p class="llc-helper">Why this page matters</p>
       <p class="mt-3 text-sm leading-7 text-ink-soft">
-        If you already know your state rules but still want filing help, this page shows which
-        services are worth paying for and which ones are not.
+        Already know your state's rules but still want filing help? This page shows which services
+        are worth paying for and which aren't.
       </p>
     </div>
   </div>
