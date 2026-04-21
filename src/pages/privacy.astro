@@ -1,0 +1,93 @@
+---
+import SiteLayout from '../layouts/site-layout.astro';
+
+const title = 'Privacy at LLCAtlas';
+const description =
+  "How this site handles your data. Short version: it doesn't collect any.";
+const pageUrl = 'https://llcatlas.com/privacy/';
+const lastUpdated = 'April 2026';
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url: pageUrl,
+    inLanguage: 'en-US',
+  },
+];
+---
+
+<SiteLayout title={title} description={description} structuredData={structuredData}>
+  <section class="space-y-4">
+    <h1>Privacy</h1>
+    <p class="text-lg leading-8 text-ink-soft">
+      Last updated {lastUpdated}. This site doesn't track you. Here's what that actually looks
+      like.
+    </p>
+  </section>
+
+  <section aria-labelledby="what-we-collect" class="max-w-3xl space-y-4">
+    <h2 id="what-we-collect">What we collect</h2>
+    <p class="text-lg leading-8 text-ink-soft">
+      We use <a
+        href="https://www.cloudflare.com/web-analytics/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:text-ink-soft hover:decoration-ink-muted"
+      >Cloudflare Web Analytics</a> to count visits to each page. It doesn't use cookies. It
+      doesn't try to figure out who you are. It counts pageviews and where the visit came from,
+      and that's it.
+    </p>
+    <p class="text-lg leading-8 text-ink-soft">
+      That's the only analytics on this site. No Google Analytics. No Facebook pixel. No session
+      replay. No ad networks.
+    </p>
+  </section>
+
+  <section aria-labelledby="how-we-earn" class="max-w-3xl space-y-4">
+    <h2 id="how-we-earn">How this site makes money</h2>
+    <p class="text-lg leading-8 text-ink-soft">
+      Some of the outbound links here are affiliate links. If you click one and sign up with a
+      formation service like Northwest, Bizee, or LegalZoom, we earn a small commission. You pay
+      the same price either way.
+    </p>
+    <p class="text-lg leading-8 text-ink-soft">
+      The commission doesn't change which service we recommend. We recommend the cheapest good
+      option first and the safest paid option second, and we say so whether anyone is paying us
+      or not. If a service stops paying affiliates tomorrow, our recommendations wouldn't change.
+    </p>
+    <p class="text-lg leading-8 text-ink-soft">
+      We don't run display ads. No banners, no pop-ups, no sponsored articles written to look
+      like reviews.
+    </p>
+  </section>
+
+  <section aria-labelledby="cookies" class="max-w-3xl space-y-4">
+    <h2 id="cookies">Cookies</h2>
+    <p class="text-lg leading-8 text-ink-soft">
+      We don't set cookies.
+    </p>
+  </section>
+
+  <section aria-labelledby="your-data" class="max-w-3xl space-y-4">
+    <h2 id="your-data">Your data</h2>
+    <p class="text-lg leading-8 text-ink-soft">
+      We don't collect personal information from you, so there's nothing to export and nothing
+      to delete. Nothing to opt out of either.
+    </p>
+    <p class="text-lg leading-8 text-ink-soft">
+      If that ever changes, for example if we add a newsletter or a login, we'll say so on this
+      page before collecting anything.
+    </p>
+  </section>
+
+  <section aria-labelledby="changes" class="max-w-3xl space-y-4">
+    <h2 id="changes">Changes to this page</h2>
+    <p class="text-lg leading-8 text-ink-soft">
+      If we change what we collect, we'll update the date at the top and explain what changed.
+      We won't bury anything.
+    </p>
+  </section>
+</SiteLayout>

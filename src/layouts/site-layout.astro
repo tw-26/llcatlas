@@ -92,6 +92,11 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
     <meta name="twitter:description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "9c94b268b27b4893a043076eae99ca12"}'
+    ></script>
     {
       allStructuredData.map((item) => (
         <script type="application/ld+json" set:html={JSON.stringify(item)} />
@@ -204,7 +209,6 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
             };
 
             window.plausible?.(eventName, { props: payload });
-            window.gtag?.('event', eventName, payload);
           });
         }
       </script>
@@ -219,119 +223,15 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
           </p>
           <p class="text-sm text-ink-muted">
             © {currentYear} LLCAtlas. Built for clear LLC decisions. ·{' '}
-            <button
-              type="button"
-              data-consent-reset
+            <a
+              href="/privacy"
               class="underline decoration-rule-strong underline-offset-4 transition hover:text-ink-soft hover:decoration-ink-muted"
             >
-              Privacy &amp; analytics
-            </button>
+              Privacy
+            </a>
           </p>
         </div>
       </footer>
-
-      <div
-        id="llc-consent-banner"
-        role="region"
-        aria-label="Analytics consent"
-        hidden
-        class="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-2xl border border-rule-strong bg-surface p-4 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)] sm:inset-x-auto sm:left-1/2 sm:bottom-6 sm:-translate-x-1/2 sm:p-5"
-      >
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
-          <p class="text-[15px] leading-7 text-ink-soft sm:flex-1">
-            We'd like to count visits to improve these guides. No ads, no personal data. You can
-            change this any time.
-          </p>
-          <div class="flex items-center gap-3 sm:shrink-0">
-            <button
-              type="button"
-              data-consent="declined"
-              class="inline-flex min-h-11 items-center justify-center rounded-full px-4 py-2 text-sm font-medium text-ink-soft transition hover:text-ink-strong"
-            >
-              No thanks
-            </button>
-            <button
-              type="button"
-              data-consent="accepted"
-              class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-2 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
-            >
-              OK
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <script is:inline>
-        (() => {
-          const CONSENT_KEY = 'llc-analytics-consent';
-          const GA_ID = 'G-2V8YRX5N8M';
-          const banner = document.getElementById('llc-consent-banner');
-
-          function loadAnalytics() {
-            if (window.__llcAtlasAnalyticsLoaded) return;
-            window.__llcAtlasAnalyticsLoaded = true;
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = function () {
-              window.dataLayer.push(arguments);
-            };
-            window.gtag('js', new Date());
-            window.gtag('config', GA_ID, { anonymize_ip: true });
-            const tag = document.createElement('script');
-            tag.async = true;
-            tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-            document.head.appendChild(tag);
-          }
-
-          function showBanner() {
-            if (banner) banner.hidden = false;
-          }
-
-          function hideBanner() {
-            if (banner) banner.hidden = true;
-          }
-
-          let stored = null;
-          try {
-            stored = localStorage.getItem(CONSENT_KEY);
-          } catch (_) {
-            // privacy-mode storage refusal — treat as no decision
-          }
-
-          if (stored === 'accepted') {
-            loadAnalytics();
-          } else if (!stored) {
-            showBanner();
-          }
-
-          if (banner) {
-            banner.addEventListener('click', (event) => {
-              const btn = event.target instanceof Element ? event.target.closest('[data-consent]') : null;
-              if (!(btn instanceof HTMLButtonElement)) return;
-              const decision = btn.dataset.consent;
-              if (decision !== 'accepted' && decision !== 'declined') return;
-              try {
-                localStorage.setItem(CONSENT_KEY, decision);
-              } catch (_) {
-                // ignore storage failures
-              }
-              hideBanner();
-              if (decision === 'accepted') loadAnalytics();
-            });
-          }
-
-          document.addEventListener('click', (event) => {
-            const reset = event.target instanceof Element ? event.target.closest('[data-consent-reset]') : null;
-            if (!reset) return;
-            event.preventDefault();
-            try {
-              localStorage.removeItem(CONSENT_KEY);
-            } catch (_) {
-              // ignore
-            }
-            showBanner();
-          });
-        })();
-      </script>
     </div>
   </body>
 </html>
