@@ -1,39 +1,12 @@
 ---
 import StateSelector from '../components/state-selector.astro';
 import SiteLayout from '../layouts/site-layout.astro';
-import { affiliates, isAffiliateConfigured, type AffiliatePartner } from '../data/affiliates';
-
-type FrameworkPick = {
-  label: string;
-  title: string;
-  description: string;
-  partner: AffiliatePartner;
-};
 
 const pageUrl = 'https://llcatlas.com/';
 const title = 'LLCAtlas — Free LLC Formation Guides for Every State (2026)';
 const description =
-  "State-specific guides to forming your LLC. Real costs, honest recommendations, no hidden fees. Start with your state or compare the best LLC services.";
-const recommendationFramework: FrameworkPick[] = [
-  {
-    label: 'Safest default',
-    title: 'Northwest Registered Agent',
-    description: "The cleanest paid option if you want help and don't want to think about it.",
-    partner: 'northwest',
-  },
-  {
-    label: 'Cheaper viable option',
-    title: 'Bizee',
-    description: "Lowest real year-one cost, if you can stomach a clunky checkout.",
-    partner: 'bizee',
-  },
-  {
-    label: 'Avoid overpaying',
-    title: 'LegalZoom',
-    description: "Familiar name. Most first-time founders don't get enough extra to justify the price.",
-    partner: 'legalzoom',
-  },
-];
+  "State-specific guides to forming your LLC. Real costs, honest recommendations, no hidden fees. Start with your state, in plain English.";
+
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -62,127 +35,58 @@ const structuredData = [
   <section class="space-y-8">
     <div class="space-y-4">
       <h1>Start your LLC without the upsells.</h1>
-      <p class="max-w-4xl text-lg leading-8 text-slate-700">
-        Most first-time owners don't need more options. You need the filing steps in plain English,
-        the real costs up front, and an honest next step. Pick your state below, or skip ahead and
-        compare filing services.
+      <p class="max-w-3xl text-lg leading-8 text-ink-soft">
+        Most first-time owners don't need more options. You need the filing steps in plain
+        English, the real costs up front, and an honest next step.
       </p>
     </div>
 
-    <div class="flex flex-col gap-4 sm:flex-row">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
       <a
         href="#state-selector"
-        class="inline-flex items-center justify-center rounded-full bg-amber-500 px-6 py-3 text-base font-semibold text-slate-950 transition hover:bg-amber-400"
+        class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-6 py-3 text-base font-semibold text-ink-strong transition hover:bg-accent/85"
       >
         Find your state guide
       </a>
       <a
         href="/best-llc-services"
-        class="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-base font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50"
+        class="inline-flex items-center text-base font-medium text-ink-soft underline decoration-rule-strong underline-offset-4 transition hover:text-ink-strong hover:decoration-ink-muted"
       >
-        Compare LLC services
+        Already decided you want help? Compare services
+        <span aria-hidden="true" class="ml-1.5">→</span>
       </a>
     </div>
   </section>
 
-  <section class="grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)] lg:items-start">
-    <div id="state-selector" class="space-y-5 scroll-mt-8">
-      <div class="space-y-3">
-        <h2>Start with your state</h2>
-        <p class="max-w-3xl text-lg leading-8 text-slate-700">
-          Filing fees, annual reports, publication rules, processing times. They all change
-          depending on where you form. Pick your state to see what filing actually looks like.
-        </p>
-      </div>
-
-      <StateSelector />
+  <section id="state-selector" class="space-y-5 scroll-mt-8">
+    <div class="space-y-3">
+      <h2>Start with your state</h2>
+      <p class="max-w-3xl text-lg leading-8 text-ink-soft">
+        Filing fees, annual reports, processing times, and the extra steps a few states still
+        require. They all change depending on where you form. Pick your state to see what filing
+        actually looks like.
+      </p>
     </div>
 
-    <div class="space-y-6 lg:sticky lg:top-10">
-      <div class="llc-card-subtle space-y-5 !rounded-[1.5rem] !p-6 sm:!p-7">
-        <p class="llc-helper">Need filing help?</p>
-        <h2>Compare LLC services</h2>
-        <p class="text-lg leading-8 text-slate-700">
-          Same framework we use everywhere else. Safest default first. Cheapest option that's
-          actually usable second. The brand most people overpay for last.
-        </p>
-        <div class="space-y-4 border-t border-slate-200 pt-5">
-          {
-            recommendationFramework.map((item) => (
-              <div class="space-y-1">
-                <p class="llc-helper text-slate-500">{item.label}</p>
-                <p class="text-base font-semibold text-slate-950">
-                  <a
-                    href={affiliates[item.partner]}
-                    target="_blank"
-                    rel="sponsored noopener noreferrer"
-                    data-affiliate-click={isAffiliateConfigured(item.partner) ? '' : undefined}
-                    data-event-name="affiliate_click"
-                    data-partner={item.title}
-                    data-placement="home-framework"
-                    data-state="national"
-                    class="underline decoration-slate-300 underline-offset-4 transition hover:text-slate-700 hover:decoration-slate-500"
-                  >
-                    {item.title}
-                  </a>
-                </p>
-                <p class="text-[15px] leading-7 text-slate-600">{item.description}</p>
-              </div>
-            ))
-          }
-        </div>
+    <StateSelector />
+  </section>
+
+  <section aria-labelledby="approach-heading" class="border-t border-rule pt-8 sm:pt-10">
+    <div class="max-w-3xl space-y-3">
+      <p class="llc-helper">How we approach this</p>
+      <h2 id="approach-heading" class="!text-2xl">Framework first. Click second.</h2>
+      <p class="text-lg leading-8 text-ink-soft">
+        Most LLC sites want the click first and the explanation later. We give you the framework
+        first — what filing actually involves, what each state requires, where the real costs hide
+        — and then let you pick. If you want help with the paperwork, our{' '}
         <a
           href="/best-llc-services"
-          class="inline-flex min-h-11 items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+          class="font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:text-ink-soft hover:decoration-ink-muted"
         >
-          Compare LLC services
-        </a>
-      </div>
-
-      <div class="llc-card space-y-4 !rounded-[1.5rem] !p-6 sm:!p-7">
-        <p class="llc-helper">Why this is easier</p>
-        <p class="text-lg leading-8 text-slate-700">
-          Most LLC sites want the click first and the explanation later. We give you the framework
-          first, then let you pick.
-        </p>
-        <div class="space-y-3 border-t border-slate-200 pt-5 text-[1.0625rem] leading-8 text-slate-700">
-          <p>Start with your state if you're still figuring out the filing itself.</p>
-          <p>
-            Start with{' '}
-            <a
-              href={affiliates.northwest}
-              target="_blank"
-              rel="sponsored noopener noreferrer"
-              data-affiliate-click={isAffiliateConfigured('northwest') ? '' : undefined}
-              data-event-name="affiliate_click"
-              data-partner="Northwest Registered Agent"
-              data-placement="home-why-easier"
-              data-state="national"
-              class="font-semibold text-slate-950 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-700 hover:decoration-slate-500"
-            >
-              Northwest
-            </a>{' '}
-            if you want the safest paid option.
-          </p>
-          <p>
-            Start with{' '}
-            <a
-              href={affiliates.bizee}
-              target="_blank"
-              rel="sponsored noopener noreferrer"
-              data-affiliate-click={isAffiliateConfigured('bizee') ? '' : undefined}
-              data-event-name="affiliate_click"
-              data-partner="Bizee"
-              data-placement="home-why-easier"
-              data-state="national"
-              class="font-semibold text-slate-950 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-700 hover:decoration-slate-500"
-            >
-              Bizee
-            </a>{' '}
-            only if year-one cost matters more to you than polish.
-          </p>
-        </div>
-      </div>
+          comparison of LLC services
+        </a>{' '}
+        ranks them by year-one cost and how much they actually do for you.
+      </p>
     </div>
   </section>
 </SiteLayout>

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import atkinsonRegular from '@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff2?url';
 
 type StructuredData = Record<string, unknown>;
 
@@ -62,6 +63,13 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={atkinsonRegular}
+      crossorigin
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -84,15 +92,6 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
     <meta name="twitter:description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2V8YRX5N8M"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-2V8YRX5N8M');
-    </script>
     {
       allStructuredData.map((item) => (
         <script type="application/ld+json" set:html={JSON.stringify(item)} />
@@ -100,6 +99,7 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
     }
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <div class="min-h-screen">
       <header class="border-b border-rule bg-surface">
         <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-5 sm:px-6 lg:px-8">
@@ -116,15 +116,6 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
 
           <nav aria-label="Primary" class="hidden items-center gap-6 text-sm text-ink-soft md:flex">
             <a href="/" class={homeLinkClass} aria-current={isHomePage ? 'page' : undefined}>Home</a>
-            <!-- Hide for now 
-            <a
-              href="/#state-selector"
-              class={stateLinkClass}
-              aria-current={isStateGuidePage ? 'page' : undefined}
-            >
-              State guides
-            </a>
-            --> 
             <a
               href="/best-state"
               class={bestStateLinkClass}
@@ -151,12 +142,6 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
         <div class="border-t border-rule md:hidden">
           <div class="mx-auto flex max-w-7xl flex-wrap gap-3 px-4 py-3 sm:px-6">
             <a
-              href="/#state-selector"
-              class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-4 py-2 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
-            >
-              Find your state
-            </a>
-            <a
               href="/best-state"
               class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-4 py-2 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
               aria-current={isBestStatePage ? 'page' : undefined}
@@ -165,15 +150,22 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
             </a>
             <a
               href="/best-llc-services"
-              class="inline-flex min-h-11 items-center justify-center rounded-full bg-action px-4 py-2 text-sm font-semibold text-white transition hover:bg-action-hover"
+              class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-4 py-2 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
+              aria-current={isComparisonPage ? 'page' : undefined}
             >
               Compare services
+            </a>
+            <a
+              href={primaryNavCta.href}
+              class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-4 py-2 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+            >
+              {primaryNavCta.label}
             </a>
           </div>
         </div>
       </header>
 
-      <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <main id="main" tabindex="-1" class="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         {
           hasSidebar ? (
             <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
@@ -225,9 +217,121 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
             That does not change our editorial stance. We do not form LLCs, file paperwork, or
             provide legal or tax advice.
           </p>
-          <p class="text-sm text-ink-muted">© {currentYear} LLCAtlas. Built for clear LLC decisions.</p>
+          <p class="text-sm text-ink-muted">
+            © {currentYear} LLCAtlas. Built for clear LLC decisions. ·{' '}
+            <button
+              type="button"
+              data-consent-reset
+              class="underline decoration-rule-strong underline-offset-4 transition hover:text-ink-soft hover:decoration-ink-muted"
+            >
+              Privacy &amp; analytics
+            </button>
+          </p>
         </div>
       </footer>
+
+      <div
+        id="llc-consent-banner"
+        role="region"
+        aria-label="Analytics consent"
+        hidden
+        class="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-2xl border border-rule-strong bg-surface p-4 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)] sm:inset-x-auto sm:left-1/2 sm:bottom-6 sm:-translate-x-1/2 sm:p-5"
+      >
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+          <p class="text-[15px] leading-7 text-ink-soft sm:flex-1">
+            We'd like to count visits to improve these guides. No ads, no personal data. You can
+            change this any time.
+          </p>
+          <div class="flex items-center gap-3 sm:shrink-0">
+            <button
+              type="button"
+              data-consent="declined"
+              class="inline-flex min-h-11 items-center justify-center rounded-full px-4 py-2 text-sm font-medium text-ink-soft transition hover:text-ink-strong"
+            >
+              No thanks
+            </button>
+            <button
+              type="button"
+              data-consent="accepted"
+              class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-2 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <script is:inline>
+        (() => {
+          const CONSENT_KEY = 'llc-analytics-consent';
+          const GA_ID = 'G-2V8YRX5N8M';
+          const banner = document.getElementById('llc-consent-banner');
+
+          function loadAnalytics() {
+            if (window.__llcAtlasAnalyticsLoaded) return;
+            window.__llcAtlasAnalyticsLoaded = true;
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function () {
+              window.dataLayer.push(arguments);
+            };
+            window.gtag('js', new Date());
+            window.gtag('config', GA_ID, { anonymize_ip: true });
+            const tag = document.createElement('script');
+            tag.async = true;
+            tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+            document.head.appendChild(tag);
+          }
+
+          function showBanner() {
+            if (banner) banner.hidden = false;
+          }
+
+          function hideBanner() {
+            if (banner) banner.hidden = true;
+          }
+
+          let stored = null;
+          try {
+            stored = localStorage.getItem(CONSENT_KEY);
+          } catch (_) {
+            // privacy-mode storage refusal — treat as no decision
+          }
+
+          if (stored === 'accepted') {
+            loadAnalytics();
+          } else if (!stored) {
+            showBanner();
+          }
+
+          if (banner) {
+            banner.addEventListener('click', (event) => {
+              const btn = event.target instanceof Element ? event.target.closest('[data-consent]') : null;
+              if (!(btn instanceof HTMLButtonElement)) return;
+              const decision = btn.dataset.consent;
+              if (decision !== 'accepted' && decision !== 'declined') return;
+              try {
+                localStorage.setItem(CONSENT_KEY, decision);
+              } catch (_) {
+                // ignore storage failures
+              }
+              hideBanner();
+              if (decision === 'accepted') loadAnalytics();
+            });
+          }
+
+          document.addEventListener('click', (event) => {
+            const reset = event.target instanceof Element ? event.target.closest('[data-consent-reset]') : null;
+            if (!reset) return;
+            event.preventDefault();
+            try {
+              localStorage.removeItem(CONSENT_KEY);
+            } catch (_) {
+              // ignore
+            }
+            showBanner();
+          });
+        })();
+      </script>
     </div>
   </body>
 </html>

@@ -439,8 +439,14 @@ const structuredData = [
     stateName={state.name}
     placement="inline"
     heading={`Our pick for ${state.name}: ${northwestPartnerName}`}
-    description={`Want help filing your ${state.name} LLC? ${northwestPartnerName} is the service we point most first-time founders to. They keep your home address off the public record by acting as your ${state.agentTerm}, don't push upsells at checkout, and include the registered agent year one with no surprise renewals later.`}
+    description={`Want help filing your ${state.name} LLC? ${northwestPartnerName} is the service we point most first-time founders to — privacy first, no upsells at checkout, and transparent renewals.`}
     buttonLabel={`Start with ${northwestPartnerName}`}
+    benefits={[
+      `Acts as your ${state.agentTerm} — your home address stays off the public ${state.name} filing`,
+      'No upsells or surprise add-ons at checkout',
+      'Year one of registered agent service included',
+    ]}
+    ctaNote={`File your ${state.name} LLC with ${northwestPartnerName} handling the ${state.agentTerm} role.`}
   />
 
   <section class="space-y-5">
@@ -581,14 +587,14 @@ const structuredData = [
           </p>
         </div>
 
-        <div class="grid gap-y-8 border-y border-rule py-7 md:grid-cols-2 md:gap-x-12 md:gap-y-0 md:divide-x md:divide-rule">
-          <div class="md:pr-2">
+        <div class="grid gap-y-8 border-y border-rule py-7 md:grid-cols-2 md:gap-x-0 md:gap-y-0 md:divide-x md:divide-rule">
+          <div class="md:pr-8 lg:pr-10">
             <p class="llc-helper">What works</p>
             <ul class="llc-bullet-list mt-4 text-ink-soft">
               {state.proscons.pros.map((item) => <li>{item}</li>)}
             </ul>
           </div>
-          <div class="md:pl-12">
+          <div class="md:pl-8 lg:pl-10">
             <p class="llc-helper">Watch out for</p>
             <ul class="llc-bullet-list mt-4 text-ink-soft">
               {state.proscons.cons.map((item) => <li>{item}</li>)}

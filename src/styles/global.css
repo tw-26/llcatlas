@@ -1,24 +1,63 @@
 @import "tailwindcss";
 
-/* Editorial pairing: Source Serif 4 for headings, Inter for body. */
-@import "@fontsource-variable/source-serif-4/index.css";
-@import "@fontsource-variable/source-serif-4/wght-italic.css";
-@import "@fontsource-variable/inter/index.css";
+/* Editorial pairing: Source Serif 4 (headings) + Atkinson Hyperlegible (body).
+   Atkinson Hyperlegible was designed by the Braille Institute for maximum
+   character distinction — chosen here so anxious first-time founders reading
+   filing details late at night can scan numbers, abbreviations, and dollar
+   amounts without ambiguity. */
+@import "@fontsource/atkinson-hyperlegible/latin-400.css";
+@import "@fontsource/atkinson-hyperlegible/latin-400-italic.css";
+@import "@fontsource/atkinson-hyperlegible/latin-700.css";
+@import "@fontsource/atkinson-hyperlegible/latin-700-italic.css";
+
+/* Source Serif 4 Variable — latin subset only.
+   Declared inline so the build doesn't ship cyrillic / greek / vietnamese
+   subset files that an English-language US-LLC audience never needs. */
+@font-face {
+  font-family: "Source Serif 4 Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 900;
+  src: url("@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Source Serif 4 Variable";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 200 900;
+  src: url("@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 @theme {
+  /* Body font registered as --font-sans so Tailwind's `font-sans` utility
+     resolves to Atkinson everywhere, not just on <body>. */
+  --font-sans:
+    "Atkinson Hyperlegible", "Atkinson Hyperlegible Next", "Helvetica Neue",
+    "Segoe UI", system-ui, sans-serif;
   --font-heading:
-    "Source Serif 4 Variable", "Source Serif 4", "Iowan Old Style", "Apple Garamond",
-    "Baskerville", "Georgia", "Times New Roman", serif;
+    "Source Serif 4 Variable", "Source Serif 4", "Iowan Old Style",
+    "Apple Garamond", "Baskerville", "Georgia", "Times New Roman", serif;
 
   --color-ink: #1a1a1a;
   --color-ink-soft: #3a3a3a;
-  --color-ink-muted: #6b7280;
+  /* Tightened from #6b7280 (~4.83:1) to ~6.7:1 on the tinted surface so
+     small uppercase helper labels read comfortably for late-night users. */
+  --color-ink-muted: #525a66;
   --color-ink-strong: #0f172a;
 
   --color-rule: #e5e7eb;
   --color-rule-strong: #cbd5e1;
 
-  --color-surface: #ffffff;
+  /* Slight warm tint toward the amber accent — never pure white.
+     Creates subconscious cohesion between brand color and surfaces. */
+  --color-surface: oklch(99.5% 0.005 70);
   --color-surface-subtle: #f9fafb;
   --color-surface-warm: #fdf8f3;
 
@@ -33,12 +72,6 @@
 @layer base {
   :root {
     color-scheme: light;
-    --font-body:
-      "Inter Variable", "Inter", "Segoe UI Variable Text", "Segoe UI",
-      "Helvetica Neue", Arial, sans-serif;
-    --font-heading:
-      "Source Serif 4 Variable", "Source Serif 4", "Iowan Old Style", "Apple Garamond",
-      "Baskerville", "Georgia", "Times New Roman", serif;
 
     /* Legacy aliases — kept so pages not yet migrated continue to render. */
     --text-primary: var(--color-ink);
@@ -57,7 +90,6 @@
 
   body {
     @apply bg-surface font-sans antialiased;
-    font-family: var(--font-body);
     color: var(--color-ink-soft);
     font-kerning: normal;
     text-rendering: optimizeLegibility;
@@ -146,6 +178,17 @@
     line-height: 1.6;
     font-variant-numeric: tabular-nums;
   }
+
+  /* Visible only when focused — for keyboard / screen-reader users to skip
+     the header and jump straight to <main id="main">. */
+  .skip-link {
+    @apply sr-only;
+  }
+
+  .skip-link:focus-visible {
+    @apply not-sr-only fixed left-4 top-4 z-50 inline-flex items-center
+      rounded-full bg-action px-4 py-2 text-sm font-semibold text-white;
+  }
 }
 
 @layer components {
@@ -174,6 +217,16 @@
     border: 1px solid var(--color-accent-soft);
     border-radius: 12px;
     background: var(--color-surface-warm);
+    @apply p-6 sm:p-7;
+  }
+
+  /* Larger marketing surface — used when a card needs to feel like a
+     spotlight panel rather than an inline content card. Generous radius
+     and padding so it reads as a destination, not a blockquote. */
+  .llc-card-spotlight {
+    border: 1px solid var(--color-rule);
+    border-radius: 1.5rem;
+    background: var(--color-surface-subtle);
     @apply p-6 sm:p-7;
   }
 

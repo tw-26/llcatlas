@@ -21,9 +21,9 @@ const getFeeLabel = (state: StateData) =>
   state.filingFee > 0 ? `$${state.filingFee} filing fee` : null;
 ---
 
-<div data-state-selector class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white">
-  <div class="border-b border-slate-200 px-4 py-4 sm:px-5">
-    <label for="state-search" class="mb-2 block text-[15px] font-medium text-slate-700">
+<div data-state-selector class="overflow-hidden rounded-[1.5rem] border border-rule bg-surface">
+  <div class="border-b border-rule px-4 py-4 sm:px-5">
+    <label for="state-search" class="mb-2 block text-[15px] font-medium text-ink-soft">
       Search by state name or abbreviation
     </label>
     <input
@@ -33,19 +33,19 @@ const getFeeLabel = (state: StateData) =>
       autocomplete="off"
       spellcheck="false"
       data-state-search
-      class="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-lg text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-amber-500 focus:ring-4 focus:ring-amber-100"
+      class="w-full rounded-2xl border border-rule-strong bg-surface px-4 py-3 text-lg text-ink-strong transition placeholder:text-ink-muted focus:border-accent"
     />
   </div>
 
   <div data-state-ready-block>
-    <div class="border-b border-slate-200 bg-slate-50 px-4 py-3 sm:px-5">
+    <div class="border-b border-rule bg-surface-subtle px-4 py-3 sm:px-5">
       <p class="llc-helper">Available now</p>
-      <p class="mt-2 text-[15px] leading-7 text-slate-600">
+      <p class="mt-2 text-[15px] leading-7 text-ink-soft">
         Guides with verified filing details and full walkthroughs.
       </p>
     </div>
 
-    <ul data-state-section="ready" class="max-h-[28rem] divide-y divide-slate-200 overflow-y-auto">
+    <ul data-state-section="ready" class="max-h-[28rem] divide-y divide-rule overflow-y-auto">
       {
         readyStates.map((state) => (
           <li
@@ -57,8 +57,8 @@ const getFeeLabel = (state: StateData) =>
           >
             <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div class="min-w-0">
-                <p class="text-lg font-semibold text-slate-950">{state.name}</p>
-                <p class="text-[15px] leading-7 text-slate-600">
+                <p class="text-lg font-semibold text-ink-strong">{state.name}</p>
+                <p class="text-[15px] leading-7 text-ink-soft">
                   {state.abbreviation}
                   {getFeeLabel(state) && ` · ${getFeeLabel(state)}`}
                 </p>
@@ -66,9 +66,9 @@ const getFeeLabel = (state: StateData) =>
 
               <a
                 href={`/llc/${state.slug}`}
-                class="inline-flex min-h-11 items-center text-[15px] font-semibold text-amber-700 transition hover:text-amber-800"
+                class="inline-flex min-h-11 items-center text-[15px] font-semibold text-accent-ink underline decoration-accent/40 underline-offset-4 transition hover:decoration-accent-ink"
               >
-                Read guide →
+                Read guide <span aria-hidden="true" class="ml-1">→</span>
               </a>
             </div>
           </li>
@@ -79,13 +79,39 @@ const getFeeLabel = (state: StateData) =>
 
   {
     comingSoonStates.length > 0 && (
-      <details data-state-coming-soon class="group border-t border-slate-200">
-        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-4 text-[15px] font-semibold text-slate-900 marker:hidden sm:px-5">
+      <details data-state-coming-soon class="group border-t border-rule">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-4 text-[15px] font-semibold text-ink-strong marker:hidden sm:px-5">
           <span>Other states coming soon ({comingSoonStates.length})</span>
-          <span class="text-slate-400 transition group-open:rotate-180">⌄</span>
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4 text-ink-muted transition-transform duration-200 group-open:rotate-180"
+          >
+            <path d="M5 8l5 5 5-5" />
+          </svg>
         </summary>
 
-        <ul data-state-section="coming-soon" class="divide-y divide-slate-200 border-t border-slate-200">
+        <div class="border-t border-rule bg-surface-subtle px-4 py-4 sm:px-5">
+          <p class="text-[15px] leading-7 text-ink-soft">
+            We haven't finished writing these yet. Most LLC filings share the same five steps —
+            while we publish, see our{' '}
+            <a
+              href="/best-llc-services"
+              class="font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:text-ink-soft hover:decoration-ink-muted"
+            >
+              comparison of LLC services
+            </a>{' '}
+            for the cleanest way to file in any state.
+          </p>
+        </div>
+
+        <ul data-state-section="coming-soon" class="divide-y divide-rule border-t border-rule">
           {
             comingSoonStates.map((state) => (
               <li
@@ -97,11 +123,11 @@ const getFeeLabel = (state: StateData) =>
               >
                 <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div class="min-w-0">
-                    <p class="text-lg font-semibold text-slate-950">{state.name}</p>
-                    <p class="text-[15px] leading-7 text-slate-600">{state.abbreviation}</p>
+                    <p class="text-lg font-semibold text-ink-strong">{state.name}</p>
+                    <p class="text-[15px] leading-7 text-ink-soft">{state.abbreviation}</p>
                   </div>
 
-                  <span class="text-[15px] font-medium text-slate-500">Guide coming soon</span>
+                  <span class="text-[15px] font-medium text-ink-muted">Guide in progress</span>
                 </div>
               </li>
             ))
@@ -111,7 +137,7 @@ const getFeeLabel = (state: StateData) =>
     )
   }
 
-  <p hidden data-state-empty aria-live="polite" class="border-t border-slate-200 px-4 py-4 text-[15px] text-slate-600 sm:px-5">
+  <p hidden data-state-empty aria-live="polite" class="border-t border-rule px-4 py-4 text-[15px] text-ink-soft sm:px-5">
     No match. Try the full state name or its abbreviation.
   </p>
 </div>
