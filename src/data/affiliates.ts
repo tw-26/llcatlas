@@ -15,7 +15,7 @@ export type AffiliatePartner = 'bizee' | 'northwest' | 'zenbusiness' | 'legalzoo
 // TODO: Update with real affiliate URLs once each program approves.
 export const affiliates: Record<AffiliatePartner, string> = {
   bizee: '#',
-  northwest: '#',
+  northwest: 'https://tidd.ly/48iRAwH',
   zenbusiness: '#',
   legalzoom: '#',
 };
