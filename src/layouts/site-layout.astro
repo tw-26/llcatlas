@@ -37,7 +37,14 @@ const bestStateLinkClass = isBestStatePage ? 'font-semibold text-ink-strong' : '
 const primaryNavCta = isStateGuidePage
   ? { href: '/best-llc-services', label: 'Compare services' }
   : { href: '/#state-selector', label: 'Find your state' };
-const contentWidthClass = isHomePage ? 'max-w-6xl' : 'max-w-5xl';
+const isPrivacyPage = currentPath === '/privacy/' || currentPath === '/privacy';
+const contentWidthClass = isHomePage
+  ? 'mx-auto max-w-6xl'
+  : isBestStatePage
+    ? 'w-full'
+    : isPrivacyPage
+      ? 'lg:max-w-[892px]'
+      : 'mx-auto max-w-5xl';
 const pageStructuredData = Array.isArray(structuredData) ? structuredData : [structuredData];
 const defaultStructuredData: StructuredData[] = [
   {
@@ -137,7 +144,7 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
             </a>
             <a
               href={primaryNavCta.href}
-              class="rounded-full bg-accent px-4 py-2 font-semibold text-ink-strong transition hover:bg-accent/85"
+              class="rounded-full bg-accent px-4 py-2 font-semibold text-ink-strong transition hover:bg-accent-deep hover:text-white"
             >
               {primaryNavCta.label}
             </a>
@@ -162,7 +169,7 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
             </a>
             <a
               href={primaryNavCta.href}
-              class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-4 py-2 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+              class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-4 py-2 text-sm font-semibold text-ink-strong transition hover:bg-accent-deep hover:text-white"
             >
               {primaryNavCta.label}
             </a>
@@ -183,7 +190,7 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
               </aside>
             </div>
           ) : (
-            <article class={['mx-auto min-w-0 space-y-12', contentWidthClass].join(' ')}>
+            <article class={['min-w-0 space-y-12', contentWidthClass].join(' ')}>
               <slot />
             </article>
           )

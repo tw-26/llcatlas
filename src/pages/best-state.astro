@@ -17,6 +17,11 @@ const lastUpdatedLabel = new Date(`${lastUpdatedIso}T00:00:00Z`).toLocaleDateStr
   timeZone: 'UTC',
 });
 
+/** Estimated read time. Manually maintained to avoid the cognitive
+ *  cost of an HTML-stripping word-counter on a marketing page —
+ *  recompute when content materially changes. ~225 wpm reading. */
+const readTimeMinutes = 9;
+
 const northwestAffiliateUrl = affiliates.northwest;
 const northwestPartnerName = 'Northwest Registered Agent';
 
@@ -92,7 +97,7 @@ const outOfStateScenarios = [
   {
     title: 'Strong asset-protection needs (Wyoming, Nevada)',
     description:
-      "Wyoming and Nevada have unusually strong charging-order protections, even for single-member LLCs. For most readers this is theoretical. For high-net-worth founders or professionals with real litigation exposure, it can be a genuine reason.",
+      "Wyoming and Nevada have unusually strong charging-order protections — the rule that limits a personal creditor of an LLC member to a payout of distributions, instead of letting them seize the LLC's assets — even for single-member LLCs. For most readers this is theoretical. For high-net-worth founders or professionals with real litigation exposure, it can be a genuine reason.",
   },
   {
     title: 'You actually live or operate there',
@@ -206,12 +211,14 @@ const structuredData = [
   ogType="article"
   structuredData={structuredData}
 >
-  <section class="space-y-8">
+  <section class="space-y-10">
     <div class="space-y-6">
       <p class="llc-helper">Choosing a formation state</p>
       <h1>Best state to form an LLC in 2026</h1>
-      <p class="text-[13px] uppercase tracking-[0.08em] text-ink-muted">
-        Last updated <time datetime={lastUpdatedIso}>{lastUpdatedLabel}</time>
+      <p class="llc-helper-sm">
+        <time datetime={lastUpdatedIso}>Updated {lastUpdatedLabel}</time>
+        <span aria-hidden="true" class="mx-2 text-ink-faint">·</span>
+        <span>{readTimeMinutes} min read</span>
       </p>
       <p class="llc-section-copy text-ink-soft">
         For most first-time founders, the best state to form an LLC is the one you live and work
@@ -233,23 +240,23 @@ const structuredData = [
         </p>
       </div>
 
-      <dl class="grid gap-y-5 border-t border-accent-soft/70 pt-5 md:grid-cols-3 md:gap-x-8 md:gap-y-0 md:divide-x md:divide-accent-soft/70">
-        <div class="space-y-1.5 md:px-6 md:first:pl-0 md:last:pr-0">
+      <dl class="llc-divided-row border-t border-accent-soft pt-5">
+        <div class="space-y-1.5">
           <dt class="llc-helper">Default answer</dt>
-          <dd class="text-[15px] leading-7 text-ink-soft">
+          <dd class="text-base leading-7 text-ink-soft">
             File in the state where you live and run the business.
           </dd>
         </div>
-        <div class="space-y-1.5 md:px-6 md:first:pl-0 md:last:pr-0">
+        <div class="space-y-1.5">
           <dt class="llc-helper">When to deviate</dt>
-          <dd class="text-[15px] leading-7 text-ink-soft">
+          <dd class="text-base leading-7 text-ink-soft">
             Real estate in another state. Raising VC (Delaware C-corp). Or a true holding company
             with no single state of operations.
           </dd>
         </div>
-        <div class="space-y-1.5 md:px-6 md:first:pl-0 md:last:pr-0">
+        <div class="space-y-1.5">
           <dt class="llc-helper">Avoid</dt>
-          <dd class="text-[15px] leading-7 text-ink-soft">
+          <dd class="text-base leading-7 text-ink-soft">
             Forming in Wyoming, Delaware, or Nevada to "save on taxes" while living somewhere else.
             It usually costs more, not less.
           </dd>
@@ -271,11 +278,33 @@ const structuredData = [
         </a>
       </div>
     </div>
+
+    <nav aria-label="On this page" class="border-t border-rule pt-5">
+      <p class="llc-helper mb-3">On this page</p>
+      <ol class="flex flex-wrap gap-x-5 gap-y-2 text-base">
+        <li class="flex items-baseline gap-2">
+          <span aria-hidden="true" class="font-heading text-sm tabular-nums text-ink-faint">01</span>
+          <a href="#foreign-llc-trap" class="llc-link">The foreign-LLC trap</a>
+        </li>
+        <li class="flex items-baseline gap-2">
+          <span aria-hidden="true" class="font-heading text-sm tabular-nums text-ink-faint">02</span>
+          <a href="#exceptions" class="llc-link">When out-of-state makes sense</a>
+        </li>
+        <li class="flex items-baseline gap-2">
+          <span aria-hidden="true" class="font-heading text-sm tabular-nums text-ink-faint">03</span>
+          <a href="#compare" class="llc-link">Compare states side by side</a>
+        </li>
+        <li class="flex items-baseline gap-2">
+          <span aria-hidden="true" class="font-heading text-sm tabular-nums text-ink-faint">04</span>
+          <a href="#faq" class="llc-link">FAQ</a>
+        </li>
+      </ol>
+    </nav>
   </section>
 
-  <section class="space-y-5">
+  <section id="foreign-llc-trap" class="space-y-6 scroll-mt-24">
     <div class="space-y-4">
-      <h2>Why your home state is usually right</h2>
+      <h2>Where you form isn't where you operate</h2>
       <p class="llc-section-copy">
         The Wyoming and Delaware pitch skips one fact: where you form isn't where you operate.
         Form in Wyoming but live and work in Ohio? Ohio still treats your business as an Ohio
@@ -337,7 +366,7 @@ const structuredData = [
     </div>
   </section>
 
-  <section class="space-y-5">
+  <section id="exceptions" class="space-y-6 scroll-mt-24">
     <div class="space-y-4">
       <h2>When out-of-state actually makes sense</h2>
       <p class="llc-section-copy">
@@ -351,18 +380,14 @@ const structuredData = [
       {
         outOfStateScenarios.map((item, index) => (
           <li class="llc-card relative grid gap-3 sm:grid-cols-[auto_1fr] sm:gap-x-6">
-            <span
-              aria-hidden="true"
-              class="font-heading text-[2rem] font-semibold leading-none text-ink-muted/60 tabular-nums sm:text-[2.25rem]"
-            >
+            <span aria-hidden="true" class="llc-numeral">
               {String(index + 1).padStart(2, '0')}
             </span>
             <div class="min-w-0">
-              <p class="llc-helper">
-                <span class="sr-only">Scenario </span>
-                {index + 1} of {outOfStateScenarios.length}
-              </p>
-              <h3 class="mt-2">{item.title}</h3>
+              <h3>
+                <span class="sr-only">Scenario {index + 1} of {outOfStateScenarios.length}: </span>
+                {item.title}
+              </h3>
               <p class="mt-3 llc-section-copy text-ink-soft">{item.description}</p>
             </div>
           </li>
@@ -371,7 +396,7 @@ const structuredData = [
     </ol>
   </section>
 
-  <section class="space-y-5">
+  <section id="compare" class="space-y-8 scroll-mt-24">
     <div class="space-y-4">
       <h2>Wyoming vs Delaware vs Nevada vs your home state</h2>
       <p class="llc-section-copy">
@@ -380,57 +405,134 @@ const structuredData = [
       </p>
     </div>
 
-    <div class="llc-card overflow-hidden !p-0">
-      <div class="overflow-x-auto">
-        <table class="min-w-full divide-y divide-rule">
-          <thead class="bg-surface-subtle">
-            <tr>
-              <th scope="col" class="llc-table-head px-5 py-4 text-left">State</th>
-              <th scope="col" class="llc-table-head px-5 py-4 text-right">Filing fee</th>
-              <th scope="col" class="llc-table-head px-5 py-4 text-right">Annual state cost</th>
-              <th scope="col" class="llc-table-head px-5 py-4 text-left">State income tax</th>
-              <th scope="col" class="llc-table-head px-5 py-4 text-left">Privacy</th>
-              <th scope="col" class="llc-table-head px-5 py-4 text-left">Need foreign LLC at home?</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-rule bg-surface">
-            {
-              comparisonRows.map((row) => (
-                <tr class={row.isHomeState ? 'bg-surface-warm' : undefined}>
-                  <th scope="row" class="px-5 py-4 text-left font-semibold text-ink-strong">
-                    <div class="flex items-center gap-3">
-                      {row.slug ? (
-                        <a
-                          href={`/llc/${row.slug}/`}
-                          class="whitespace-nowrap underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
-                        >
-                          {row.state}
-                        </a>
-                      ) : (
-                        <span class="whitespace-nowrap">{row.state}</span>
-                      )}
-                      {row.isHomeState && (
-                        <span class="rounded-full bg-accent-soft px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.06em] text-accent-ink whitespace-nowrap">
-                          Recommended
-                        </span>
-                      )}
-                    </div>
-                  </th>
-                  <td class="whitespace-nowrap px-5 py-4 text-right tabular-nums text-ink-soft">
-                    {row.filingFee}
-                  </td>
-                  <td class="whitespace-nowrap px-5 py-4 text-right tabular-nums text-ink-soft">
-                    {row.annualCost}
-                  </td>
-                  <td class="px-5 py-4 text-ink-soft">{row.stateIncomeTax}</td>
-                  <td class="px-5 py-4 text-ink-soft">{row.privacy}</td>
-                  <td class="px-5 py-4 text-ink-soft">{row.foreignRegistrationRequired}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
+    {/* Phone view: stacked cards. The table layout below has 6 columns
+        and forces horizontal scroll on narrow viewports — readers can
+        miss the "foreign LLC at home?" column, which is the page's main
+        proof point. Cards put every field in front of the reader without
+        scrolling. */}
+    <ul class="space-y-4 md:hidden">
+      {
+        comparisonRows.map((row) => (
+          <li
+            class={[
+              'llc-card space-y-4',
+              row.isHomeState ? '!bg-accent-soft-faint !border-accent-soft' : '',
+            ].join(' ')}
+          >
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+              {row.slug ? (
+                <a href={`/llc/${row.slug}/`} class="llc-link text-lg">
+                  {row.state}
+                </a>
+              ) : (
+                <span class="text-lg font-semibold text-ink-strong">{row.state}</span>
+              )}
+              {row.isHomeState && (
+                <span class="rounded-full bg-accent px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.06em] text-ink-strong">
+                  Recommended
+                </span>
+              )}
+            </div>
+
+            <dl class="grid grid-cols-2 gap-x-4 gap-y-3">
+              <div class="space-y-1">
+                <dt class="llc-helper">Filing fee</dt>
+                <dd class="text-base tabular-nums text-ink-soft">{row.filingFee}</dd>
+              </div>
+              <div class="space-y-1">
+                <dt class="llc-helper">Annual cost</dt>
+                <dd class="text-base tabular-nums text-ink-soft">{row.annualCost}</dd>
+              </div>
+              <div class="col-span-2 space-y-1">
+                <dt class="llc-helper">State income tax</dt>
+                <dd class="text-base text-ink-soft">{row.stateIncomeTax}</dd>
+              </div>
+              <div class="col-span-2 space-y-1">
+                <dt class="llc-helper">Privacy</dt>
+                <dd class="text-base text-ink-soft">{row.privacy}</dd>
+              </div>
+              <div class="col-span-2 space-y-1">
+                <dt class="llc-helper">Need foreign LLC at home?</dt>
+                <dd class="text-base font-medium text-ink-strong">
+                  {row.foreignRegistrationRequired}
+                </dd>
+              </div>
+            </dl>
+          </li>
+        ))
+      }
+    </ul>
+
+    {/* md+ table — explicit column widths so the first column doesn't
+        sprawl on wide viewports. */}
+    <div class="llc-card hidden overflow-hidden !p-0 md:block">
+      <table class="w-full table-fixed divide-y divide-rule">
+        <colgroup>
+          <col class="w-[20%]" />
+          <col class="w-[12%]" />
+          <col class="w-[14%]" />
+          <col class="w-[18%]" />
+          <col class="w-[18%]" />
+          <col class="w-[18%]" />
+        </colgroup>
+        <thead class="bg-surface-subtle">
+          <tr>
+            <th scope="col" class="llc-table-head px-5 py-4 text-left">State</th>
+            <th scope="col" class="llc-table-head px-5 py-4 text-right">Filing fee</th>
+            <th scope="col" class="llc-table-head px-5 py-4 text-right">Annual state cost</th>
+            <th scope="col" class="llc-table-head px-5 py-4 text-left">State income tax</th>
+            <th scope="col" class="llc-table-head px-5 py-4 text-left">Privacy</th>
+            <th scope="col" class="llc-table-head px-5 py-4 text-left">Need foreign LLC at home?</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-rule bg-surface">
+          {
+            comparisonRows.map((row) => (
+              <tr
+                class={
+                  row.isHomeState
+                    ? 'bg-accent-soft-faint'
+                    : undefined
+                }
+              >
+                <th
+                  scope="row"
+                  class={[
+                    'px-5 py-4 text-left align-top font-semibold text-ink-strong',
+                    row.isHomeState ? 'relative' : '',
+                  ].join(' ')}
+                >
+                  <div class="flex flex-wrap items-center gap-2">
+                    {row.slug ? (
+                      <a href={`/llc/${row.slug}/`} class="llc-link">
+                        {row.state}
+                      </a>
+                    ) : (
+                      <span>{row.state}</span>
+                    )}
+                    {row.isHomeState && (
+                      <span class="rounded-full bg-accent px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.06em] text-ink-strong">
+                        Recommended
+                      </span>
+                    )}
+                  </div>
+                </th>
+                <td class="px-5 py-4 text-right align-top tabular-nums text-ink-soft">
+                  {row.filingFee}
+                </td>
+                <td class="px-5 py-4 text-right align-top tabular-nums text-ink-soft">
+                  {row.annualCost}
+                </td>
+                <td class="px-5 py-4 align-top text-ink-soft">{row.stateIncomeTax}</td>
+                <td class="px-5 py-4 align-top text-ink-soft">{row.privacy}</td>
+                <td class="px-5 py-4 align-top font-medium text-ink-strong">
+                  {row.foreignRegistrationRequired}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
     </div>
 
     <p class="text-sm text-ink-muted">
@@ -469,10 +571,10 @@ const structuredData = [
               href={`/llc/${state.slug}/`}
               class="group flex items-center justify-between gap-3 rounded-[14px] border border-rule px-5 py-4 transition hover:border-rule-strong hover:bg-surface-subtle"
             >
-              <span class="text-[15px] font-semibold text-ink-strong">
+              <span class="text-base font-semibold text-ink-strong">
                 How to start an LLC in {state.name}
               </span>
-              <span class="inline-flex shrink-0 items-center gap-1.5 text-[13px] font-semibold text-ink-soft transition group-hover:gap-2 group-hover:text-ink-strong">
+              <span class="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-ink-soft transition group-hover:gap-2 group-hover:text-ink-strong">
                 Open
                 <svg
                   aria-hidden="true"
@@ -495,17 +597,12 @@ const structuredData = [
 
     <p class="llc-section-copy text-ink-soft">
       Don't see your state yet? Use the
-      <a
-        href="/#state-selector"
-        class="font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
-      >
-        full state selector on the homepage
-      </a>
-      . It lists every state, with verified guides first and the rest marked as coming soon.
+      <a href="/#state-selector" class="llc-link">full state selector on the homepage</a>. It lists
+      every state, with verified guides first and the rest marked as coming soon.
     </p>
   </section>
 
-  <section class="space-y-5">
+  <section id="faq" class="space-y-5 scroll-mt-24">
     <div class="space-y-4">
       <h2>FAQ</h2>
       <p class="llc-section-copy">
@@ -517,8 +614,8 @@ const structuredData = [
       {
         faqItems.map((item) => (
           <details class="group llc-card !p-0">
-            <summary class="flex cursor-pointer items-start justify-between gap-4 px-5 py-5 text-lg font-semibold text-ink-strong sm:px-6">
-              <span>{item.question}</span>
+            <summary class="flex cursor-pointer items-center justify-between gap-4 px-5 py-5 text-lg font-semibold text-ink-strong sm:px-6">
+              <span class="min-w-0">{item.question}</span>
               <svg
                 aria-hidden="true"
                 viewBox="0 0 16 16"
@@ -527,7 +624,7 @@ const structuredData = [
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="mt-2 h-3.5 w-3.5 shrink-0 text-ink-muted transition group-open:rotate-180"
+                class="h-4 w-4 shrink-0 text-ink-muted transition-transform duration-200 group-open:rotate-180"
               >
                 <path d="M4 6l4 4 4-4" />
               </svg>
@@ -541,7 +638,7 @@ const structuredData = [
     </div>
   </section>
 
-  <section class="llc-card-highlight space-y-4 !rounded-[1.5rem] !p-6 sm:!p-8">
+  <section class="llc-card-highlight space-y-5 !rounded-[1.5rem] !p-6 sm:!p-8">
     <p class="llc-helper">Bottom line</p>
     <h2>For most founders, file in your home state and move on</h2>
     <p class="llc-section-copy text-ink-soft">
@@ -550,21 +647,12 @@ const structuredData = [
       business that compound: your offer, your customers, your operating agreement. The
       formation state is rarely where founders win or lose.
     </p>
-    <div class="flex flex-col gap-3 sm:flex-row">
-      <a
-        href="/#state-selector"
-        class="inline-flex min-h-11 items-center justify-center rounded-full bg-action px-5 py-3 text-sm font-semibold text-white transition hover:bg-action-hover"
-      >
-        Find your state guide
-      </a>
-      <a
-        href="/best-llc-services"
-        class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
-      >
-        Compare LLC services
-      </a>
-    </div>
-    <p class="text-sm text-ink-muted">
+    <p class="llc-section-copy text-ink-soft">
+      Ready when you are: <a href="/#state-selector" class="llc-link">open your state guide</a>,
+      or if you've already picked one,
+      <a href="/best-llc-services" class="llc-link">compare formation services</a>.
+    </p>
+    <p class="border-t border-accent-soft pt-4 text-sm text-ink-muted">
       Affiliate disclosure: LLCAtlas is reader-supported. When you buy through our links, we may
       earn a commission. That does not change our editorial position — which, on this page, is
       that most readers should not buy anything related to forming out of state in the first
