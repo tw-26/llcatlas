@@ -3,10 +3,12 @@ import StatePageLayout from '../../components/state-page-layout.astro';
 import { states, type StateData } from '../../data/states';
 
 export function getStaticPaths() {
-  return states.map((state) => ({
-    params: { state: state.slug },
-    props: { state },
-  }));
+  return states
+    .filter((state) => state.contentStatus === 'ready')
+    .map((state) => ({
+      params: { state: state.slug },
+      props: { state },
+    }));
 }
 
 const { state } = Astro.props as { state: StateData };

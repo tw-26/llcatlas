@@ -23,10 +23,12 @@ const {
 
 const padding = size === 'lg' ? 'px-6 py-3' : 'px-5 py-3';
 const widthClass = fullWidth ? 'w-full' : 'shrink-0';
+const isPlaceholderLink = !href || href === '#';
 const composedClass = [
   'inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-accent text-sm font-semibold text-ink-strong transition hover:bg-accent/85',
   padding,
   widthClass,
+  isPlaceholderLink ? 'cursor-not-allowed opacity-70' : '',
   extraClass,
 ]
   .filter(Boolean)
@@ -34,10 +36,11 @@ const composedClass = [
 ---
 
 <a
-  href={href}
-  target="_blank"
-  rel="sponsored noopener noreferrer"
-  data-affiliate-click
+  href={isPlaceholderLink ? undefined : href}
+  target={isPlaceholderLink ? undefined : '_blank'}
+  rel={isPlaceholderLink ? undefined : 'noopener sponsored'}
+  aria-disabled={isPlaceholderLink ? 'true' : undefined}
+  data-affiliate-click={isPlaceholderLink ? undefined : ''}
   data-event-name="affiliate_click"
   data-partner={partnerName}
   data-placement={placement}

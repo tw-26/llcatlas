@@ -8,7 +8,7 @@ import { READY_STATE_SLUGS } from './src/data/states/ready-slugs.mjs';
 
 const SITE_URL = 'https://llcatlas.com';
 const readyStateUrls = new Set(
-  READY_STATE_SLUGS.map((slug) => `${SITE_URL}/llc/${slug}/`),
+  READY_STATE_SLUGS.map((slug) => `${SITE_URL}/llc/${slug}`),
 );
 
 // https://astro.build/config
@@ -25,6 +25,7 @@ export default defineConfig({
   ],
   site: SITE_URL,
   output: 'static',
+  trailingSlash: 'never',
   vite: {
     plugins: [tailwindcss()]
   }

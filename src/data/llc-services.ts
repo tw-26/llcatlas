@@ -475,4 +475,3 @@ export const llcServicesFaq: FaqItem[] = [
   },
 ];
 
-export const featuredStateGuideSlugs = ['ohio', 'california', 'texas', 'florida', 'new-york'] as const;

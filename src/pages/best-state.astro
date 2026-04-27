@@ -4,11 +4,10 @@ import SiteLayout from '../layouts/site-layout.astro';
 import { affiliates } from '../data/affiliates';
 import { states } from '../data/states';
 
-const title =
-  "Best State to Form an LLC in 2026 — It's Probably Your Home State | LLCAtlas";
+const title = 'Best State to Form an LLC (2026) | LLCAtlas';
 const description =
-  "Wyoming, Delaware, and Nevada get all the hype. But for most founders, your home state is the best place to form an LLC. Here's why — and when it's not.";
-const pageUrl = 'https://llcatlas.com/best-state/';
+  'The best state to form an LLC is usually your home state. See when Wyoming, Delaware, or Nevada actually make sense before you file.';
+const pageUrl = 'https://llcatlas.com/best-state';
 const lastUpdatedIso = '2026-04-20';
 const lastUpdatedLabel = new Date(`${lastUpdatedIso}T00:00:00Z`).toLocaleDateString('en-US', {
   year: 'numeric',
@@ -421,7 +420,7 @@ const structuredData = [
           >
             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
               {row.slug ? (
-                <a href={`/llc/${row.slug}/`} class="llc-link text-lg">
+                <a href={`/llc/${row.slug}`} class="llc-link text-lg">
                   {row.state}
                 </a>
               ) : (
@@ -504,7 +503,7 @@ const structuredData = [
                 >
                   <div class="flex flex-wrap items-center gap-2">
                     {row.slug ? (
-                      <a href={`/llc/${row.slug}/`} class="llc-link">
+                      <a href={`/llc/${row.slug}`} class="llc-link">
                         {row.state}
                       </a>
                     ) : (
@@ -568,7 +567,7 @@ const structuredData = [
         readyStates.map((state) => (
           <li>
             <a
-              href={`/llc/${state.slug}/`}
+              href={`/llc/${state.slug}`}
               class="group flex items-center justify-between gap-3 rounded-[14px] border border-rule px-5 py-4 transition hover:border-rule-strong hover:bg-surface-subtle"
             >
               <span class="text-base font-semibold text-ink-strong">

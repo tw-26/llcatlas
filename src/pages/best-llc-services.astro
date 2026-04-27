@@ -3,7 +3,6 @@ import AffiliateButton from '../components/affiliate-button.astro';
 import AffiliateCard from '../components/affiliate-card.astro';
 import SiteLayout from '../layouts/site-layout.astro';
 import {
-  featuredStateGuideSlugs,
   llcServices,
   llcServicesFaq,
   llcServicesLastUpdated,
@@ -14,16 +13,17 @@ import { states } from '../data/states';
 
 const title = 'Best LLC Formation Services (2026) — Compared and Ranked | LLCAtlas';
 const description =
-  "We tested the top LLC services so you don't have to. Northwest, ZenBusiness, Bizee, and more — compared on price, speed, and what's actually included.";
-const pageUrl = 'https://llcatlas.com/best-llc-services/';
+  'Best LLC formation services compared for 2026: real year-one cost, registered agent value, upsells, privacy, and our safest pick.';
+const pageUrl = 'https://llcatlas.com/best-llc-services';
+const lastUpdatedIso = '2026-04-26';
 
 const rankedServices = [...llcServices].sort((left, right) => left.realYearOneTotal - right.realYearOneTotal);
 const defaultPick = rankedServices.find((service) => service.slug === 'northwest') ?? rankedServices[0];
 const cheapestViablePick = rankedServices[0];
 const avoidPick = rankedServices.find((service) => service.slug === 'legalzoom');
-const featuredStateGuides = featuredStateGuideSlugs
-  .map((slug) => states.find((state) => state.slug === slug))
-  .filter(Boolean);
+const readyStateGuides = states
+  .filter((state) => state.contentStatus === 'ready')
+  .sort((left, right) => left.name.localeCompare(right.name));
 const comparisonSummaryRows = [
   {
     label: "What you'll actually pay year 1",
@@ -49,10 +49,29 @@ const comparisonSummaryRows = [
 const structuredData = [
   {
     '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: title,
+    '@type': 'Article',
+    headline: 'Best LLC Formation Services',
     description,
-    url: pageUrl,
+    author: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://llcatlas.com/logo.svg',
+      },
+    },
+    datePublished: lastUpdatedIso,
+    dateModified: lastUpdatedIso,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
     inLanguage: 'en-US',
   },
   {
@@ -101,7 +120,7 @@ const structuredData = [
 ];
 ---
 
-<SiteLayout title={title} description={description} structuredData={structuredData}>
+<SiteLayout title={title} description={description} ogType="article" structuredData={structuredData}>
   <section class="space-y-8">
     <div class="space-y-4">
       <p class="llc-helper">Best LLC service comparison</p>
@@ -589,23 +608,23 @@ const structuredData = [
     </div>
 
     <div class="space-y-4">
-      {featuredStateGuides[0] && (
+      {readyStateGuides[0] && (
         <a
-          href={`/llc/${featuredStateGuides[0].slug}`}
+          href={`/llc/${readyStateGuides[0].slug}`}
           class="llc-card-highlight block transition hover:border-accent"
         >
           <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
               <p class="llc-helper">Live now</p>
               <p class="mt-2 text-lg font-semibold text-ink-strong">
-                Start with the {featuredStateGuides[0].name} LLC guide
+                Start with the {readyStateGuides[0].name} LLC guide
               </p>
               <p class="mt-2 text-sm leading-7 text-ink-soft">
-                Want a real state-level example first? Start with the {featuredStateGuides[0].name} guide.
+                Want a real state-level example first? Start with the {readyStateGuides[0].name} guide.
               </p>
             </div>
             <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-strong">
-              Read {featuredStateGuides[0].name} guide
+              Read {readyStateGuides[0].name} guide
               <svg
                 aria-hidden="true"
                 viewBox="0 0 16 16"
@@ -624,7 +643,7 @@ const structuredData = [
       )}
 
       <div class="flex flex-wrap gap-3">
-        {featuredStateGuides.slice(1).map((state) => (
+        {readyStateGuides.slice(1).map((state) => (
           <a
             href={`/llc/${state.slug}`}
             class="inline-flex min-h-11 items-center rounded-full border border-rule-strong bg-surface px-4 py-2 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"

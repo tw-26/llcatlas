@@ -62,9 +62,9 @@ const isPlaceholderLink = !href || href === '#';
     <p class="mt-3 text-[14px] leading-6 text-ink-soft">{resolvedDescription}</p>
 
     <a
-      href={href}
-      target="_blank"
-      rel="sponsored noopener noreferrer"
+      href={isPlaceholderLink ? undefined : href}
+      target={isPlaceholderLink ? undefined : '_blank'}
+      rel={isPlaceholderLink ? undefined : 'noopener sponsored'}
       aria-disabled={isPlaceholderLink ? 'true' : undefined}
       data-affiliate-click={isPlaceholderLink ? undefined : ''}
       data-event-name="affiliate_click"
@@ -134,9 +134,9 @@ const isPlaceholderLink = !href || href === '#';
         )}
 
         <a
-          href={href}
-          target="_blank"
-          rel="sponsored noopener noreferrer"
+          href={isPlaceholderLink ? undefined : href}
+          target={isPlaceholderLink ? undefined : '_blank'}
+          rel={isPlaceholderLink ? undefined : 'noopener sponsored'}
           aria-disabled={isPlaceholderLink ? 'true' : undefined}
           data-affiliate-click={isPlaceholderLink ? undefined : ''}
           data-event-name="affiliate_click"

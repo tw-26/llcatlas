@@ -1,0 +1,58 @@
+---
+import StateSelector from '../components/state-selector.astro';
+import SiteLayout from '../layouts/site-layout.astro';
+
+const title = 'Page Not Found | LLCAtlas';
+const description =
+  "This LLCAtlas page doesn't exist. Find the homepage, compare LLC services, or choose your state guide.";
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url: 'https://llcatlas.com/404',
+    inLanguage: 'en-US',
+  },
+];
+---
+
+<SiteLayout title={title} description={description} structuredData={structuredData} noindex>
+  <section class="space-y-8">
+    <div class="space-y-4">
+      <p class="llc-helper">404</p>
+      <h1>This page doesn't exist.</h1>
+      <p class="llc-section-copy text-ink-soft">
+        Here's where you probably want to go: the LLCAtlas homepage, the LLC service comparison,
+        or the state guide selector below.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <a
+        href="/"
+        class="inline-flex min-h-11 items-center justify-center rounded-full bg-action px-5 py-3 text-sm font-semibold text-white transition hover:bg-action-hover"
+      >
+        Go to the homepage
+      </a>
+      <a
+        href="/best-llc-services"
+        class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
+      >
+        Compare LLC services
+      </a>
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-3">
+      <h2>Find your state guide</h2>
+      <p class="llc-section-copy text-ink-soft">
+        Pick your state for filing fees, timelines, annual reports, and the local steps that matter.
+      </p>
+    </div>
+
+    <StateSelector />
+  </section>
+</SiteLayout>

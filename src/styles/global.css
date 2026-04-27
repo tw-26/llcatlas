@@ -232,16 +232,6 @@
     @apply p-6 sm:p-7;
   }
 
-  /* Larger marketing surface — used when a card needs to feel like a
-     spotlight panel rather than an inline content card. Generous radius
-     and padding so it reads as a destination, not a blockquote. */
-  .llc-card-spotlight {
-    border: 1px solid var(--color-rule);
-    border-radius: 1.5rem;
-    background: var(--color-surface-subtle);
-    @apply p-6 sm:p-7;
-  }
-
   .llc-helper {
     color: var(--color-ink-muted);
     font-size: 0.75rem;

@@ -22,9 +22,10 @@ const {
 const currentYear = new Date().getFullYear();
 const siteUrl = Astro.site ?? new URL(Astro.url.origin);
 const siteOrigin = siteUrl.toString().replace(/\/$/, '');
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
-const logoUrl = new URL('/logo.svg', siteUrl).toString();
 const currentPath = Astro.url.pathname;
+const canonicalPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const logoUrl = new URL('/logo.svg', siteUrl).toString();
 const hasSidebar = Astro.slots.has('sidebar');
 const isHomePage = currentPath === '/';
 const isComparisonPage = currentPath === '/best-llc-services/' || currentPath === '/best-llc-services';
@@ -82,11 +83,7 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
     <meta name="description" content={description} />
     <meta
       name="robots"
-      content={
-        noindex
-          ? 'noindex, follow'
-          : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
-      }
+      content={noindex ? 'noindex, follow' : 'index, follow'}
     />
     <meta property="og:site_name" content="LLCAtlas" />
     <meta property="og:type" content={ogType} />
@@ -99,11 +96,6 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
     <meta name="twitter:description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "9c94b268b27b4893a043076eae99ca12"}'
-    ></script>
     {
       allStructuredData.map((item) => (
         <script type="application/ld+json" set:html={JSON.stringify(item)} />
@@ -196,29 +188,6 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
           )
         }
       </main>
-
-      <script is:inline>
-        if (!window.__llcAtlasAffiliateTrackingBound) {
-          window.__llcAtlasAffiliateTrackingBound = true;
-
-          document.addEventListener('click', (event) => {
-            const target = event.target instanceof Element ? event.target.closest('[data-affiliate-click]') : null;
-
-            if (!(target instanceof HTMLAnchorElement)) {
-              return;
-            }
-
-            const eventName = target.dataset.eventName || 'affiliate_click';
-            const payload = {
-              partner: target.dataset.partner,
-              placement: target.dataset.placement,
-              state: target.dataset.state,
-            };
-
-            window.plausible?.(eventName, { props: payload });
-          });
-        }
-      </script>
 
       <footer class="border-t border-rule bg-surface-subtle">
         <div class="mx-auto max-w-7xl space-y-4 px-4 py-8 sm:px-6 lg:px-8">

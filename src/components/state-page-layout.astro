@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { state } = Astro.props;
-const currentYear = new Date().getFullYear();
+const guideYear = 2026;
 
 const northwestAffiliateUrl = affiliates.northwest;
 const northwestPartnerName = 'Northwest Registered Agent';
@@ -128,12 +128,10 @@ const topRecommendationPrimaryLabel = hasOfficialAgencyLink
   : 'Review confirmed basics';
 
 const title =
-  state.seoTitle ??
-  `How to Start an LLC in ${state.name} (${currentYear}) - Steps, Costs, Timeline | LLCAtlas`;
+  `How to Start an LLC in ${state.name} (${guideYear}) — Fees, Steps, Timeline | LLCAtlas`;
 const description =
-  state.seoDescription ??
-  `Learn how to start an LLC in ${state.name} in ${currentYear}, including filing fees, timeline, core steps, and when using a registered agent service makes sense.`;
-const pageUrl = `https://llcatlas.com/llc/${state.slug}/`;
+  `How to start an LLC in ${state.name} in ${guideYear}: filing fees, steps, timeline, annual reports, and when a service is worth it.`;
+const pageUrl = `https://llcatlas.com/llc/${state.slug}`;
 
 const readyStateBySlug = new Map(
   states
@@ -146,7 +144,7 @@ const readyStateByName = new Map(
 const relatedStates = Array.from(readyStateBySlug.values()).filter(
   (entry) => entry.slug !== state.slug,
 );
-const getStatePath = (slug: string) => `/llc/${slug}/`;
+const getStatePath = (slug: string) => `/llc/${slug}`;
 const linkForStateName = (name: string): string | null => {
   if (name === state.name) return null;
   const target = readyStateByName.get(name);
@@ -154,6 +152,7 @@ const linkForStateName = (name: string): string | null => {
 };
 
 const lastUpdatedIso = state.lastUpdated;
+const schemaDate = lastUpdatedIso ?? `${guideYear}-01-01`;
 const lastUpdatedLabel = lastUpdatedIso
   ? new Date(`${lastUpdatedIso}T00:00:00Z`).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -166,18 +165,31 @@ const lastUpdatedLabel = lastUpdatedIso
 const structuredData = [
   {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: title,
+    '@type': 'Article',
+    headline: `How to Start an LLC in ${state.name}`,
     description,
-    url: pageUrl,
+    author: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://llcatlas.com/logo.svg',
+      },
+    },
+    datePublished: schemaDate,
+    dateModified: schemaDate,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
     inLanguage: 'en-US',
     about: `How to start an LLC in ${state.name}`,
-    ...(lastUpdatedIso
-      ? {
-          datePublished: lastUpdatedIso,
-          dateModified: lastUpdatedIso,
-        }
-      : {}),
   },
   {
     '@context': 'https://schema.org',
