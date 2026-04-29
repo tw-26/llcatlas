@@ -3,6 +3,7 @@ import { indiana } from './indiana';
 import { michigan } from './michigan';
 import { northCarolina } from './north-carolina';
 import { ohio } from './ohio';
+import { pennsylvania } from './pennsylvania';
 import { stateSeeds } from './seeds';
 import type { StateData, StateOverride } from './types';
 import { virginia } from './virginia';
@@ -24,6 +25,7 @@ const stateOverrides: Record<string, StateOverride> = {
   michigan,
   'north-carolina': northCarolina,
   ohio,
+  pennsylvania,
   virginia,
   wyoming,
 };
