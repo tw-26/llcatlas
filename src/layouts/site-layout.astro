@@ -23,7 +23,7 @@ const currentYear = new Date().getFullYear();
 const siteUrl = Astro.site ?? new URL(Astro.url.origin);
 const siteOrigin = siteUrl.toString().replace(/\/$/, '');
 const currentPath = Astro.url.pathname;
-const canonicalPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+const canonicalPath = currentPath === '/' ? '/' : `${currentPath.replace(/\/$/, '')}/`;
 const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
 const logoUrl = new URL('/logo.svg', siteUrl).toString();
 const hasSidebar = Astro.slots.has('sidebar');
@@ -36,7 +36,7 @@ const stateLinkClass = isStateGuidePage ? 'font-semibold text-ink-strong' : 'tra
 const servicesLinkClass = isComparisonPage ? 'font-semibold text-ink-strong' : 'transition hover:text-ink-strong';
 const bestStateLinkClass = isBestStatePage ? 'font-semibold text-ink-strong' : 'transition hover:text-ink-strong';
 const primaryNavCta = isStateGuidePage
-  ? { href: '/best-llc-services', label: 'Compare services' }
+  ? { href: '/best-llc-services/', label: 'Compare services' }
   : { href: '/#state-selector', label: 'Find your state' };
 const isPrivacyPage = currentPath === '/privacy/' || currentPath === '/privacy';
 const contentWidthClass = isHomePage
@@ -121,14 +121,14 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
           <nav aria-label="Primary" class="hidden items-center gap-6 text-sm text-ink-soft md:flex">
             <a href="/" class={homeLinkClass} aria-current={isHomePage ? 'page' : undefined}>Home</a>
             <a
-              href="/best-state"
+              href="/best-state/"
               class={bestStateLinkClass}
               aria-current={isBestStatePage ? 'page' : undefined}
             >
               Best state
             </a>
             <a
-              href="/best-llc-services"
+              href="/best-llc-services/"
               class={servicesLinkClass}
               aria-current={isComparisonPage ? 'page' : undefined}
             >
@@ -146,14 +146,14 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
         <div class="border-t border-rule md:hidden">
           <div class="mx-auto flex max-w-7xl flex-wrap gap-3 px-4 py-3 sm:px-6">
             <a
-              href="/best-state"
+              href="/best-state/"
               class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-4 py-2 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
               aria-current={isBestStatePage ? 'page' : undefined}
             >
               Best state
             </a>
             <a
-              href="/best-llc-services"
+              href="/best-llc-services/"
               class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-4 py-2 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
               aria-current={isComparisonPage ? 'page' : undefined}
             >
@@ -200,7 +200,7 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
           <p class="text-sm text-ink-muted">
             © {currentYear} LLCAtlas. Built for clear LLC decisions. ·{' '}
             <a
-              href="/privacy"
+              href="/privacy/"
               class="underline decoration-rule-strong underline-offset-4 transition hover:text-ink-soft hover:decoration-ink-muted"
             >
               Privacy

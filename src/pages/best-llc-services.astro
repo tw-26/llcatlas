@@ -14,7 +14,7 @@ import { states } from '../data/states';
 const title = 'Best LLC Formation Services (2026) — Compared and Ranked | LLCAtlas';
 const description =
   'Best LLC formation services compared for 2026: real year-one cost, registered agent value, upsells, privacy, and our safest pick.';
-const pageUrl = 'https://llcatlas.com/best-llc-services';
+const pageUrl = 'https://llcatlas.com/best-llc-services/';
 const lastUpdatedIso = '2026-04-26';
 
 const rankedServices = [...llcServices].sort((left, right) => left.realYearOneTotal - right.realYearOneTotal);
@@ -610,7 +610,7 @@ const structuredData = [
     <div class="space-y-4">
       {readyStateGuides[0] && (
         <a
-          href={`/llc/${readyStateGuides[0].slug}`}
+          href={`/llc/${readyStateGuides[0].slug}/`}
           class="llc-card-highlight block transition hover:border-accent"
         >
           <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
@@ -645,7 +645,7 @@ const structuredData = [
       <div class="flex flex-wrap gap-3">
         {readyStateGuides.slice(1).map((state) => (
           <a
-            href={`/llc/${state.slug}`}
+            href={`/llc/${state.slug}/`}
             class="inline-flex min-h-11 items-center rounded-full border border-rule-strong bg-surface px-4 py-2 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
           >
             {state.name} LLC guide

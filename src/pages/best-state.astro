@@ -7,7 +7,7 @@ import { states } from '../data/states';
 const title = 'Best State to Form an LLC (2026) | LLCAtlas';
 const description =
   'The best state to form an LLC is usually your home state. See when Wyoming, Delaware, or Nevada actually make sense before you file.';
-const pageUrl = 'https://llcatlas.com/best-state';
+const pageUrl = 'https://llcatlas.com/best-state/';
 const lastUpdatedIso = '2026-04-20';
 const lastUpdatedLabel = new Date(`${lastUpdatedIso}T00:00:00Z`).toLocaleDateString('en-US', {
   year: 'numeric',
@@ -270,7 +270,7 @@ const structuredData = [
           Find your state guide
         </a>
         <a
-          href="/best-llc-services"
+          href="/best-llc-services/"
           class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
         >
           Compare LLC services
@@ -420,7 +420,7 @@ const structuredData = [
           >
             <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
               {row.slug ? (
-                <a href={`/llc/${row.slug}`} class="llc-link text-lg">
+                <a href={`/llc/${row.slug}/`} class="llc-link text-lg">
                   {row.state}
                 </a>
               ) : (
@@ -503,7 +503,7 @@ const structuredData = [
                 >
                   <div class="flex flex-wrap items-center gap-2">
                     {row.slug ? (
-                      <a href={`/llc/${row.slug}`} class="llc-link">
+                      <a href={`/llc/${row.slug}/`} class="llc-link">
                         {row.state}
                       </a>
                     ) : (
@@ -567,7 +567,7 @@ const structuredData = [
         readyStates.map((state) => (
           <li>
             <a
-              href={`/llc/${state.slug}`}
+              href={`/llc/${state.slug}/`}
               class="group flex items-center justify-between gap-3 rounded-[14px] border border-rule px-5 py-4 transition hover:border-rule-strong hover:bg-surface-subtle"
             >
               <span class="text-base font-semibold text-ink-strong">
@@ -649,7 +649,7 @@ const structuredData = [
     <p class="llc-section-copy text-ink-soft">
       Ready when you are: <a href="/#state-selector" class="llc-link">open your state guide</a>,
       or if you've already picked one,
-      <a href="/best-llc-services" class="llc-link">compare formation services</a>.
+      <a href="/best-llc-services/" class="llc-link">compare formation services</a>.
     </p>
     <p class="border-t border-accent-soft pt-4 text-sm text-ink-muted">
       Affiliate disclosure: LLCAtlas is reader-supported. When you buy through our links, we may

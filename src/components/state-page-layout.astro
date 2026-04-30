@@ -131,7 +131,7 @@ const title =
   `How to Start an LLC in ${state.name} (${guideYear}) — Fees, Steps, Timeline | LLCAtlas`;
 const description =
   `How to start an LLC in ${state.name} in ${guideYear}: filing fees, steps, timeline, annual reports, and when a service is worth it.`;
-const pageUrl = `https://llcatlas.com/llc/${state.slug}`;
+const pageUrl = `https://llcatlas.com/llc/${state.slug}/`;
 
 const readyStateBySlug = new Map(
   states
@@ -144,7 +144,7 @@ const readyStateByName = new Map(
 const relatedStates = Array.from(readyStateBySlug.values()).filter(
   (entry) => entry.slug !== state.slug,
 );
-const getStatePath = (slug: string) => `/llc/${slug}`;
+const getStatePath = (slug: string) => `/llc/${slug}/`;
 const linkForStateName = (name: string): string | null => {
   if (name === state.name) return null;
   const target = readyStateByName.get(name);
@@ -274,7 +274,7 @@ const structuredData = [
           {topRecommendationPrimaryLabel}
         </a>
         <a
-          href="/best-llc-services"
+          href="/best-llc-services/"
           class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
         >
           Compare LLC services
@@ -667,7 +667,7 @@ const structuredData = [
       right formation state before you file.
     </p>
     <a
-      href="/best-state"
+      href="/best-state/"
       class="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
     >
       Read the best-state guide
@@ -745,7 +745,7 @@ const structuredData = [
         renewals.
       </p>
       <a
-        href="/best-llc-services"
+        href="/best-llc-services/"
         class="mt-4 inline-flex items-center gap-1.5 text-[14px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
       >
         Compare LLC services
@@ -771,7 +771,7 @@ const structuredData = [
         formation state before you file.
       </p>
       <a
-        href="/best-state"
+        href="/best-state/"
         class="mt-4 inline-flex items-center gap-1.5 text-[14px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
       >
         Read the best-state guide
