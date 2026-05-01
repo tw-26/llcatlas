@@ -42,6 +42,8 @@ export type StateData = {
   taxHighlights: string[];
   comparisonRows: ComparisonRow[];
   filingFee: number;
+  filingFeeDisplay?: string;
+  filingFeeNote?: string;
   annualReportFee: number | null;
   stateTaxRate: string;
   filingTime: string;

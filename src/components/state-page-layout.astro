@@ -82,7 +82,8 @@ const filingTimeNote = filingTimeValue === 'Research pending'
   : state.expeditedFee
     ? 'Standard estimate. Expedited available.'
     : 'Standard estimate.';
-const filingFeeNote = 'One-time state filing fee';
+const filingFeeValue = state.filingFeeDisplay ?? formatCurrency(state.filingFee);
+const filingFeeNote = state.filingFeeNote ?? 'One-time state filing fee';
 const topRecommendationEyebrow = isResearchPending ? 'Verified basics only' : 'Best next step';
 const topRecommendationTitle = isResearchPending
   ? `Use the official ${state.name} filing instructions first`
@@ -128,8 +129,10 @@ const topRecommendationPrimaryLabel = hasOfficialAgencyLink
   : 'Review confirmed basics';
 
 const title =
+  state.seoTitle ??
   `How to Start an LLC in ${state.name} (${guideYear}) — Fees, Steps, Timeline | LLCAtlas`;
 const description =
+  state.seoDescription ??
   `How to start an LLC in ${state.name} in ${guideYear}: filing fees, steps, timeline, annual reports, and when a service is worth it.`;
 const pageUrl = `https://llcatlas.com/llc/${state.slug}/`;
 
@@ -288,7 +291,7 @@ const structuredData = [
     >
       <div class="bg-surface px-5 py-5 sm:px-6 sm:py-6">
         <dt class="llc-helper">Filing fee</dt>
-        <dd class="mt-3 text-[28px] font-semibold leading-tight tracking-tight text-ink-strong tabular-nums">{formatCurrency(state.filingFee)}</dd>
+        <dd class="mt-3 text-[28px] font-semibold leading-tight tracking-tight text-ink-strong tabular-nums">{filingFeeValue}</dd>
         <dd class="mt-1 text-[14px] leading-6 text-ink-muted">{filingFeeNote}</dd>
       </div>
       <div class="bg-surface px-5 py-5 sm:px-6 sm:py-6">
