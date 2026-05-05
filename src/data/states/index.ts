@@ -9,6 +9,7 @@ import { stateSeeds } from './seeds';
 import { tennessee } from './tennessee';
 import type { StateData, StateOverride } from './types';
 import { virginia } from './virginia';
+import { washington } from './washington';
 import { wyoming } from './wyoming';
 
 export type {
@@ -31,6 +32,7 @@ const stateOverrides: Record<string, StateOverride> = {
   pennsylvania,
   tennessee,
   virginia,
+  washington,
   wyoming,
 };
 

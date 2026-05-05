@@ -12,5 +12,6 @@ export const READY_STATE_SLUGS = [
   'north-carolina',
   'ohio',
   'virginia',
+  'washington',
   'wyoming',
 ];
