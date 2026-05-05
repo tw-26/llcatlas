@@ -1,4 +1,5 @@
 ---
+import AffiliateLinkedText from '../components/affiliate-linked-text.astro';
 import SiteLayout from '../layouts/site-layout.astro';
 
 const title = 'Privacy Policy | LLCAtlas';
@@ -43,9 +44,10 @@ const structuredData = [
   <section aria-labelledby="how-we-earn" class="max-w-3xl space-y-4">
     <h2 id="how-we-earn">How this site makes money</h2>
     <p class="text-lg leading-8 text-ink-soft">
-      Some of the outbound links here are affiliate links. If you click one and sign up with a
-      formation service like Northwest, Bizee, or LegalZoom, we earn a small commission. You pay
-      the same price either way.
+      <AffiliateLinkedText
+        text="Some of the outbound links here are affiliate links. If you click one and sign up with a formation service like Northwest, Bizee, or LegalZoom, we earn a small commission. You pay the same price either way."
+        placement="privacy-affiliate-disclosure"
+      />
     </p>
     <p class="text-lg leading-8 text-ink-soft">
       The commission doesn't change which service we recommend. We recommend the cheapest good

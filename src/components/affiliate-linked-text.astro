@@ -1,0 +1,68 @@
+---
+import { affiliates, type AffiliatePartner } from '../data/affiliates';
+
+interface ProviderMatch {
+  partner: AffiliatePartner;
+  partnerName: string;
+}
+
+interface Props {
+  text: string;
+  placement: string;
+  state?: string;
+}
+
+const { text, placement, state = 'national' } = Astro.props as Props;
+
+const providerByName: Record<string, ProviderMatch> = {
+  Bizee: {
+    partner: 'bizee',
+    partnerName: 'Bizee',
+  },
+  Northwest: {
+    partner: 'northwest',
+    partnerName: 'Northwest Registered Agent',
+  },
+  LegalZoom: {
+    partner: 'legalzoom',
+    partnerName: 'LegalZoom',
+  },
+  ZenBusiness: {
+    partner: 'zenbusiness',
+    partnerName: 'ZenBusiness',
+  },
+  ZoomBusiness: {
+    partner: 'zenbusiness',
+    partnerName: 'ZenBusiness',
+  },
+};
+
+const providerPattern = /\b(Bizee|Northwest|LegalZoom|ZenBusiness|ZoomBusiness)\b/g;
+const parts = text.split(providerPattern);
+---
+
+{
+  parts.map((part) => {
+    const provider = providerByName[part];
+
+    if (!provider) {
+      return part;
+    }
+
+    return (
+      <a
+        href={affiliates[provider.partner]}
+        target="_blank"
+        rel="noopener sponsored"
+        data-affiliate-click
+        data-event-name="affiliate_click"
+        data-partner={provider.partnerName}
+        data-placement={placement}
+        data-state={state}
+        class="llc-link"
+      >
+        {part}
+      </a>
+    );
+  })
+}

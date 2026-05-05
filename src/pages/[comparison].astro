@@ -1,0 +1,537 @@
+---
+import AffiliateButton from '../components/affiliate-button.astro';
+import AffiliateLinkedText from '../components/affiliate-linked-text.astro';
+import SiteLayout from '../layouts/site-layout.astro';
+import { affiliateDisclosure, comparisons, type ServiceComparison } from '../data/comparisons';
+
+export function getStaticPaths() {
+  return comparisons.map((comparison) => ({
+    params: { comparison: comparison.slug },
+    props: { comparison },
+  }));
+}
+
+interface Props {
+  comparison: ServiceComparison;
+}
+
+const { comparison } = Astro.props as Props;
+const { serviceA, serviceB } = comparison;
+const winner = comparison.winner === 'A' ? serviceA : serviceB;
+const loser = comparison.winner === 'A' ? serviceB : serviceA;
+const winnerKey = comparison.winner === 'A' ? 'serviceA' : 'serviceB';
+const pageUrl = `https://llcatlas.com/${comparison.slug}/`;
+const lastUpdatedLabel = new Date(`${comparison.meta.lastUpdated}T00:00:00Z`).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+
+const formatCostWithStateFee = (value: number) =>
+  `${new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  }).format(value)} + state fee`;
+
+const yesNo = (value: boolean) => (value ? 'Yes' : 'No');
+
+const quickRows = [
+  {
+    label: 'Starting price',
+    serviceA: serviceA.headlinePrice,
+    serviceB: serviceB.headlinePrice,
+  },
+  {
+    label: 'Real year-1 cost',
+    serviceA: formatCostWithStateFee(serviceA.yearOneTotal),
+    serviceB: formatCostWithStateFee(serviceB.yearOneTotal),
+  },
+  {
+    label: 'Registered agent included',
+    serviceA: yesNo(serviceA.registeredAgentIncluded),
+    serviceB: yesNo(serviceB.registeredAgentIncluded),
+  },
+  {
+    label: 'Registered agent renewal',
+    serviceA: serviceA.registeredAgentRenewal,
+    serviceB: serviceB.registeredAgentRenewal,
+  },
+  {
+    label: 'Upsells during checkout',
+    serviceA: serviceA.upsellLevel,
+    serviceB: serviceB.upsellLevel,
+  },
+  {
+    label: 'Processing speed',
+    serviceA: serviceA.processingSpeed,
+    serviceB: serviceB.processingSpeed,
+  },
+  {
+    label: 'Privacy protection',
+    serviceA: yesNo(serviceA.privacyProtection),
+    serviceB: yesNo(serviceB.privacyProtection),
+  },
+] as const;
+
+const getCellClass = (serviceKey: 'serviceA' | 'serviceB', isTotal = false) =>
+  [
+    'px-5 py-4',
+    serviceKey === winnerKey ? 'bg-surface-warm text-ink-strong' : 'text-ink-soft',
+    isTotal ? 'font-semibold tabular-nums' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+const isVerifyPlaceholder = (value: string) => value.trim().startsWith('<!-- VERIFY:');
+const hasVerifyComment = (value: string) => value.includes('<!-- VERIFY:');
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: comparison.meta.h1,
+    description: comparison.meta.description,
+    author: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://llcatlas.com/logo.svg',
+      },
+    },
+    datePublished: comparison.meta.lastUpdated,
+    dateModified: comparison.meta.lastUpdated,
+    articleSection: 'LLC formation service comparisons',
+    keywords: [
+      comparison.meta.primaryKeyword,
+      `${serviceA.shortName} vs ${serviceB.shortName}`,
+      `${serviceB.shortName} vs ${serviceA.shortName}`,
+      'LLC formation services',
+      'registered agent service',
+    ],
+    isAccessibleForFree: true,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
+    inLanguage: 'en-US',
+    about: [
+      comparison.meta.primaryKeyword,
+      `${serviceA.name} pricing`,
+      `${serviceB.name} pricing`,
+    ],
+    mentions: [
+      {
+        '@type': 'Organization',
+        name: serviceA.name,
+        url: serviceA.affiliateUrl,
+      },
+      {
+        '@type': 'Organization',
+        name: serviceB.name,
+        url: serviceB.affiliateUrl,
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: comparison.editorial.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${serviceA.shortName} vs ${serviceB.shortName} comparison summary`,
+    numberOfItems: 2,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: serviceA.name,
+        url: serviceA.affiliateUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: serviceB.name,
+        url: serviceB.affiliateUrl,
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://llcatlas.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: `${serviceA.shortName} vs ${serviceB.shortName}`,
+        item: pageUrl,
+      },
+    ],
+  },
+];
+---
+
+<SiteLayout
+  title={comparison.meta.title}
+  description={comparison.meta.description}
+  ogType="article"
+  structuredData={structuredData}
+>
+  <section class="space-y-8">
+    <div class="space-y-4">
+      <p class="llc-helper">LLC service comparison</p>
+      <h1>{comparison.meta.h1}</h1>
+      <p class="llc-helper-sm">
+        Last updated <time datetime={comparison.meta.lastUpdated}>{lastUpdatedLabel}</time> · Research verified from provider pages and third-party review sources.
+      </p>
+      <p class="max-w-3xl text-sm text-ink-muted">{affiliateDisclosure}</p>
+      <p class="llc-section-copy text-ink-soft">
+        <AffiliateLinkedText text={comparison.editorial.intro} placement="comparison-intro" />
+      </p>
+    </div>
+
+    <div class="llc-card-highlight space-y-6 !p-6 sm:!p-8">
+      <div class="space-y-3">
+        <span class="inline-flex rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-accent-ink">
+          Verdict
+        </span>
+        <h2>
+          <AffiliateLinkedText
+            text={`Short answer: ${winner.shortName} is the better choice for most people.`}
+            placement="comparison-verdict-heading"
+          />
+        </h2>
+        <p class="llc-section-copy text-ink-soft">
+          <AffiliateLinkedText text={comparison.winnerReason} placement="comparison-verdict" />
+        </p>
+      </div>
+
+      <div class="overflow-hidden rounded-[12px] border border-accent-soft bg-surface">
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-rule">
+            <thead class="bg-surface-subtle">
+              <tr>
+                <th scope="col" class="llc-table-head px-5 py-4 text-left">Compare</th>
+                <th scope="col" class={['llc-table-head px-5 py-4 text-left', winnerKey === 'serviceA' ? 'bg-surface-warm' : ''].join(' ')}>
+                  <a href={serviceA.affiliateUrl} target="_blank" rel="noopener sponsored" class="underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft">
+                    {serviceA.shortName}
+                  </a>
+                </th>
+                <th scope="col" class={['llc-table-head px-5 py-4 text-left', winnerKey === 'serviceB' ? 'bg-surface-warm' : ''].join(' ')}>
+                  <a href={serviceB.affiliateUrl} target="_blank" rel="noopener sponsored" class="underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft">
+                    {serviceB.shortName}
+                  </a>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-rule bg-surface">
+              {quickRows.map((row) => (
+                <tr>
+                  <th scope="row" class="px-5 py-4 text-left font-semibold text-ink-strong">{row.label}</th>
+                  <td class={getCellClass('serviceA')}>{row.serviceA}</td>
+                  <td class={getCellClass('serviceB')}>{row.serviceB}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <AffiliateButton
+          href={winner.affiliateUrl}
+          label={`Start with ${winner.shortName}`}
+          partnerName={winner.name}
+          placement="comparison-hero-primary"
+          size="lg"
+        />
+        <a
+          href={loser.affiliateUrl}
+          target="_blank"
+          rel="noopener sponsored"
+          data-affiliate-click
+          data-event-name="affiliate_click"
+          data-partner={loser.name}
+          data-placement="comparison-hero-secondary"
+          data-state="national"
+          class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-6 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
+        >
+          Try {loser.shortName} instead
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-3">
+      <h2>Why we recommend {winner.shortName} over {loser.shortName}</h2>
+    </div>
+    <div class="space-y-4">
+      {comparison.editorial.whyWinnerWins.map((paragraph) => (
+        <p class="llc-section-copy text-ink-soft">
+          <AffiliateLinkedText text={paragraph} placement="comparison-why-winner" />
+        </p>
+      ))}
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-3">
+      <h2>Detailed feature comparison</h2>
+      <p class="llc-section-copy text-ink-soft">
+        The year-one and year-two totals are the numbers to watch. The teaser price matters less than what you pay after the registered agent is included.
+      </p>
+    </div>
+
+    <div class="llc-card overflow-hidden !p-0">
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-rule">
+          <thead class="bg-surface-subtle">
+            <tr>
+              <th scope="col" class="llc-table-head px-5 py-4 text-left">Feature</th>
+              <th scope="col" class={['llc-table-head px-5 py-4 text-left', winnerKey === 'serviceA' ? 'bg-surface-warm' : ''].join(' ')}>{serviceA.shortName}</th>
+              <th scope="col" class={['llc-table-head px-5 py-4 text-left', winnerKey === 'serviceB' ? 'bg-surface-warm' : ''].join(' ')}>{serviceB.shortName}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-rule bg-surface">
+            {comparison.detailedRows.map((row) => (
+              <tr class={row.isTotal ? 'bg-surface-subtle' : undefined}>
+                <th scope="row" class={['px-5 py-4 text-left text-ink-strong', row.isTotal ? 'font-semibold' : 'font-medium'].join(' ')}>
+                  {row.feature}
+                </th>
+                <td class={getCellClass('serviceA', row.isTotal)}>
+                  {isVerifyPlaceholder(row.serviceA)
+                    ? <span class="text-ink-muted">Research pending</span>
+                    : hasVerifyComment(row.serviceA)
+                      ? <Fragment set:html={row.serviceA} />
+                      : <AffiliateLinkedText text={row.serviceA} placement="comparison-detail-table" />}
+                </td>
+                <td class={getCellClass('serviceB', row.isTotal)}>
+                  {isVerifyPlaceholder(row.serviceB)
+                    ? <span class="text-ink-muted">Research pending</span>
+                    : hasVerifyComment(row.serviceB)
+                      ? <Fragment set:html={row.serviceB} />
+                      : <AffiliateLinkedText text={row.serviceB} placement="comparison-detail-table" />}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-3">
+      <h2>Where {winner.shortName} wins</h2>
+    </div>
+    <div class="grid gap-5 md:grid-cols-2">
+      {comparison.winnerAdvantages.map((item) => (
+        <article class="llc-card-subtle space-y-3">
+          <h3>
+            <AffiliateLinkedText text={item.heading} placement="comparison-winner-advantage-heading" />
+          </h3>
+          <p class="text-[15px] leading-7 text-ink-soft">
+            <AffiliateLinkedText text={item.body} placement="comparison-winner-advantage" />
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-3">
+      <h2>Where {loser.shortName} wins</h2>
+      <p class="llc-section-copy text-ink-soft">
+        This is still a real comparison. The losing service can have good reasons to exist.
+      </p>
+    </div>
+    <div class="grid gap-5 md:grid-cols-2">
+      {comparison.loserAdvantages.map((item) => (
+        <article class="llc-card space-y-3">
+          <h3>
+            <AffiliateLinkedText text={item.heading} placement="comparison-loser-advantage-heading" />
+          </h3>
+          <p class="text-[15px] leading-7 text-ink-soft">
+            <AffiliateLinkedText text={item.body} placement="comparison-loser-advantage" />
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="llc-card-subtle space-y-3">
+    <p class="llc-helper">Narrow exception</p>
+    <h2>When to pick {loser.shortName} instead</h2>
+    <p class="llc-section-copy text-ink-soft">
+      <AffiliateLinkedText text={comparison.editorial.onlyPickB} placement="comparison-loser-scenario" />
+    </p>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-3">
+      <h2>The real cost comparison</h2>
+      <p class="llc-section-copy text-ink-soft">
+        The clean way to compare these services is to walk through what a normal founder actually pays.
+      </p>
+    </div>
+    <div class="llc-card-highlight space-y-4">
+      {comparison.editorial.costNarrative.map((paragraph) => (
+        <p class="llc-section-copy text-ink-soft">
+          <AffiliateLinkedText text={paragraph} placement="comparison-cost-narrative" />
+        </p>
+      ))}
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-3">
+      <p class="llc-helper">Research notes</p>
+      <h2>How we researched this comparison</h2>
+      <p class="llc-section-copy text-ink-soft">
+        <AffiliateLinkedText text={comparison.methodology.summary} placement="comparison-methodology-summary" />
+      </p>
+    </div>
+
+    <div class="grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+      <div class="llc-card-subtle">
+        <p class="llc-helper">What we checked</p>
+        <ul class="llc-bullet-list mt-4 text-ink-soft">
+          {comparison.methodology.notes.map((item) => (
+            <li><AffiliateLinkedText text={item} placement="comparison-methodology-notes" /></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="llc-card">
+        <p class="llc-helper">Primary sources</p>
+        <ul class="mt-4 space-y-3">
+          {comparison.methodology.sources.map((source) => (
+            <li>
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noopener"
+                class="llc-link text-[15px]"
+              >
+                {source.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-3">
+      <h2>FAQ</h2>
+      <p class="llc-section-copy text-ink-soft">
+        The questions people ask when they are already down to these two options.
+      </p>
+    </div>
+
+    <div class="space-y-5">
+      {comparison.editorial.faq.map((item) => (
+        <details class="group llc-card overflow-hidden !p-0">
+          <summary class="flex cursor-pointer list-none items-start justify-between gap-4 px-5 py-5 text-lg font-semibold text-ink-strong transition-colors hover:bg-surface-subtle/70 marker:hidden sm:px-6">
+            <span>{item.question}</span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="mt-2 h-3.5 w-3.5 shrink-0 text-ink-muted transition group-open:rotate-180"
+            >
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="border-t border-rule px-5 py-5 sm:px-6">
+            <p class="llc-section-copy text-ink-soft">
+              {hasVerifyComment(item.answer)
+                ? <Fragment set:html={item.answer} />
+                : <AffiliateLinkedText text={item.answer} placement="comparison-faq" />}
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="llc-card-highlight space-y-5 !p-6 sm:!p-8">
+    <p class="llc-helper">Final verdict</p>
+    <h2>
+      <AffiliateLinkedText text={`${winner.shortName} is the better pick`} placement="comparison-final-heading" />
+    </h2>
+    <p class="llc-section-copy text-ink-soft">
+      <AffiliateLinkedText text={comparison.editorial.finalVerdict} placement="comparison-final-verdict" />
+    </p>
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <AffiliateButton
+        href={winner.affiliateUrl}
+        label={`Start with ${winner.shortName}`}
+        partnerName={winner.name}
+        placement="comparison-final-primary"
+        size="lg"
+      />
+      <a
+        href={loser.affiliateUrl}
+        target="_blank"
+        rel="noopener sponsored"
+        data-affiliate-click
+        data-event-name="affiliate_click"
+        data-partner={loser.name}
+        data-placement="comparison-final-secondary"
+        data-state="national"
+        class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-6 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
+      >
+        Try {loser.shortName} instead
+      </a>
+    </div>
+  </section>
+
+  <section class="llc-card-subtle space-y-5">
+    <div class="space-y-3">
+      <h2>Related guides</h2>
+      <p class="llc-section-copy text-ink-soft">
+        Use these next if you want the broader service ranking or state-specific filing rules.
+      </p>
+    </div>
+    <div class="grid gap-3 sm:grid-cols-2">
+      {comparison.relatedGuides.map((guide) => (
+        <a href={guide.href} class="group rounded-[14px] border border-rule bg-surface px-5 py-4 transition hover:border-rule-strong hover:bg-surface-subtle">
+          <span class="text-[15px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition group-hover:decoration-ink-soft">
+            {guide.label}
+          </span>
+          <span class="mt-2 block text-[14px] leading-6 text-ink-soft">{guide.description}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</SiteLayout>
