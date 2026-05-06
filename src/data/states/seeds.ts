@@ -9,6 +9,7 @@ export const stateSeeds: StateSeed[] = [
   { slug: 'colorado', name: 'Colorado', abbreviation: 'CO' },
   { slug: 'connecticut', name: 'Connecticut', abbreviation: 'CT' },
   { slug: 'delaware', name: 'Delaware', abbreviation: 'DE' },
+  { slug: 'district-of-columbia', name: 'District of Columbia', abbreviation: 'DC' },
   { slug: 'florida', name: 'Florida', abbreviation: 'FL' },
   { slug: 'georgia', name: 'Georgia', abbreviation: 'GA' },
   { slug: 'hawaii', name: 'Hawaii', abbreviation: 'HI' },

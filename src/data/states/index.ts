@@ -21,6 +21,7 @@ export type {
   StateOverride,
   StateSeed,
   Step,
+  USStateCode,
 } from './types';
 
 const stateOverrides: Record<string, StateOverride> = {

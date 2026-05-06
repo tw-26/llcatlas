@@ -1,3 +1,10 @@
+export type USStateCode =
+  | 'AL' | 'AK' | 'AZ' | 'AR' | 'CA' | 'CO' | 'CT' | 'DE' | 'DC' | 'FL'
+  | 'GA' | 'HI' | 'ID' | 'IL' | 'IN' | 'IA' | 'KS' | 'KY' | 'LA' | 'ME'
+  | 'MD' | 'MA' | 'MI' | 'MN' | 'MS' | 'MO' | 'MT' | 'NE' | 'NV' | 'NH'
+  | 'NJ' | 'NM' | 'NY' | 'NC' | 'ND' | 'OH' | 'OK' | 'OR' | 'PA' | 'RI'
+  | 'SC' | 'SD' | 'TN' | 'TX' | 'UT' | 'VT' | 'VA' | 'WA' | 'WV' | 'WI' | 'WY';
+
 export type Step = {
   title: string;
   description: string;
@@ -31,7 +38,7 @@ export type ComparisonRow = {
 export type StateData = {
   slug: string;
   name: string;
-  abbreviation: string;
+  abbreviation: USStateCode;
   contentStatus: 'placeholder' | 'ready';
   intro: string;
   whatYoullNeed: string;
@@ -70,7 +77,7 @@ export type StateData = {
 export type StateSeed = {
   slug: string;
   name: string;
-  abbreviation: string;
+  abbreviation: USStateCode;
 };
 
 export type StateOverride = Partial<Omit<StateData, 'slug' | 'name' | 'abbreviation'>>;
