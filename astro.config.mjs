@@ -6,6 +6,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 import { READY_STATE_SLUGS } from './src/data/states/ready-slugs.mjs';
 
+import preact from '@astrojs/preact';
+
 const SITE_URL = 'https://llcatlas.com';
 const readyStateUrls = new Set(
   READY_STATE_SLUGS.map((slug) => `${SITE_URL}/llc/${slug}/`),
@@ -13,16 +15,14 @@ const readyStateUrls = new Set(
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    sitemap({
-      filter: (page) => {
-        if (page.startsWith(`${SITE_URL}/llc/`)) {
-          return readyStateUrls.has(page);
-        }
-        return true;
-      },
-    }),
-  ],
+  integrations: [sitemap({
+    filter: (page) => {
+      if (page.startsWith(`${SITE_URL}/llc/`)) {
+        return readyStateUrls.has(page);
+      }
+      return true;
+    },
+  }), preact()],
   site: SITE_URL,
   output: 'static',
   trailingSlash: 'always',

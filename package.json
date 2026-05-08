@@ -15,11 +15,13 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
+    "@astrojs/preact": "^5.1.2",
     "@astrojs/sitemap": "^3.7.2",
     "@fontsource-variable/source-serif-4": "^5.2.9",
     "@fontsource/atkinson-hyperlegible": "^5.2.8",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.6",
+    "preact": "^10.29.1",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
