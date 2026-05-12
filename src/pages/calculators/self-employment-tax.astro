@@ -1,6 +1,11 @@
 ---
 import TaxCalculator from '../../components/calculator/TaxCalculator';
 import SiteLayout from '../../layouts/site-layout.astro';
+import {
+  getPublishedStatePages,
+  getStateName,
+  getStateSlug,
+} from '../../data/tax/calculator-pages';
 
 const title = 'Self-Employment Tax Calculator 2026 | Free 1099 Tax Estimator';
 const description =
@@ -8,6 +13,7 @@ const description =
 const canonical = 'https://llcatlas.com/calculators/self-employment-tax/';
 const lastReviewed = '2026-05-07';
 const lastReviewedLabel = 'May 7, 2026';
+const statePages = getPublishedStatePages();
 
 const structuredData = [
   {
@@ -115,6 +121,25 @@ const structuredData = [
           Varies dramatically: 0% in 9 states (TX, FL, etc.), flat rates in 12 states, graduated
           brackets up to 13.3% in California.
         </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="mb-4 text-2xl font-bold text-slate-900">State-specific calculators</h2>
+      <p class="mb-4 leading-relaxed text-slate-700">
+        Choose your state for a calculator pre-configured with that state's specific tax structure:
+      </p>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          statePages.map((page) => (
+            <a
+              href={`/calculators/self-employment-tax/${getStateSlug(page.state)}/`}
+              class="llc-card transition-colors hover:border-blue-400"
+            >
+              <span class="font-medium text-slate-900">{getStateName(page.state)}</span>
+            </a>
+          ))
+        }
       </div>
     </section>
 
