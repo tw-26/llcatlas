@@ -251,11 +251,11 @@ export const comparisons: ServiceComparison[] = [
       sources: [
         {
           label: 'Northwest LLC cost page',
-          url: 'https://www.northwestregisteredagent.com/llc/cost',
+          url: 'https://tidd.ly/48iRAwH',
         },
         {
           label: 'Northwest registered agent service',
-          url: 'https://www.northwestregisteredagent.com/registered-agent',
+          url: 'https://tidd.ly/48iRAwH',
         },
         {
           label: 'LegalZoom LLC overview',
