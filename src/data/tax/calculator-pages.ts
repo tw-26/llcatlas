@@ -144,6 +144,96 @@ export const CALCULATOR_STATE_PAGES: CalculatorStatePage[] = [
       'Arizona has one of the lowest flat income tax rates in the nation at 2.5%, with a standard deduction matching the federal amount ($15,000 single / $30,000 married filing jointly). This makes Arizona a tax-friendly state for self-employed workers compared to high-tax states like California. Use the calculator below to estimate your 2026 federal + state + SE tax.',
     enabled: true,
   },
+  {
+    state: 'CO',
+    targetKeyword: '1099 Tax Calculator Colorado',
+    metaDescription:
+      'Free 2026 Colorado self-employment tax calculator. Estimate federal, SE, and CO flat 4.4% state tax for 1099 freelancers and contractors. Quarterly payments included.',
+    intro:
+      'Colorado has a flat 4.4% individual income tax rate using the federal standard deduction as a starting point. Self-employed workers and 1099 contractors in Colorado owe state tax in addition to federal income tax (10-37%) and self-employment tax (15.3% on net earnings). Use the calculator below to estimate your 2026 total tax liability and quarterly estimated payments.',
+    enabled: true,
+  },
+  {
+    state: 'MA',
+    targetKeyword: '1099 Tax Calculator Massachusetts',
+    metaDescription:
+      'Free 2026 Massachusetts self-employment tax calculator. Estimate federal, SE, and MA 5% state tax (+4% surtax over $1M) for 1099 freelancers. Quarterly payments included.',
+    intro:
+      'Massachusetts has a 5% flat tax on most income, plus an additional 4% surtax on income exceeding $1,083,150 (the "Fair Share Amendment" millionaire\'s tax). Self-employed workers and 1099 contractors in Massachusetts owe federal income tax (10-37%) and 15.3% self-employment tax in addition to state tax. Use the calculator below to estimate your full 2026 tax liability.',
+    enabled: true,
+  },
+  {
+    state: 'MD',
+    targetKeyword: '1099 Tax Calculator Maryland',
+    metaDescription:
+      'Free 2026 Maryland self-employment tax calculator. Estimate federal, SE, and MD state tax (2-5.75%) for 1099 freelancers. Note: county taxes (avg 2.51%) not included.',
+    intro:
+      'Maryland has 8 graduated income tax brackets ranging from 2% to 5.75%. Maryland counties impose additional local income taxes averaging 2.51% on top of state tax - these local taxes are not modeled in this calculator. Self-employed workers in Maryland owe federal income tax (10-37%) and 15.3% self-employment tax in addition to state tax. Use the calculator below to estimate your 2026 federal + state + SE tax.',
+    enabled: true,
+  },
+  {
+    state: 'IN',
+    targetKeyword: '1099 Tax Calculator Indiana',
+    metaDescription:
+      'Free 2026 Indiana self-employment tax calculator. Estimate federal, SE, and IN flat 3% state tax for 1099 freelancers. Note: county taxes (avg 0.49%) not included.',
+    intro:
+      'Indiana has a flat 3.0% individual income tax rate (reduced from 3.05% effective January 1, 2025). Most Indiana counties impose additional local income taxes averaging 0.49% - these are not modeled in this calculator. Self-employed workers in Indiana owe state tax in addition to federal income tax (10-37%) and 15.3% self-employment tax. Use the calculator below to estimate your 2026 tax liability.',
+    enabled: true,
+  },
+  {
+    state: 'TN',
+    targetKeyword: '1099 Tax Calculator Tennessee',
+    metaDescription:
+      'Free 2026 Tennessee self-employment tax calculator. TN has no state income tax - estimate federal and SE tax for 1099 freelancers and contractors. Quarterly payments.',
+    intro:
+      'Tennessee has no state individual income tax, making it tax-friendly for freelancers and 1099 contractors. (The Hall income tax on interest and dividends was fully repealed in 2021.) You still owe federal income tax based on your bracket and 15.3% self-employment tax on net earnings. Use the calculator below to estimate your federal + SE tax for 2026 and quarterly estimated payment amounts.',
+    enabled: true,
+  },
+  {
+    state: 'MO',
+    targetKeyword: '1099 Tax Calculator Missouri',
+    metaDescription:
+      'Free 2026 Missouri self-employment tax calculator. Estimate federal, SE, and MO state tax (0-4.7%) for 1099 freelancers. Note: KC/St. Louis local taxes not included.',
+    intro:
+      'Missouri has 8 narrow income tax brackets with a top rate of 4.7% (reduced from 4.8% effective January 1, 2025). The first $1,313 of income is exempt. Kansas City and St. Louis impose 1% local earnings taxes - these are not modeled in this calculator. Use the calculator below to estimate your federal + Missouri state + SE tax for 2026.',
+    enabled: true,
+  },
+  {
+    state: 'WI',
+    targetKeyword: '1099 Tax Calculator Wisconsin',
+    metaDescription:
+      'Free 2026 Wisconsin self-employment tax calculator. Estimate federal, SE, and WI state tax (3.5-7.65%) for 1099 freelancers and contractors. Quarterly payments included.',
+    intro:
+      'Wisconsin has 4 graduated income tax brackets ranging from 3.5% to 7.65%. The top 7.65% rate kicks in at $323,290 (single) or $431,060 (married filing jointly). Self-employed workers in Wisconsin owe state tax in addition to federal income tax (10-37%) and 15.3% self-employment tax. Use the calculator below to estimate your full 2026 tax liability.',
+    enabled: true,
+  },
+  {
+    state: 'MN',
+    targetKeyword: '1099 Tax Calculator Minnesota',
+    metaDescription:
+      'Free 2026 Minnesota self-employment tax calculator. Estimate federal, SE, and MN state tax (5.35-9.85%) for 1099 freelancers and contractors. Quarterly payments included.',
+    intro:
+      'Minnesota has 4 graduated income tax brackets ranging from 5.35% to 9.85%. The top rate kicks in at $198,630 (single) or $330,410 (married filing jointly). Self-employed workers in Minnesota owe state tax in addition to federal income tax (10-37%) and 15.3% self-employment tax. Use the calculator below to estimate your 2026 federal + state + SE tax.',
+    enabled: true,
+  },
+  {
+    state: 'SC',
+    targetKeyword: '1099 Tax Calculator South Carolina',
+    metaDescription:
+      'Free 2026 South Carolina self-employment tax calculator. Estimate federal, SE, and SC state tax (0-6.2%) for 1099 freelancers and contractors. Quarterly payments included.',
+    intro:
+      'South Carolina has 3 income tax brackets ranging from 0% to 6.2% (top rate reduced from 6.4%, with further reductions to 6.0% scheduled). Income below $3,560 is exempt. South Carolina is moving toward a simpler 2-rate structure (1.99% / 5.21%) starting tax year 2026. Use the calculator below to estimate your federal + SC state + SE tax for 2026.',
+    enabled: true,
+  },
+  {
+    state: 'OR',
+    targetKeyword: '1099 Tax Calculator Oregon',
+    metaDescription:
+      'Free 2026 Oregon self-employment tax calculator. Estimate federal, SE, and OR state tax (4.75-9.9%) for 1099 freelancers. Note: Portland/Multnomah local taxes not included.',
+    intro:
+      'Oregon has 4 graduated income tax brackets ranging from 4.75% to 9.9%. Some Oregon localities (notably Multnomah County and Portland Metro) impose additional local income taxes for high earners - these are not modeled in this calculator. Self-employed workers in Oregon owe state tax in addition to federal income tax and 15.3% self-employment tax. Use the calculator below to estimate your 2026 total tax liability.',
+    enabled: true,
+  },
 ];
 
 /**
