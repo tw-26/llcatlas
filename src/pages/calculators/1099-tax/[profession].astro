@@ -6,6 +6,8 @@ import {
   type ProfessionPage,
 } from '../../../data/tax/profession-pages';
 import { getProfessionPreset } from '../../../data/tax/profession-presets';
+import { getPublishedComboPages } from '../../../data/tax/combo-pages';
+import { getStateName, getStateSlug } from '../../../data/tax/calculator-pages';
 
 export async function getStaticPaths() {
   return getPublishedProfessionPages().map((page) => ({
@@ -34,6 +36,14 @@ const siblingProfessions = getPublishedProfessionPages()
   .map((page) => ({
     label: getProfessionPreset(page.profession).displayName,
     slug: page.profession,
+  }));
+
+const combosForThisProfession = getPublishedComboPages()
+  .filter((combo) => combo.profession === pageConfig.profession)
+  .map((combo) => ({
+    state: combo.state,
+    stateName: getStateName(combo.state),
+    stateSlug: getStateSlug(combo.state),
   }));
 
 const structuredData = [
@@ -179,6 +189,30 @@ const structuredData = [
         estimated payments - see the calculator output for amounts and due dates.
       </p>
     </section>
+
+    {
+      combosForThisProfession.length > 0 && (
+        <section class="mb-12">
+          <h2 class="mb-4 text-2xl font-bold text-slate-900">
+            {preset.displayName} tax calculator by state
+          </h2>
+          <p class="mb-4 leading-relaxed text-slate-700">
+            Get a state-specific tax estimate with {preset.displayName.toLowerCase()}-specific
+            deduction guidance:
+          </p>
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {combosForThisProfession.map((combo) => (
+              <a
+                href={`/calculators/1099-tax/${pageConfig.profession}/${combo.stateSlug}/`}
+                class="llc-card transition-colors hover:border-blue-400"
+              >
+                <span class="font-medium text-slate-900">{combo.stateName}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
 
     <section class="mb-12">
       <h2 class="mb-6 text-2xl font-bold text-slate-900">

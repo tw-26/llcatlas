@@ -7,6 +7,8 @@ import {
   getStateSlug,
   type CalculatorStatePage,
 } from '../../../data/tax/calculator-pages';
+import { getPublishedComboPages } from '../../../data/tax/combo-pages';
+import { getProfessionPreset } from '../../../data/tax/profession-presets';
 import { STATE_RULES_2025 } from '../../../data/tax/state-rules-2025';
 
 export async function getStaticPaths() {
@@ -36,6 +38,13 @@ const siblingStates = getPublishedStatePages()
   .map((page) => ({
     name: getStateName(page.state),
     slug: getStateSlug(page.state),
+  }));
+
+const combosForThisState = getPublishedComboPages()
+  .filter((combo) => combo.state === pageConfig.state)
+  .map((combo) => ({
+    profession: combo.profession,
+    label: getProfessionPreset(combo.profession).displayName,
   }));
 
 const taxStructureSummary = (() => {
@@ -128,6 +137,31 @@ const structuredData = [
         }
       </div>
     </section>
+
+    {
+      combosForThisState.length > 0 && (
+        <section class="mb-12">
+          <h2 class="mb-4 text-2xl font-bold text-slate-900">
+            Profession-specific calculators for {stateName}
+          </h2>
+          <p class="mb-4 leading-relaxed text-slate-700">
+            Get a {stateName}-specific tax estimate with profession-specific deduction guidance:
+          </p>
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {combosForThisState.map((profession) => (
+              <a
+                href={`/calculators/1099-tax/${profession.profession}/${stateSlug}/`}
+                class="llc-card transition-colors hover:border-blue-400"
+              >
+                <span class="font-medium text-slate-900">
+                  {profession.label} in {stateName}
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
 
     <section class="mb-12">
       <h2 class="mb-4 text-2xl font-bold text-slate-900">Federal tax also applies</h2>
