@@ -6,6 +6,8 @@ import {
   getStateName,
   getStateSlug,
 } from '../../data/tax/calculator-pages';
+import { getPublishedProfessionPages } from '../../data/tax/profession-pages';
+import { getProfessionPreset } from '../../data/tax/profession-presets';
 
 const title = 'Self-Employment Tax Calculator 2026 | Free 1099 Tax Estimator';
 const description =
@@ -14,6 +16,7 @@ const canonical = 'https://llcatlas.com/calculators/self-employment-tax/';
 const lastReviewed = '2026-05-07';
 const lastReviewedLabel = 'May 7, 2026';
 const statePages = getPublishedStatePages();
+const professionPages = getPublishedProfessionPages();
 
 const structuredData = [
   {
@@ -139,6 +142,32 @@ const structuredData = [
               <span class="font-medium text-slate-900">{getStateName(page.state)}</span>
             </a>
           ))
+        }
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="mb-4 text-2xl font-bold text-slate-900">By profession</h2>
+      <p class="mb-4 leading-relaxed text-slate-700">
+        Profession-specific calculators with deduction guidance for common gig economy and freelance
+        work:
+      </p>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          professionPages.map((page) => {
+            const preset = getProfessionPreset(page.profession);
+
+            return (
+              <a
+                href={`/calculators/1099-tax/${page.profession}/`}
+                class="llc-card transition-colors hover:border-blue-400"
+              >
+                <span class="font-medium text-slate-900">
+                  {preset.displayName} tax calculator
+                </span>
+              </a>
+            );
+          })
         }
       </div>
     </section>
