@@ -270,10 +270,7 @@ export const llcServices: LlcService[] = [
       'Privacy is available if you add or bundle the registered agent, but it is not part of the cheapest package.',
     ctaLabel: 'Start with ZenBusiness',
     affiliateUrl: affiliates.zenbusiness,
-    sources: [
-      'https://zenbusiness.com/pricing-formation-plans',
-      'https://help.zenbusiness.com/registered-agent-service/pricing',
-    ],
+    sources: ['https://tidd.ly/43n8x64'],
   },
   {
     slug: 'legalzoom',

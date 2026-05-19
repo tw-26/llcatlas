@@ -570,12 +570,20 @@ const structuredData = [
                 </div>
 
                 {fullComparisonPage && (
-                  <a
-                    href={`/${fullComparisonPage.slug}/`}
-                    class="mt-5 inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
-                  >
-                    Read the full {leftService.name} vs {rightService.name} comparison
-                  </a>
+                  <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+                    <p class="text-sm text-ink-soft">
+                      Full comparison:{' '}
+                      <AffiliateLinkedText text={leftService.name} placement="best-services-full-comparison-name" />{' '}
+                      vs{' '}
+                      <AffiliateLinkedText text={rightService.name} placement="best-services-full-comparison-name" />
+                    </p>
+                    <a
+                      href={`/${fullComparisonPage.slug}/`}
+                      class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+                    >
+                      Read the full comparison
+                    </a>
+                  </div>
                 )}
               </div>
             </details>
@@ -776,10 +784,19 @@ const structuredData = [
       <ul class="mt-4 text-sm text-ink-soft">
         <li><a href="#bizee" class="hover:text-ink-strong">Bizee review</a></li>
         <li><a href="#northwest" class="hover:text-ink-strong">Northwest review</a></li>
-        <li><a href="#zenbusiness" class="hover:text-ink-strong">ZenBusiness review</a></li>
+        <li>
+          <AffiliateLinkedText text="ZenBusiness" placement="best-services-sidebar-toc" />{' '}
+          <a href="#zenbusiness" class="hover:text-ink-strong">review</a>
+        </li>
         <li><a href="#legalzoom" class="hover:text-ink-strong">LegalZoom review</a></li>
-        <li><a href="#northwest-vs-zenbusiness" class="hover:text-ink-strong">Northwest vs ZenBusiness</a></li>
-        <li><a href="#bizee-vs-zenbusiness" class="hover:text-ink-strong">Bizee vs ZenBusiness</a></li>
+        <li>
+          <AffiliateLinkedText text="Northwest vs ZenBusiness" placement="best-services-sidebar-toc" />{' '}
+          <a href="#northwest-vs-zenbusiness" class="hover:text-ink-strong">comparison</a>
+        </li>
+        <li>
+          <AffiliateLinkedText text="Bizee vs ZenBusiness" placement="best-services-sidebar-toc" />{' '}
+          <a href="#bizee-vs-zenbusiness" class="hover:text-ink-strong">comparison</a>
+        </li>
       </ul>
     </div>
 

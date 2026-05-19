@@ -16,7 +16,7 @@ export type AffiliatePartner = 'bizee' | 'northwest' | 'zenbusiness' | 'legalzoo
 export const affiliates: Record<AffiliatePartner, string> = {
   bizee: 'https://tidd.ly/3R7biWu',
   northwest: 'https://tidd.ly/48iRAwH',
-  zenbusiness: 'https://www.zenbusiness.com/',
+  zenbusiness: 'https://tidd.ly/43n8x64',
   legalzoom: 'https://www.legalzoom.com/',
 };
 
