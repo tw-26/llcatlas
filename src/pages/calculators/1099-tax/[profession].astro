@@ -1,5 +1,6 @@
 ---
 import TaxCalculator from '../../../components/calculator/TaxCalculator';
+import CalculatorNextStep from '../../../components/calculator-next-step.astro';
 import SiteLayout from '../../../layouts/site-layout.astro';
 import {
   getPublishedProfessionPages,
@@ -125,6 +126,8 @@ const structuredData = [
     <section class="mb-12" aria-label="Tax calculator">
       <TaxCalculator client:load />
     </section>
+
+    <CalculatorNextStep professionLabel={preset.displayName} />
 
     <section class="mb-12">
       <h2 class="mb-4 text-2xl font-bold text-slate-900">

@@ -1,5 +1,6 @@
 ---
 import TaxCalculator from '../../components/calculator/TaxCalculator';
+import CalculatorNextStep from '../../components/calculator-next-step.astro';
 import SiteLayout from '../../layouts/site-layout.astro';
 import {
   getPublishedStatePages,
@@ -87,6 +88,8 @@ const structuredData = [
     <section class="mb-12" aria-label="Tax calculator">
       <TaxCalculator client:load />
     </section>
+
+    <CalculatorNextStep />
 
     <section class="mb-12">
       <h2 class="mb-4 text-2xl font-bold text-slate-900">How self-employment tax works</h2>
@@ -207,8 +210,8 @@ const structuredData = [
           <p class="leading-relaxed text-slate-700">
             For freelancers earning under ~$80K, an LLC taxed as a sole proprietor (the default) is
             usually fine. Above that, electing S-Corp tax treatment can reduce SE tax by paying
-            yourself a "reasonable salary" and taking the rest as distributions. See our
-            <a href="/llc-vs-s-corp/" class="llc-link">LLC vs S-Corp comparison</a> for details.
+            yourself a "reasonable salary" and taking the rest as distributions. That is the next
+            calculator to build before expanding more state guides.
           </p>
         </div>
       </div>

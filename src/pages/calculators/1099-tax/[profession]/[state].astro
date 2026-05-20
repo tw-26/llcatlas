@@ -1,5 +1,6 @@
 ---
 import TaxCalculator from '../../../../components/calculator/TaxCalculator';
+import CalculatorNextStep from '../../../../components/calculator-next-step.astro';
 import SiteLayout from '../../../../layouts/site-layout.astro';
 import {
   getComboKeyword,
@@ -139,6 +140,12 @@ const structuredData = [
     <section class="mb-12" aria-label="Tax calculator">
       <TaxCalculator client:load defaultState={combo.state} lockState={true} />
     </section>
+
+    <CalculatorNextStep
+      stateName={stateName}
+      stateSlug={stateSlug}
+      professionLabel={preset.displayName}
+    />
 
     <section class="mb-12">
       <div class="llc-card">

@@ -2,6 +2,7 @@
 import AffiliateButton from '../components/affiliate-button.astro';
 import AffiliateLinkedText from '../components/affiliate-linked-text.astro';
 import SiteLayout from '../layouts/site-layout.astro';
+import { isAffiliateConfigured, type AffiliatePartner } from '../data/affiliates';
 import { affiliateDisclosure, comparisons, type ServiceComparison } from '../data/comparisons';
 
 export function getStaticPaths() {
@@ -20,6 +21,25 @@ const { serviceA, serviceB } = comparison;
 const winner = comparison.winner === 'A' ? serviceA : serviceB;
 const loser = comparison.winner === 'A' ? serviceB : serviceA;
 const winnerKey = comparison.winner === 'A' ? 'serviceA' : 'serviceB';
+const partnerByName: Record<string, AffiliatePartner> = {
+  Bizee: 'bizee',
+  Northwest: 'northwest',
+  'Northwest Registered Agent': 'northwest',
+  ZenBusiness: 'zenbusiness',
+  LegalZoom: 'legalzoom',
+};
+const getPartnerSlug = (name: string) => partnerByName[name];
+const isServiceAffiliate = (name: string) => {
+  const partnerSlug = getPartnerSlug(name);
+
+  return Boolean(partnerSlug && isAffiliateConfigured(partnerSlug));
+};
+const serviceAPartnerSlug = getPartnerSlug(serviceA.name);
+const serviceBPartnerSlug = getPartnerSlug(serviceB.name);
+const loserPartnerSlug = getPartnerSlug(loser.name);
+const isServiceAAffiliate = isServiceAffiliate(serviceA.name);
+const isServiceBAffiliate = isServiceAffiliate(serviceB.name);
+const isLoserAffiliate = isServiceAffiliate(loser.name);
 const pageUrl = `https://llcatlas.com/${comparison.slug}/`;
 const lastUpdatedLabel = new Date(`${comparison.meta.lastUpdated}T00:00:00Z`).toLocaleDateString('en-US', {
   year: 'numeric',
@@ -236,12 +256,30 @@ const structuredData = [
               <tr>
                 <th scope="col" class="llc-table-head px-5 py-4 text-left">Compare</th>
                 <th scope="col" class={['llc-table-head px-5 py-4 text-left', winnerKey === 'serviceA' ? 'bg-surface-warm' : ''].join(' ')}>
-                  <a href={serviceA.affiliateUrl} target="_blank" rel="noopener sponsored" class="underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft">
+                  <a
+                    href={serviceA.affiliateUrl}
+                    target="_blank"
+                    rel={isServiceAAffiliate ? 'sponsored noopener' : 'noopener'}
+                    data-affiliate={isServiceAAffiliate ? serviceAPartnerSlug : undefined}
+                    data-page-type={isServiceAAffiliate ? 'comparison' : undefined}
+                    data-position={isServiceAAffiliate ? 'comparison-quick-table-service-a' : undefined}
+                    data-state={isServiceAAffiliate ? 'national' : undefined}
+                    class="underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+                  >
                     {serviceA.shortName}
                   </a>
                 </th>
                 <th scope="col" class={['llc-table-head px-5 py-4 text-left', winnerKey === 'serviceB' ? 'bg-surface-warm' : ''].join(' ')}>
-                  <a href={serviceB.affiliateUrl} target="_blank" rel="noopener sponsored" class="underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft">
+                  <a
+                    href={serviceB.affiliateUrl}
+                    target="_blank"
+                    rel={isServiceBAffiliate ? 'sponsored noopener' : 'noopener'}
+                    data-affiliate={isServiceBAffiliate ? serviceBPartnerSlug : undefined}
+                    data-page-type={isServiceBAffiliate ? 'comparison' : undefined}
+                    data-position={isServiceBAffiliate ? 'comparison-quick-table-service-b' : undefined}
+                    data-state={isServiceBAffiliate ? 'national' : undefined}
+                    class="underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+                  >
                     {serviceB.shortName}
                   </a>
                 </th>
@@ -271,12 +309,11 @@ const structuredData = [
         <a
           href={loser.affiliateUrl}
           target="_blank"
-          rel="noopener sponsored"
-          data-affiliate-click
-          data-event-name="affiliate_click"
-          data-partner={loser.name}
-          data-placement="comparison-hero-secondary"
-          data-state="national"
+          rel={isLoserAffiliate ? 'sponsored noopener' : 'noopener'}
+          data-affiliate={isLoserAffiliate ? loserPartnerSlug : undefined}
+          data-page-type={isLoserAffiliate ? 'comparison' : undefined}
+          data-position={isLoserAffiliate ? 'comparison-hero-secondary' : undefined}
+          data-state={isLoserAffiliate ? 'national' : undefined}
           class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-6 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
         >
           Try {loser.shortName} instead
@@ -503,12 +540,11 @@ const structuredData = [
       <a
         href={loser.affiliateUrl}
         target="_blank"
-        rel="noopener sponsored"
-        data-affiliate-click
-        data-event-name="affiliate_click"
-        data-partner={loser.name}
-        data-placement="comparison-final-secondary"
-        data-state="national"
+        rel={isLoserAffiliate ? 'sponsored noopener' : 'noopener'}
+        data-affiliate={isLoserAffiliate ? loserPartnerSlug : undefined}
+        data-page-type={isLoserAffiliate ? 'comparison' : undefined}
+        data-position={isLoserAffiliate ? 'comparison-final-secondary' : undefined}
+        data-state={isLoserAffiliate ? 'national' : undefined}
         class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-6 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
       >
         Try {loser.shortName} instead

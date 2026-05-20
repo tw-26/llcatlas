@@ -1,0 +1,44 @@
+---
+interface Props {
+  stateName?: string;
+  stateSlug?: string;
+  professionLabel?: string;
+}
+
+const { stateName, stateSlug, professionLabel } = Astro.props as Props;
+const stateGuideHref = stateSlug ? `/llc/${stateSlug}/` : '/best-state/';
+const stateGuideLabel = stateName ? `Read the ${stateName} LLC guide` : 'Pick the right LLC state';
+const context = professionLabel
+  ? `${professionLabel} income`
+  : stateName
+    ? `${stateName} self-employment income`
+    : 'self-employment income';
+---
+
+<section class="mb-12 rounded-[1.5rem] border border-rule bg-surface-subtle p-6 sm:p-8">
+  <div class="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+    <div class="space-y-3">
+      <p class="llc-helper">Next step</p>
+      <h2 class="text-2xl">Turn the tax number into a formation decision</h2>
+      <p class="max-w-2xl text-[15px] leading-7 text-ink-soft">
+        Once you know the tax drag on {context}, the next question is whether an LLC service is
+        worth paying for or whether you should file directly with the state.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-3 sm:flex-row md:flex-col">
+      <a
+        href="/best-llc-services/"
+        class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+      >
+        Compare LLC services
+      </a>
+      <a
+        href={stateGuideHref}
+        class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong bg-surface px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
+      >
+        {stateGuideLabel}
+      </a>
+    </div>
+  </div>
+</section>

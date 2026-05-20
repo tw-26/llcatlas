@@ -1,5 +1,6 @@
 ---
-import { affiliates, type AffiliatePartner } from '../data/affiliates';
+import { affiliates, isAffiliateConfigured, type AffiliatePartner } from '../data/affiliates';
+import { getAffiliatePageType } from '../lib/affiliate-tracking';
 
 interface ProviderMatch {
   partner: AffiliatePartner;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const { text, placement, state = 'national' } = Astro.props as Props;
+const pageType = getAffiliatePageType(Astro.url.pathname);
 
 const providerByName: Record<string, ProviderMatch> = {
   Bizee: {
@@ -49,16 +51,17 @@ const parts = text.split(providerPattern);
       return part;
     }
 
+    const isAffiliate = isAffiliateConfigured(provider.partner);
+
     return (
       <a
         href={affiliates[provider.partner]}
         target="_blank"
-        rel="noopener sponsored"
-        data-affiliate-click
-        data-event-name="affiliate_click"
-        data-partner={provider.partnerName}
-        data-placement={placement}
-        data-state={state}
+        rel={isAffiliate ? 'sponsored noopener' : 'noopener'}
+        data-affiliate={isAffiliate ? provider.partner : undefined}
+        data-page-type={isAffiliate ? pageType : undefined}
+        data-position={isAffiliate ? placement : undefined}
+        data-state={isAffiliate ? state : undefined}
         class="llc-link"
       >
         {part}

@@ -4,9 +4,9 @@ import SiteLayout from '../layouts/site-layout.astro';
 
 const title = 'Privacy Policy | LLCAtlas';
 const description =
-  "How LLCAtlas handles privacy, affiliate links, and site data. Short version: we don't collect personal information.";
+  "How LLCAtlas handles privacy, affiliate links, and site data. Short version: we use privacy-friendly aggregate analytics, not personal tracking.";
 const pageUrl = 'https://llcatlas.com/privacy';
-const lastUpdated = 'April 2026';
+const lastUpdated = 'May 2026';
 
 const structuredData = [
   {
@@ -24,16 +24,17 @@ const structuredData = [
   <section class="space-y-4">
     <h1>Privacy</h1>
     <p class="text-lg leading-8 text-ink-soft">
-      Last updated {lastUpdated}. This site doesn't track you. Here's what that actually looks
-      like.
+      Last updated {lastUpdated}. This site measures aggregate traffic and affiliate clicks, but
+      does not build personal profiles.
     </p>
   </section>
 
   <section aria-labelledby="what-we-collect" class="max-w-3xl space-y-4">
     <h2 id="what-we-collect">What we collect</h2>
     <p class="text-lg leading-8 text-ink-soft">
-      We do not currently run analytics scripts. No pageview tracker, no cookie banner, no session
-      replay, and no ad-network pixels.
+      LLCAtlas uses Cloudflare Web Analytics to understand aggregate site usage: pages viewed,
+      referrers, approximate geography, device type, and similar high-level metrics. Cloudflare Web
+      Analytics does not use cookies, and we do not use session replay or ad-network pixels.
     </p>
     <p class="text-lg leading-8 text-ink-soft">
       Server logs may exist at the hosting layer for security and uptime, but LLCAtlas does not use
@@ -45,7 +46,7 @@ const structuredData = [
     <h2 id="how-we-earn">How this site makes money</h2>
     <p class="text-lg leading-8 text-ink-soft">
       <AffiliateLinkedText
-        text="Some of the outbound links here are affiliate links. If you click one and sign up with a formation service like Northwest, Bizee, or LegalZoom, we earn a small commission. You pay the same price either way."
+        text="Some of the outbound links here are affiliate links. If you click one and sign up with a formation service like Northwest, Bizee, or ZenBusiness, we may earn a small commission. You pay the same price either way."
         placement="privacy-affiliate-disclosure"
       />
     </p>
@@ -63,15 +64,15 @@ const structuredData = [
   <section aria-labelledby="cookies" class="max-w-3xl space-y-4">
     <h2 id="cookies">Cookies</h2>
     <p class="text-lg leading-8 text-ink-soft">
-      We don't set cookies.
+      We don't set analytics cookies.
     </p>
   </section>
 
   <section aria-labelledby="your-data" class="max-w-3xl space-y-4">
     <h2 id="your-data">Your data</h2>
     <p class="text-lg leading-8 text-ink-soft">
-      We don't collect personal information from you, so there's nothing to export and nothing
-      to delete. Nothing to opt out of either.
+      We don't collect personal information from you, so there is no LLCAtlas account profile to
+      export or delete.
     </p>
     <p class="text-lg leading-8 text-ink-soft">
       If that ever changes, for example if we add a newsletter or a login, we'll say so on this
