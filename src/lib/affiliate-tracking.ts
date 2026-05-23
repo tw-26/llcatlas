@@ -1,7 +1,7 @@
 export type AffiliatePageType =
   | 'home'
-  | 'state-guide'
-  | 'calculator'
+  | 'state'
+  | 'calc'
   | 'comparison'
   | 'privacy'
   | 'other';
@@ -12,11 +12,16 @@ export const getAffiliatePageType = (pathname: string): AffiliatePageType => {
   }
 
   if (pathname.startsWith('/llc/')) {
-    return 'state-guide';
+    return 'state';
   }
 
-  if (pathname.startsWith('/calculators/')) {
-    return 'calculator';
+  if (
+    pathname.startsWith('/calculators/') ||
+    pathname.startsWith('/self-employment-tax/') ||
+    pathname === '/s-corp/election-calculator/' ||
+    pathname === '/s-corp/election-calculator'
+  ) {
+    return 'calc';
   }
 
   if (

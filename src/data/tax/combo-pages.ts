@@ -4,7 +4,7 @@ import { getProfessionPreset, type ProfessionId } from './profession-presets';
 
 /**
  * Combo page: profession + state.
- * URL pattern: /calculators/1099-tax/{profession}/{state-slug}/
+ * URL pattern: /self-employment-tax/1099/{profession}/{state-slug}/
  */
 export type ComboPage = {
   profession: ProfessionId;

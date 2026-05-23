@@ -17,6 +17,10 @@ const readyStateUrls = new Set(
 export default defineConfig({
   integrations: [sitemap({
     filter: (page) => {
+      if (page.startsWith(`${SITE_URL}/calculators/`)) {
+        return false;
+      }
+
       if (page.startsWith(`${SITE_URL}/llc/`)) {
         return readyStateUrls.has(page);
       }

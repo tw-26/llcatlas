@@ -101,6 +101,13 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
         <script type="application/ld+json" set:html={JSON.stringify(item)} />
       ))
     }
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "9c94b268b27b4893a043076eae99ca12"}'
+    />
+    <!-- End Cloudflare Web Analytics -->
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>

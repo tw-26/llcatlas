@@ -1,0 +1,223 @@
+---
+import TaxCalculator from '../../components/calculator/TaxCalculator';
+import CalculatorNextStep from '../../components/calculator-next-step.astro';
+import SiteLayout from '../../layouts/site-layout.astro';
+import {
+  getPublishedStatePages,
+  getStateName,
+  getStateSlug,
+  type CalculatorStatePage,
+} from '../../data/tax/calculator-pages';
+import { getPublishedComboPages } from '../../data/tax/combo-pages';
+import { getProfessionPreset } from '../../data/tax/profession-presets';
+import { STATE_RULES_2025 } from '../../data/tax/state-rules-2025';
+
+export async function getStaticPaths() {
+  return getPublishedStatePages().map((page) => ({
+    params: { state: getStateSlug(page.state) },
+    props: { pageConfig: page },
+  }));
+}
+
+interface Props {
+  pageConfig: CalculatorStatePage;
+}
+
+const { pageConfig } = Astro.props as Props;
+const stateName = getStateName(pageConfig.state);
+const stateSlug = getStateSlug(pageConfig.state);
+const stateRules = STATE_RULES_2025[pageConfig.state];
+
+const title = `${pageConfig.targetKeyword} 2026 | Free SE Tax Estimator`;
+const description = pageConfig.metaDescription;
+const canonical = `https://llcatlas.com/self-employment-tax/${stateSlug}/`;
+const lastReviewed = '2026-05-07';
+const lastReviewedLabel = 'May 7, 2026';
+
+const siblingStates = getPublishedStatePages()
+  .filter((page) => page.state !== pageConfig.state)
+  .map((page) => ({
+    name: getStateName(page.state),
+    slug: getStateSlug(page.state),
+  }));
+
+const combosForThisState = getPublishedComboPages()
+  .filter((combo) => combo.state === pageConfig.state)
+  .map((combo) => ({
+    profession: combo.profession,
+    label: getProfessionPreset(combo.profession).displayName,
+  }));
+
+const taxStructureSummary = (() => {
+  if (!stateRules.hasIncomeTax) {
+    return `${stateName} has no state individual income tax.`;
+  }
+
+  if (stateRules.taxStructure === 'flat' && stateRules.flatRate !== undefined) {
+    return `${stateName} has a flat ${(stateRules.flatRate * 100).toFixed(2)}% state income tax.`;
+  }
+
+  const brackets = stateRules.brackets?.single ?? [];
+  const topRate = brackets.length > 0 ? brackets[brackets.length - 1].rate : 0;
+  return `${stateName} has graduated income tax brackets with a top rate of ${(topRate * 100).toFixed(2)}%.`;
+})();
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: `${pageConfig.targetKeyword} 2026`,
+    description,
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Any',
+    url: canonical,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    datePublished: '2026-05-07',
+    dateModified: lastReviewed,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://llcatlas.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Self-employment tax calculator',
+        item: 'https://llcatlas.com/self-employment-tax/calculator/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: `${stateName} calculator`,
+        item: canonical,
+      },
+    ],
+  },
+];
+---
+
+<SiteLayout title={title} description={description} structuredData={structuredData}>
+  <article class="mx-auto max-w-6xl px-4 py-8 lg:py-12">
+    <nav class="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
+      <a href="/" class="llc-link">Home</a>
+      <span class="mx-2">/</span>
+      <a href="/self-employment-tax/calculator/" class="llc-link">SE Tax Calculator</a>
+      <span class="mx-2">/</span>
+      <span class="text-slate-700">{stateName}</span>
+    </nav>
+
+    <header class="mb-8">
+      <h1 class="mb-3 text-3xl font-bold text-slate-900 lg:text-4xl">
+        {pageConfig.targetKeyword} 2026
+      </h1>
+      <p class="text-lg leading-relaxed text-slate-600">
+        {pageConfig.intro}
+      </p>
+    </header>
+
+    <section class="mb-12" aria-label="Tax calculator">
+      <TaxCalculator client:load defaultState={pageConfig.state} lockState={true} />
+    </section>
+
+    <CalculatorNextStep stateName={stateName} stateSlug={stateSlug} />
+
+    <section class="mb-12">
+      <div class="llc-card-highlight">
+        <h2 class="mb-3 text-xl font-semibold text-slate-900">
+          How {stateName} taxes self-employment income
+        </h2>
+        <p class="leading-relaxed text-slate-700">{taxStructureSummary}</p>
+        {
+          stateRules.notes && (
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">{stateRules.notes}</p>
+          )
+        }
+      </div>
+    </section>
+
+    {
+      combosForThisState.length > 0 && (
+        <section class="mb-12">
+          <h2 class="mb-4 text-2xl font-bold text-slate-900">
+            Profession-specific calculators for {stateName}
+          </h2>
+          <p class="mb-4 leading-relaxed text-slate-700">
+            Get a {stateName}-specific tax estimate with profession-specific deduction guidance:
+          </p>
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {combosForThisState.map((profession) => (
+              <a
+                href={`/self-employment-tax/1099/${profession.profession}/${stateSlug}/`}
+                class="llc-card transition-colors hover:border-blue-400"
+              >
+                <span class="font-medium text-slate-900">
+                  {profession.label} in {stateName}
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <section class="mb-12">
+      <h2 class="mb-4 text-2xl font-bold text-slate-900">Federal tax also applies</h2>
+      <p class="mb-4 leading-relaxed text-slate-700">
+        Regardless of state, all 1099 contractors and self-employed workers in {stateName} owe
+        federal income tax and self-employment tax. SE tax is <strong>15.3%</strong> on net
+        earnings (12.4% Social Security up to $184,500 in 2026, plus 2.9% Medicare with no cap).
+        Federal income tax follows the standard bracket structure (10-37%).
+      </p>
+      <p class="leading-relaxed text-slate-700">
+        The calculator above includes federal, SE, and {stateName} state tax in one estimate, and
+        breaks down quarterly estimated payments due April 15, June 15, September 15, 2026, and
+        January 15, 2027.
+      </p>
+    </section>
+
+    {
+      siblingStates.length > 0 && (
+        <section class="mb-12">
+          <h2 class="mb-4 text-2xl font-bold text-slate-900">Other state calculators</h2>
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {siblingStates.map((state) => (
+              <a
+                href={`/self-employment-tax/${state.slug}/`}
+                class="llc-card transition-colors hover:border-blue-400"
+              >
+                <span class="font-medium text-slate-900">
+                  SE tax calculator for {state.name}
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <footer class="mt-12 border-t border-slate-200 pt-6">
+      <p class="text-xs text-slate-500">
+        Last reviewed: {lastReviewedLabel}. Sources:
+        <a href="https://www.irs.gov/pub/irs-drop/rp-25-32.pdf" class="llc-link" rel="external">
+          IRS Rev. Proc. 2025-32
+        </a>,
+        {
+          stateRules.sources.map((source, index) => (
+            <>
+              <a href={source} class="llc-link" rel="external">
+                {new URL(source).hostname.replace('www.', '')}
+              </a>
+              {index < stateRules.sources.length - 1 && ', '}
+            </>
+          ))
+        }.
+      </p>
+    </footer>
+  </article>
+</SiteLayout>

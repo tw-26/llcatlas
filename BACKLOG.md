@@ -1,77 +1,653 @@
-# BACKLOG
+# LLCAtlas Backlog
 
-This backlog is intentionally lightweight. It exists to prevent good ideas from hijacking this week's shipping plan.
+Last updated: 2026-05-22
 
-Last updated: 2026-05-19
+This is an ordered execution checklist. Work top to bottom. Skip an item only when it is blocked by an external dependency, leave it unchecked, and continue to the next unblocked item.
 
-Update cadence: add ideas as they appear, prune during Sunday review, and promote only the next shippable work into `THIS_WEEK.md`.
+## How To Use This File
 
-## P0: Must Do Before New Pages Ship
+- Items are ordered. Top = next. Do not jump ahead unless blocked.
+- Each section has a **gate** — a condition that must be true before starting the next section.
+- Re-read the relevant `README.md` section before starting a new area.
+- Update this file weekly (Sunday review).
+- If an item is no longer needed, strike it through with `~~text~~` rather than deleting (history matters).
 
-- Confirm Cloudflare Web Analytics remains enabled in Cloudflare; no repo script is required while Cloudflare injects it at the edge.
-- Verify Google Search Console for `llcatlas.com`.
-- Configure Cloudflare-side click capture for affiliate links using `[data-affiliate]` selectors.
-- Keep affiliate-link attributes locked:
-  - `data-affiliate`
-  - `data-page-type`
-  - `data-position`
-  - `rel="sponsored noopener"`
-- Confirm Northwest, Bizee, and ZenBusiness affiliate links remain live and tracked correctly.
-- Keep LegalZoom as a plain outbound link until affiliate approval is available.
-- Audit footer affiliate disclosure across every page.
-- Re-check downstream calculator CTAs after first traffic lands.
+## Operating Rules (always)
 
-## P0: Flagship
+- [ ] Before starting work, re-read the relevant section of `README.md`.
+- [ ] Do not start new infrastructure unless it saves publishing time within 30 days.
+- [ ] Do not start a new hub unless `README.md` is updated first.
+- [ ] Do not publish a page unless it has a downstream conversion target.
+- [ ] Do not publish variable-generated pages until the parent template is useful, indexable, and internally linked.
+- [ ] For each new page, define: target keyword, hub, 5 outbound links, 5 inbound links, downstream comparison page, affiliate target, estimated build time.
+- [ ] Keep one primary CTA per page.
+- [ ] Prefer fixing existing funnel leaks over creating more surface area.
 
-- Build the S-corp election savings calculator.
-- Inputs: net self-employment income, state, expected reasonable salary, payroll cost, accounting/bookkeeping cost, and existing LLC status.
-- Outputs: estimated SE tax before S-corp, payroll/FICA after S-corp, owner distribution, annual admin cost, net savings, break-even income, and a plain-English recommendation.
-- Decision bands: likely bad below break-even, marginal near break-even, likely worth considering above the threshold after admin costs.
-- Use the S-corp calculator to lock the calculator template: input panel, math output, explanation, CTA, and related calculators.
-- Route calculator users to the right comparison/formation CTA.
-- Link the calculator from existing tax calculators, state guides, homepage, and comparison pages.
-- Add tests for core S-corp savings math.
+---
 
-## P1: Funnel And Internal Links
+# PHASE 1: FOUNDATION
 
-- Review all 10 current state guides for the 5-in/5-out internal-linking rule.
-- Add relevant calculator links from state guides.
-- Add relevant state-guide links from state-aware calculators.
-- Add calculator discovery to the homepage or primary navigation.
-- Add a reusable "what to do next" module for calculator result pages.
-- Sync sitemap/indexing status for Maryland, Pennsylvania, and Tennessee.
+**Gate to Phase 2**: site is measurable, S-corp calculator is live, funnel is verified end-to-end via tracking, every priority page has a downstream conversion target.
 
-## P1: Comparison Pages
+## 1.1 Measurement & Indexing (Week 1)
 
-- Ship Northwest vs Bizee.
-- Ship ZenBusiness vs LegalZoom.
-- Ship Bizee vs ZenBusiness.
-- Convert comparison anchor sections into standalone pages only where they have clear search and affiliate intent.
+- [x] Verify production deploy path for `llcatlas.com`.
+- [x] Verify GitHub Pages deploy branch and build workflow.
+- [x] Verify Google Search Console ownership for `llcatlas.com`.
+- [x] Verify `sitemap.xml` generates correctly in production.
+- [x] Verify `robots.txt` exists and points crawlers to the sitemap.
+- [x] Verify all indexable pages return 200 status in production.
+- [x] Submit sitemap in GSC.
+- [x] Record baseline GSC stats: indexed pages, impressions, clicks, top queries, coverage issues.
+- [x] Install Cloudflare Web Analytics.
+- [x] Verify Cloudflare Web Analytics fires on production pages.
+- [x] Identify all live pages excluded from the sitemap.
+- [x] Decide whether Maryland, Pennsylvania, and Tennessee should be indexed or noindexed.
+- [x] Add noindex handling for pages that are live but not ready to rank.
 
-## P2: Calculator Expansion
+## 1.2 Routing & Canonical Decisions (Week 1)
 
-- Build reasonable compensation calculator.
-- Build LLC vs sole proprietorship tax calculator.
-- Improve quarterly tax estimator flow.
-- Expand Lyft and Instacart state-combo calculator coverage after the funnel template is fixed.
+- [x] Decide whether calculator URLs live under `/calculators/*` or hub paths like `/s-corp/*`, `/self-employment-tax/*`.
+- [x] Lock the routing convention in `README.md`.
+- [x] Confirm the canonical URL pattern before scaling pSEO pages.
+- [x] Add redirects or canonical tags if old and new route patterns both exist.
 
-## P2: State Guides
+## 1.3 Affiliate Tracking Convention (Week 1)
 
-- Polish the current 10 state guides.
-- Pause new state-guide expansion until tracking and calculator funnel are working.
-- Revisit DE, TX, FL, and CA only after the current 10 guides are linked and measurable.
+- [x] Lock the affiliate link attribute convention:
+  - [x] `data-affiliate` (e.g. `northwest`, `bizee`, `zenbusiness`, `legalzoom`)
+  - [x] `data-page-type` (e.g. `calc`, `state`, `comparison`, `hub`)
+  - [x] `data-position` (e.g. `hero`, `inline`, `footer`)
+  - [x] `rel="sponsored noopener"`
+  - [x] `target="_blank"` only when appropriate
+- [x] Document the convention in `README.md`.
+- [ ] Create a reusable affiliate CTA component if current implementation is fragmented.
 
-## P3: Later
+## 1.4 Funnel Audit & Critical Fixes (Week 1-2)
 
-- Add operations affiliates only after formation funnel measurement is reliable.
-- Add premium calculator features only after a flagship calculator proves conversion.
-- Add equity-comp hub only after previous phases have ranking wins.
+- [x] Inventory all live routes generated by the repo.
+- [x] Inventory all calculator pages.
+- [x] Inventory all state guide pages.
+- [x] Inventory all comparison pages.
+- [x] Inventory all profession pages.
+- [ ] Find every internal link to a missing route.
+- [x] Fix or remove the missing `/llc-vs-s-corp/` link.
+- [ ] Find every calculator page without a downstream CTA. List as orphans.
+- [ ] Fix top 5 orphans this phase. Defer the rest to Phase 2.
 
-## Parking Lot
+## 1.5 S-Corp Election Savings Calculator — Flagship (Week 2-4)
 
-- Any infrastructure that does not save publishing time within 30 days.
-- Any new hub outside the README topical scope.
-- Any broader rebrand before Month 6 data proves LLCAtlas has outgrown the LLC frame.
-- Plausible analytics upgrade, if Cloudflare Web Analytics cannot answer funnel questions cleanly.
-- Buttondown/newsletter setup until the site has meaningful traffic or a lead magnet is ready.
+**This is the highest-leverage page on the site. Do not defer.**
 
+### Define
+- [ ] Define canonical route (decision from 1.2): `/s-corp/election-calculator` or `/calculators/s-corp-savings`.
+- [ ] Define target keywords: `s corp tax calculator`, `s corp savings calculator`, `s corp vs llc calculator`.
+- [ ] Review existing tax engine structure.
+- [ ] Define S-corp calculator inputs:
+  - [ ] annual net self-employment income
+  - [ ] state
+  - [ ] reasonable salary assumption
+  - [ ] payroll cost estimate
+  - [ ] accounting cost estimate
+  - [ ] state-specific annual fees where available
+- [ ] Define S-corp calculator outputs:
+  - [ ] estimated self-employment tax as sole proprietor / LLC
+  - [ ] estimated payroll tax under S-corp
+  - [ ] estimated tax savings
+  - [ ] estimated added admin cost
+  - [ ] net savings after costs
+  - [ ] clear recommendation
+- [ ] Define thresholds for "bad deal", "borderline", and "worth considering".
+
+### Build
+- [ ] Add core S-corp calculation utility.
+- [ ] Add tests for S-corp savings math.
+- [ ] Add conservative default assumptions and show them clearly.
+- [ ] Add state-specific cost handling where data exists.
+- [ ] Add early guardrails for very low income.
+- [ ] Add warning for income levels where S-corp overhead likely outweighs savings.
+- [ ] Build the calculator page.
+- [ ] Add explanation copy using the LLCAtlas voice.
+- [ ] Add FAQ schema where appropriate.
+- [ ] Add "assumptions" section.
+- [ ] Add "last updated for tax year" label.
+
+### Wire into the funnel
+- [ ] Add result-state CTA to the right comparison or formation page.
+- [ ] Add internal links to: self-employment tax calculator, LLC-vs-S-corp page, reasonable compensation page, best LLC services.
+- [ ] Add inbound links from homepage.
+- [ ] Add inbound links from existing tax calculators.
+- [ ] Add inbound links from relevant state guides.
+- [ ] Add inbound links from comparison pages.
+
+### Verify
+- [ ] Verify mobile UX for the calculator.
+- [ ] Verify calculator works without a backend.
+- [ ] Verify affiliate tracking fires correctly on result CTA.
+- [ ] Spot-check 3 test cases end-to-end.
+- [ ] Submit page to GSC after deploy.
+
+## 1.6 Northwest vs Bizee Comparison Page (Week 4)
+
+- [ ] Ship standalone Northwest vs Bizee page.
+- [ ] Ensure Northwest is recommended when it is genuinely the best user choice.
+- [ ] Add clear anti-upsell warnings.
+- [ ] Add affiliate event tracking to CTAs.
+- [ ] Add calculator links from this page.
+- [ ] Add inbound links from S-corp calculator and relevant state guides.
+- [ ] Add to sitemap. Submit to GSC.
+
+## 1.7 Affiliate Disclosure & Link Hygiene (Week 4)
+
+- [ ] Update all affiliate link components to use the locked convention.
+- [ ] Replace older attributes like `data-partner` or `data-placement`.
+- [ ] Add outbound affiliate click tracking for all links with `data-affiliate`.
+- [ ] Test affiliate click tracking locally.
+- [ ] Test affiliate click tracking in production.
+- [ ] Confirm Northwest affiliate URL is live and tagged correctly.
+- [ ] Confirm Bizee affiliate URL is live and tagged correctly.
+- [ ] Confirm ZenBusiness affiliate URL is live and tagged correctly.
+- [ ] Keep LegalZoom as plain non-affiliate link. Add a code comment explaining why.
+- [ ] Audit every affiliate link for `rel="sponsored noopener"`.
+- [ ] Audit every page for footer affiliate disclosure.
+- [ ] Verify affiliate disclosure is visible on mobile.
+
+---
+
+# PHASE 2: CALCULATOR SPRINT
+
+**Gate to Phase 3**: 4 calculators live, all linking into the affiliate funnel. Calculator template extracted and documented.
+
+## 2.1 Lock The Calculator Template
+
+- [ ] Extract reusable calculator page structure from the S-corp calculator.
+- [ ] Standardize calculator template sections:
+  - [ ] hero
+  - [ ] input panel
+  - [ ] result summary
+  - [ ] decision recommendation
+  - [ ] math explanation
+  - [ ] assumptions
+  - [ ] CTA
+  - [ ] related tools
+  - [ ] FAQ
+- [ ] Standardize error and invalid-input states.
+- [ ] Standardize mobile layout for calculator input and results.
+- [ ] Standardize analytics events for calculator interactions.
+- [ ] Standardize result CTA placement.
+- [ ] Standardize internal-link module.
+- [ ] Document the calculator template rules in `README.md`.
+
+## 2.2 Reasonable Compensation Calculator
+
+- [ ] Define inputs: income, role, hours, state, industry, profit margin.
+- [ ] Define outputs: suggested salary range, distribution estimate, S-corp savings impact.
+- [ ] Add conservative assumptions.
+- [ ] Add tests for reasonable comp logic.
+- [ ] Build the calculator page using the locked template.
+- [ ] Link from S-corp calculator (deep integration — S-corp result triggers "check reasonable comp").
+- [ ] Add 5 inbound and 5 outbound internal links.
+- [ ] Submit to GSC.
+
+## 2.3 LLC vs Sole Proprietorship Calculator/Decision Page
+
+- [ ] Build LLC vs sole proprietorship decision page.
+- [ ] Include real cost comparison: filing fees + annual fees + ongoing admin vs $0.
+- [ ] Include liability and tax considerations as decision factors, not generic explainers.
+- [ ] Add "do nothing yet" recommendation where forming is premature.
+- [ ] Wire into funnel: link to `/best-llc-services/` and S-corp calculator.
+- [ ] Submit to GSC.
+
+## 2.4 Quarterly Tax Estimator Expansion
+
+- [ ] Audit current quarterly tax estimator functionality.
+- [ ] Position quarterly tax estimator as a recurring return tool (banner: "use 4×/year").
+- [ ] Add current-year quarterly tax deadlines.
+- [ ] Add state-aware quarterly tax logic where data exists.
+- [ ] Add "what to pay this quarter" result summary.
+- [ ] Add "what to do next" CTA.
+- [ ] Add downstream CTA from self-employment tax results into this estimator.
+- [ ] Submit changes to GSC.
+
+## 2.5 Existing State Guides — Polish (Run In Parallel)
+
+**No new state guides this month. Polish only.**
+
+- [ ] Confirm the current 10 state guides.
+- [ ] Verify each state guide has a clear recommendation.
+- [ ] Verify each state guide links to `/best-llc-services/`.
+- [ ] Add S-corp calculator links to state guides where appropriate.
+- [ ] Add self-employment tax calculator links to state guides where appropriate.
+- [ ] Add 5 outbound internal links per state guide.
+- [ ] Add 5 inbound internal links per state guide.
+- [ ] Verify each state guide has affiliate disclosure.
+- [ ] Verify each state guide has one primary CTA.
+- [ ] Verify each state guide has accurate fee, filing, registered agent, and annual report info.
+- [ ] Update stale state guide data.
+- [ ] Add FAQ schema to state guides if missing.
+- [ ] Verify state guide mobile layout.
+- [ ] Submit polished state guides to GSC.
+
+## 2.6 Two More Comparison Pages
+
+- [ ] Ship Bizee vs ZenBusiness page.
+- [ ] Ship Northwest vs ZenBusiness page.
+- [ ] Both wired into funnel (5-in/5-out, affiliate tracking, single CTA).
+- [ ] Submit to GSC.
+
+---
+
+# PHASE 3: AUDIENCE + RECURRING HOOKS
+
+**Gate to Phase 4**: First email signup. First affiliate click tracked. Quarterly reminder sequence live.
+
+## 3.1 Email Infrastructure
+
+- [ ] Create Buttondown account.
+- [ ] Add Buttondown form component.
+- [ ] Add privacy-friendly email disclosure.
+- [ ] Track email signup rate per page.
+
+## 3.2 Lead Magnets
+
+- [ ] Create "Quarterly Tax Checklist" lead magnet (PDF or hosted page).
+- [ ] Create "LLC Launch Checklist" lead magnet.
+- [ ] Embed quarterly checklist capture on quarterly tax calc and SE tax calc.
+- [ ] Embed LLC checklist capture on top 5 state guides and main comparison page.
+
+## 3.3 Recurring Engagement Sequences
+
+- [ ] Add quarterly tax reminder sequence in Buttondown (4 emails/year, 7 days before deadline).
+- [ ] Add annual tax-year calculator update announcement (1 email/year, January).
+- [ ] Defer annual state filing reminders to Phase 4.
+
+## 3.4 Two More Comparison Pages
+
+- [ ] Ship ZenBusiness vs LegalZoom page.
+- [ ] Ship Bizee vs Northwest page.
+
+## 3.5 First "Best LLC For X" Page
+
+- [ ] Ship Best LLC service for freelancers.
+- [ ] Wire into funnel with single decisive winner.
+
+## 3.6 Selective State Guide Additions (Optional, if Phase 1-2 are clean)
+
+- [ ] Build Delaware guide.
+- [ ] Build Texas guide.
+- [ ] Build Florida guide.
+- [ ] Build California guide.
+
+---
+
+# PHASE 4: LINK BUILDING BEGINS
+
+**Gate to Phase 5**: First affiliate conversion. First backlink from outreach.
+
+## 4.1 Link Building Routine
+
+- [ ] Create a HARO/Qwoted response routine (1×/week minimum).
+- [ ] Create a list of founder communities where calculator launches can be shared without spam.
+- [ ] Create a list of tax, freelance, and indie founder publications.
+- [ ] Pitch the S-corp calculator as a useful tool, not as content marketing.
+- [ ] Pitch quarterly tax calculator before quarterly deadlines.
+- [ ] Create 3 linkable data angles from calculator outputs.
+- [ ] Track outreach attempts and acquired backlinks in a simple table (this file's bottom section).
+- [ ] Do not build a CRM.
+- [ ] Target: 5 outreach links/mo this phase.
+
+## 4.2 Best LLC For X Expansion
+
+- [ ] Ship Best LLC service for non-US residents (tightly scoped).
+- [ ] Ship Best LLC service for Amazon sellers (only if doesn't dilute audience).
+- [ ] Ship Best LLC service for real estate investors (tightly scoped to LLC formation).
+
+## 4.3 More State Guides
+
+- [ ] Build New York, Illinois, New Mexico guides.
+- [ ] Cumulative: ~18 state guides.
+
+## 4.4 Annual Filing Reminder by State
+
+- [ ] Add annual filing reminder sequence by state in Buttondown.
+- [ ] Trigger 30 days before each state's annual report deadline.
+
+## 4.5 First State × Calc Template
+
+- [ ] Build self-employment tax by state template (using existing tax engine).
+- [ ] Build 1-2 pilot state pages.
+- [ ] Verify each state page has unique decision logic, unique copy section, unique internal links.
+- [ ] If pilots index cleanly, prepare for full expansion in Phase 5.
+
+---
+
+# PHASE 5: PARAMETERIZED EXPANSION + AUDIT
+
+**Gate to Phase 6**: First page in top 10 for primary keyword. $500-1K MRR.
+
+## 5.1 Core Utility — pSEO System
+
+- [ ] Define the pSEO variable model:
+  - [ ] state
+  - [ ] profession
+  - [ ] entity type
+  - [ ] tax year
+  - [ ] service use case
+- [ ] Define allowed variable combinations: `state × calc-type`, `profession × calc-type`, `state × entity`, `entity × calc-type`.
+- [ ] Define banned combinations: `state × profession`, 3-variable combos, 4-variable combos.
+- [ ] Create a page-quality checklist for generated pages.
+- [ ] Create a rule: every generated page must have unique decision logic, not just swapped nouns.
+- [ ] Create a rule: every generated page must have unique internal links.
+- [ ] Create a rule: every generated page must have a downstream CTA.
+- [ ] Add sitemap gating for generated pages.
+- [ ] Add noindex gating for generated pages that are useful but not ranking-ready.
+- [ ] Add canonical handling for near-duplicate variable pages.
+- [ ] Add a pre-publish check that catches missing title, description, H1, CTA, disclosure, and internal links.
+
+## 5.2 50 × Quarterly Tax by State
+
+- [ ] Launch 50-state quarterly tax pages from 1 template.
+- [ ] Each page must use unique state tax data.
+- [ ] Each page must link to: parent quarterly calc, that state's LLC guide, S-corp calc.
+- [ ] Submit to GSC in batches.
+
+## 5.3 Two More Best LLC For X
+
+- [ ] Build Best LLC service for creators.
+- [ ] Build Best LLC service for e-commerce.
+
+## 5.4 Complete Remaining State Guides
+
+- [ ] Complete remaining state guides to 50/50.
+- [ ] Maintain template quality. No volume-over-quality.
+
+## 5.5 Audit
+
+- [ ] GSC analysis: identify top 20% pages by impressions.
+- [ ] Top 20% → rewrite for more depth, add affiliates, polish UX.
+- [ ] Bottom 20% (at 6mo) → rewrite titles/metas.
+- [ ] Continue 5 outreach links/mo.
+
+---
+
+# PHASE 6: MONEY PAGES
+
+**Gate to Phase 7**: $1-1.5K MRR. 500+ email subscribers.
+
+## 6.1 Comparison Expansion
+
+- [ ] Ship Cheapest registered agent comparison.
+- [ ] Ship Best Wyoming LLC service.
+- [ ] Ship Best anonymous LLC service.
+- [ ] Ship LegalZoom alternatives.
+
+## 6.2 Operations Affiliates (Approval Required)
+
+- [ ] Apply for Gusto affiliate (payroll context).
+- [ ] Apply for QuickBooks affiliate (accounting context).
+- [ ] Apply for Bench affiliate (bookkeeping context).
+- [ ] Apply for Collective affiliate (S-corp specific).
+- [ ] For each: run the affiliate decision framework before integration.
+- [ ] Add operations affiliates only as clear winners in relevant contexts.
+- [ ] Avoid "also try these tools" affiliate clutter.
+
+## 6.3 Newsletter Launch
+
+- [ ] Launch weekly newsletter (or biweekly if weekly is too much).
+- [ ] Anti-fluff format: real changes, real numbers, real decisions.
+
+## 6.4 Top 5 Calc UX Polish
+
+- [ ] Treat top 5 calculators as products, not pages.
+- [ ] Add result share/save where possible (static-stack compatible).
+- [ ] Improve mobile UX.
+- [ ] Improve schema markup.
+
+---
+
+# PHASE 7: EQUITY COMP WEDGE
+
+**Gate to Phase 8**: $2-3K MRR. First equity comp affiliate conversion.
+
+## 7.1 Validate Audience Fit
+
+- [ ] Validate equity comp still serves the solo-founder/startup operator audience.
+- [ ] Update `README.md` if hub scope needs sharpening.
+
+## 7.2 Build Equity Comp Hub
+
+- [ ] Build RSU tax calculator.
+- [ ] Build ISO AMT calculator.
+- [ ] Build 83(b) election guide/tool.
+- [ ] Build exercise timing calculator.
+- [ ] Build QSBS calculator/guide.
+
+## 7.3 Equity Affiliates
+
+- [ ] Apply for Carta, Pulley, Secfi, Harness Wealth affiliates.
+- [ ] Add only if they pass the decision framework.
+- [ ] Build best equity management software comparison.
+
+## 7.4 Keep It Scoped
+
+- [ ] Equity comp is a tight hub. No generic investing, retirement, career advice.
+
+---
+
+# PHASE 8: AUTHORITY PUSH
+
+**Gate to Phase 9**: $3-4K MRR. Premium converts at >1% of calc traffic.
+
+## 8.1 Aggressive Link Building
+
+- [ ] Target 8-10 outreach links/mo.
+- [ ] HARO/Qwoted daily.
+- [ ] Guest posts on 2-3 founder publications.
+
+## 8.2 State × Calc Expansion (Round 2)
+
+- [ ] Build S-corp savings by state pages.
+- [ ] Build reasonable comp by state pages.
+
+## 8.3 First Premium Tier Test
+
+- [ ] Verify signal: target calc has 1K+ monthly visitors AND proven affiliate conversion.
+- [ ] If signal met, define premium calculator feature scope (batch mode, export, no caps).
+- [ ] Test export or batch mode before building accounts.
+- [ ] Avoid auth until the signal is overwhelming.
+- [ ] Launch on flagship calc only.
+
+## 8.4 Affiliate Placement Optimization
+
+- [ ] Identify top converting pages.
+- [ ] Test affiliate placement variations via simple page swaps (no A/B platform).
+- [ ] Improve CTA copy on pages with impressions but low affiliate clicks.
+
+---
+
+# PHASE 9: FUNNEL OPTIMIZATION
+
+**Gate to Phase 10**: $4-5K MRR. Newsletter sponsorship secured.
+
+## 9.1 Full Funnel Audit
+
+- [ ] Audit calc → comparison → affiliate funnel; fix leaks.
+- [ ] Establish baseline revenue per 1,000 visitors.
+- [ ] Identify pages with conversions but low traffic — improve internal links to them.
+- [ ] Add stronger comparison CTAs to calculators with high engagement.
+
+## 9.2 Second Lead Magnet Per Cluster
+
+- [ ] LLC cluster: second lead magnet (e.g. "Operating Agreement Template Checklist").
+- [ ] S-corp cluster: second lead magnet (e.g. "Reasonable Comp Worksheet").
+- [ ] Tax cluster: second lead magnet (e.g. "Deductible Expenses Cheat Sheet").
+
+## 9.3 Newsletter Monetization
+
+- [ ] Verify signal: list >2K AND >25% open rate sustained 60 days.
+- [ ] If signal met, secure first sponsored slot ($500-2K).
+- [ ] Aligned sponsors only (small business tools).
+
+## 9.4 Cornerstone Long-form Pieces
+
+- [ ] Verify signal per cluster: 3+ ranking pages AND clear authority gap.
+- [ ] Build 1 cornerstone piece per qualifying cluster (3-5K words, expert-quoted).
+
+## 9.5 Page Lifecycle Cleanup
+
+- [ ] Kill/merge pages with 12+ mo and <10 impressions/mo.
+- [ ] Delete only thin pages with no merge target.
+
+---
+
+# PHASE 10: SCALE WHAT WINS
+
+**Gate to Phase 11**: $5-7K MRR sustained 60 days.
+
+## 10.1 Top 10 "Product Treatment"
+
+- [ ] For each of the top 10 pages by revenue:
+  - [ ] Improve UX
+  - [ ] Add micro-features (save result, share, PDF export — static-compatible only)
+  - [ ] Verify schema
+  - [ ] Verify internal linking
+
+## 10.2 Internal Linking Audit
+
+- [ ] Audit every page against 5-in/5-out rule.
+- [ ] Fix orphans.
+
+## 10.3 Best LLC For X Expansion
+
+- [ ] Expand "Best LLC for X" to 10+ variants based on demand signal.
+
+---
+
+# PHASE 11: DECISION POINT
+
+**Gate**: Clear yes/no on Rule #6 (project #2).
+
+## 11.1 Annual Refresh
+
+- [ ] Annual content refresh on top 20 pages (tax year updates, fee updates, broken affiliate links).
+- [ ] Review all calculator assumptions annually.
+- [ ] Review all state filing data annually.
+
+## 11.2 Evaluate Rule #6
+
+Three possible paths based on data:
+
+- **$3K+ sustained 90 days** → Maintain mode (1 hr/week), plan project #2.
+- **$1.5-3K, growing** → Push hard another 6 months, no new project.
+- **$1-1.5K, flat** → Diagnose. Likely link building gap or wrong sub-niche. Adjust.
+
+## 11.3 SaaS Spin-Off Evaluation
+
+- [ ] Verify signal: 5K+ engaged email subscribers AND repeated direct requests.
+- [ ] If signal met, write a separate decision memo before building.
+- [ ] Keep affiliate revenue as the primary model until data says otherwise.
+
+---
+
+# STANDING BACKLOGS
+
+These are not phased. Pull from them when blocked elsewhere or when relevant. Each item must still pass the decision frameworks in `README.md` before action.
+
+## Standing — Technical Quality & Maintenance
+
+- [ ] Run build before shipping meaningful changes.
+- [ ] Run tests before shipping calculator logic changes.
+- [ ] Add tests for all tax calculation utilities.
+- [ ] Add schema validation where appropriate.
+- [ ] Check mobile layout for every new template.
+- [ ] Check accessibility basics for calculators and forms.
+- [ ] Verify inputs have labels and accessible error states.
+- [ ] Verify pages work without client-side JavaScript where possible.
+- [ ] Keep client-side JavaScript limited to calculators and analytics.
+- [ ] Avoid adding dependencies unless they reduce maintenance or publishing time.
+- [ ] Keep images optimized and avoid unnecessary assets.
+- [ ] Keep Lighthouse performance high without obsessing over vanity scores.
+
+## Standing — Data & Tax Engine
+
+- [ ] Document existing state tax data coverage.
+- [ ] Add missing state tax data only when needed by a live calculator.
+- [ ] Add tax-year versioning to calculator assumptions.
+- [ ] Add visible "last updated for tax year" labels to calculators.
+- [ ] Add tests for federal self-employment tax logic.
+- [ ] Add tests for state-specific logic.
+- [ ] Add tests for S-corp savings logic.
+- [ ] Add tests for quarterly estimator logic.
+- [ ] Create a conservative assumptions module.
+- [ ] Avoid claiming precision where the model uses estimates.
+
+## Standing — Brand & Trust
+
+- [ ] Add clear author/about credibility without pretending to be a CPA or lawyer.
+- [ ] Keep disclaimers in footer or appropriate trust sections.
+- [ ] Add "how we make money" page if affiliate trust becomes a concern.
+- [ ] Add methodology notes for calculators.
+- [ ] Add "assumptions" sections to every major calculator.
+- [ ] Keep anti-upsell stance visible in comparisons.
+- [ ] Avoid sponsored badges and ad-like modules.
+- [ ] Avoid generic AI intros.
+- [ ] Replace weak "it depends" copy with decision trees.
+
+## Standing — Conversion Optimization (after Phase 5)
+
+- [ ] Establish baseline affiliate click-through rate by page.
+- [ ] Establish baseline revenue per 1,000 visitors.
+- [ ] Identify top pages by impressions.
+- [ ] Identify top pages by affiliate clicks.
+- [ ] Improve CTA copy on pages with impressions but low affiliate clicks.
+- [ ] Improve title/meta on pages with impressions but low CTR.
+- [ ] Improve internal links to pages with conversions but low traffic.
+- [ ] Avoid A/B testing before meaningful traffic exists.
+- [ ] Do simple page swaps only when there is enough traffic to learn.
+
+## Standing — Page Lifecycle
+
+- [ ] After 0-3 months, leave new pages alone unless broken.
+- [ ] After 3-6 months, optimize titles/metas based on GSC impressions.
+- [ ] After 6-12 months, rewrite or strengthen internal links for pages with low impressions.
+- [ ] After 12+ months, merge or redirect pages with no traction and a clear stronger sibling.
+- [ ] Delete only thin pages with no merge target.
+- [ ] Track page decisions lightly; do not create heavy editorial operations.
+
+---
+
+# OUTREACH LOG (start in Phase 4)
+
+Simple tracking — do not over-engineer.
+
+| Date | Outlet | Pitch Type | Result |
+|---|---|---|---|
+|  |  |  |  |
+
+---
+
+# DEFERRED / DO NOT TOUCH (signal-gated)
+
+These exist in `README.md` under Future Optionality. Do not action without the signal.
+
+- [ ] Compliance Dashboard SaaS — needs 5K+ engaged email subs + repeated direct requests.
+- [ ] Premium Calculator Tier — needs 1K+ monthly visitors on target calc AND proven affiliate conversion.
+- [ ] Newsletter Sponsorship — needs list >2K AND >25% open rate sustained 60 days.
+- [ ] Cornerstone Long-form Content — needs cluster with 3+ ranking pages AND clear authority gap.
+- [ ] LLC vs C-corp page — only if solo founder audience signals demand.
+- [ ] Rebrand from `LLCAtlas` — only if audience and revenue clearly drift beyond LLC/formation/tax.
+
+---
+
+# AGENT INSTRUCTIONS FOR THIS FILE
+
+If you are an AI agent (Claude, Cursor) working with this backlog:
+
+- Work top to bottom. Do not skip phases.
+- A phase is complete only when its **gate** is met.
+- If the operator asks to skip ahead, push back. Quote the gate.
+- If a task is unclear, reference `README.md` by section name.
+- When closing a task, ask whether to mark the next task `[ ]` as the current focus.
+- Update this file only when the operator explicitly asks.
+- Never add tasks that violate non-negotiable rules in `README.md`.
+- Add new tasks at the bottom of the relevant phase, not at the top.

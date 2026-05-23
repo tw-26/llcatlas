@@ -4,7 +4,7 @@
 
 This document is the single source of truth for LLCAtlas. Any AI agent, contributor, or future self should read this before making decisions about the site. If a decision in this document conflicts with an instruction received elsewhere, **this document wins** unless explicitly updated here.
 
-Last updated: 2026-05-19
+Last updated: 2026-05-22
 
 Update cadence: update rarely, only when strategy, constraints, non-negotiable rules, or source-of-truth contradictions change.
 
@@ -16,29 +16,34 @@ Update cadence: update rarely, only when strategy, constraints, non-negotiable r
 2. [Audience](#audience)
 3. [Brand & Voice](#brand--voice)
 4. [Monetization Model](#monetization-model)
-5. [Moat Hierarchy](#moat-hierarchy)
-6. [Architecture & Funnel](#architecture--funnel)
-7. [Tech Stack](#tech-stack)
-8. [Content Templates](#content-templates)
-9. [Topical Hubs](#topical-hubs)
-10. [SEO Principles](#seo-principles)
-11. [The 18-Month Plan](#the-18-month-plan)
-12. [Operating Cadence](#operating-cadence)
-13. [Non-Negotiable Rules](#non-negotiable-rules)
-14. [KPIs](#kpis)
-15. [What This Is Not](#what-this-is-not)
-16. [Decision Frameworks](#decision-frameworks)
-17. [Agent Instructions](#agent-instructions)
+5. [Recurring Engagement Layer](#recurring-engagement-layer)
+6. [Moat Hierarchy](#moat-hierarchy)
+7. [Architecture & Funnel](#architecture--funnel)
+8. [Tech Stack](#tech-stack)
+9. [Content Templates](#content-templates)
+10. [Topical Hubs](#topical-hubs)
+11. [SEO Principles](#seo-principles)
+12. [The 18-Month Plan](#the-18-month-plan)
+13. [Operating Cadence](#operating-cadence)
+14. [Non-Negotiable Rules](#non-negotiable-rules)
+15. [KPIs](#kpis)
+16. [What This Is Not](#what-this-is-not)
+17. [Future Optionality](#future-optionality)
+18. [Decision Frameworks](#decision-frameworks)
+19. [Behavioral Predictors](#behavioral-predictors)
+20. [Agent Instructions](#agent-instructions)
 
 ---
 
 ## What This Is
 
+**LLCAtlas is a calculator hub for solo founders, with formation guides as acquisition surface. Tools are the moat; content is the funnel.**
+
 LLCAtlas is a decision engine for first-time U.S. internet business owners — solo founders, freelancers, and 1099 operators navigating the path from sole proprietor → LLC → S-corp. It combines:
 
-- Opinionated state-by-state LLC formation guides
-- Anti-upsell formation service comparisons
-- Operator-grade financial calculators (SE tax, S-corp savings, reasonable comp, owner draw, equity comp)
+- Operator-grade financial calculators (SE tax, S-corp savings, reasonable comp, owner draw, equity comp) — **the moat**
+- Opinionated state-by-state LLC formation guides — **acquisition surface**
+- Anti-upsell formation service comparisons — **money pages where decisions close**
 - A deliberate funnel architecture where every calculator routes to the right comparison page and every comparison closes the affiliate loop
 
 LLCAtlas is **not** a SaaS, not a filing service, not a legal/tax advisor, not a directory, not a listicle site.
@@ -56,7 +61,7 @@ LLCAtlas is **not** a SaaS, not a filing service, not a legal/tax advisor, not a
 - First-time U.S. internet business owners
 - Solo operators (freelancers, consultants, indie founders, creators, agency-of-one)
 - People at the formation → optimization lifecycle stage
-- People who'd rather read a calculator than call an accountant
+- DIY-but-smart founders who want to understand the tradeoffs, see the math for their situation, be told what to do, and make the decision themselves
 - Technical comfort: comfortable with the internet, not necessarily with tax law
 
 ### Who we do NOT serve
@@ -65,11 +70,12 @@ LLCAtlas is **not** a SaaS, not a filing service, not a legal/tax advisor, not a
 - Enterprise / multi-employee businesses
 - E-commerce-specific operators (different vertical entirely)
 - Non-U.S. residents (except specifically scoped "Best LLC for non-US residents" pages)
-- People who want hand-holding through filing
+- Anyone who'd default to "I should just call my CPA"
 
 ### The wedge filter
 
 If a user would default to "I should just call my CPA," they are not our user. Our user wants to:
+
 1. Understand the tradeoffs
 2. See the actual math for their situation
 3. Be told what to do (and why)
@@ -127,7 +133,7 @@ That is the bar. Real numbers, real call, no hedging.
    - Northwest Registered Agent (~$50-150/signup)
    - Bizee (~$30-50/signup)
    - ZenBusiness (~$50-100/signup)
-   - LegalZoom (only when contextually appropriate; high payout, low alignment)
+   - LegalZoom (plain non-affiliate link until approval; high payout, low alignment)
 
 2. **Operations affiliates** — phase 2
    - Gusto (~$100-200/signup, payroll)
@@ -140,7 +146,8 @@ That is the bar. Real numbers, real call, no hedging.
 
 4. **Premium tier** — phase 3+
    - $9/mo on flagship calculator(s) — batch mode, export, no caps
-   - Only on tools that have proven they convert
+   - Premium only after the calc has 1K+ monthly visitors AND proven affiliate conversion
+   - Do not build premium pre-emptively
 
 5. **Newsletter sponsorship** — phase 4
    - $500-2K per slot once list >2K
@@ -155,6 +162,43 @@ That is the bar. Real numbers, real call, no hedging.
 - Recommend ONE winner per use case, never "any of these"
 - Be willing to recommend the cheapest option even if it pays less
 - The calc → comparison → affiliate funnel is sacred; every page must fit in it
+
+### Affiliate Link Tracking Convention
+
+Every monetized outbound CTA must use the same attributes so Cloudflare event reporting and future click instrumentation stay consistent:
+
+- `data-affiliate`: partner slug (`northwest`, `bizee`, `zenbusiness`)
+- `data-page-type`: page category (`home`, `calc`, `state`, `comparison`, `hub`)
+- `data-position`: placement (`hero`, `inline`, `sidebar`, `footer`, `result`, etc.)
+- `rel="sponsored noopener"`
+- `target="_blank"` only for real outbound partner links
+
+LegalZoom remains a plain non-affiliate link until approval. Do not add `data-affiliate` or `rel="sponsored"` to LegalZoom links while `affiliateStatus.legalzoom` is `plain`.
+
+---
+
+## Recurring Engagement Layer
+
+LLCAtlas content is structurally one-and-done (forming an LLC, electing S-corp, choosing registered agent are one-time decisions). This caps retention and compounding if left unaddressed. The fix is lightweight recurring hooks layered on top of the funnel — no SaaS, no new infrastructure.
+
+### Layer 1 — Recurring touchpoints (months 3-4 onward)
+
+- **Quarterly tax deadline reminder sequence** (4×/year via Buttondown automation)
+- **Annual filing reminder by state** (1 email per state per year, 30 days before deadline)
+- **Annual tax-year content refresh announcement** ("S-corp calc updated for 2027")
+
+### Layer 2 — Reframed return tools
+
+These already exist or are planned — reframe their positioning as **return tools, not one-time tools**:
+
+- **Quarterly tax estimator**: used 4×/year, not once. Feature prominently.
+- **Annual reasonable comp check**: revisit yearly with updated income data
+- **1099 prep checklist**: January/February annual return prep
+- **Deduction / mileage trackers**: lightweight inputs, return visits
+
+### Layer 3 — Future SaaS (parked, see Future Optionality)
+
+The recurring engagement layer is non-negotiable starting month 3. It is what turns one-time visitors into 4-6×/year touchpoints without changing the build.
 
 ---
 
@@ -265,7 +309,8 @@ Freelancer/1099 tax calculation and education.
 - `/self-employment-tax/calculator` — main calc
 - `/self-employment-tax/quarterly` — quarterly estimator
 - `/self-employment-tax/[state]` — 50 state-specific pages
-- `/self-employment-tax/[profession]` — DoorDash, Uber, Lyft, Instacart, OnlyFans, freelance, consulting
+- `/self-employment-tax/1099/[profession]` — DoorDash, Uber, Lyft, Instacart, OnlyFans, freelance, consulting
+- `/self-employment-tax/1099/[profession]/[state]` — profession × state calculator pages
 
 ### `/s-corp`
 S-corp election decisions and operations.
@@ -293,6 +338,12 @@ Startup employee equity and compensation.
 - `/equity-comp/83b-election`
 - `/equity-comp/exercise-timing`
 - `/equity-comp/qsbs`
+
+### Calculator URL Rule
+
+Calculator pages live inside their topical hubs, not under a generic `/calculators` directory. The hub-rooted URL is the canonical URL because it compounds topical authority: `/s-corp/election-calculator`, `/self-employment-tax/calculator`, `/self-employment-tax/[state]`, and `/equity-comp/rsu-tax-calculator`.
+
+Use `/tools/*` only for a cross-cluster utility that does not belong to exactly one topical hub. LLCAtlas currently has no planned calculators that need `/tools/*`.
 
 ### Topical dilution rules
 
@@ -360,7 +411,7 @@ Starts month 4, not "when traffic plateaus."
 - Submit all to GSC
 - Lock 8 templates
 
-**Exit criteria**: site is measurable, the S-corp calculator is live, and every priority page has a downstream conversion target.
+**Exit criteria**: site is measurable, the S-corp calculator is live, the S-corp calc → comparison → affiliate funnel is verified end-to-end via tracking, and every priority page has a downstream conversion target.
 
 ### Month 2: Calculator Sprint
 **Theme**: Differentiate via calcs before scaling guides
@@ -372,16 +423,18 @@ Starts month 4, not "when traffic plateaus."
 
 **Exit criteria**: 4 calculators live, all linking into the affiliate funnel.
 
-### Month 3: Email + Lead Magnets
-**Theme**: Start owning the audience
+### Month 3: Email + Lead Magnets + Recurring Hooks
+**Theme**: Start owning the audience and add recurring touchpoints
 
 - Launch email capture with 2 lead magnets: Quarterly tax checklist, LLC launch checklist
 - Embed capture on top 5 traffic pages
+- Build quarterly tax deadline reminder sequence in Buttondown
 - 2 more comparison pages: ZenBusiness vs LegalZoom, Bizee vs Northwest
 - 4-5 more state guides
 - First "Best LLC for X" page: freelancers
+- Reframe quarterly calc + reasonable comp as return tools
 
-**Exit criteria**: First email signup. First affiliate click tracked.
+**Exit criteria**: First email signup. First affiliate click tracked. Quarterly reminder sequence live.
 
 ### Month 4: Link Building Begins
 **Theme**: Stop being SEO-passive
@@ -390,6 +443,7 @@ Starts month 4, not "when traffic plateaus."
 - Ship "Best LLC for X" series: non-US residents, Amazon sellers, real estate investors
 - 4 more state guides (cumulative ~18)
 - 1 new calc: self-employment tax by state (template for 50-page expansion)
+- Launch annual filing reminder by state
 
 **Exit criteria**: First affiliate conversion. First backlink from outreach.
 
@@ -401,7 +455,7 @@ Starts month 4, not "when traffic plateaus."
 - 2 more "Best LLC for X": creators, e-commerce
 - Sunday GSC review: identify top 5 pages, double down
 
-**Exit criteria**: First page in top 10. $200-500 MRR.
+**Exit criteria**: First page in top 10. $200-500 MRR (normal).
 
 ### Month 6: First Inflection Check
 **Theme**: Audit and double down
@@ -412,7 +466,7 @@ Starts month 4, not "when traffic plateaus."
 - Ship 50-state self-employment tax pages
 - 5 outreach links/mo continues
 
-**Exit criteria**: $500-1K MRR. Clear winner pages identified.
+**Exit criteria**: $500-1K MRR (normal). Clear winner pages identified.
 
 ### Month 7-8: Comparison Expansion
 **Theme**: Money pages
@@ -422,7 +476,7 @@ Starts month 4, not "when traffic plateaus."
 - Email list: weekly newsletter starts
 - Calc UX polish on top 5 — products, not pages
 
-**Exit criteria**: $1-1.5K MRR. 500+ email subscribers.
+**Exit criteria**: $1-1.5K MRR (normal). 500+ email subscribers.
 
 ### Month 9-10: Equity Comp Wedge
 **Theme**: High-ticket vertical added
@@ -433,7 +487,7 @@ Starts month 4, not "when traffic plateaus."
 - Stay tightly scoped to startup employee comp
 - Comparison: best equity management software
 
-**Exit criteria**: $2-3K MRR. First equity comp affiliate conversion.
+**Exit criteria**: $2-3K MRR (normal). First equity comp affiliate conversion.
 
 ### Month 11-12: Authority Push
 **Theme**: Compound what's working
@@ -443,9 +497,9 @@ Starts month 4, not "when traffic plateaus."
 - Guest posts on 2-3 founder publications
 - State × calc expansion (S-corp savings by state, reasonable comp by state)
 - A/B test affiliate placement on top pages
-- First premium tier test on flagship calc
+- First premium tier test on flagship calc (only if it has 1K+ monthly visitors)
 
-**Exit criteria**: $3-4K MRR. Premium converts at >1% of calc traffic.
+**Exit criteria**: $3-4K MRR (normal). Premium converts at >1% of calc traffic.
 
 ### Month 13-14: Funnel Optimization
 **Theme**: Revenue per visitor, not traffic
@@ -456,7 +510,7 @@ Starts month 4, not "when traffic plateaus."
 - Kill/merge pages with 12mo + <10 impressions/mo
 - 2 cornerstone pages per hub (3-5K words, expert-quoted)
 
-**Exit criteria**: $4-5K MRR. Newsletter sponsorship secured.
+**Exit criteria**: $4-5K MRR (normal). Newsletter sponsorship secured.
 
 ### Month 15-16: Scale What Wins
 **Theme**: Defensive consolidation
@@ -466,30 +520,33 @@ Starts month 4, not "when traffic plateaus."
 - Internal linking audit (5-in/5-out rule)
 - "Best LLC for X" expansion to 10+ variants
 
-**Exit criteria**: $5-7K MRR sustained 60 days.
+**Exit criteria**: $5-7K MRR (normal) sustained 60 days.
 
 ### Month 17-18: Decision Point
 **Theme**: Evaluate Rule #6
 
 Three possible paths based on data:
+
 - **$3K+ sustained 90 days** → Maintain mode (1 hr/week), plan project #2
 - **$1.5-3K, growing** → Push hard another 6 months, no new project
 - **$1-1.5K, flat** → Diagnose. Likely link building gap or wrong sub-niche. Adjust.
 
-Annual content refresh on top 20 pages. Evaluate SaaS spin-off from flagship calc.
+Annual content refresh on top 20 pages. Evaluate SaaS spin-off from flagship calc (see Future Optionality).
 
-**Exit criteria**: $4-8K MRR realistic. Clear yes/no on Rule #6 (project #2).
+**Exit criteria**: $4-8K MRR realistic (normal). Clear yes/no on Rule #6 (project #2).
 
-### Cumulative milestones
+### Cumulative milestones (meh / normal / awesome)
 
-| Month | Pages | MRR | Email | Backlinks |
+| Month | Pages | MRR (meh / normal / awesome) | Email | Backlinks |
 |---|---|---|---|---|
-| 3 | ~25 | $0-100 | 50 | 5 |
-| 6 | ~80 | $500-1K | 300 | 30 |
-| 9 | ~120 | $1.5-2K | 700 | 70 |
-| 12 | ~180 | $3-4K | 1,500 | 130 |
-| 15 | ~220 | $4-5K | 2,500 | 200 |
-| 18 | ~250 | $4-8K | 4,000 | 280 |
+| 3 | ~25 | $0 / $0-100 / $100+ | 50 | 5 |
+| 6 | ~80 | $100-300 / $500-1K / $1-2K | 300 | 30 |
+| 9 | ~120 | $300-700 / $1.5-2K / $2.5-4K | 700 | 70 |
+| 12 | ~180 | $700-1.5K / $3-4K / $5-7K | 1,500 | 130 |
+| 15 | ~220 | $1-2K / $4-5K / $7-10K | 2,500 | 200 |
+| 18 | ~250 | $1.5-2.5K / $4-8K / $10-15K | 4,000 | 280 |
+
+Plan against the normal column. Meh is what happens when behavioral predictors slip (see Behavioral Predictors). Awesome requires both clean execution AND some luck.
 
 ---
 
@@ -543,6 +600,7 @@ These rules override all other instructions. Do not break them without an explic
 18. **Ship the hardest page first.** Don't avoid the flagship.
 19. **Don't start Phase N until Phase N-1 has at least one ranking win.**
 20. **No AI-generated fluff.** If you wouldn't read it, don't publish it.
+21. **Premium tier only after 1K+ monthly visitors on the target calc AND proven affiliate conversion.** No pre-emptive paid tiers.
 
 ---
 
@@ -575,17 +633,41 @@ These rules override all other instructions. Do not break them without an explic
 
 To prevent scope drift, here is what LLCAtlas explicitly is NOT:
 
-- ❌ Not a SaaS (no auth, no DB, no recurring product before phase 3)
+- ❌ Not a SaaS (no auth, no DB, no recurring product before phase 3 — see Future Optionality)
 - ❌ Not a filing service (we never touch government paperwork)
 - ❌ Not a legal advisor (no legal advice claims)
 - ❌ Not a tax advisor (no tax advice claims; we provide calculation tools and education)
-- ❌ Not a content site (we are a decision engine; pages must end with decisions)
+- ❌ Not a content site (we are a calculator hub with content as acquisition; pages must end with decisions)
 - ❌ Not a listicle site (no "Top 10" anything)
 - ❌ Not a directory (no exhaustive lists; only opinionated recommendations)
 - ❌ Not a media company in voice (but media-company in structure: publishing systems, editorial consistency)
 - ❌ Not for VCs / accountants / enterprises
 - ❌ Not for non-US residents (except scoped pages)
 - ❌ Not a generic finance site (no investing, retirement, mortgages, insurance, crypto)
+
+---
+
+## Future Optionality
+
+These are parked. Do not build pre-emptively. Each has a specific signal that justifies activation.
+
+### Compliance Dashboard SaaS ($9-19/mo)
+Tracks annual reports, BOI filings, quarterly taxes, S-corp reasonable comp, registered agent renewals across multiple states for one user.
+
+**Signal to build**: 5K+ engaged email subscribers AND repeated direct requests for this product. Earliest activation: year 2.
+
+### Premium Calculator Tier ($9/mo)
+Batch mode, export, no caps, API access on flagship calculators.
+
+**Signal to build**: target calc has 1K+ monthly visitors AND proven affiliate conversion rate >1%. Earliest activation: month 11.
+
+### Newsletter Sponsorship Slots
+Sponsored slots in weekly newsletter.
+
+**Signal to build**: email list >2K AND >25% open rate sustained 60 days. Earliest activation: month 12.
+
+### Cornerstone Long-form Content (3-5K word expert-quoted pieces)
+**Signal to build**: cluster has 3+ ranking pages AND clear authority gap vs DR 60+ competitors. Earliest activation: month 13.
 
 ---
 
@@ -622,7 +704,8 @@ If any answer is no, do not add.
 
 ### "Should I keep building, or pivot?"
 
-Check the cumulative milestones table. If you're hitting 70% of the MRR target, keep building. If you're at <50% by month 9, diagnose:
+Check the cumulative milestones table normal column. If you're hitting 70% of the normal target, keep building. If you're at <50% by month 9, diagnose:
+
 - Is it traffic? → SEO/keyword problem
 - Is it conversion? → page/funnel problem
 - Is it volume? → ship more
@@ -633,6 +716,26 @@ Pivoting before month 9 is almost always premature.
 ### "Should I start a second project?"
 
 No. Not until Rule #6 is met ($3K MRR sustained 90 days). Re-read non-negotiable rule #2.
+
+### "Should I activate a parked future option?"
+
+Check the signal in Future Optionality. If the signal is not met, do not activate. Boredom is not a signal.
+
+---
+
+## Behavioral Predictors
+
+The plan is sound. The economics are real. The realistic MRR ranges in the milestones table assume specific operator behaviors. **The variable is the operator.**
+
+Three behaviors predict whether you land in meh, normal, or awesome:
+
+1. **Do you ship on weeks you don't feel like shipping?** This alone moves you up one tier.
+
+2. **Do you do the Sunday review every week, even when GSC shows nothing exciting?** This separates normal from awesome.
+
+3. **Do you start link building in month 4, or postpone "until content is ready"?** This is the single biggest predictor of whether you cap at $1K or push past $3K.
+
+If you slip on these, you land in meh. If you hit all three consistently, you land in normal or better. Re-read this section at every Sunday review.
 
 ---
 
@@ -660,6 +763,7 @@ If you are an AI agent (Claude, Cursor, etc.) reading this document to assist wi
 - Suggest adding topics outside the topical hubs (see Topical Dilution)
 - Suggest adding three CTAs when one would do
 - Generate "consult a professional" hedges when real numbers are possible
+- Suggest activating a parked Future Optionality item before its signal is met
 
 ### When suggesting a page
 
@@ -677,6 +781,7 @@ Format suggestions as:
 - Quote the specific non-negotiable rule being violated
 - Suggest re-reading the "What This Is Not" section
 - Refocus on revenue per 1K visitors, not raw traffic
+- If wavering on commitment, reference Behavioral Predictors
 
 ### When asked "should I do X?"
 
@@ -695,6 +800,8 @@ This document is updated rarely. When it is updated:
 
 ### Changelog
 
+- **v1.5** — Locked calculator URL convention to hub routes instead of `/calculators/*`; added `/self-employment-tax/1099/*` route family for profession calculators.
+- **v1.4** — Added Recurring Engagement Layer to address one-and-done structural weakness. Reframed "What This Is" as calculator hub with content as acquisition. Updated cumulative milestones to meh / normal / awesome ranges. Added Future Optionality section to formally park SaaS, premium, newsletter sponsorship, and cornerstone content. Added Behavioral Predictors section. Added Rule #21 (premium tier signal requirement). Added Month 1 funnel verification to exit criteria.
 - **v1.3** — Buttondown/newsletter parked until traffic or a lead magnet justifies it; LegalZoom remains a plain non-affiliate link until approval.
 - **v1.2** — Analytics updated from Plausible to Cloudflare Web Analytics for the free Month 1 baseline; Plausible parked as a future upgrade.
 - **v1.1** — Month 1 updated to calculators-first execution: measurement, affiliate tracking, S-corp flagship, current-guide polish, and no new state-guide expansion until the funnel is measurable.

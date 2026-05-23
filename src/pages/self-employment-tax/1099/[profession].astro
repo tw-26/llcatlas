@@ -1,0 +1,309 @@
+---
+import TaxCalculator from '../../../components/calculator/TaxCalculator';
+import CalculatorNextStep from '../../../components/calculator-next-step.astro';
+import SiteLayout from '../../../layouts/site-layout.astro';
+import {
+  getPublishedProfessionPages,
+  type ProfessionPage,
+} from '../../../data/tax/profession-pages';
+import { getProfessionPreset } from '../../../data/tax/profession-presets';
+import { getPublishedComboPages } from '../../../data/tax/combo-pages';
+import { getStateName, getStateSlug } from '../../../data/tax/calculator-pages';
+
+export async function getStaticPaths() {
+  return getPublishedProfessionPages().map((page) => ({
+    params: { profession: page.profession },
+    props: { pageConfig: page },
+  }));
+}
+
+interface Props {
+  pageConfig: ProfessionPage;
+}
+
+const { pageConfig } = Astro.props as Props;
+const preset = getProfessionPreset(pageConfig.profession);
+
+const title = `${pageConfig.targetKeyword} 2026 | Free SE Tax Estimator for ${preset.displayName}s`;
+const description = pageConfig.metaDescription;
+const canonical = `https://llcatlas.com/self-employment-tax/1099/${pageConfig.profession}/`;
+const lastReviewed = '2026-05-12';
+const lastReviewedLabel = 'May 12, 2026';
+const form1099Label = preset.form1099Type === 'both' ? '1099-K and 1099-NEC' : preset.form1099Type;
+const actionLabel = preset.category === 'creator' ? 'created content' : 'drove';
+
+const siblingProfessions = getPublishedProfessionPages()
+  .filter((page) => page.profession !== pageConfig.profession)
+  .map((page) => ({
+    label: getProfessionPreset(page.profession).displayName,
+    slug: page.profession,
+  }));
+
+const combosForThisProfession = getPublishedComboPages()
+  .filter((combo) => combo.profession === pageConfig.profession)
+  .map((combo) => ({
+    state: combo.state,
+    stateName: getStateName(combo.state),
+    stateSlug: getStateSlug(combo.state),
+  }));
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: `${pageConfig.targetKeyword} 2026`,
+    description,
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Any',
+    url: canonical,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    datePublished: '2026-05-12',
+    dateModified: lastReviewed,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `Do I owe taxes if I worked part-time as a ${preset.displayName.toLowerCase()}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Yes. If your net ${preset.displayName.toLowerCase()} earnings exceed $400 in a year, you owe self-employment tax, regardless of full-time or part-time status.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "What's the difference between gross and net earnings?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Gross earnings is the total on your 1099. Net earnings is gross MINUS your business deductions (mileage, equipment, fees). You pay tax on net earnings. For most ${preset.displayName.toLowerCase()}s, deductions reduce taxable income by 25-50%.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Should I make quarterly estimated payments?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'If you expect to owe $1,000+ in federal tax for the year, yes. Missing quarterly payments can trigger underpayment penalties. Due dates for tax year 2026: April 15, June 15, September 15, 2026, and January 15, 2027.',
+        },
+      },
+    ],
+  },
+];
+---
+
+<SiteLayout title={title} description={description} structuredData={structuredData}>
+  <article class="mx-auto max-w-6xl px-4 py-8 lg:py-12">
+    <nav class="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
+      <a href="/" class="llc-link">Home</a>
+      <span class="mx-2">/</span>
+      <a href="/self-employment-tax/calculator/" class="llc-link">SE Tax Calculator</a>
+      <span class="mx-2">/</span>
+      <span class="text-slate-700">{preset.displayName}</span>
+    </nav>
+
+    <header class="mb-8">
+      <h1 class="mb-3 text-3xl font-bold text-slate-900 lg:text-4xl">
+        {pageConfig.targetKeyword} 2026
+      </h1>
+      <p class="text-lg leading-relaxed text-slate-600">
+        Estimate the federal, state, and self-employment tax you owe as a {
+          preset.displayName.toLowerCase()
+        }. Built for {form1099Label} workers. Updated with 2026 federal and 2025 state tax rules.
+      </p>
+    </header>
+
+    <section class="mb-6">
+      <div class="llc-card-highlight">
+        <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-900">
+          Before you start
+        </h2>
+        <p class="leading-relaxed text-slate-700">{preset.incomeNote}</p>
+      </div>
+    </section>
+
+    <section class="mb-12" aria-label="Tax calculator">
+      <TaxCalculator client:load />
+    </section>
+
+    <CalculatorNextStep professionLabel={preset.displayName} />
+
+    <section class="mb-12">
+      <h2 class="mb-4 text-2xl font-bold text-slate-900">
+        Common {preset.displayName.toLowerCase()} tax deductions
+      </h2>
+      <p class="mb-4 leading-relaxed text-slate-700">
+        As a self-employed {preset.displayName.toLowerCase()}, you can deduct business expenses from
+        your gross 1099 earnings before calculating tax. The most common deductions for this
+        profession:
+      </p>
+      <ul class="space-y-2 text-slate-700">
+        {
+          preset.commonDeductions.map((deduction) => (
+            <li class="flex gap-2">
+              <span class="mt-1 text-slate-400">-</span>
+              <span class="leading-relaxed">{deduction}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-4 text-sm leading-relaxed text-slate-600">
+        <strong>Important</strong>: Subtract these deductions from your gross 1099 earnings BEFORE
+        entering income above. The calculator expects NET self-employment income (gross minus
+        deductions).
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="mb-4 text-2xl font-bold text-slate-900">
+        How {preset.displayName.toLowerCase()}s are taxed
+      </h2>
+      <p class="mb-4 leading-relaxed text-slate-700">
+        {preset.displayName}s receive {
+          preset.form1099Type === 'both'
+            ? 'both 1099-K (for transaction income) and 1099-NEC (for bonuses and incentives)'
+            : `a ${preset.form1099Type} form`
+        } reporting annual earnings. As a self-employed worker, you owe three types of tax on net
+        earnings:
+      </p>
+      <div class="mb-4 grid gap-4 md:grid-cols-3">
+        <div class="llc-card">
+          <h3 class="mb-2 font-semibold text-slate-900">SE tax (15.3%)</h3>
+          <p class="text-sm leading-relaxed text-slate-600">
+            Social Security + Medicare. What an employer would normally split with you.
+          </p>
+        </div>
+        <div class="llc-card">
+          <h3 class="mb-2 font-semibold text-slate-900">Federal income tax</h3>
+          <p class="text-sm leading-relaxed text-slate-600">
+            10-37% based on your bracket, after standard deduction.
+          </p>
+        </div>
+        <div class="llc-card">
+          <h3 class="mb-2 font-semibold text-slate-900">State income tax</h3>
+          <p class="text-sm leading-relaxed text-slate-600">
+            0% in 9 states (TX, FL, etc.); up to 13.3% in CA.
+          </p>
+        </div>
+      </div>
+      <p class="leading-relaxed text-slate-700">
+        If you expect to owe more than $1,000 in federal tax for the year, the IRS requires quarterly
+        estimated payments - see the calculator output for amounts and due dates.
+      </p>
+    </section>
+
+    {
+      combosForThisProfession.length > 0 && (
+        <section class="mb-12">
+          <h2 class="mb-4 text-2xl font-bold text-slate-900">
+            {preset.displayName} tax calculator by state
+          </h2>
+          <p class="mb-4 leading-relaxed text-slate-700">
+            Get a state-specific tax estimate with {preset.displayName.toLowerCase()}-specific
+            deduction guidance:
+          </p>
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {combosForThisProfession.map((combo) => (
+              <a
+                href={`/self-employment-tax/1099/${pageConfig.profession}/${combo.stateSlug}/`}
+                class="llc-card transition-colors hover:border-blue-400"
+              >
+                <span class="font-medium text-slate-900">{combo.stateName}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <section class="mb-12">
+      <h2 class="mb-6 text-2xl font-bold text-slate-900">
+        Common questions for {preset.displayName.toLowerCase()}s
+      </h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="mb-2 font-semibold text-slate-900">
+            Do I owe taxes if I {actionLabel} part-time?
+          </h3>
+          <p class="leading-relaxed text-slate-700">
+            Yes. If your NET {preset.displayName.toLowerCase()} earnings exceed $400 in a year, you
+            owe self-employment tax, regardless of full-time or part-time status. You also owe federal
+            income tax if your total income (from all sources combined) exceeds the standard
+            deduction.
+          </p>
+        </div>
+        <div>
+          <h3 class="mb-2 font-semibold text-slate-900">
+            What's the difference between gross and net earnings?
+          </h3>
+          <p class="leading-relaxed text-slate-700">
+            Gross earnings = the total on your 1099 (what the platform paid you). Net earnings = gross
+            MINUS your business deductions (mileage, equipment, fees, etc.). You pay tax on NET
+            earnings, not gross. For most {preset.displayName.toLowerCase()}s, deductions reduce
+            taxable income by 25-50%.
+          </p>
+        </div>
+        <div>
+          <h3 class="mb-2 font-semibold text-slate-900">
+            Should I make quarterly estimated payments?
+          </h3>
+          <p class="leading-relaxed text-slate-700">
+            If you expect to owe $1,000+ in federal tax for the year, yes. Missing quarterly payments
+            can trigger underpayment penalties. The calculator above shows your recommended quarterly
+            payment amounts and due dates (April 15, June 15, September 15 of 2026, and January 15,
+            2027).
+          </p>
+        </div>
+        <div>
+          <h3 class="mb-2 font-semibold text-slate-900">How accurate is this calculator?</h3>
+          <p class="leading-relaxed text-slate-700">
+            The calculator uses 2026 federal tax brackets (IRS Rev. Proc. 2025-32) and 2025 state tax
+            data. It assumes the standard deduction and does NOT model business expense deductions
+            beyond asking for net income. For exact tax planning, consult a CPA familiar with gig
+            economy taxes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {
+      siblingProfessions.length > 0 && (
+        <section class="mb-12">
+          <h2 class="mb-4 text-2xl font-bold text-slate-900">Other profession calculators</h2>
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {siblingProfessions.map((profession) => (
+              <a
+                href={`/self-employment-tax/1099/${profession.slug}/`}
+                class="llc-card transition-colors hover:border-blue-400"
+              >
+                <span class="font-medium text-slate-900">
+                  {profession.label} tax calculator
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <footer class="mt-12 border-t border-slate-200 pt-6">
+      <p class="text-xs text-slate-500">
+        Last reviewed: {lastReviewedLabel}. Sources:
+        <a href="https://www.irs.gov/pub/irs-drop/rp-25-32.pdf" class="llc-link" rel="external">
+          IRS Rev. Proc. 2025-32
+        </a>,
+        <a
+          href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+          class="llc-link"
+          rel="external">IRS SE Tax</a
+        >,
+        <a
+          href="https://taxfoundation.org/data/all/state/state-income-tax-rates/"
+          class="llc-link"
+          rel="external">Tax Foundation 2025 state data</a
+        >.
+      </p>
+    </footer>
+  </article>
+</SiteLayout>

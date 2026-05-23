@@ -8,9 +8,12 @@
  */
 export const READY_STATE_SLUGS = [
   'indiana',
+  'maryland',
   'michigan',
   'north-carolina',
   'ohio',
+  'pennsylvania',
+  'tennessee',
   'virginia',
   'washington',
   'wyoming',
