@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import atkinsonRegular from '@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff2?url';
+import { SEO } from 'astro-seo';
+import { getOgImagePath } from '../lib/seo/og-images';
 
 type StructuredData = Record<string, unknown>;
 
@@ -10,6 +12,9 @@ interface Props {
   ogType?: 'website' | 'article';
   structuredData?: StructuredData | StructuredData[];
   noindex?: boolean;
+  canonical?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
 }
 
 const {
@@ -18,13 +23,18 @@ const {
   ogType = 'website',
   structuredData = [],
   noindex = false,
+  canonical,
+  ogImage,
+  ogImageAlt,
 } = Astro.props as Props;
 const currentYear = new Date().getFullYear();
 const siteUrl = Astro.site ?? new URL(Astro.url.origin);
 const siteOrigin = siteUrl.toString().replace(/\/$/, '');
 const currentPath = Astro.url.pathname;
 const canonicalPath = currentPath === '/' ? '/' : `${currentPath.replace(/\/$/, '')}/`;
-const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const canonicalUrl = canonical ?? new URL(canonicalPath, siteUrl).toString();
+const ogImageUrl = new URL(ogImage ?? getOgImagePath(canonicalPath), siteUrl).toString();
+const resolvedOgImageAlt = ogImageAlt ?? `${title} social preview`;
 const logoUrl = new URL('/logo.svg', siteUrl).toString();
 const hasSidebar = Astro.slots.has('sidebar');
 const isHomePage = currentPath === '/';
@@ -47,6 +57,29 @@ const contentWidthClass = isHomePage
       ? 'lg:max-w-[892px]'
       : 'mx-auto max-w-5xl';
 const pageStructuredData = Array.isArray(structuredData) ? structuredData : [structuredData];
+const imageSchemaTypes = new Set(['Article', 'WebApplication', 'WebPage']);
+const addImageToStructuredData = (item: StructuredData): StructuredData => {
+  const schemaType = item['@type'];
+  const schemaTypes = Array.isArray(schemaType) ? schemaType : [schemaType];
+
+  if (!schemaTypes.some((type) => typeof type === 'string' && imageSchemaTypes.has(type))) {
+    return item;
+  }
+
+  if ('image' in item) {
+    return item;
+  }
+
+  return {
+    ...item,
+    image: {
+      '@type': 'ImageObject',
+      url: ogImageUrl,
+      width: 1200,
+      height: 630,
+    },
+  };
+};
 const defaultStructuredData: StructuredData[] = [
   {
     '@context': 'https://schema.org',
@@ -63,7 +96,10 @@ const defaultStructuredData: StructuredData[] = [
     inLanguage: 'en-US',
   },
 ];
-const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
+const allStructuredData = [
+  ...defaultStructuredData,
+  ...pageStructuredData.map(addImageToStructuredData),
+];
 ---
 
 <!doctype html>
@@ -80,22 +116,40 @@ const allStructuredData = [...defaultStructuredData, ...pageStructuredData];
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <meta
-      name="robots"
-      content={noindex ? 'noindex, follow' : 'index, follow'}
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonicalUrl}
+      noindex={noindex}
+      openGraph={{
+        basic: {
+          title,
+          type: ogType,
+          image: ogImageUrl,
+          url: canonicalUrl,
+        },
+        optional: {
+          description,
+          locale: 'en_US',
+          siteName: 'LLCAtlas',
+        },
+        image: {
+          url: ogImageUrl,
+          secureUrl: ogImageUrl,
+          type: 'image/png',
+          width: 1200,
+          height: 630,
+          alt: resolvedOgImageAlt,
+        },
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        title,
+        description,
+        image: ogImageUrl,
+        imageAlt: resolvedOgImageAlt,
+      }}
     />
-    <meta property="og:site_name" content="LLCAtlas" />
-    <meta property="og:type" content={ogType} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:locale" content="en_US" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
-    <title>{title}</title>
     {
       allStructuredData.map((item) => (
         <script type="application/ld+json" set:html={JSON.stringify(item)} />
