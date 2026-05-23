@@ -1,0 +1,147 @@
+---
+import SiteLayout from '../../layouts/site-layout.astro';
+
+const title = 'S-Corp Reasonable Compensation Guide | LLCAtlas';
+const description =
+  'Plain-English guide to S-corp reasonable compensation: what it means, why it matters, and how solo founders should think about salary assumptions.';
+const pageUrl = 'https://llcatlas.com/s-corp/reasonable-compensation/';
+const lastUpdatedIso = '2026-05-22';
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'S-Corp Reasonable Compensation',
+    description,
+    author: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+    },
+    datePublished: lastUpdatedIso,
+    dateModified: lastUpdatedIso,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://llcatlas.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Reasonable compensation',
+        item: pageUrl,
+      },
+    ],
+  },
+];
+---
+
+<SiteLayout title={title} description={description} ogType="article" structuredData={structuredData}>
+  <article class="mx-auto max-w-4xl px-4 py-8 lg:py-12">
+    <header class="space-y-4">
+      <p class="llc-helper">S-corp salary basics</p>
+      <h1>Reasonable compensation is the S-corp number you cannot fake.</h1>
+      <p class="llc-section-copy text-ink-soft">
+        The tax savings from an S-corp come from splitting business profit between owner salary and
+        distributions. The salary has to be reasonable for the work performed. A low salary may make
+        the calculator look better, but it can make the tax position worse.
+      </p>
+    </header>
+
+    <section class="mt-10 llc-card-highlight space-y-5">
+      <p class="llc-helper">Practical default</p>
+      <h2>Use 50% as a rough screening assumption, not as tax advice.</h2>
+      <p class="llc-section-copy text-ink-soft">
+        LLCAtlas uses a 50% salary default in the S-corp calculator because it creates a conservative
+        first pass for many solo service businesses. Your actual number should consider your role,
+        hours, market pay, profit level, and whether the business could hire someone else to do the
+        same work.
+      </p>
+      <a
+        href="/s-corp/election-calculator/"
+        class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+      >
+        Test salary in the calculator
+      </a>
+    </section>
+
+    <section class="mt-12 space-y-5">
+      <h2>How to think about the salary number</h2>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <p class="llc-helper">Role</p>
+          <h3 class="mt-2 font-semibold text-ink-strong">What work do you actually perform?</h3>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+            A founder doing client delivery, sales, admin, and operations may need a higher salary
+            assumption than a passive owner with employees doing the work.
+          </p>
+        </div>
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <p class="llc-helper">Market pay</p>
+          <h3 class="mt-2 font-semibold text-ink-strong">What would the job cost to replace?</h3>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+            Look at comparable pay for the work, then adjust for hours, geography, and company size.
+            Do not start from the tax answer you want.
+          </p>
+        </div>
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <p class="llc-helper">Profit</p>
+          <h3 class="mt-2 font-semibold text-ink-strong">Is there enough profit left?</h3>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+            If a reasonable salary consumes nearly all profit, the S-corp election may not produce
+            meaningful savings after admin costs.
+          </p>
+        </div>
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <p class="llc-helper">Documentation</p>
+          <h3 class="mt-2 font-semibold text-ink-strong">Can you explain the number later?</h3>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+            Keep the reasoning simple and written down. A CPA can help turn the rough salary
+            assumption into a defensible payroll setup.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-[1.5rem] border border-rule bg-surface-subtle p-6 sm:p-8">
+      <div class="space-y-3">
+        <p class="llc-helper">Related tools</p>
+        <h2>Run the full S-corp savings math before you file Form 2553.</h2>
+        <p class="llc-section-copy text-ink-soft">
+          Salary is only half the decision. Payroll fees, accounting costs, and state annual costs
+          can wipe out the savings at lower income levels.
+        </p>
+      </div>
+      <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+        <a
+          href="/s-corp/election-calculator/"
+          class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+        >
+          Run the S-corp calculator
+        </a>
+        <a
+          href="/llc-vs-s-corp/"
+          class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong bg-surface px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
+        >
+          Read LLC vs S-corp
+        </a>
+      </div>
+    </section>
+  </article>
+</SiteLayout>

@@ -1,0 +1,139 @@
+---
+import SiteLayout from '../layouts/site-layout.astro';
+
+const title = 'LLC vs S-Corp: Which Tax Setup Makes Sense? | LLCAtlas';
+const description =
+  'Plain-English LLC vs S-corp comparison for solo founders: what changes, what stays the same, and when the S-corp election is worth discussing.';
+const pageUrl = 'https://llcatlas.com/llc-vs-s-corp/';
+const lastUpdatedIso = '2026-05-22';
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'LLC vs S-Corp',
+    description,
+    author: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+    },
+    datePublished: lastUpdatedIso,
+    dateModified: lastUpdatedIso,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://llcatlas.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'LLC vs S-corp',
+        item: pageUrl,
+      },
+    ],
+  },
+];
+---
+
+<SiteLayout title={title} description={description} ogType="article" structuredData={structuredData}>
+  <article class="mx-auto max-w-4xl px-4 py-8 lg:py-12">
+    <header class="space-y-4">
+      <p class="llc-helper">Entity comparison</p>
+      <h1>LLC vs S-corp: the short version</h1>
+      <p class="llc-section-copy text-ink-soft">
+        An LLC is a legal entity. An S-corp is usually a tax election layered on top of an LLC. For
+        most solo founders, the real question is not "LLC or S-corp?" It is "Should my LLC stay
+        simple for now, or should I add payroll and S-corp tax treatment?"
+      </p>
+    </header>
+
+    <section class="mt-10 llc-card-highlight space-y-5">
+      <p class="llc-helper">Recommendation first</p>
+      <h2>Start with the LLC. Consider S-corp treatment only after the income is consistent.</h2>
+      <p class="llc-section-copy text-ink-soft">
+        If you are under roughly $45K in net business income, S-corp treatment is usually premature.
+        Around $60K+ and stable, the tax savings can start clearing payroll, accounting, and state
+        costs. Use the calculator before you pay anyone to set it up.
+      </p>
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a
+          href="/s-corp/election-calculator/"
+          class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+        >
+          Run the S-corp calculator
+        </a>
+        <a
+          href="/best-llc-services/"
+          class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
+        >
+          Compare LLC services
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12 space-y-5">
+      <h2>What changes with S-corp treatment</h2>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <h3 class="font-semibold text-ink-strong">You add payroll</h3>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+            The owner pays themselves a reasonable W-2 salary. Payroll tax applies to that salary,
+            but remaining profit can be distributed without self-employment tax.
+          </p>
+        </div>
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <h3 class="font-semibold text-ink-strong">You add compliance</h3>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+            More tax forms, more bookkeeping discipline, payroll deposits, and more CPA review. The
+            savings have to beat the extra work.
+          </p>
+        </div>
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <h3 class="font-semibold text-ink-strong">You keep the LLC wrapper</h3>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+            In the common solo-founder setup, the LLC remains the legal entity with the state. The
+            S-corp election changes how the IRS taxes it.
+          </p>
+        </div>
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <h3 class="font-semibold text-ink-strong">You need a defensible salary</h3>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+            The IRS does not require a magic percentage, but it does expect reasonable compensation
+            for the actual work the owner performs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 space-y-5">
+      <h2>Related next steps</h2>
+      <div class="grid gap-3 sm:grid-cols-2">
+        <a href="/s-corp/reasonable-compensation/" class="llc-card transition hover:border-rule-strong">
+          <span class="font-semibold text-ink-strong">Reasonable compensation guide</span>
+          <span class="mt-2 block text-sm leading-6 text-ink-soft">Pressure-test the salary assumption before you rely on the savings.</span>
+        </a>
+        <a href="/self-employment-tax/calculator/" class="llc-card transition hover:border-rule-strong">
+          <span class="font-semibold text-ink-strong">Self-employment tax calculator</span>
+          <span class="mt-2 block text-sm leading-6 text-ink-soft">See the default LLC tax baseline first.</span>
+        </a>
+      </div>
+    </section>
+  </article>
+</SiteLayout>

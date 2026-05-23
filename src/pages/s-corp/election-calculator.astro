@@ -1,0 +1,244 @@
+---
+import SCorpElectionCalculator from '../../components/calculator/SCorpElectionCalculator';
+import SiteLayout from '../../layouts/site-layout.astro';
+
+const title = 'S-Corp Tax Savings Calculator 2026 | LLCAtlas';
+const description =
+  'Free S-corp election calculator for LLC owners and freelancers. Estimate SE tax savings, payroll costs, accounting costs, and whether S-corp treatment is worth it.';
+const canonical = 'https://llcatlas.com/s-corp/election-calculator/';
+const lastReviewed = '2026-05-22';
+const lastReviewedLabel = 'May 22, 2026';
+const faqItems = [
+  {
+    question: 'When is an S-corp election worth it?',
+    answer:
+      'For many solo owners, S-corp treatment starts to become worth discussing around $60,000 or more in consistent net business income. Below that, payroll, accounting, state fees, and extra compliance often consume the savings.',
+  },
+  {
+    question: 'What is reasonable compensation?',
+    answer:
+      'Reasonable compensation is the salary an S-corp owner pays themselves for the work they perform. It should reflect the role, hours, market pay, and business facts. Paying yourself an artificially low salary is a tax-risk problem, not a savings strategy.',
+  },
+  {
+    question: 'Does this calculator include income tax?',
+    answer:
+      'No. It focuses on the core S-corp decision: self-employment tax versus payroll tax, then subtracts added admin costs. Federal and state income tax can still matter, especially with QBI and state entity rules, so use this as a screening tool rather than tax advice.',
+  },
+  {
+    question: 'Do I need an LLC before electing S-corp status?',
+    answer:
+      'Most solo founders form an LLC first, then file IRS Form 2553 to elect S-corp tax treatment. The LLC is the legal entity; S-corp is a federal tax classification.',
+  },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'S-Corp Election Savings Calculator',
+    description,
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Any',
+    url: canonical,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    datePublished: lastReviewed,
+    dateModified: lastReviewed,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://llcatlas.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'S-corp election calculator',
+        item: canonical,
+      },
+    ],
+  },
+];
+---
+
+<SiteLayout title={title} description={description} structuredData={structuredData}>
+  <article class="mx-auto max-w-6xl px-4 py-8 lg:py-12">
+    <header class="mb-8 space-y-4">
+      <p class="llc-helper">S-corp election calculator</p>
+      <h1>S-corp tax savings calculator</h1>
+      <p class="max-w-3xl text-lg leading-8 text-ink-soft">
+        Estimate whether electing S-corp tax treatment is actually worth it after payroll,
+        accounting, and state costs. The point is not to make the savings look big. The point is to
+        find the income level where the hassle starts to make sense.
+      </p>
+      <p class="text-[13px] uppercase tracking-[0.08em] text-ink-muted">
+        Last updated for tax year 2026: <time datetime={lastReviewed}>{lastReviewedLabel}</time>
+      </p>
+    </header>
+
+    <section class="mb-12" aria-label="S-corp savings calculator">
+      <SCorpElectionCalculator client:load />
+    </section>
+
+    <section class="mb-12 grid gap-5 md:grid-cols-3">
+      <div class="llc-card">
+        <p class="llc-helper">Bad deal</p>
+        <h2 class="mt-2 text-xl">Usually under $45K</h2>
+        <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+          At low income, the S-corp paperwork stack can cost as much as the tax you are trying to
+          save. Keep it simple unless there is a non-tax reason to switch.
+        </p>
+      </div>
+      <div class="llc-card">
+        <p class="llc-helper">Borderline</p>
+        <h2 class="mt-2 text-xl">$45K to $60K</h2>
+        <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+          This is where headline savings can look tempting but payroll fees, CPA time, and state
+          rules often decide the real answer.
+        </p>
+      </div>
+      <div class="llc-card-highlight">
+        <p class="llc-helper">Worth a CPA conversation</p>
+        <h2 class="mt-2 text-xl">$60K+ and consistent</h2>
+        <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+          If the income is stable and the net savings clear the admin costs, S-corp treatment can
+          become worth planning around.
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12 space-y-5">
+      <div class="max-w-3xl space-y-3">
+        <h2>What this calculator assumes</h2>
+        <p class="llc-section-copy text-ink-soft">
+          The calculator compares regular self-employment tax against S-corp payroll tax on a
+          reasonable salary. It then subtracts estimated payroll, accounting, and state admin costs.
+          Defaults are intentionally conservative: 50% salary, $1,200 payroll, and $1,300 added
+          accounting cost.
+        </p>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <h3 class="font-semibold text-ink-strong">What is included</h3>
+          <ul class="llc-bullet-list mt-3 text-ink-soft">
+            <li>Current sole proprietor or default LLC self-employment tax.</li>
+            <li>S-corp payroll tax on the salary assumption.</li>
+            <li>Payroll provider, accounting, and available state annual fee estimates.</li>
+            <li>A recommendation tier based on both income and net savings after costs.</li>
+          </ul>
+        </div>
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <h3 class="font-semibold text-ink-strong">What is not included</h3>
+          <ul class="llc-bullet-list mt-3 text-ink-soft">
+            <li>Local taxes, QBI deduction effects, or owner-specific income-tax planning.</li>
+            <li>State entity-level taxes that are not yet structured in LLCAtlas data.</li>
+            <li>Penalty risk from paying yourself an unreasonable salary.</li>
+            <li>Legal or tax advice. Use this as a screening tool before hiring a CPA.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12 rounded-[1.5rem] border border-rule bg-surface-subtle p-6 sm:p-8">
+      <div class="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+        <div class="space-y-3">
+          <p class="llc-helper">Next step</p>
+          <h2>Do not elect S-corp treatment just because the gross savings look good.</h2>
+          <p class="max-w-2xl text-[15px] leading-7 text-ink-soft">
+            If the calculator says it is worth considering, compare formation help before you add
+            S-corp paperwork. If it says borderline, start with the self-employment tax math and
+            reasonable salary basics first.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row md:flex-col">
+          <a
+            href="/best-llc-services/"
+            class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+          >
+            Compare LLC services
+          </a>
+          <a
+            href="/llc-vs-s-corp/"
+            class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong bg-surface px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
+          >
+            Read LLC vs S-corp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12 space-y-5">
+      <h2>Related guides and tools</h2>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <a href="/self-employment-tax/calculator/" class="llc-card transition hover:border-rule-strong">
+          <span class="font-semibold text-ink-strong">Self-employment tax calculator</span>
+          <span class="mt-2 block text-sm leading-6 text-ink-soft">See the baseline tax first.</span>
+        </a>
+        <a href="/llc-vs-s-corp/" class="llc-card transition hover:border-rule-strong">
+          <span class="font-semibold text-ink-strong">LLC vs S-corp</span>
+          <span class="mt-2 block text-sm leading-6 text-ink-soft">Understand the entity choice.</span>
+        </a>
+        <a href="/s-corp/reasonable-compensation/" class="llc-card transition hover:border-rule-strong">
+          <span class="font-semibold text-ink-strong">Reasonable compensation</span>
+          <span class="mt-2 block text-sm leading-6 text-ink-soft">Pressure-test the salary number.</span>
+        </a>
+        <a href="/best-llc-services/" class="llc-card transition hover:border-rule-strong">
+          <span class="font-semibold text-ink-strong">Best LLC services</span>
+          <span class="mt-2 block text-sm leading-6 text-ink-soft">Compare help before paying.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="mb-12 space-y-5">
+      <div class="space-y-3">
+        <h2>Common questions</h2>
+        <p class="llc-section-copy text-ink-soft">
+          The questions that matter before you pay for payroll or ask a CPA to file Form 2553.
+        </p>
+      </div>
+      <div class="space-y-5">
+        {
+          faqItems.map((item) => (
+            <details class="group llc-card !p-0">
+              <summary class="flex cursor-pointer items-start justify-between gap-4 px-5 py-5 text-lg font-semibold text-ink-strong sm:px-6">
+                <span>{item.question}</span>
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mt-2 h-3.5 w-3.5 shrink-0 text-ink-muted transition group-open:rotate-180"
+                >
+                  <path d="M4 6l4 4 4-4"></path>
+                </svg>
+              </summary>
+              <div class="border-t border-rule px-5 py-5 sm:px-6">
+                <p class="llc-section-copy text-ink-soft">{item.answer}</p>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </section>
+  </article>
+</SiteLayout>

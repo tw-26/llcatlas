@@ -661,6 +661,25 @@ const structuredData = [
     )
   }
 
+  <section class="rounded-[1.5rem] border border-rule bg-surface-subtle p-6 sm:p-8">
+    <div class="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+      <div class="space-y-3">
+        <p class="llc-helper">Growing past a basic LLC?</p>
+        <h2>Check the S-corp math after your {state.name} LLC is profitable.</h2>
+        <p class="llc-section-copy text-ink-soft">
+          Once net income is consistently around $60K or more, S-corp treatment may reduce
+          self-employment tax. The savings only count after payroll, accounting, and state costs.
+        </p>
+      </div>
+      <a
+        href="/s-corp/election-calculator/"
+        class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+      >
+        Run S-corp calculator
+      </a>
+    </div>
+  </section>
+
   <aside class="llc-card-subtle space-y-3 !rounded-[1.5rem]">
     <p class="llc-helper">Still picking a state?</p>
     <h3 class="text-xl">Not sure if {state.name} is the right state?</h3>

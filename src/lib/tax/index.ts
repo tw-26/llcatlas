@@ -6,6 +6,7 @@ export {
   calculateQuarterlyPayments,
   applyBrackets,
 } from './engine';
+export { calculateSCorpSavings } from './scorp-engine';
 export type {
   TaxInput,
   TaxResult,
@@ -16,3 +17,11 @@ export type {
   FilingStatus,
   USStateCode,
 } from './types';
+export type {
+  SCorpAdminCosts,
+  SCorpCalculatorInput,
+  SCorpCalculatorResult,
+  SCorpPayrollTaxResult,
+  SCorpRecommendation,
+  SCorpRecommendationTier,
+} from './scorp-types';

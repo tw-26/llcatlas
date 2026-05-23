@@ -70,61 +70,61 @@ This is an ordered execution checklist. Work top to bottom. Skip an item only wh
 - [x] Inventory all state guide pages.
 - [x] Inventory all comparison pages.
 - [x] Inventory all profession pages.
-- [ ] Find every internal link to a missing route.
+- [x] Find every internal link to a missing route.
 - [x] Fix or remove the missing `/llc-vs-s-corp/` link.
-- [ ] Find every calculator page without a downstream CTA. List as orphans.
-- [ ] Fix top 5 orphans this phase. Defer the rest to Phase 2.
+- [x] Find every calculator page without a downstream CTA. List as orphans.
+- [x] Fix top 5 orphans this phase. Defer the rest to Phase 2.
 
 ## 1.5 S-Corp Election Savings Calculator — Flagship (Week 2-4)
 
 **This is the highest-leverage page on the site. Do not defer.**
 
 ### Define
-- [ ] Define canonical route (decision from 1.2): `/s-corp/election-calculator` or `/calculators/s-corp-savings`.
-- [ ] Define target keywords: `s corp tax calculator`, `s corp savings calculator`, `s corp vs llc calculator`.
-- [ ] Review existing tax engine structure.
-- [ ] Define S-corp calculator inputs:
-  - [ ] annual net self-employment income
-  - [ ] state
-  - [ ] reasonable salary assumption
-  - [ ] payroll cost estimate
-  - [ ] accounting cost estimate
-  - [ ] state-specific annual fees where available
-- [ ] Define S-corp calculator outputs:
-  - [ ] estimated self-employment tax as sole proprietor / LLC
-  - [ ] estimated payroll tax under S-corp
-  - [ ] estimated tax savings
-  - [ ] estimated added admin cost
-  - [ ] net savings after costs
-  - [ ] clear recommendation
-- [ ] Define thresholds for "bad deal", "borderline", and "worth considering".
+- [x] Define canonical route (decision from 1.2): `/s-corp/election-calculator` or `/calculators/s-corp-savings`.
+- [x] Define target keywords: `s corp tax calculator`, `s corp savings calculator`, `s corp vs llc calculator`.
+- [x] Review existing tax engine structure.
+- [x] Define S-corp calculator inputs:
+  - [x] annual net self-employment income
+  - [x] state
+  - [x] reasonable salary assumption
+  - [x] payroll cost estimate
+  - [x] accounting cost estimate
+  - [x] state-specific annual fees where available
+- [x] Define S-corp calculator outputs:
+  - [x] estimated self-employment tax as sole proprietor / LLC
+  - [x] estimated payroll tax under S-corp
+  - [x] estimated tax savings
+  - [x] estimated added admin cost
+  - [x] net savings after costs
+  - [x] clear recommendation
+- [x] Define thresholds for "bad deal", "borderline", and "worth considering".
 
 ### Build
-- [ ] Add core S-corp calculation utility.
-- [ ] Add tests for S-corp savings math.
-- [ ] Add conservative default assumptions and show them clearly.
-- [ ] Add state-specific cost handling where data exists.
-- [ ] Add early guardrails for very low income.
-- [ ] Add warning for income levels where S-corp overhead likely outweighs savings.
-- [ ] Build the calculator page.
-- [ ] Add explanation copy using the LLCAtlas voice.
-- [ ] Add FAQ schema where appropriate.
-- [ ] Add "assumptions" section.
-- [ ] Add "last updated for tax year" label.
+- [x] Add core S-corp calculation utility.
+- [x] Add tests for S-corp savings math.
+- [x] Add conservative default assumptions and show them clearly.
+- [x] Add state-specific cost handling where data exists.
+- [x] Add early guardrails for very low income.
+- [x] Add warning for income levels where S-corp overhead likely outweighs savings.
+- [x] Build the calculator page.
+- [x] Add explanation copy using the LLCAtlas voice.
+- [x] Add FAQ schema where appropriate.
+- [x] Add "assumptions" section.
+- [x] Add "last updated for tax year" label.
 
 ### Wire into the funnel
-- [ ] Add result-state CTA to the right comparison or formation page.
-- [ ] Add internal links to: self-employment tax calculator, LLC-vs-S-corp page, reasonable compensation page, best LLC services.
-- [ ] Add inbound links from homepage.
-- [ ] Add inbound links from existing tax calculators.
-- [ ] Add inbound links from relevant state guides.
-- [ ] Add inbound links from comparison pages.
+- [x] Add result-state CTA to the right comparison or formation page.
+- [x] Add internal links to: self-employment tax calculator, LLC-vs-S-corp page, reasonable compensation page, best LLC services.
+- [x] Add inbound links from homepage.
+- [x] Add inbound links from existing tax calculators.
+- [x] Add inbound links from relevant state guides.
+- [x] Add inbound links from comparison pages.
 
 ### Verify
 - [ ] Verify mobile UX for the calculator.
-- [ ] Verify calculator works without a backend.
+- [x] Verify calculator works without a backend.
 - [ ] Verify affiliate tracking fires correctly on result CTA.
-- [ ] Spot-check 3 test cases end-to-end.
+- [x] Spot-check 3 test cases end-to-end.
 - [ ] Submit page to GSC after deploy.
 
 ## 1.6 Northwest vs Bizee Comparison Page (Week 4)

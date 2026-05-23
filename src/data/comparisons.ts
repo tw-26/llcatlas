@@ -332,6 +332,16 @@ export const comparisons: ServiceComparison[] = [
     ],
     relatedGuides: [
       {
+        href: '/s-corp/election-calculator/',
+        label: 'Run the S-corp election calculator',
+        description: 'Check whether the tax savings still hold after payroll, accounting, and state costs.',
+      },
+      {
+        href: '/llc-vs-s-corp/',
+        label: 'Read the LLC vs S-corp guide',
+        description: 'Understand when an LLC should stay simple and when S-corp treatment may be worth it.',
+      },
+      {
         href: '/best-llc-services/',
         label: 'See our full comparison of all LLC services',
         description: 'Compare Northwest, Bizee, ZenBusiness, LegalZoom, and the real year-one cost of each.',
