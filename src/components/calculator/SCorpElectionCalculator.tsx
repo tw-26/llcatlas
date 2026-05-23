@@ -146,7 +146,7 @@ export default function SCorpElectionCalculator() {
         };
 
   return (
-    <div data-calculator-root className="grid gap-6 lg:grid-cols-5">
+    <div data-calculator-root className="grid items-start gap-6 lg:grid-cols-5">
       <div className="lg:col-span-2">
         <div className="llc-card space-y-5">
           <div>
@@ -315,7 +315,11 @@ export default function SCorpElectionCalculator() {
 
               <a
                 href={primaryCta.href}
-                className="mt-5 inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+                data-calculator-result-cta="s-corp-election"
+                data-page-type="calc"
+                data-position="result"
+                data-result-tier={result.recommendation.tier}
+                className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-accent px-5 py-3 text-center text-sm font-semibold text-ink-strong transition hover:bg-accent/85 sm:w-auto"
               >
                 {primaryCta.label}
               </a>
@@ -324,17 +328,17 @@ export default function SCorpElectionCalculator() {
             <div className="llc-card">
               <h3 className="mb-4 text-lg font-semibold text-slate-900">Savings breakdown</h3>
               <dl className="space-y-3">
-                <div className="flex items-baseline justify-between border-b border-slate-200 pb-3">
+                <div className="grid gap-2 border-b border-slate-200 pb-3 sm:flex sm:items-baseline sm:justify-between">
                   <div>
                     <dt className="font-medium text-slate-900">Current SE tax</dt>
                     <dd className="mt-0.5 text-xs text-slate-500">Sole proprietor or default LLC</dd>
                   </div>
-                  <dd className="font-semibold tabular-nums">
+                  <dd className="font-semibold tabular-nums sm:text-right">
                     {formatCurrency(result.soleProprietorSelfEmploymentTax.total)}
                   </dd>
                 </div>
 
-                <div className="flex items-baseline justify-between border-b border-slate-200 pb-3">
+                <div className="grid gap-2 border-b border-slate-200 pb-3 sm:flex sm:items-baseline sm:justify-between">
                   <div>
                     <dt className="font-medium text-slate-900">S-corp payroll tax</dt>
                     <dd className="mt-0.5 text-xs text-slate-500">
@@ -342,24 +346,24 @@ export default function SCorpElectionCalculator() {
                       {formatPercent(result.input.reasonableSalaryRatio, 0)})
                     </dd>
                   </div>
-                  <dd className="font-semibold tabular-nums">
+                  <dd className="font-semibold tabular-nums sm:text-right">
                     {formatCurrency(result.sCorpPayrollTax.total)}
                   </dd>
                 </div>
 
-                <div className="flex items-baseline justify-between border-b border-slate-200 pb-3">
+                <div className="grid gap-2 border-b border-slate-200 pb-3 sm:flex sm:items-baseline sm:justify-between">
                   <div>
                     <dt className="font-medium text-slate-900">Gross tax savings</dt>
                     <dd className="mt-0.5 text-xs text-slate-500">
                       Before payroll, accounting, and state costs
                     </dd>
                   </div>
-                  <dd className="font-semibold tabular-nums">
+                  <dd className="font-semibold tabular-nums sm:text-right">
                     {formatCurrency(result.grossTaxSavings)}
                   </dd>
                 </div>
 
-                <div className="flex items-baseline justify-between">
+                <div className="grid gap-2 sm:flex sm:items-baseline sm:justify-between">
                   <div>
                     <dt className="font-medium text-slate-900">Added admin cost</dt>
                     <dd className="mt-0.5 text-xs text-slate-500">
@@ -368,7 +372,7 @@ export default function SCorpElectionCalculator() {
                       {formatCurrency(result.adminCosts.stateAnnualFee)}
                     </dd>
                   </div>
-                  <dd className="font-semibold tabular-nums">
+                  <dd className="font-semibold tabular-nums sm:text-right">
                     {formatCurrency(result.adminCosts.total)}
                   </dd>
                 </div>

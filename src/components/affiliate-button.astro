@@ -1,5 +1,5 @@
 ---
-import { isAffiliateConfigured, type AffiliatePartner } from '../data/affiliates';
+import { getAffiliateLinkAttributes } from '../lib/affiliate-links';
 import { getAffiliatePageType } from '../lib/affiliate-tracking';
 
 interface Props {
@@ -27,16 +27,14 @@ const {
 const padding = size === 'lg' ? 'px-6 py-3' : 'px-5 py-3';
 const widthClass = fullWidth ? 'w-full' : 'shrink-0';
 const isPlaceholderLink = !href || href === '#';
-const partnerByName: Record<string, AffiliatePartner> = {
-  Bizee: 'bizee',
-  Northwest: 'northwest',
-  'Northwest Registered Agent': 'northwest',
-  ZenBusiness: 'zenbusiness',
-  LegalZoom: 'legalzoom',
-};
-const partnerSlug = partnerByName[partnerName];
-const isAffiliate = Boolean(partnerSlug && isAffiliateConfigured(partnerSlug));
 const pageType = getAffiliatePageType(Astro.url.pathname);
+const affiliateAttributes = getAffiliateLinkAttributes({
+  href,
+  partnerName,
+  pageType,
+  position: placement,
+  state,
+});
 const composedClass = [
   'inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-accent text-sm font-semibold text-ink-strong transition hover:bg-accent/85',
   padding,
@@ -49,14 +47,7 @@ const composedClass = [
 ---
 
 <a
-  href={isPlaceholderLink ? undefined : href}
-  target={isPlaceholderLink ? undefined : '_blank'}
-  rel={isPlaceholderLink ? undefined : isAffiliate ? 'sponsored noopener' : 'noopener'}
-  aria-disabled={isPlaceholderLink ? 'true' : undefined}
-  data-affiliate={!isPlaceholderLink && isAffiliate ? partnerSlug : undefined}
-  data-page-type={!isPlaceholderLink && isAffiliate ? pageType : undefined}
-  data-position={!isPlaceholderLink && isAffiliate ? placement : undefined}
-  data-state={!isPlaceholderLink && isAffiliate ? state : undefined}
+  {...affiliateAttributes}
   class={composedClass}
 >
   <span>{label}</span>

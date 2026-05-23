@@ -345,6 +345,17 @@ export const llcServices: LlcService[] = [
 
 export const serviceComparisons: ServiceComparison[] = [
   {
+    id: 'northwest-vs-bizee',
+    title: 'Northwest vs Bizee',
+    winner: 'Northwest for the safer default; Bizee for lowest year-one cost',
+    providerSlugs: ['northwest', 'bizee'],
+    paragraphs: [
+      'Northwest is the better default if you want the calmer checkout, stronger privacy positioning, and a service that is easier to recommend to a nervous first-time founder.',
+      'Bizee wins the raw year-one price fight because its current public offer is $0 plus the state fee and includes a free first year of registered agent service.',
+      'The short version: choose Northwest if you want less buying friction. Choose Bizee if the lowest verified year-one cost matters more than checkout quality.',
+    ],
+  },
+  {
     id: 'northwest-vs-zenbusiness',
     title: 'Northwest vs ZenBusiness',
     winner: 'Northwest for least hassle; ZenBusiness only if you are squeezing the upfront budget',

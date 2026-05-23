@@ -121,11 +121,11 @@ This is an ordered execution checklist. Work top to bottom. Skip an item only wh
 - [x] Add inbound links from comparison pages.
 
 ### Verify
-- [ ] Verify mobile UX for the calculator.
+- [x] Verify mobile UX for the calculator.
 - [x] Verify calculator works without a backend.
-- [ ] Verify affiliate tracking fires correctly on result CTA.
+- [x] Verify affiliate tracking fires correctly on result CTA.
 - [x] Spot-check 3 test cases end-to-end.
-- [ ] Submit page to GSC after deploy.
+- [x] Submit page to GSC after deploy.
 
 ## 1.6 Northwest vs Bizee Comparison Page (Week 4)
 

@@ -2,8 +2,8 @@
 import AffiliateButton from '../components/affiliate-button.astro';
 import AffiliateLinkedText from '../components/affiliate-linked-text.astro';
 import SiteLayout from '../layouts/site-layout.astro';
-import { isAffiliateConfigured, type AffiliatePartner } from '../data/affiliates';
 import { affiliateDisclosure, comparisons, type ServiceComparison } from '../data/comparisons';
+import { getAffiliateLinkAttributes } from '../lib/affiliate-links';
 
 export function getStaticPaths() {
   return comparisons.map((comparison) => ({
@@ -21,25 +21,50 @@ const { serviceA, serviceB } = comparison;
 const winner = comparison.winner === 'A' ? serviceA : serviceB;
 const loser = comparison.winner === 'A' ? serviceB : serviceA;
 const winnerKey = comparison.winner === 'A' ? 'serviceA' : 'serviceB';
-const partnerByName: Record<string, AffiliatePartner> = {
-  Bizee: 'bizee',
-  Northwest: 'northwest',
-  'Northwest Registered Agent': 'northwest',
-  ZenBusiness: 'zenbusiness',
-  LegalZoom: 'legalzoom',
-};
-const getPartnerSlug = (name: string) => partnerByName[name];
-const isServiceAffiliate = (name: string) => {
-  const partnerSlug = getPartnerSlug(name);
+const serviceAQuickLinkAttributes = getAffiliateLinkAttributes({
+  href: serviceA.affiliateUrl,
+  partnerName: serviceA.name,
+  pageType: 'comparison',
+  position: 'comparison-quick-table-service-a',
+});
+const serviceBQuickLinkAttributes = getAffiliateLinkAttributes({
+  href: serviceB.affiliateUrl,
+  partnerName: serviceB.name,
+  pageType: 'comparison',
+  position: 'comparison-quick-table-service-b',
+});
+const loserHeroLinkAttributes = getAffiliateLinkAttributes({
+  href: loser.affiliateUrl,
+  partnerName: loser.name,
+  pageType: 'comparison',
+  position: 'comparison-hero-secondary',
+});
+const loserFinalLinkAttributes = getAffiliateLinkAttributes({
+  href: loser.affiliateUrl,
+  partnerName: loser.name,
+  pageType: 'comparison',
+  position: 'comparison-final-secondary',
+});
+const getResearchSourceAttributes = (sourceLabel: string, sourceUrl: string, index: number) => {
+  const sourcePartner = [serviceA, serviceB].find((service) =>
+    sourceLabel.toLowerCase().includes(service.shortName.toLowerCase()),
+  );
 
-  return Boolean(partnerSlug && isAffiliateConfigured(partnerSlug));
+  if (!sourcePartner) {
+    return {
+      href: sourceUrl,
+      target: '_blank' as const,
+      rel: 'noopener' as const,
+    };
+  }
+
+  return getAffiliateLinkAttributes({
+    href: sourceUrl,
+    partnerName: sourcePartner.name,
+    pageType: 'comparison',
+    position: `comparison-source-${index + 1}`,
+  });
 };
-const serviceAPartnerSlug = getPartnerSlug(serviceA.name);
-const serviceBPartnerSlug = getPartnerSlug(serviceB.name);
-const loserPartnerSlug = getPartnerSlug(loser.name);
-const isServiceAAffiliate = isServiceAffiliate(serviceA.name);
-const isServiceBAffiliate = isServiceAffiliate(serviceB.name);
-const isLoserAffiliate = isServiceAffiliate(loser.name);
 const pageUrl = `https://llcatlas.com/${comparison.slug}/`;
 const lastUpdatedLabel = new Date(`${comparison.meta.lastUpdated}T00:00:00Z`).toLocaleDateString('en-US', {
   year: 'numeric',
@@ -257,13 +282,7 @@ const structuredData = [
                 <th scope="col" class="llc-table-head px-5 py-4 text-left">Compare</th>
                 <th scope="col" class={['llc-table-head px-5 py-4 text-left', winnerKey === 'serviceA' ? 'bg-surface-warm' : ''].join(' ')}>
                   <a
-                    href={serviceA.affiliateUrl}
-                    target="_blank"
-                    rel={isServiceAAffiliate ? 'sponsored noopener' : 'noopener'}
-                    data-affiliate={isServiceAAffiliate ? serviceAPartnerSlug : undefined}
-                    data-page-type={isServiceAAffiliate ? 'comparison' : undefined}
-                    data-position={isServiceAAffiliate ? 'comparison-quick-table-service-a' : undefined}
-                    data-state={isServiceAAffiliate ? 'national' : undefined}
+                    {...serviceAQuickLinkAttributes}
                     class="underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
                   >
                     {serviceA.shortName}
@@ -271,13 +290,7 @@ const structuredData = [
                 </th>
                 <th scope="col" class={['llc-table-head px-5 py-4 text-left', winnerKey === 'serviceB' ? 'bg-surface-warm' : ''].join(' ')}>
                   <a
-                    href={serviceB.affiliateUrl}
-                    target="_blank"
-                    rel={isServiceBAffiliate ? 'sponsored noopener' : 'noopener'}
-                    data-affiliate={isServiceBAffiliate ? serviceBPartnerSlug : undefined}
-                    data-page-type={isServiceBAffiliate ? 'comparison' : undefined}
-                    data-position={isServiceBAffiliate ? 'comparison-quick-table-service-b' : undefined}
-                    data-state={isServiceBAffiliate ? 'national' : undefined}
+                    {...serviceBQuickLinkAttributes}
                     class="underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
                   >
                     {serviceB.shortName}
@@ -307,13 +320,7 @@ const structuredData = [
           size="lg"
         />
         <a
-          href={loser.affiliateUrl}
-          target="_blank"
-          rel={isLoserAffiliate ? 'sponsored noopener' : 'noopener'}
-          data-affiliate={isLoserAffiliate ? loserPartnerSlug : undefined}
-          data-page-type={isLoserAffiliate ? 'comparison' : undefined}
-          data-position={isLoserAffiliate ? 'comparison-hero-secondary' : undefined}
-          data-state={isLoserAffiliate ? 'national' : undefined}
+          {...loserHeroLinkAttributes}
           class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-6 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
         >
           Try {loser.shortName} instead
@@ -466,12 +473,10 @@ const structuredData = [
       <div class="llc-card">
         <p class="llc-helper">Primary sources</p>
         <ul class="mt-4 space-y-3">
-          {comparison.methodology.sources.map((source) => (
+          {comparison.methodology.sources.map((source, index) => (
             <li>
               <a
-                href={source.url}
-                target="_blank"
-                rel="noopener"
+                {...getResearchSourceAttributes(source.label, source.url, index)}
                 class="llc-link text-[15px]"
               >
                 {source.label}
@@ -538,13 +543,7 @@ const structuredData = [
         size="lg"
       />
       <a
-        href={loser.affiliateUrl}
-        target="_blank"
-        rel={isLoserAffiliate ? 'sponsored noopener' : 'noopener'}
-        data-affiliate={isLoserAffiliate ? loserPartnerSlug : undefined}
-        data-page-type={isLoserAffiliate ? 'comparison' : undefined}
-        data-position={isLoserAffiliate ? 'comparison-final-secondary' : undefined}
-        data-state={isLoserAffiliate ? 'national' : undefined}
+        {...loserFinalLinkAttributes}
         class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-6 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
       >
         Try {loser.shortName} instead

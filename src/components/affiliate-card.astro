@@ -1,5 +1,5 @@
 ---
-import { isAffiliateConfigured, type AffiliatePartner } from '../data/affiliates';
+import { getAffiliateLinkAttributes } from '../lib/affiliate-links';
 import { getAffiliatePageType } from '../lib/affiliate-tracking';
 
 interface Props {
@@ -56,16 +56,14 @@ const resolvedCtaNote = !isSidebar
   : null;
 
 const isPlaceholderLink = !href || href === '#';
-const partnerByName: Record<string, AffiliatePartner> = {
-  Bizee: 'bizee',
-  Northwest: 'northwest',
-  'Northwest Registered Agent': 'northwest',
-  ZenBusiness: 'zenbusiness',
-  LegalZoom: 'legalzoom',
-};
-const partnerSlug = partnerByName[partnerName];
-const isAffiliate = Boolean(partnerSlug && isAffiliateConfigured(partnerSlug));
 const pageType = getAffiliatePageType(Astro.url.pathname);
+const affiliateAttributes = getAffiliateLinkAttributes({
+  href,
+  partnerName,
+  pageType,
+  position: placement,
+  state: stateName,
+});
 ---
 
 {isSidebar ? (
@@ -75,14 +73,7 @@ const pageType = getAffiliatePageType(Astro.url.pathname);
     <p class="mt-3 text-[14px] leading-6 text-ink-soft">{resolvedDescription}</p>
 
     <a
-      href={isPlaceholderLink ? undefined : href}
-      target={isPlaceholderLink ? undefined : '_blank'}
-      rel={isPlaceholderLink ? undefined : isAffiliate ? 'sponsored noopener' : 'noopener'}
-      aria-disabled={isPlaceholderLink ? 'true' : undefined}
-      data-affiliate={!isPlaceholderLink && isAffiliate ? partnerSlug : undefined}
-      data-page-type={!isPlaceholderLink && isAffiliate ? pageType : undefined}
-      data-position={!isPlaceholderLink && isAffiliate ? placement : undefined}
-      data-state={!isPlaceholderLink && isAffiliate ? stateName : undefined}
+      {...affiliateAttributes}
       class="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-accent px-5 py-3 text-center text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
     >
       {resolvedButtonLabel}
@@ -146,14 +137,7 @@ const pageType = getAffiliatePageType(Astro.url.pathname);
         )}
 
         <a
-          href={isPlaceholderLink ? undefined : href}
-          target={isPlaceholderLink ? undefined : '_blank'}
-          rel={isPlaceholderLink ? undefined : isAffiliate ? 'sponsored noopener' : 'noopener'}
-          aria-disabled={isPlaceholderLink ? 'true' : undefined}
-          data-affiliate={!isPlaceholderLink && isAffiliate ? partnerSlug : undefined}
-          data-page-type={!isPlaceholderLink && isAffiliate ? pageType : undefined}
-          data-position={!isPlaceholderLink && isAffiliate ? placement : undefined}
-          data-state={!isPlaceholderLink && isAffiliate ? stateName : undefined}
+          {...affiliateAttributes}
           class="group mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-accent px-5 py-3 text-center text-sm font-semibold text-ink-strong transition hover:bg-accent/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
         >
           <span>{resolvedButtonLabel}</span>

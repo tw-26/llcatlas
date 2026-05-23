@@ -1,5 +1,6 @@
 ---
-import { affiliates, isAffiliateConfigured, type AffiliatePartner } from '../data/affiliates';
+import { affiliates, type AffiliatePartner } from '../data/affiliates';
+import { getAffiliateLinkAttributes } from '../lib/affiliate-links';
 import { getAffiliatePageType } from '../lib/affiliate-tracking';
 
 interface ProviderMatch {
@@ -51,17 +52,17 @@ const parts = text.split(providerPattern);
       return part;
     }
 
-    const isAffiliate = isAffiliateConfigured(provider.partner);
+    const affiliateAttributes = getAffiliateLinkAttributes({
+      href: affiliates[provider.partner],
+      partnerName: provider.partnerName,
+      pageType,
+      position: placement,
+      state,
+    });
 
     return (
       <a
-        href={affiliates[provider.partner]}
-        target="_blank"
-        rel={isAffiliate ? 'sponsored noopener' : 'noopener'}
-        data-affiliate={isAffiliate ? provider.partner : undefined}
-        data-page-type={isAffiliate ? pageType : undefined}
-        data-position={isAffiliate ? placement : undefined}
-        data-state={isAffiliate ? state : undefined}
+        {...affiliateAttributes}
         class="llc-link"
       >
         {part}

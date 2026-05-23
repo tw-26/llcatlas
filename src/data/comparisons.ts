@@ -90,6 +90,217 @@ export const affiliateDisclosure = disclosure;
 
 export const comparisons: ServiceComparison[] = [
   {
+    slug: 'northwest-vs-bizee',
+    serviceA: {
+      name: 'Northwest Registered Agent',
+      shortName: 'Northwest',
+      yearOneTotal: 39,
+      yearTwoTotal: 125,
+      headlinePrice: '$39 + state fee',
+      registeredAgentIncluded: true,
+      registeredAgentCost: 'Included for year 1',
+      registeredAgentRenewal: '$125/yr',
+      processingSpeed: 'Standard by default; same-day only on Premium',
+      upsellLevel: 'None',
+      privacyProtection: true,
+      bestFor: 'Founders who want the calmer checkout, stronger privacy story, and less sales pressure.',
+      pros: [
+        'First-year registered agent service is included with formation.',
+        'The checkout is cleaner and less upgrade-driven than Bizee.',
+        'Privacy is central to the product instead of a side benefit.',
+        'Registered agent renewal is $125 per year, close to Bizee while coming with a stronger support story.',
+      ],
+      cons: [
+        'Bizee is cheaper in year one if its free registered agent bundle still applies.',
+        'The cheapest package does not include EIN filing.',
+        'If pure upfront cost is the only filter, Northwest is not the lowest number.',
+      ],
+      affiliateUrl: affiliates.northwest,
+      lastVerified: '2026-05-23',
+    },
+    serviceB: {
+      name: 'Bizee',
+      shortName: 'Bizee',
+      yearOneTotal: 0,
+      yearTwoTotal: 119,
+      headlinePrice: '$0 + state fee',
+      registeredAgentIncluded: true,
+      registeredAgentCost: 'Included free for year 1',
+      registeredAgentRenewal: '$119/yr',
+      processingSpeed: 'Varies by state and checkout selections',
+      upsellLevel: 'Heavy',
+      privacyProtection: true,
+      bestFor: 'Founders who care most about the lowest verified year-one cost and can ignore upsells.',
+      pros: [
+        'Lowest verified year-one cost in the current LLCAtlas service data.',
+        'First-year registered agent service is currently bundled with formation.',
+        'Registered agent renewal is slightly cheaper than Northwest.',
+      ],
+      cons: [
+        'The checkout leans harder on upgrades.',
+        'The free plan keeps the included feature set bare-bones.',
+        'The better price comes with more buying friction.',
+      ],
+      affiliateUrl: affiliates.bizee,
+      lastVerified: '2026-05-23',
+    },
+    winner: 'A',
+    winnerReason:
+      'Northwest is the better default for first-time founders who want a low-stress formation path. Bizee wins on raw year-one price, but Northwest wins on checkout clarity, privacy positioning, and support trust.',
+    editorial: {
+      intro:
+        'Northwest and Bizee are the two services that make this decision interesting. Bizee currently has the lower year-one number. Northwest costs more upfront, but the experience is cleaner and the privacy pitch is easier to trust.',
+      verdict:
+        'Pick Northwest if you want the safer default: fewer checkout games, a stronger privacy-first posture, and a company that is easier to recommend to someone forming an LLC for the first time. Pick Bizee only if the lowest verified year-one cost matters more than checkout friction.',
+      onlyPickB:
+        'Pick Bizee if you are disciplined about saying no to extras and your main goal is the lowest year-one service cost. The math is real: $0 plus the state fee with a first year of registered agent service currently included is hard to beat on price.',
+      whyWinnerWins: [
+        'Northwest wins because the user experience is calmer. The whole LLC formation market is full of teaser pricing and add-ons; Northwest is the easier recommendation when the user is anxious and does not want to decode every checkout screen.',
+        'The privacy story is stronger. Both providers can help keep a home address off the filing by acting as registered agent, but Northwest makes privacy part of its core pitch instead of treating it like one more feature in a bundle.',
+        'The renewal gap is small enough that the checkout quality matters. Bizee renews registered agent service at $119 per year in the current data, while Northwest is $125 per year. Saving $6 per year is not worth choosing a rougher buying path for most first-time founders.',
+        'Bizee still deserves credit. If the user is comfortable ignoring upsells and wants the lowest verified year-one cost, Bizee is the rational budget pick. That is why this page does not bury the price advantage.',
+      ],
+      costNarrative: [
+        'Northwest starts at $39 plus the state fee and includes the first year of registered agent service. That makes the practical year-one service cost $39 before state fees for most first-time formations.',
+        'Bizee starts at $0 plus the state fee and currently includes one free year of registered agent service. On raw year-one math, Bizee wins.',
+        'Year two is nearly a tie. Bizee registered agent renewal is currently listed at $119 per year. Northwest renewal is $125 per year. That $6 difference is not enough to override the qualitative differences for most users.',
+        'The real decision is not whether $0 is less than $39. It is whether saving $39 upfront is worth a heavier checkout and a thinner included package. For a careful first-time founder, Northwest is usually the better default.',
+      ],
+      finalVerdict:
+        'Northwest is the better pick for most first-time founders comparing these two. Bizee is the cheaper budget play, and it is a valid choice if you can ignore upsells. But if you want the service we would point an anxious first-time LLC owner to, choose Northwest.',
+      faq: [
+        {
+          question: 'Is Northwest better than Bizee?',
+          answer:
+            'Northwest is better for most first-time founders who value a cleaner checkout, stronger privacy positioning, and a calmer support story. Bizee is better if your main goal is the lowest verified year-one cost.',
+        },
+        {
+          question: 'Is Bizee cheaper than Northwest?',
+          answer:
+            'Yes. In the current LLCAtlas data, Bizee is $0 plus the state fee and currently includes the first year of registered agent service. Northwest is $39 plus the state fee with the first year of registered agent service included.',
+        },
+        {
+          question: 'Which has cheaper registered agent renewal?',
+          answer:
+            'Bizee is slightly cheaper in the current data: $119 per year versus Northwest at $125 per year. The difference is only $6 per year, so it should not be the main deciding factor.',
+        },
+        {
+          question: 'Which has fewer upsells?',
+          answer:
+            'Northwest. That is the main reason it wins this matchup as the safer default. Bizee can be a good deal, but the buyer needs to stay alert during checkout.',
+        },
+        {
+          question: 'Which one should I use for a single-member LLC?',
+          answer:
+            'Use Northwest if you want the least stressful paid option. Use Bizee if you are optimizing for the lowest year-one cost and are comfortable skipping nonessential extras.',
+        },
+      ],
+    },
+    meta: {
+      title: 'Northwest vs Bizee (2026) — Honest LLC Service Comparison | LLCAtlas',
+      description:
+        'Northwest vs Bizee: Bizee is cheaper in year one, but Northwest is the safer default for privacy, cleaner checkout, and lower-stress LLC formation.',
+      primaryKeyword: 'northwest vs bizee',
+      h1: 'Northwest vs Bizee (2026)',
+      lastUpdated: '2026-05-23',
+    },
+    methodology: {
+      lastResearched: '2026-05-23',
+      summary:
+        'We compared real year-one cost, registered agent renewal, checkout pressure, privacy value, included features, and which service is easier to recommend to a first-time founder.',
+      notes: [
+        'We separate cheapest from best default because the lowest year-one number is not always the lowest-stress choice.',
+        'We treat registered agent service as part of the realistic bundle because privacy is the main reason many home-based founders use a formation service.',
+        'We give Bizee full credit for the current $0 plus state fee offer with first-year registered agent service included.',
+        'Affiliate relationships do not change the recommendation. If pure cost is the user criterion, Bizee wins that use case.',
+      ],
+      sources: [
+        {
+          label: 'Northwest LLC formation offer',
+          url: 'https://tidd.ly/48iRAwH',
+        },
+        {
+          label: 'Bizee LLC formation offer',
+          url: 'https://tidd.ly/3R7biWu',
+        },
+        {
+          label: 'Northwest registered agent service',
+          url: 'https://tidd.ly/48iRAwH',
+        },
+        {
+          label: 'Bizee registered agent service',
+          url: 'https://tidd.ly/3R7biWu',
+        },
+      ],
+    },
+    detailedRows: [
+      { feature: 'Formation price', serviceA: '$39 + state fee', serviceB: '$0 + state fee' },
+      { feature: 'Registered agent year 1', serviceA: 'Included for 1 year', serviceB: 'Included free for year 1' },
+      { feature: 'Registered agent renewal', serviceA: '$125/yr', serviceB: '$119/yr' },
+      { feature: 'Checkout pressure', serviceA: 'Low', serviceB: 'Higher; more upgrade-driven' },
+      { feature: 'Best reason to choose it', serviceA: 'Cleaner, lower-stress default', serviceB: 'Lowest verified year-one cost' },
+      { feature: 'Main drawback', serviceA: 'Costs $39 more upfront', serviceB: 'More upsell friction' },
+      { feature: 'Real year-1 total', serviceA: '$39 + state fee', serviceB: '$0 + state fee', isTotal: true },
+      { feature: 'Real year-2 total', serviceA: '$125', serviceB: '$119', isTotal: true },
+    ],
+    winnerAdvantages: [
+      {
+        heading: 'Northwest is the better default when the buyer is nervous',
+        body:
+          'A first-time LLC owner is not just buying a filing. They are trying not to make a dumb expensive mistake. Northwest makes that easier by keeping the buying path cleaner and the recommendation simpler.',
+      },
+      {
+        heading: 'The privacy positioning is clearer',
+        body:
+          'Both services can serve as registered agent, but Northwest has built its brand around privacy and not selling customer data. That matters when the user is forming from a home address.',
+      },
+      {
+        heading: 'The renewal difference is too small to drive the decision',
+        body:
+          'Bizee renewal is currently $119 and Northwest is $125. If year two is nearly a tie, the better checkout and trust story should carry more weight.',
+      },
+    ],
+    loserAdvantages: [
+      {
+        heading: 'Bizee is the cheaper year-one path',
+        body:
+          'If you only care about the lowest service cost before state fees, Bizee wins. The $0 formation offer with a free first year of registered agent service is the strongest price in this matchup.',
+      },
+      {
+        heading: 'Bizee still works if you can ignore extras',
+        body:
+          'The service is not disqualified. It is a valid budget pick for founders who are comfortable saying no to upgrades and checking what renews later.',
+      },
+    ],
+    relatedGuides: [
+      {
+        href: '/best-llc-services/',
+        label: 'See the full LLC service ranking',
+        description: 'Compare Northwest, Bizee, ZenBusiness, and LegalZoom by real year-one cost.',
+      },
+      {
+        href: '/s-corp/election-calculator/',
+        label: 'Run the S-corp election calculator',
+        description: 'Check whether S-corp treatment is worth it before adding more filing complexity.',
+      },
+      {
+        href: '/llc-vs-s-corp/',
+        label: 'Read LLC vs S-corp',
+        description: 'Understand the entity and tax-classification decision before electing S-corp treatment.',
+      },
+      {
+        href: '/llc/ohio/',
+        label: 'Ohio LLC guide',
+        description: 'Use a state guide if you want to understand the filing before choosing a service.',
+      },
+      {
+        href: '/llc/wyoming/',
+        label: 'Wyoming LLC guide',
+        description: 'Compare state costs and annual requirements before paying for formation help.',
+      },
+    ],
+  },
+  {
     slug: 'northwest-vs-legalzoom',
     serviceA: {
       name: 'Northwest Registered Agent',
