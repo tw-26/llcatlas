@@ -1,35 +1,112 @@
 ---
+import CalculatorAssumptions from '../../components/calculator/CalculatorAssumptions.astro';
+import CalculatorCta from '../../components/calculator/CalculatorCta.astro';
+import CalculatorFaq from '../../components/calculator/CalculatorFaq.astro';
+import CalculatorHero from '../../components/calculator/CalculatorHero.astro';
+import CalculatorRelatedLinks from '../../components/calculator/CalculatorRelatedLinks.astro';
+import ReasonableCompensationCalculator from '../../components/calculator/ReasonableCompensationCalculator';
 import SiteLayout from '../../layouts/site-layout.astro';
 
-const title = 'S-Corp Reasonable Compensation Guide | LLCAtlas';
+const title = 'S-Corp Reasonable Compensation Calculator 2026 | LLCAtlas';
 const description =
-  'Plain-English guide to S-corp reasonable compensation: what it means, why it matters, and how solo founders should think about salary assumptions.';
-const pageUrl = 'https://llcatlas.com/s-corp/reasonable-compensation/';
-const lastUpdatedIso = '2026-05-22';
+  'Free reasonable compensation calculator for S-corp owners. Estimate a conservative salary range, distribution, and S-corp savings impact before filing Form 2553.';
+const canonical = 'https://llcatlas.com/s-corp/reasonable-compensation/';
+const lastReviewed = '2026-05-26';
+const lastReviewedLabel = 'May 26, 2026';
+const faqItems = [
+  {
+    question: 'What is reasonable compensation for an S-corp owner?',
+    answer:
+      'Reasonable compensation is the salary an S-corp owner pays themselves for the work they perform. It should reflect role, hours, market pay, geography, profit level, and whether the business could hire someone else to do the same work.',
+  },
+  {
+    question: 'Can I just use 50% of profit as salary?',
+    answer:
+      'Use 50% only as a rough screening assumption. The defensible number may be higher or lower depending on the role and hours. The point is to start from business facts, not the tax savings you want.',
+  },
+  {
+    question: 'Does this calculator use official wage data?',
+    answer:
+      'No. This first version uses a conservative LLCAtlas screening model with transparent assumptions. It is designed to pressure-test S-corp math before you pay for payroll or ask a CPA to file.',
+  },
+  {
+    question: 'What happens if my reasonable salary uses up almost all profit?',
+    answer:
+      'That is usually a sign the S-corp election is premature. If little distribution remains after a defensible salary, payroll and accounting costs can wipe out the tax savings.',
+  },
+];
+const assumptionColumns = [
+  {
+    title: 'What is included',
+    items: [
+      'Role, industry, hours, state, and profit-margin pressure.',
+      'A low/middle/high salary range for screening.',
+      'Distribution estimate after the suggested salary.',
+      'S-corp savings impact using the same tax engine as the election calculator.',
+    ],
+  },
+  {
+    title: 'What is not included',
+    items: [
+      'A wage survey, IRS safe harbor, or CPA compensation study.',
+      'Local labor-market data, owner-specific credentials, or employee payroll history.',
+      'QBI deduction planning or entity-level state taxes not yet structured in LLCAtlas data.',
+      'Legal or tax advice. Use this to prepare for a CPA conversation.',
+    ],
+  },
+];
+const relatedLinks = [
+  {
+    href: '/s-corp/election-calculator/',
+    title: 'S-corp calculator',
+    description: 'Run the full savings math.',
+  },
+  {
+    href: '/llc-vs-s-corp/',
+    title: 'LLC vs S-corp',
+    description: 'Understand the entity choice.',
+  },
+  {
+    href: '/self-employment-tax/calculator/',
+    title: 'Self-employment tax',
+    description: 'Check your baseline tax.',
+  },
+  {
+    href: '/best-llc-services/',
+    title: 'Best LLC services',
+    description: 'Compare formation help.',
+  },
+  {
+    href: '/northwest-vs-bizee/',
+    title: 'Northwest vs Bizee',
+    description: 'Avoid the upsell maze.',
+  },
+];
 
 const structuredData = [
   {
     '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: 'S-Corp Reasonable Compensation',
+    '@type': 'WebApplication',
+    name: 'S-Corp Reasonable Compensation Calculator',
     description,
-    author: {
-      '@type': 'Organization',
-      name: 'LLCAtlas',
-      url: 'https://llcatlas.com',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'LLCAtlas',
-      url: 'https://llcatlas.com',
-    },
-    datePublished: lastUpdatedIso,
-    dateModified: lastUpdatedIso,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': pageUrl,
-    },
-    inLanguage: 'en-US',
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Any',
+    url: canonical,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    datePublished: lastReviewed,
+    dateModified: lastReviewed,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
   },
   {
     '@context': 'https://schema.org',
@@ -44,104 +121,74 @@ const structuredData = [
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Reasonable compensation',
-        item: pageUrl,
+        name: 'Reasonable compensation calculator',
+        item: canonical,
       },
     ],
   },
 ];
 ---
 
-<SiteLayout title={title} description={description} ogType="article" structuredData={structuredData}>
-  <article class="mx-auto max-w-4xl px-4 py-8 lg:py-12">
-    <header class="space-y-4">
-      <p class="llc-helper">S-corp salary basics</p>
-      <h1>Reasonable compensation is the S-corp number you cannot fake.</h1>
-      <p class="llc-section-copy text-ink-soft">
-        The tax savings from an S-corp come from splitting business profit between owner salary and
-        distributions. The salary has to be reasonable for the work performed. A low salary may make
-        the calculator look better, but it can make the tax position worse.
-      </p>
-    </header>
+<SiteLayout title={title} description={description} structuredData={structuredData}>
+  <article class="mx-auto max-w-6xl px-4 py-8 lg:py-12">
+    <CalculatorHero
+      eyebrow="S-corp salary calculator"
+      title="Reasonable compensation calculator"
+      description="Estimate a conservative salary range before you trust the S-corp savings number. The goal is not to minimize payroll. The goal is to see whether the election still works after a salary you can explain."
+      lastReviewed={lastReviewed}
+      lastReviewedLabel={lastReviewedLabel}
+    />
 
-    <section class="mt-10 llc-card-highlight space-y-5">
-      <p class="llc-helper">Practical default</p>
-      <h2>Use 50% as a rough screening assumption, not as tax advice.</h2>
-      <p class="llc-section-copy text-ink-soft">
-        LLCAtlas uses a 50% salary default in the S-corp calculator because it creates a conservative
-        first pass for many solo service businesses. Your actual number should consider your role,
-        hours, market pay, profit level, and whether the business could hire someone else to do the
-        same work.
-      </p>
-      <a
-        href="/s-corp/election-calculator/"
-        class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
-      >
-        Test salary in the calculator
-      </a>
+    <section class="mb-12" aria-label="Reasonable compensation calculator">
+      <ReasonableCompensationCalculator client:load />
     </section>
 
-    <section class="mt-12 space-y-5">
-      <h2>How to think about the salary number</h2>
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="rounded-[1rem] border border-rule px-5 py-5">
-          <p class="llc-helper">Role</p>
-          <h3 class="mt-2 font-semibold text-ink-strong">What work do you actually perform?</h3>
-          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
-            A founder doing client delivery, sales, admin, and operations may need a higher salary
-            assumption than a passive owner with employees doing the work.
-          </p>
-        </div>
-        <div class="rounded-[1rem] border border-rule px-5 py-5">
-          <p class="llc-helper">Market pay</p>
-          <h3 class="mt-2 font-semibold text-ink-strong">What would the job cost to replace?</h3>
-          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
-            Look at comparable pay for the work, then adjust for hours, geography, and company size.
-            Do not start from the tax answer you want.
-          </p>
-        </div>
-        <div class="rounded-[1rem] border border-rule px-5 py-5">
-          <p class="llc-helper">Profit</p>
-          <h3 class="mt-2 font-semibold text-ink-strong">Is there enough profit left?</h3>
-          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
-            If a reasonable salary consumes nearly all profit, the S-corp election may not produce
-            meaningful savings after admin costs.
-          </p>
-        </div>
-        <div class="rounded-[1rem] border border-rule px-5 py-5">
-          <p class="llc-helper">Documentation</p>
-          <h3 class="mt-2 font-semibold text-ink-strong">Can you explain the number later?</h3>
-          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
-            Keep the reasoning simple and written down. A CPA can help turn the rough salary
-            assumption into a defensible payroll setup.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="mt-12 rounded-[1.5rem] border border-rule bg-surface-subtle p-6 sm:p-8">
-      <div class="space-y-3">
-        <p class="llc-helper">Related tools</p>
-        <h2>Run the full S-corp savings math before you file Form 2553.</h2>
-        <p class="llc-section-copy text-ink-soft">
-          Salary is only half the decision. Payroll fees, accounting costs, and state annual costs
-          can wipe out the savings at lower income levels.
+    <section class="mb-12 grid gap-5 md:grid-cols-3">
+      <div class="llc-card">
+        <p class="llc-helper">Bad signal</p>
+        <h2 class="mt-2 text-xl">Salary consumes profit</h2>
+        <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+          If a defensible salary leaves little distribution, S-corp treatment usually turns into
+          paperwork without enough tax savings.
         </p>
       </div>
-      <div class="mt-5 flex flex-col gap-3 sm:flex-row">
-        <a
-          href="/s-corp/election-calculator/"
-          class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
-        >
-          Run the S-corp calculator
-        </a>
-        <a
-          href="/llc-vs-s-corp/"
-          class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong bg-surface px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
-        >
-          Read LLC vs S-corp
-        </a>
+      <div class="llc-card">
+        <p class="llc-helper">Watch closely</p>
+        <h2 class="mt-2 text-xl">Distribution beats salary</h2>
+        <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+          Large distributions can be legitimate, but they need better documentation. Keep the role,
+          hours, and market-pay rationale written down.
+        </p>
+      </div>
+      <div class="llc-card-highlight">
+        <p class="llc-helper">Better starting point</p>
+        <h2 class="mt-2 text-xl">Salary still leaves savings</h2>
+        <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+          If the salary range is conservative and net savings still clear costs, the S-corp
+          conversation is worth having.
+        </p>
       </div>
     </section>
+
+    <CalculatorAssumptions
+      title="What this calculator assumes"
+      description="This model starts from role, hours, state, industry, and margin, then turns that into a salary range. It re-runs the S-corp savings math at the suggested salary so the tax benefit is not inflated by an unrealistically low payroll number."
+      columns={assumptionColumns}
+    />
+
+    <CalculatorCta
+      eyebrow="Next step"
+      title="Run the full S-corp math with the salary number."
+      description="Reasonable compensation is only one part of the S-corp decision. Payroll, accounting, and state costs still decide whether the election is worth the hassle."
+      primary={{ href: '/s-corp/election-calculator/', label: 'Run S-corp calculator' }}
+      secondary={{ href: '/llc-vs-s-corp/', label: 'Read LLC vs S-corp' }}
+    />
+
+    <CalculatorRelatedLinks links={relatedLinks} />
+
+    <CalculatorFaq
+      items={faqItems}
+      intro="The questions that matter before you convert a tax-saving assumption into payroll."
+    />
   </article>
 </SiteLayout>

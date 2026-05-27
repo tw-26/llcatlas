@@ -1,0 +1,20 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  lastReviewed: string;
+  lastReviewedLabel: string;
+}
+
+const { eyebrow, title, description, lastReviewed, lastReviewedLabel } = Astro.props as Props;
+---
+
+<header class="mb-8 space-y-4">
+  <p class="llc-helper">{eyebrow}</p>
+  <h1>{title}</h1>
+  <p class="max-w-3xl text-lg leading-8 text-ink-soft">{description}</p>
+  <p class="llc-helper-sm">
+    Last updated for tax year 2026: <time datetime={lastReviewed}>{lastReviewedLabel}</time>
+  </p>
+</header>

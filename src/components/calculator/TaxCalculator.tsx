@@ -47,7 +47,11 @@ export default function TaxCalculator({
   };
 
   return (
-    <div data-calculator-root className="grid gap-6 lg:grid-cols-5">
+    <div
+      data-calculator-root
+      data-calculator-name="self-employment-tax"
+      className="grid gap-6 lg:grid-cols-5"
+    >
       <div className="lg:col-span-2">
         <div className="llc-card space-y-4">
           <div>
@@ -130,7 +134,7 @@ export default function TaxCalculator({
             <p className="text-slate-500">Enter your income to see your tax breakdown</p>
           </div>
         ) : (
-          <div>
+          <div data-calculator-result data-result-tier="estimate-ready">
             <div className="space-y-6">
               <div className="llc-card-highlight">
                 <div className="grid gap-4 sm:grid-cols-3">

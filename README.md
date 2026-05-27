@@ -290,6 +290,26 @@ Eight standardized templates. Lock these in week 1. Refactoring 80 pages later i
 7. **Disclaimer module** — footer-only, affiliate disclosure
 8. **Lead magnet module** — email capture, one offer per cluster
 
+### Calculator template rules
+
+Every calculator page uses the same page-level order:
+
+1. Hero with target keyword, plain-English promise, and tax-year reviewed label.
+2. Interactive input panel and result panel in a two-column desktop grid that stacks on mobile.
+3. Result summary with the primary number first.
+4. Decision recommendation when the calculator can make a call, not just display math.
+5. Math explanation that shows the major line items behind the result.
+6. Assumptions block that states what is included and excluded.
+7. One downstream CTA tied to the result or the next funnel step.
+8. Related tools module with five hand-curated internal links.
+9. FAQ block with matching FAQ schema when appropriate.
+
+Calculator Preact islands must use `data-calculator-root` and `data-calculator-name`. Rendered result states must use `data-calculator-result` and, when a tier exists, `data-result-tier`. Result CTAs must use `data-calculator-result-cta`, `data-page-type="calc"`, `data-position="result"`, and the current result tier when available.
+
+Invalid inputs should fail closed: show the empty/error state, do not emit a misleading recommendation, and keep the URL clean by rejecting invalid query params. Query-param syncing should use the shared guarded URL-sync helper instead of bespoke parsing.
+
+Calculator interaction analytics are standardized as `calculator_interaction` events with actions `start`, `result_view`, and `result_cta_click`. Do not track every keystroke.
+
 ---
 
 ## Topical Hubs

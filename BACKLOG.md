@@ -129,28 +129,29 @@ This is an ordered execution checklist. Work top to bottom. Skip an item only wh
 
 ## 1.6 Northwest vs Bizee Comparison Page (Week 4)
 
-- [ ] Ship standalone Northwest vs Bizee page.
-- [ ] Ensure Northwest is recommended when it is genuinely the best user choice.
-- [ ] Add clear anti-upsell warnings.
-- [ ] Add affiliate event tracking to CTAs.
-- [ ] Add calculator links from this page.
-- [ ] Add inbound links from S-corp calculator and relevant state guides.
-- [ ] Add to sitemap. Submit to GSC.
+- [x] Ship standalone Northwest vs Bizee page.
+- [x] Ensure Northwest is recommended when it is genuinely the best user choice.
+- [x] Add clear anti-upsell warnings.
+- [x] Add affiliate event tracking to CTAs.
+- [x] Add calculator links from this page.
+- [x] Add inbound links from S-corp calculator and relevant state guides.
+- [x] Add to sitemap.
+- [x] Submit to GSC.
 
 ## 1.7 Affiliate Disclosure & Link Hygiene (Week 4)
 
-- [ ] Update all affiliate link components to use the locked convention.
-- [ ] Replace older attributes like `data-partner` or `data-placement`.
-- [ ] Add outbound affiliate click tracking for all links with `data-affiliate`.
-- [ ] Test affiliate click tracking locally.
-- [ ] Test affiliate click tracking in production.
-- [ ] Confirm Northwest affiliate URL is live and tagged correctly.
-- [ ] Confirm Bizee affiliate URL is live and tagged correctly.
-- [ ] Confirm ZenBusiness affiliate URL is live and tagged correctly.
-- [ ] Keep LegalZoom as plain non-affiliate link. Add a code comment explaining why.
-- [ ] Audit every affiliate link for `rel="sponsored noopener"`.
-- [ ] Audit every page for footer affiliate disclosure.
-- [ ] Verify affiliate disclosure is visible on mobile.
+- [x] Update all affiliate link components to use the locked convention.
+- [x] Replace older attributes like `data-partner` or `data-placement`.
+- [x] Add outbound affiliate click tracking for all links with `data-affiliate`.
+- [x] Test affiliate click tracking locally.
+- [x] Test affiliate click tracking in production.
+- [x] Confirm Northwest affiliate URL is live and tagged correctly.
+- [x] Confirm Bizee affiliate URL is live and tagged correctly.
+- [x] Confirm ZenBusiness affiliate URL is live and tagged correctly.
+- [x] Keep LegalZoom as plain non-affiliate link. Add a code comment explaining why.
+- [x] Audit every affiliate link for `rel="sponsored noopener"`.
+- [x] Audit every page for footer affiliate disclosure.
+- [x] Verify affiliate disclosure is visible on mobile.
 
 ---
 
@@ -160,33 +161,33 @@ This is an ordered execution checklist. Work top to bottom. Skip an item only wh
 
 ## 2.1 Lock The Calculator Template
 
-- [ ] Extract reusable calculator page structure from the S-corp calculator.
-- [ ] Standardize calculator template sections:
-  - [ ] hero
-  - [ ] input panel
-  - [ ] result summary
-  - [ ] decision recommendation
-  - [ ] math explanation
-  - [ ] assumptions
-  - [ ] CTA
-  - [ ] related tools
-  - [ ] FAQ
-- [ ] Standardize error and invalid-input states.
-- [ ] Standardize mobile layout for calculator input and results.
-- [ ] Standardize analytics events for calculator interactions.
-- [ ] Standardize result CTA placement.
-- [ ] Standardize internal-link module.
-- [ ] Document the calculator template rules in `README.md`.
+- [x] Extract reusable calculator page structure from the S-corp calculator.
+- [x] Standardize calculator template sections:
+  - [x] hero
+  - [x] input panel
+  - [x] result summary
+  - [x] decision recommendation
+  - [x] math explanation
+  - [x] assumptions
+  - [x] CTA
+  - [x] related tools
+  - [x] FAQ
+- [x] Standardize error and invalid-input states.
+- [x] Standardize mobile layout for calculator input and results.
+- [x] Standardize analytics events for calculator interactions.
+- [x] Standardize result CTA placement.
+- [x] Standardize internal-link module.
+- [x] Document the calculator template rules in `README.md`.
 
 ## 2.2 Reasonable Compensation Calculator
 
-- [ ] Define inputs: income, role, hours, state, industry, profit margin.
-- [ ] Define outputs: suggested salary range, distribution estimate, S-corp savings impact.
-- [ ] Add conservative assumptions.
-- [ ] Add tests for reasonable comp logic.
-- [ ] Build the calculator page using the locked template.
-- [ ] Link from S-corp calculator (deep integration — S-corp result triggers "check reasonable comp").
-- [ ] Add 5 inbound and 5 outbound internal links.
+- [x] Define inputs: income, role, hours, state, industry, profit margin.
+- [x] Define outputs: suggested salary range, distribution estimate, S-corp savings impact.
+- [x] Add conservative assumptions.
+- [x] Add tests for reasonable comp logic.
+- [x] Build the calculator page using the locked template.
+- [x] Link from S-corp calculator (deep integration — S-corp result triggers "check reasonable comp").
+- [x] Add 5 inbound and 5 outbound internal links.
 - [ ] Submit to GSC.
 
 ## 2.3 LLC vs Sole Proprietorship Calculator/Decision Page

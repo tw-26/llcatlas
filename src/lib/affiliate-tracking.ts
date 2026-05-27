@@ -19,7 +19,9 @@ export const getAffiliatePageType = (pathname: string): AffiliatePageType => {
     pathname.startsWith('/calculators/') ||
     pathname.startsWith('/self-employment-tax/') ||
     pathname === '/s-corp/election-calculator/' ||
-    pathname === '/s-corp/election-calculator'
+    pathname === '/s-corp/election-calculator' ||
+    pathname === '/s-corp/reasonable-compensation/' ||
+    pathname === '/s-corp/reasonable-compensation'
   ) {
     return 'calc';
   }

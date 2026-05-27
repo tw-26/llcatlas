@@ -10,6 +10,86 @@ const VALID_STATUSES: ReadonlySet<FilingStatus> = new Set([
   'head_of_household',
 ]);
 
+export const isValidDollarParam = (value: string) => /^\d+(\.\d+)?$/.test(value);
+export const isValidStateParam = (value: string): value is USStateCode =>
+  VALID_STATES.has(value as USStateCode);
+
+export type UrlSyncedField<T extends Record<string, unknown>, K extends keyof T = keyof T> = {
+  field: K;
+  param: string;
+  isValid?: (value: string) => boolean;
+  fromParam?: (value: string) => T[K];
+  toParam?: (value: T[K]) => string;
+};
+
+const readSyncedStateFromURL = <T extends Record<string, unknown>>(
+  initial: T,
+  fields: ReadonlyArray<UrlSyncedField<T>>,
+): T => {
+  if (typeof window === 'undefined') return initial;
+
+  const params = new URLSearchParams(window.location.search);
+  const result = { ...initial };
+
+  for (const field of fields) {
+    const value = params.get(field.param);
+    if (value === null || (field.isValid && !field.isValid(value))) continue;
+
+    result[field.field] = field.fromParam ? field.fromParam(value) : (value as T[keyof T]);
+  }
+
+  return result;
+};
+
+const writeSyncedStateToURL = <T extends Record<string, unknown>>(
+  state: T,
+  defaults: T,
+  fields: ReadonlyArray<UrlSyncedField<T>>,
+): void => {
+  if (typeof window === 'undefined') return;
+
+  const params = new URLSearchParams();
+
+  for (const field of fields) {
+    const value = state[field.field];
+    const defaultValue = defaults[field.field];
+    const serialized = field.toParam ? field.toParam(value) : String(value);
+    const serializedDefault = field.toParam ? field.toParam(defaultValue) : String(defaultValue);
+
+    if (serialized && serialized !== serializedDefault) {
+      params.set(field.param, serialized);
+    }
+  }
+
+  const queryString = params.toString();
+  const newURL = queryString
+    ? `${window.location.pathname}?${queryString}${window.location.hash}`
+    : `${window.location.pathname}${window.location.hash}`;
+
+  // Use replaceState so URL changes don't pollute browser history.
+  window.history.replaceState({}, '', newURL);
+};
+
+export function useUrlSyncedState<T extends Record<string, unknown>>(
+  initialDefaults: T,
+  fields: ReadonlyArray<UrlSyncedField<T>>,
+): [T, (next: T) => void] {
+  const [state, setStateInternal] = useState<T>(initialDefaults);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setStateInternal(readSyncedStateFromURL(initialDefaults, fields));
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    writeSyncedStateToURL(state, initialDefaults, fields);
+  }, [state, hydrated]);
+
+  return [state, setStateInternal];
+}
+
 /**
  * Read calculator form state from URL query params.
  * Falls back to defaults for missing or invalid values.

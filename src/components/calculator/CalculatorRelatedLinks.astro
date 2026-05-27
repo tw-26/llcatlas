@@ -1,0 +1,28 @@
+---
+export type CalculatorRelatedLink = {
+  href: string;
+  title: string;
+  description: string;
+};
+
+interface Props {
+  title?: string;
+  links: CalculatorRelatedLink[];
+}
+
+const { title = 'Related guides and tools', links } = Astro.props as Props;
+---
+
+<section class="mb-12 space-y-5">
+  <h2>{title}</h2>
+  <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+    {
+      links.map((link) => (
+        <a href={link.href} class="llc-card transition hover:border-rule-strong">
+          <span class="font-semibold text-ink-strong">{link.title}</span>
+          <span class="mt-2 block text-sm leading-6 text-ink-soft">{link.description}</span>
+        </a>
+      ))
+    }
+  </div>
+</section>

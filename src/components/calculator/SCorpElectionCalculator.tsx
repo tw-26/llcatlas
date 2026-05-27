@@ -1,9 +1,15 @@
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import { useMemo } from 'preact/hooks';
 import { SCORP_DEFAULTS, getDefaultSCorpStateAnnualFee } from '../../data/tax/scorp-defaults';
 import { stateSeeds } from '../../data/states/seeds';
 import { calculateSCorpSavings } from '../../lib/tax';
 import { formatCurrency, formatPercent, parseIncome } from './parse-income';
 import type { USStateCode } from './types';
+import {
+  isValidDollarParam,
+  isValidStateParam,
+  useUrlSyncedState,
+  type UrlSyncedField,
+} from './use-url-sync';
 
 type SCorpFormState = {
   income: string;
@@ -23,64 +29,14 @@ const DEFAULT_FORM_STATE: SCorpFormState = {
   stateAnnualFee: String(getDefaultSCorpStateAnnualFee('CA')),
 };
 
-const VALID_STATES = new Set(stateSeeds.map((state) => state.abbreviation));
-
-const readNumberParam = (params: URLSearchParams, key: string, fallback: string) => {
-  const value = params.get(key);
-  if (value === null || !/^\d+(\.\d+)?$/.test(value)) return fallback;
-
-  return value;
-};
-
-const readFromURL = (): SCorpFormState => {
-  if (typeof window === 'undefined') return DEFAULT_FORM_STATE;
-
-  const params = new URLSearchParams(window.location.search);
-  const stateParam = params.get('state');
-  const state = VALID_STATES.has(stateParam as USStateCode)
-    ? (stateParam as USStateCode)
-    : DEFAULT_FORM_STATE.state;
-
-  return {
-    income: readNumberParam(params, 'income', DEFAULT_FORM_STATE.income),
-    state,
-    salaryRatio: readNumberParam(params, 'salary', DEFAULT_FORM_STATE.salaryRatio),
-    payrollCost: readNumberParam(params, 'payroll', DEFAULT_FORM_STATE.payrollCost),
-    accountingCost: readNumberParam(params, 'accounting', DEFAULT_FORM_STATE.accountingCost),
-    stateAnnualFee: readNumberParam(
-      params,
-      'stateFee',
-      String(getDefaultSCorpStateAnnualFee(state)),
-    ),
-  };
-};
-
-const writeToURL = (state: SCorpFormState) => {
-  if (typeof window === 'undefined') return;
-
-  const params = new URLSearchParams();
-  const entries: Array<[keyof SCorpFormState, string, string]> = [
-    ['income', 'income', DEFAULT_FORM_STATE.income],
-    ['state', 'state', DEFAULT_FORM_STATE.state],
-    ['salaryRatio', 'salary', DEFAULT_FORM_STATE.salaryRatio],
-    ['payrollCost', 'payroll', DEFAULT_FORM_STATE.payrollCost],
-    ['accountingCost', 'accounting', DEFAULT_FORM_STATE.accountingCost],
-    ['stateAnnualFee', 'stateFee', String(getDefaultSCorpStateAnnualFee(state.state))],
-  ];
-
-  for (const [field, param, defaultValue] of entries) {
-    if (state[field] && state[field] !== defaultValue) {
-      params.set(param, state[field]);
-    }
-  }
-
-  const queryString = params.toString();
-  const nextUrl = queryString
-    ? `${window.location.pathname}?${queryString}${window.location.hash}`
-    : `${window.location.pathname}${window.location.hash}`;
-
-  window.history.replaceState({}, '', nextUrl);
-};
+const URL_SYNC_FIELDS: ReadonlyArray<UrlSyncedField<SCorpFormState>> = [
+  { field: 'income', param: 'income', isValid: isValidDollarParam },
+  { field: 'state', param: 'state', isValid: isValidStateParam, fromParam: (value) => value as USStateCode },
+  { field: 'salaryRatio', param: 'salary', isValid: isValidDollarParam },
+  { field: 'payrollCost', param: 'payroll', isValid: isValidDollarParam },
+  { field: 'accountingCost', param: 'accounting', isValid: isValidDollarParam },
+  { field: 'stateAnnualFee', param: 'stateFee', isValid: isValidDollarParam },
+];
 
 const parseDollarInput = (value: string) => Math.max(0, parseIncome(value));
 
@@ -92,18 +48,7 @@ const getVerdictClasses = (tier: string) => {
 };
 
 export default function SCorpElectionCalculator() {
-  const [formState, setFormState] = useState<SCorpFormState>(DEFAULT_FORM_STATE);
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    setFormState(readFromURL());
-    setHydrated(true);
-  }, []);
-
-  useEffect(() => {
-    if (!hydrated) return;
-    writeToURL(formState);
-  }, [formState, hydrated]);
+  const [formState, setFormState] = useUrlSyncedState(DEFAULT_FORM_STATE, URL_SYNC_FIELDS);
 
   const result = useMemo(() => {
     const income = parseIncome(formState.income);
@@ -135,10 +80,11 @@ export default function SCorpElectionCalculator() {
   const selectedStateName =
     stateSeeds.find((state) => state.abbreviation === formState.state)?.name ?? formState.state;
   const primaryCta =
-    result?.recommendation.tier === 'worth_considering'
+    result?.recommendation.tier === 'worth_considering' ||
+    result?.recommendation.tier === 'borderline'
       ? {
-          href: '/best-llc-services/',
-          label: 'Compare LLC services before electing',
+          href: `/s-corp/reasonable-compensation/?income=${Math.round(result.input.netSelfEmploymentIncome)}&state=${result.input.state}&salary=${Math.round(result.sCorpPayrollTax.reasonableSalary)}&stateFee=${Math.round(result.input.stateAnnualFee)}`,
+          label: 'Check reasonable compensation',
         }
       : {
           href: '/self-employment-tax/calculator/',
@@ -146,7 +92,11 @@ export default function SCorpElectionCalculator() {
         };
 
   return (
-    <div data-calculator-root className="grid items-start gap-6 lg:grid-cols-5">
+    <div
+      data-calculator-root
+      data-calculator-name="s-corp-election"
+      className="grid items-start gap-6 lg:grid-cols-5"
+    >
       <div className="lg:col-span-2">
         <div className="llc-card space-y-5">
           <div>
@@ -294,7 +244,11 @@ export default function SCorpElectionCalculator() {
           </div>
         ) : (
           <div className="space-y-6">
-            <div className={`rounded-[1.5rem] border p-6 ${getVerdictClasses(result.recommendation.tier)}`}>
+            <div
+              data-calculator-result
+              data-result-tier={result.recommendation.tier}
+              className={`rounded-[1.5rem] border p-6 ${getVerdictClasses(result.recommendation.tier)}`}
+            >
               <p className="llc-helper">Recommendation</p>
               <div className="mt-3 grid gap-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
                 <div>

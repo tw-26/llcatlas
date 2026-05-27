@@ -1,0 +1,36 @@
+---
+type AssumptionColumn = {
+  title: string;
+  items: string[];
+};
+
+interface Props {
+  title: string;
+  description: string;
+  columns: AssumptionColumn[];
+}
+
+const { title, description, columns } = Astro.props as Props;
+---
+
+<section class="mb-12 space-y-5">
+  <div class="max-w-3xl space-y-3">
+    <h2>{title}</h2>
+    <p class="llc-section-copy text-ink-soft">{description}</p>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-2">
+    {
+      columns.map((column) => (
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <h3 class="font-semibold text-ink-strong">{column.title}</h3>
+          <ul class="llc-bullet-list mt-3 text-ink-soft">
+            {column.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>

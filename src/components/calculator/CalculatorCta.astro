@@ -1,0 +1,44 @@
+---
+type Link = {
+  href: string;
+  label: string;
+};
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  primary: Link;
+  secondary?: Link;
+}
+
+const { eyebrow, title, description, primary, secondary } = Astro.props as Props;
+---
+
+<section class="mb-12 rounded-[1.5rem] border border-rule bg-surface-subtle p-6 sm:p-8">
+  <div class="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+    <div class="space-y-3">
+      <p class="llc-helper">{eyebrow}</p>
+      <h2>{title}</h2>
+      <p class="max-w-2xl text-[15px] leading-7 text-ink-soft">{description}</p>
+    </div>
+    <div class="flex flex-col gap-3 sm:flex-row md:flex-col">
+      <a
+        href={primary.href}
+        class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+      >
+        {primary.label}
+      </a>
+      {
+        secondary && (
+          <a
+            href={secondary.href}
+            class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong bg-surface px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
+          >
+            {secondary.label}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</section>
