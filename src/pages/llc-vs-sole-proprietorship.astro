@@ -1,0 +1,420 @@
+---
+import SiteLayout from '../layouts/site-layout.astro';
+import { states } from '../data/states';
+
+const title = 'LLC vs Sole Proprietorship: Should You Form an LLC? | LLCAtlas';
+const description =
+  'LLC vs sole proprietorship decision guide for solo founders: tax treatment, liability, state costs, and when doing nothing yet is the right move.';
+const pageUrl = 'https://llcatlas.com/llc-vs-sole-proprietorship/';
+const lastUpdatedIso = '2026-06-02';
+const lastUpdatedLabel = 'June 2, 2026';
+
+const readyStateGuides = states
+  .filter((state) => state.contentStatus === 'ready')
+  .sort((left, right) => left.name.localeCompare(right.name));
+const lowCostReadyStates = readyStateGuides
+  .filter((state) => typeof state.annualReportFee === 'number')
+  .sort((left, right) => {
+    const leftAnnual = left.annualReportFee ?? 0;
+    const rightAnnual = right.annualReportFee ?? 0;
+    return left.filingFee + leftAnnual - (right.filingFee + rightAnnual);
+  })
+  .slice(0, 4);
+const sampleState = readyStateGuides.find((state) => state.slug === 'ohio') ?? readyStateGuides[0];
+const formatCurrency = (value: number | null) =>
+  typeof value === 'number'
+    ? new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 0,
+      }).format(value)
+    : 'Varies';
+const formatAnnualFee = (value: number | null) =>
+  value === null ? 'Varies' : value === 0 ? '$0' : formatCurrency(value);
+const sampleStateFirstYearCost = sampleState
+  ? sampleState.filingFee + (sampleState.annualReportFee ?? 0)
+  : 0;
+
+const faqItems = [
+  {
+    question: 'Is an LLC taxed differently than a sole proprietorship?',
+    answer:
+      'Usually not at first. A single-member LLC is treated as a disregarded entity by default for federal income tax, so the owner reports business profit on their personal return and pays self-employment tax in the same general way as a sole proprietor.',
+  },
+  {
+    question: 'When should I stay a sole proprietor?',
+    answer:
+      'Stay a sole proprietor for now if the business is still experimental, revenue is low, client risk is small, and you do not need a registered agent, business bank setup, or a formal entity for contracts.',
+  },
+  {
+    question: 'When is an LLC worth it?',
+    answer:
+      'An LLC is usually worth considering once real customers, contracts, liability exposure, privacy concerns, or business banking needs make the state fee and annual upkeep feel cheap compared with the mess it prevents.',
+  },
+  {
+    question: 'Does forming an LLC reduce self-employment tax?',
+    answer:
+      'Not by itself. A default single-member LLC and a sole proprietorship both put net self-employment income into the SE tax calculation. The tax savings conversation usually starts later, when an LLC elects S-corp treatment and pays the owner a reasonable salary.',
+  },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'LLC vs Sole Proprietorship',
+    description,
+    author: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+    },
+    datePublished: lastUpdatedIso,
+    dateModified: lastUpdatedIso,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://llcatlas.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'LLC vs sole proprietorship',
+        item: pageUrl,
+      },
+    ],
+  },
+];
+---
+
+<SiteLayout title={title} description={description} ogType="article" structuredData={structuredData}>
+  <article class="mx-auto max-w-5xl px-4 py-8 lg:py-12">
+    <header class="space-y-4">
+      <p class="llc-helper">Entity decision</p>
+      <h1>LLC vs sole proprietorship: should you form now or wait?</h1>
+      <p class="llc-section-copy text-ink-soft">
+        A sole proprietorship is the default. An LLC is the legal wrapper you pay the state to
+        create. The tax bill is usually the same on day one, so the real question is whether the
+        liability protection, privacy, and admin structure are worth the filing cost.
+      </p>
+      <p class="text-[13px] uppercase tracking-[0.08em] text-ink-muted">
+        Last updated <time datetime={lastUpdatedIso}>{lastUpdatedLabel}</time>
+      </p>
+    </header>
+
+    <section class="mt-10 llc-card-highlight space-y-5">
+      <p class="llc-helper">Recommendation first</p>
+      <h2>Do not form an LLC just because you made your first dollar.</h2>
+      <p class="llc-section-copy text-ink-soft">
+        If this is still a tiny side project with no meaningful customer risk, staying a sole
+        proprietor is reasonable. Form the LLC when the business has real customers, contracts,
+        privacy concerns, or enough income that keeping the business separate is clearly worth the
+        state cost.
+      </p>
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a
+          href="/best-llc-services/"
+          class="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink-strong transition hover:bg-accent/85"
+        >
+          Compare LLC services
+        </a>
+        <a
+          href="/self-employment-tax/calculator/"
+          class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong bg-surface px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface-subtle"
+        >
+          Estimate self-employment tax
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12 space-y-5">
+      <div class="space-y-3">
+        <h2>The decision tree</h2>
+        <p class="llc-section-copy text-ink-soft">
+          Pick the row that sounds most like your business today. The right answer can change later.
+        </p>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-3">
+        <article class="llc-card">
+          <p class="llc-helper">Best answer</p>
+          <h3 class="mt-2 text-xl">Wait</h3>
+          <p class="mt-3 text-[15px] leading-7 text-ink-soft">
+            You are testing an idea, taking small one-off work, and have little chance of a client
+            dispute, debt, or public-address problem. Keep clean records and revisit once revenue or
+            risk is real.
+          </p>
+        </article>
+        <article class="llc-card-highlight">
+          <p class="llc-helper">Best answer</p>
+          <h3 class="mt-2 text-xl">Form the LLC</h3>
+          <p class="mt-3 text-[15px] leading-7 text-ink-soft">
+            You have repeat customers, signed contracts, meaningful liability exposure, a privacy
+            reason to use a registered agent, or a business bank/payment setup that benefits from an
+            entity.
+          </p>
+        </article>
+        <article class="llc-card">
+          <p class="llc-helper">Next question</p>
+          <h3 class="mt-2 text-xl">Form, then check S-corp later</h3>
+          <p class="mt-3 text-[15px] leading-7 text-ink-soft">
+            If net income is becoming stable around $60K+, the LLC decision is probably already
+            behind you. The next question is whether S-corp tax treatment beats payroll and
+            accounting costs.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-12 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.65fr)]">
+      <div class="space-y-5">
+        <h2>The tax difference is smaller than people think</h2>
+        <p class="llc-section-copy text-ink-soft">
+          For federal income tax, the IRS generally treats a single-member LLC as a disregarded
+          entity unless the owner elects corporate tax treatment. In plain English: by default, the
+          income still lands on your personal return, and the owner is subject to self-employment tax
+          on net earnings in the same general manner as a sole proprietor.
+        </p>
+        <p class="llc-section-copy text-ink-soft">
+          That means the LLC itself is not the tax hack. The LLC is the legal and administrative
+          wrapper. The tax optimization conversation usually starts later with S-corp treatment, and
+          only after profit is consistent enough to survive payroll, bookkeeping, and a defensible
+          salary.
+        </p>
+      </div>
+
+      <aside class="llc-card-subtle space-y-3">
+        <p class="llc-helper">Quick math</p>
+        <h3 class="text-xl">At $400+ net self-employment earnings, SE tax enters the picture.</h3>
+        <p class="text-[15px] leading-7 text-ink-soft">
+          The IRS threshold for self-employment tax is not an LLC threshold. It applies to net
+          self-employment earnings, whether you are a sole proprietor or a default single-member LLC.
+        </p>
+        <a
+          href="/s-corp/election-calculator/"
+          class="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+        >
+          Run S-corp math when profit is steady
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
+            <path d="M3 8h10M9 4l4 4-4 4" />
+          </svg>
+        </a>
+      </aside>
+    </section>
+
+    <section class="mt-12 space-y-5">
+      <div class="space-y-3">
+        <h2>What the LLC actually buys you</h2>
+        <p class="llc-section-copy text-ink-soft">
+          The LLC is not magic. It is a state-level legal entity that can separate business assets
+          and liabilities from personal assets when you keep the business separate and maintained.
+        </p>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <h3 class="font-semibold text-ink-strong">A liability wall</h3>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+            Sole proprietorships do not create a separate business entity. An LLC can limit personal
+            exposure for business debts and lawsuits in many ordinary cases.
+          </p>
+        </div>
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <h3 class="font-semibold text-ink-strong">Cleaner business operations</h3>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+            A separate bank account, contracts in the business name, and cleaner records all become
+            easier when the business has a formal entity.
+          </p>
+        </div>
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <h3 class="font-semibold text-ink-strong">Privacy through a registered agent</h3>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+            If you work from home, a registered agent can keep your home address off some public
+            filing surfaces, depending on the state.
+          </p>
+        </div>
+        <div class="rounded-[1rem] border border-rule px-5 py-5">
+          <h3 class="font-semibold text-ink-strong">More upkeep</h3>
+          <p class="mt-2 text-[15px] leading-7 text-ink-soft">
+            The tradeoff is filing fees, annual reports, registered agent renewal, and the discipline
+            to keep personal and business money separate.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 space-y-5">
+      <div class="space-y-3">
+        <h2>What forming costs</h2>
+        <p class="llc-section-copy text-ink-soft">
+          The sole proprietorship usually costs $0 to start before local licenses or DBA filings. An
+          LLC costs whatever your state charges, plus any annual report or registered agent cost.
+        </p>
+      </div>
+
+      {sampleState && (
+        <div class="llc-card-highlight space-y-4">
+          <p class="llc-helper">Example from live LLCAtlas state data</p>
+          <h3 class="text-xl">
+            In {sampleState.name}, the state-level first-year LLC cost is about {formatCurrency(sampleStateFirstYearCost)} before optional service fees.
+          </h3>
+          <p class="llc-section-copy text-ink-soft">
+            That uses the {formatCurrency(sampleState.filingFee)} state filing fee and a{' '}
+            {formatAnnualFee(sampleState.annualReportFee)} annual-report fee. Your state may be
+            cheaper or much more expensive.
+          </p>
+          <a
+            href={`/llc/${sampleState.slug}/`}
+            class="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+          >
+            Read the {sampleState.name} LLC guide
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
+          </a>
+        </div>
+      )}
+
+      {lowCostReadyStates.length > 0 && (
+        <div class="llc-card overflow-hidden !p-0">
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-rule">
+              <thead class="bg-surface-subtle">
+                <tr>
+                  <th scope="col" class="llc-table-head px-5 py-4 text-left">State guide</th>
+                  <th scope="col" class="llc-table-head px-5 py-4 text-right">Filing fee</th>
+                  <th scope="col" class="llc-table-head px-5 py-4 text-right">Annual fee</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-rule bg-surface">
+                {lowCostReadyStates.map((state) => (
+                  <tr>
+                    <th scope="row" class="px-5 py-4 text-left font-semibold text-ink-strong">
+                      <a
+                        href={`/llc/${state.slug}/`}
+                        class="underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+                      >
+                        {state.name}
+                      </a>
+                    </th>
+                    <td class="whitespace-nowrap px-5 py-4 text-right tabular-nums text-ink-soft">
+                      {formatCurrency(state.filingFee)}
+                    </td>
+                    <td class="whitespace-nowrap px-5 py-4 text-right tabular-nums text-ink-soft">
+                      {formatAnnualFee(state.annualReportFee)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+    </section>
+
+    <section class="mt-12 llc-card-subtle space-y-5">
+      <p class="llc-helper">Bottom line</p>
+      <h2>Use the LLC when it protects something real.</h2>
+      <p class="llc-section-copy text-ink-soft">
+        Forming an LLC is not a badge of seriousness and not a default tax savings move. It is worth
+        it when the business has real outside risk, a privacy problem, client expectations, or enough
+        revenue that clean separation is worth the recurring cost.
+      </p>
+      <div class="grid gap-3 sm:grid-cols-2">
+        <a href="/best-llc-services/" class="llc-card transition hover:border-rule-strong">
+          <span class="font-semibold text-ink-strong">Compare LLC services</span>
+          <span class="mt-2 block text-sm leading-6 text-ink-soft">
+            If you have decided to form, see which providers are worth paying for.
+          </span>
+        </a>
+        <a href="/llc-vs-s-corp/" class="llc-card transition hover:border-rule-strong">
+          <span class="font-semibold text-ink-strong">Read LLC vs S-corp</span>
+          <span class="mt-2 block text-sm leading-6 text-ink-soft">
+            If profit is steady, understand the tax election before adding payroll.
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-12 space-y-5">
+      <div class="space-y-3">
+        <h2>FAQ</h2>
+        <p class="llc-section-copy text-ink-soft">
+          The questions that matter before you pay the state or a formation service.
+        </p>
+      </div>
+
+      <div class="space-y-5">
+        {faqItems.map((item) => (
+          <details class="group llc-card overflow-hidden !p-0">
+            <summary class="flex cursor-pointer list-none items-start justify-between gap-4 px-5 py-5 text-lg font-semibold text-ink-strong transition-colors hover:bg-surface-subtle/70 marker:hidden sm:px-6">
+              <span>{item.question}</span>
+              <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-2 h-3.5 w-3.5 shrink-0 text-ink-muted transition group-open:rotate-180">
+                <path d="M4 6l4 4 4-4" />
+              </svg>
+            </summary>
+            <div class="border-t border-rule px-5 py-5 sm:px-6">
+              <p class="llc-section-copy text-ink-soft">{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <footer class="mt-12 border-t border-rule pt-6">
+      <p class="text-xs leading-6 text-ink-muted">
+        Sources:
+        <a
+          href="https://www.irs.gov/businesses/small-businesses-self-employed/single-member-limited-liability-companies"
+          class="llc-link"
+          rel="external"
+        >
+          IRS single-member LLC guidance
+        </a>,
+        <a
+          href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+          class="llc-link"
+          rel="external"
+        >
+          IRS self-employment tax guidance
+        </a>,
+        and
+        <a
+          href="https://www.sba.gov/business-guide/launch-your-business/choose-business-structure"
+          class="llc-link"
+          rel="external"
+        >
+          SBA business-structure guidance
+        </a>.
+      </p>
+    </footer>
+  </article>
+</SiteLayout>

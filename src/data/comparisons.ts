@@ -1,4 +1,5 @@
 import { affiliates } from './affiliates';
+import { llcServices } from './llc-services';
 
 export type UpsellLevel = 'None' | 'Light' | 'Heavy';
 
@@ -87,6 +88,54 @@ const disclosure =
   'LLCAtlas may earn a commission if you click a partner link and purchase a service. This does not change our editorial stance.';
 
 export const affiliateDisclosure = disclosure;
+
+const serviceShortNames = {
+  bizee: 'Bizee',
+  northwest: 'Northwest',
+  zenbusiness: 'ZenBusiness',
+  legalzoom: 'LegalZoom',
+} as const;
+
+const serviceBySlug = new Map(llcServices.map((service) => [service.slug, service]));
+
+const getService = (slug: keyof typeof serviceShortNames) => {
+  const service = serviceBySlug.get(slug);
+
+  if (!service) {
+    throw new Error(`Missing LLC service data for ${slug}`);
+  }
+
+  return service;
+};
+
+const mapUpsellLevel = (level: (typeof llcServices)[number]['checkoutExperience']): UpsellLevel =>
+  level === 'Some' ? 'Light' : level;
+
+const comparedService = (
+  slug: keyof typeof serviceShortNames,
+  options: { privacyProtection: boolean },
+): ComparedService => {
+  const service = getService(slug);
+
+  return {
+    name: service.name,
+    shortName: serviceShortNames[slug],
+    yearOneTotal: service.realYearOneTotal,
+    yearTwoTotal: service.registeredAgentRenewal,
+    headlinePrice: service.headlinePriceLabel,
+    registeredAgentIncluded: service.registeredAgentFirstYear === 0,
+    registeredAgentCost: service.registeredAgentLabel,
+    registeredAgentRenewal: service.registeredAgentRenewalLabel,
+    processingSpeed: service.processingTime,
+    upsellLevel: mapUpsellLevel(service.checkoutExperience),
+    privacyProtection: options.privacyProtection,
+    bestFor: service.bestFor,
+    pros: service.pros,
+    cons: service.cons,
+    affiliateUrl: service.affiliateUrl,
+    lastVerified: '2026-04-26',
+  };
+};
 
 export const comparisons: ServiceComparison[] = [
   {
@@ -571,6 +620,290 @@ export const comparisons: ServiceComparison[] = [
         href: '/llc/washington/',
         label: 'Ready to form? Start with the Washington LLC guide',
         description: 'Review the state-specific filing rules before you buy formation help.',
+      },
+    ],
+  },
+  {
+    slug: 'bizee-vs-zenbusiness',
+    serviceA: comparedService('bizee', { privacyProtection: true }),
+    serviceB: comparedService('zenbusiness', { privacyProtection: true }),
+    winner: 'A',
+    winnerReason:
+      'Bizee is the better choice if the goal is the lowest real year-one LLC formation cost. ZenBusiness has a tidier brand, but the registered agent add-on makes the Starter plan more expensive for the founder who needs privacy.',
+    editorial: {
+      intro:
+        'Bizee and ZenBusiness both advertise budget-friendly LLC formation. The difference is the registered agent math. Bizee currently bundles the first year of registered agent service with formation, while ZenBusiness charges extra for it on Starter.',
+      verdict:
+        'Pick Bizee if you want the lowest verified year-one cost and can ignore checkout upsells. Pick ZenBusiness only if you prefer the brand or platform enough to pay more for the registered agent path.',
+      onlyPickB:
+        'Pick ZenBusiness if you want a more familiar platform-style brand and are comfortable paying more once registered agent service is included. It is reasonable, just not the cheapest real path.',
+      whyWinnerWins: [
+        'Bizee wins on the number that matters for a first-time founder: real year-one cost before state fees. Its entry offer is $0 plus state fee and currently includes registered agent service for the first year.',
+        'ZenBusiness still advertises a $0 Starter package, but the registered agent is not included on that path. Once the registered agent is added, the practical year-one cost moves above Bizee.',
+        'Registered agent renewal also favors Bizee in the current LLCAtlas data. Bizee lists $119 per year after year one, while ZenBusiness renews at $199 per year.',
+        'The tradeoff is buying friction. Bizee is cheaper, but the user needs to stay alert and avoid extras that do not solve a real formation problem.',
+      ],
+      costNarrative: [
+        'Bizee starts at $0 plus the state fee and currently includes one free year of registered agent service. For a home-based founder who wants privacy, that bundle matters.',
+        'ZenBusiness Starter also starts at $0 plus the state fee, but registered agent service is not included on Starter. LLCAtlas currently tracks that first-year registered agent cost at $99, with renewal at $199 per year.',
+        'That makes the first-year comparison simple: Bizee is $0 plus state fee before optional extras, while ZenBusiness is $99 plus state fee if you add the registered agent most founders are comparing.',
+        'If you skip registered agent service entirely, both headline offers look similar. But most first-time founders comparing services are doing it partly for the registered agent and privacy layer.',
+      ],
+      finalVerdict:
+        'Bizee is the better pick for budget-first founders comparing these two. ZenBusiness is still a viable service, but once you enforce a real-cost comparison instead of stopping at the $0 headline, Bizee wins.',
+      faq: [
+        {
+          question: 'Is Bizee cheaper than ZenBusiness?',
+          answer:
+            'Yes, based on current LLCAtlas service data. Bizee is $0 plus the state fee with first-year registered agent service currently included. ZenBusiness Starter is $0 plus the state fee, but registered agent service costs extra.',
+        },
+        {
+          question: 'Is ZenBusiness bad?',
+          answer:
+            'No. ZenBusiness is a reasonable budget formation service. It loses this matchup because the Starter plan is not as cheap once registered agent service is included.',
+        },
+        {
+          question: 'Which has cheaper registered agent renewal?',
+          answer:
+            'Bizee is cheaper in the current data: $119 per year after the first year versus ZenBusiness at $199 per year.',
+        },
+        {
+          question: 'Which one should a first-time founder choose?',
+          answer:
+            'Choose Bizee if lowest real year-one cost matters most. Choose ZenBusiness if you prefer its platform and are comfortable paying more for the registered agent path.',
+        },
+      ],
+    },
+    meta: {
+      title: 'Bizee vs ZenBusiness (2026) - Honest LLC Service Comparison | LLCAtlas',
+      description:
+        'Bizee vs ZenBusiness: Bizee wins on real year-one LLC formation cost because registered agent service is currently bundled.',
+      primaryKeyword: 'bizee vs zenbusiness',
+      h1: 'Bizee vs ZenBusiness (2026)',
+      lastUpdated: '2026-06-02',
+    },
+    methodology: {
+      lastResearched: '2026-04-26',
+      summary:
+        'We compared real year-one cost, registered agent inclusion, registered agent renewal, checkout pressure, and whether the advertised $0 formation path is enough for a normal first-time founder.',
+      notes: [
+        'We count registered agent service because privacy is one of the main reasons a home-based founder uses a formation service.',
+        'We rank real year-one cost above homepage teaser pricing.',
+        'We do not count optional EIN, operating agreement, or rush processing add-ons unless they are required for the cheapest practical path.',
+        'Affiliate relationships do not change the recommendation. If ZenBusiness becomes cheaper on the registered agent bundle, this page should change.',
+      ],
+      sources: [
+        {
+          label: 'Bizee LLC formation offer',
+          url: affiliates.bizee,
+        },
+        {
+          label: 'ZenBusiness LLC formation offer',
+          url: affiliates.zenbusiness,
+        },
+      ],
+    },
+    detailedRows: [
+      { feature: 'Formation price', serviceA: '$0 + state fee', serviceB: '$0 + state fee' },
+      { feature: 'Registered agent year 1', serviceA: 'Included free for year 1', serviceB: '$99 on Starter' },
+      { feature: 'Registered agent renewal', serviceA: '$119/yr', serviceB: '$199/yr' },
+      { feature: 'Checkout pressure', serviceA: 'Higher; more upgrade-driven', serviceB: 'Moderate' },
+      { feature: 'Best reason to choose it', serviceA: 'Lowest real year-one cost', serviceB: 'More familiar platform feel' },
+      { feature: 'Main drawback', serviceA: 'More upsell friction', serviceB: 'Registered agent adds cost' },
+      { feature: 'Real year-1 total', serviceA: '$0 + state fee', serviceB: '$99 + state fee', isTotal: true },
+      { feature: 'Real year-2 total', serviceA: '$119', serviceB: '$199', isTotal: true },
+    ],
+    winnerAdvantages: [
+      {
+        heading: 'Bizee wins the registered agent math',
+        body:
+          'The first-year registered agent bundle is the difference. If the user wants an LLC service partly to keep a home address off public filings, Bizee gives that privacy layer at a lower year-one cost.',
+      },
+      {
+        heading: 'The renewal gap matters too',
+        body:
+          'Bizee renewal is currently $119 per year in the LLCAtlas data. ZenBusiness renewal is $199 per year. That gap compounds if the user keeps the service for several years.',
+      },
+    ],
+    loserAdvantages: [
+      {
+        heading: 'ZenBusiness has the cleaner platform story',
+        body:
+          'ZenBusiness can feel more polished and familiar to a user who wants one branded dashboard for formation add-ons. That may be worth paying for, but it is not the cheapest path.',
+      },
+      {
+        heading: 'ZenBusiness is still a viable budget provider',
+        body:
+          'This is not a warning page. ZenBusiness loses because of the registered agent math, not because the service is disqualified.',
+      },
+    ],
+    relatedGuides: [
+      {
+        href: '/best-llc-services/',
+        label: 'See the full LLC service ranking',
+        description: 'Compare Bizee, Northwest, ZenBusiness, and LegalZoom by real year-one cost.',
+      },
+      {
+        href: '/northwest-vs-bizee/',
+        label: 'Read Northwest vs Bizee',
+        description: 'Compare the cheapest path against the calmer default.',
+      },
+      {
+        href: '/llc-vs-sole-proprietorship/',
+        label: 'Decide LLC vs sole proprietorship',
+        description: 'Make sure forming an LLC is worth it before paying a service.',
+      },
+      {
+        href: '/s-corp/election-calculator/',
+        label: 'Run the S-corp election calculator',
+        description: 'Check whether tax treatment is worth revisiting after profit becomes stable.',
+      },
+      {
+        href: '/llc/ohio/',
+        label: 'Ohio LLC guide',
+        description: 'Review state filing costs before choosing a provider.',
+      },
+    ],
+  },
+  {
+    slug: 'northwest-vs-zenbusiness',
+    serviceA: comparedService('northwest', { privacyProtection: true }),
+    serviceB: comparedService('zenbusiness', { privacyProtection: true }),
+    winner: 'A',
+    winnerReason:
+      'Northwest is the better default for first-time founders who want less checkout friction, stronger privacy positioning, and a registered agent included in year one. ZenBusiness can work, but its Starter path is less complete.',
+    editorial: {
+      intro:
+        'Northwest and ZenBusiness are both legitimate LLC formation services. The practical question is whether ZenBusiness saves enough money to beat Northwest on privacy, support positioning, and registered agent value. In the current LLCAtlas data, it does not.',
+      verdict:
+        'Pick Northwest if you want the cleaner and lower-stress default. Pick ZenBusiness only if you prefer its brand or dashboard and accept that the registered agent path costs more.',
+      onlyPickB:
+        'Pick ZenBusiness if you specifically want the ZenBusiness platform or are buying a bundle that includes tools you will actually use. Do not pick it just because the Starter headline says $0.',
+      whyWinnerWins: [
+        'Northwest includes first-year registered agent service with the formation offer tracked by LLCAtlas. ZenBusiness Starter does not, which makes the $0 headline less useful for founders who want privacy.',
+        'The checkout and privacy story are stronger at Northwest. This matters for anxious first-time owners who do not want to decode a plan matrix or sort through extras.',
+        'Year two also favors Northwest. The current registered agent renewal tracked for Northwest is $125 per year versus $199 per year for ZenBusiness.',
+        'ZenBusiness remains a legitimate option, but the main reasons to choose it are preference and platform familiarity, not the cleanest math.',
+      ],
+      costNarrative: [
+        'Northwest starts at $39 plus the state fee and includes first-year registered agent service on the first formation path LLCAtlas tracks.',
+        'ZenBusiness Starter starts at $0 plus the state fee, but registered agent service is extra on Starter. LLCAtlas currently tracks that at $99 in year one and $199 at renewal.',
+        'That puts Northwest at $39 plus state fee for a practical privacy-oriented formation path, while ZenBusiness lands around $99 plus state fee when registered agent service is included.',
+        'The difference is not huge in year one, but Northwest also has the calmer checkout and cheaper renewal. That is enough to make it the better default.',
+      ],
+      finalVerdict:
+        'Northwest is the better pick for most first-time founders comparing these two. ZenBusiness is fine if you like the platform, but Northwest is easier to recommend when privacy, checkout clarity, and renewal cost matter.',
+      faq: [
+        {
+          question: 'Is Northwest better than ZenBusiness?',
+          answer:
+            'Northwest is better for most first-time founders who want privacy, cleaner checkout, and first-year registered agent service included. ZenBusiness is better only if you prefer its platform or bundle.',
+        },
+        {
+          question: 'Is ZenBusiness cheaper than Northwest?',
+          answer:
+            'Not on the practical registered-agent path in current LLCAtlas data. ZenBusiness Starter is $0 plus state fee, but adding registered agent service brings year one to about $99 plus state fee. Northwest is $39 plus state fee with registered agent service included for year one.',
+        },
+        {
+          question: 'Which has cheaper registered agent renewal?',
+          answer:
+            'Northwest is cheaper in current LLCAtlas data: $125 per year versus ZenBusiness at $199 per year.',
+        },
+        {
+          question: 'Which is better for privacy?',
+          answer:
+            'Northwest is the stronger privacy-first recommendation. ZenBusiness can provide registered agent privacy too, but it is not included on the cheapest Starter path.',
+        },
+      ],
+    },
+    meta: {
+      title: 'Northwest vs ZenBusiness (2026) - Honest LLC Service Comparison | LLCAtlas',
+      description:
+        'Northwest vs ZenBusiness: Northwest is the better default for privacy, cleaner checkout, and registered agent value.',
+      primaryKeyword: 'northwest vs zenbusiness',
+      h1: 'Northwest vs ZenBusiness (2026)',
+      lastUpdated: '2026-06-02',
+    },
+    methodology: {
+      lastResearched: '2026-04-26',
+      summary:
+        'We compared real year-one cost, registered agent inclusion, registered agent renewal, privacy positioning, checkout pressure, and which service is easier to recommend to a nervous first-time founder.',
+      notes: [
+        'We treat registered agent service as part of the realistic comparison because it is the privacy feature many home-based founders want.',
+        'We do not let a $0 headline override the real cost once the registered agent is added.',
+        'We separate cheapest from best default because a slightly higher year-one number can still be a better user choice.',
+        'Affiliate relationships do not change the recommendation. If pricing changes, this comparison should change.',
+      ],
+      sources: [
+        {
+          label: 'Northwest LLC formation offer',
+          url: affiliates.northwest,
+        },
+        {
+          label: 'ZenBusiness LLC formation offer',
+          url: affiliates.zenbusiness,
+        },
+      ],
+    },
+    detailedRows: [
+      { feature: 'Formation price', serviceA: '$39 + state fee', serviceB: '$0 + state fee' },
+      { feature: 'Registered agent year 1', serviceA: 'Included for 1 year', serviceB: '$99 on Starter' },
+      { feature: 'Registered agent renewal', serviceA: '$125/yr', serviceB: '$199/yr' },
+      { feature: 'Checkout pressure', serviceA: 'Low', serviceB: 'Moderate' },
+      { feature: 'Best reason to choose it', serviceA: 'Cleaner privacy-first default', serviceB: 'Familiar platform and lower headline price' },
+      { feature: 'Main drawback', serviceA: 'Costs more than a bare $0 headline', serviceB: 'Registered agent is not bundled on Starter' },
+      { feature: 'Real year-1 total', serviceA: '$39 + state fee', serviceB: '$99 + state fee', isTotal: true },
+      { feature: 'Real year-2 total', serviceA: '$125', serviceB: '$199', isTotal: true },
+    ],
+    winnerAdvantages: [
+      {
+        heading: 'Northwest is the cleaner default',
+        body:
+          'The main Northwest advantage is not just price. It is the simpler recommendation: registered agent included, privacy front and center, and less plan-matrix decoding.',
+      },
+      {
+        heading: 'The registered agent value is better',
+        body:
+          'Northwest includes the first year and renews at a lower annual rate in the current data. That makes the $39 headline more useful than ZenBusiness Starter for privacy-minded founders.',
+      },
+    ],
+    loserAdvantages: [
+      {
+        heading: 'ZenBusiness has a familiar budget brand',
+        body:
+          'Some users will prefer ZenBusiness because it feels like a broader small-business platform. That preference can be valid if the user wants those tools.',
+      },
+      {
+        heading: 'The $0 Starter headline is still useful for some buyers',
+        body:
+          'If the user does not need registered agent service through the provider, the ZenBusiness Starter headline can be attractive. That is a narrower use case than most LLCAtlas readers have.',
+      },
+    ],
+    relatedGuides: [
+      {
+        href: '/best-llc-services/',
+        label: 'See the full LLC service ranking',
+        description: 'Compare Northwest, Bizee, ZenBusiness, and LegalZoom by real year-one cost.',
+      },
+      {
+        href: '/northwest-vs-bizee/',
+        label: 'Read Northwest vs Bizee',
+        description: 'Compare the calmer default against the cheapest verified year-one path.',
+      },
+      {
+        href: '/llc-vs-sole-proprietorship/',
+        label: 'Decide LLC vs sole proprietorship',
+        description: 'Make sure forming an LLC is worth it before paying a service.',
+      },
+      {
+        href: '/best-state/',
+        label: 'Best state for an LLC',
+        description: 'Confirm whether you should form at home before choosing a provider.',
+      },
+      {
+        href: '/llc/wyoming/',
+        label: 'Wyoming LLC guide',
+        description: 'Review state costs and filing rules before paying for formation help.',
       },
     ],
   },
