@@ -17,7 +17,7 @@ Revenue comes from formation affiliates. Traffic comes from Google only (for now
 - The S-corp calculators rank ~80. Not a priority until the site has links.
 - Zero backlinks and zero off-Google distribution so far. Authority is the main bottleneck.
 
-When new GSC exports arrive, re-check these claims before relying on them.
+When new GSC exports arrive, re-check these claims before relying on them. GSC exports live in `gsc-export/` and Ahrefs research in `research/` (both gitignored); the Ahrefs findings that shape the current plan are summarized at the top of `BACKLOG.md`.
 
 ## Audience
 

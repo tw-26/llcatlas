@@ -23,8 +23,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# Search Console exports
+# Search Console and Ahrefs exports
 gsc-export/
+research/
 
 # local AI skill folders (project skills are committed)
 .claude/*
