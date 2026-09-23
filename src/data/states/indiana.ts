@@ -1,8 +1,9 @@
+import { GUIDE_YEAR } from '../site';
 import type { StateOverride } from './types';
 
 export const indiana: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: 'How to Start an LLC in Indiana (2026): $95 Online, No Publication | LLCAtlas',
+  seoTitle: `How to Start an LLC in Indiana (${GUIDE_YEAR}): $95 Online, No Publication | LLCAtlas`,
   seoDescription:
     'Form an Indiana LLC for $95 online through INBiz. Registered agent rules, biennial report costs, timeline, and the real first-year cost.',
   lastUpdated: '2026-04-26',

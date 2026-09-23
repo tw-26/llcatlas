@@ -12,8 +12,7 @@ import {
 } from '../../data/tax/combo-pages';
 import { getProfessionPreset } from '../../data/tax/profession-presets';
 import { getPublishedProfessionPages } from '../../data/tax/profession-pages';
-
-const GUIDE_YEAR = 2026;
+import { GUIDE_YEAR } from '../../data/site';
 
 export type OgImageEntry = {
   slug: string;
@@ -63,21 +62,21 @@ const createEntry = ({
 const staticEntries: OgImageEntry[] = [
   createEntry({
     path: '/',
-    title: 'LLCAtlas — Free LLC Formation Guides for Every State (2026)',
+    title: `LLCAtlas — Free LLC Formation Guides for Every State (${GUIDE_YEAR})`,
     description:
       'Free LLC formation guides by state, with real filing costs, plain-English steps, honest service comparisons, and no hidden-fee advice.',
     eyebrow: 'LLC formation guides',
   }),
   createEntry({
     path: '/best-llc-services/',
-    title: 'Best LLC Formation Services (2026) — Compared and Ranked | LLCAtlas',
+    title: `Best LLC Formation Services (${GUIDE_YEAR}) — Compared and Ranked | LLCAtlas`,
     description:
-      'Best LLC formation services compared for 2026: real year-one cost, registered agent value, upsells, privacy, and our safest pick.',
+      `Best LLC formation services compared for ${GUIDE_YEAR}: real year-one cost, registered agent value, upsells, privacy, and our safest pick.`,
     eyebrow: 'Service comparison',
   }),
   createEntry({
     path: '/best-state/',
-    title: 'Best State to Form an LLC (2026) | LLCAtlas',
+    title: `Best State to Form an LLC (${GUIDE_YEAR}) | LLCAtlas`,
     description:
       'The best state to form an LLC is usually your home state. See when Wyoming, Delaware, or Nevada actually make sense before you file.',
     eyebrow: 'Formation strategy',

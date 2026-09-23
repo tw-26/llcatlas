@@ -1,8 +1,9 @@
+import { GUIDE_YEAR } from '../site';
 import type { StateOverride } from './types';
 
 export const tennessee: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: 'How to Start an LLC in Tennessee (2026): $300 Minimum | LLCAtlas',
+  seoTitle: `How to Start an LLC in Tennessee (${GUIDE_YEAR}): $300 Minimum | LLCAtlas`,
   seoDescription:
     'Start a Tennessee LLC through TNBear. See the $300 minimum filing fee, registered agent rules, annual report cost, and franchise tax warning.',
   lastUpdated: '2026-05-04',

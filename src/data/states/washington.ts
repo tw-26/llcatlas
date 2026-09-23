@@ -1,8 +1,9 @@
+import { GUIDE_YEAR } from '../site';
 import type { StateOverride } from './types';
 
 export const washington: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: 'How to Start an LLC in Washington (2026): Costs + Steps | LLCAtlas',
+  seoTitle: `How to Start an LLC in Washington (${GUIDE_YEAR}): Costs + Steps | LLCAtlas`,
   seoDescription:
     'Start a Washington LLC with the real filing fee, registered agent rules, annual report, B&O tax, and state business license steps.',
   lastUpdated: '2026-05-04',

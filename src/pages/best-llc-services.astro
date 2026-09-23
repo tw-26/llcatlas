@@ -11,11 +11,12 @@ import {
   serviceComparisons,
 } from '../data/llc-services';
 import { comparisonBySlug as serviceComparisonPageBySlug } from '../data/comparisons';
+import { GUIDE_YEAR } from '../data/site';
 import { states } from '../data/states';
 
-const title = 'Best LLC Formation Services (2026) — Compared and Ranked | LLCAtlas';
+const title = `Best LLC Formation Services (${GUIDE_YEAR}) — Compared and Ranked | LLCAtlas`;
 const description =
-  'Best LLC formation services compared for 2026: real year-one cost, registered agent value, upsells, privacy, and our safest pick.';
+  `Best LLC formation services compared for ${GUIDE_YEAR}: real year-one cost, registered agent value, upsells, privacy, and our safest pick.`;
 const pageUrl = 'https://llcatlas.com/best-llc-services/';
 const lastUpdatedIso = '2026-04-26';
 
@@ -126,7 +127,7 @@ const structuredData = [
   <section class="space-y-8">
     <div class="space-y-4">
       <p class="llc-helper">Best LLC service comparison</p>
-      <h1>Best LLC formation services in 2026</h1>
+      <h1>Best LLC formation services in {GUIDE_YEAR}</h1>
       <p class="max-w-3xl text-sm text-ink-muted">
         LLCAtlas is reader-supported. When you buy through our links, we may earn a commission.
         This does not affect our rankings. We rank providers by real year-one cost, privacy,

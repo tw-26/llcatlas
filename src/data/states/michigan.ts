@@ -1,8 +1,9 @@
+import { GUIDE_YEAR } from '../site';
 import type { StateOverride } from './types';
 
 export const michigan: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: 'How to Start an LLC in Michigan (2026): $50 + LARA Steps | LLCAtlas',
+  seoTitle: `How to Start an LLC in Michigan (${GUIDE_YEAR}): $50 + LARA Steps | LLCAtlas`,
   seoDescription:
     'Form a Michigan LLC for $50 through LARA. Real costs, the resident agent rule, and the $25 Annual Statement most guides get wrong.',
   lastUpdated: '2026-04-19',

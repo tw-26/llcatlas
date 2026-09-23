@@ -1,8 +1,9 @@
+import { GUIDE_YEAR } from '../site';
 import type { StateOverride } from './types';
 
 export const maryland: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: 'How to Start an LLC in Maryland (2026): Costs, Steps, SDAT Filing | LLCAtlas',
+  seoTitle: `How to Start an LLC in Maryland (${GUIDE_YEAR}): Costs, Steps, SDAT Filing | LLCAtlas`,
   seoDescription:
     'Start a Maryland LLC with clear SDAT steps: $100 mail filing, $150 online filing, resident agent rules, $300 annual report, and real Maryland costs.',
   lastUpdated: '2026-04-30',

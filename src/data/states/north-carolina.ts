@@ -1,8 +1,9 @@
+import { GUIDE_YEAR } from '../site';
 import type { StateOverride } from './types';
 
 export const northCarolina: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: 'How to Start an LLC in North Carolina (2026): $125 + April 15 Report | LLCAtlas',
+  seoTitle: `How to Start an LLC in North Carolina (${GUIDE_YEAR}): $125 + April 15 Report | LLCAtlas`,
   seoDescription:
     'File a North Carolina LLC for $125. Real costs, the registered agent rule, and the $200 annual report due every April 15 most guides bury.',
   lastUpdated: '2026-04-19',

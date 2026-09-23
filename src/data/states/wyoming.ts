@@ -1,8 +1,9 @@
+import { GUIDE_YEAR } from '../site';
 import type { StateOverride } from './types';
 
 export const wyoming: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: 'How to Start an LLC in Wyoming (2026 Step-by-Step) | LLCAtlas',
+  seoTitle: `How to Start an LLC in Wyoming (${GUIDE_YEAR} Step-by-Step) | LLCAtlas`,
   seoDescription:
     'Form a Wyoming LLC for $100 — instant online filing, no member names on the public record, $60 annual report. Real costs, real timing, no upsells.',
   lastUpdated: '2026-04-19',

@@ -1,8 +1,9 @@
+import { GUIDE_YEAR } from '../site';
 import type { StateOverride } from './types';
 
 export const ohio: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: 'How to Start an LLC in Ohio (2026): $99, No Annual Report | LLCAtlas',
+  seoTitle: `How to Start an LLC in Ohio (${GUIDE_YEAR}): $99, No Annual Report | LLCAtlas`,
   seoDescription:
     'File an Ohio LLC for $99 with no annual report. Real costs, statutory agent rules, and the Form 610 steps — without the upsells.',
   lastUpdated: '2026-04-19',

@@ -7,6 +7,7 @@
  * override file. Keep in sync with the override files in src/data/states/.
  */
 export const READY_STATE_SLUGS = [
+  'georgia',
   'indiana',
   'maryland',
   'michigan',

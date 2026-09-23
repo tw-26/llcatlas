@@ -1,8 +1,9 @@
+import { GUIDE_YEAR } from '../site';
 import type { StateOverride } from './types';
 
 export const pennsylvania: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: 'How to Start an LLC in Pennsylvania (2026): $125 Filing Fee | LLCAtlas',
+  seoTitle: `How to Start an LLC in Pennsylvania (${GUIDE_YEAR}): $125 Filing Fee | LLCAtlas`,
   seoDescription:
     'Start a Pennsylvania LLC for $125. Clear steps, registered office rules, annual report timing, publication rules, and PA-specific tax traps.',
   lastUpdated: '2026-04-29',

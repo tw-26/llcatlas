@@ -23,7 +23,13 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# local AI skill folders
-.claude/
+# Search Console exports
+gsc-export/
+
+# local AI skill folders (project skills are committed)
+.claude/*
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/new-state-guide/
 .codex/
 .cursor/skills/

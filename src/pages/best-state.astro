@@ -2,9 +2,10 @@
 import AffiliateCard from '../components/affiliate-card.astro';
 import SiteLayout from '../layouts/site-layout.astro';
 import { affiliates } from '../data/affiliates';
+import { GUIDE_YEAR } from '../data/site';
 import { states } from '../data/states';
 
-const title = 'Best State to Form an LLC (2026) | LLCAtlas';
+const title = `Best State to Form an LLC (${GUIDE_YEAR}) | LLCAtlas`;
 const description =
   'The best state to form an LLC is usually your home state. See when Wyoming, Delaware, or Nevada actually make sense before you file.';
 const pageUrl = 'https://llcatlas.com/best-state/';
@@ -147,7 +148,7 @@ const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Best state to form an LLC in 2026',
+    headline: `Best state to form an LLC in ${GUIDE_YEAR}`,
     description,
     datePublished: lastUpdatedIso,
     dateModified: lastUpdatedIso,
@@ -213,7 +214,7 @@ const structuredData = [
   <section class="space-y-10">
     <div class="space-y-6">
       <p class="llc-helper">Choosing a formation state</p>
-      <h1>Best state to form an LLC in 2026</h1>
+      <h1>Best state to form an LLC in {GUIDE_YEAR}</h1>
       <p class="llc-helper-sm">
         <time datetime={lastUpdatedIso}>Updated {lastUpdatedLabel}</time>
         <span aria-hidden="true" class="mx-2 text-ink-faint">·</span>

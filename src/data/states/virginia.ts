@@ -1,8 +1,9 @@
+import { GUIDE_YEAR } from '../site';
 import type { StateOverride } from './types';
 
 export const virginia: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: 'How to Start an LLC in Virginia (2026): $100, No Annual Report | LLCAtlas',
+  seoTitle: `How to Start an LLC in Virginia (${GUIDE_YEAR}): $100, No Annual Report | LLCAtlas`,
   seoDescription:
     'Start a Virginia LLC for $100. See the real filing steps, registered agent rules, annual registration fee, and how fast the SCC approves filings.',
   lastUpdated: '2026-04-23',

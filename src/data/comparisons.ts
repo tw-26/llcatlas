@@ -1,5 +1,6 @@
 import { affiliates } from './affiliates';
 import { llcServices } from './llc-services';
+import { GUIDE_YEAR } from './site';
 
 export type UpsellLevel = 'None' | 'Light' | 'Heavy';
 
@@ -246,11 +247,11 @@ export const comparisons: ServiceComparison[] = [
       ],
     },
     meta: {
-      title: 'Northwest vs Bizee (2026) — Honest LLC Service Comparison | LLCAtlas',
+      title: `Northwest vs Bizee (${GUIDE_YEAR}) — Honest LLC Service Comparison | LLCAtlas`,
       description:
         'Northwest vs Bizee: Bizee is cheaper in year one, but Northwest is the safer default for privacy, cleaner checkout, and lower-stress LLC formation.',
       primaryKeyword: 'northwest vs bizee',
-      h1: 'Northwest vs Bizee (2026)',
+      h1: `Northwest vs Bizee (${GUIDE_YEAR})`,
       lastUpdated: '2026-05-23',
     },
     methodology: {
@@ -491,11 +492,11 @@ export const comparisons: ServiceComparison[] = [
       ],
     },
     meta: {
-      title: 'Northwest Registered Agent vs LegalZoom (2026) — Honest Comparison | LLCAtlas',
+      title: `Northwest Registered Agent vs LegalZoom (${GUIDE_YEAR}) — Honest Comparison | LLCAtlas`,
       description:
         'Northwest Registered Agent vs LegalZoom: Northwest is $39 with a free registered agent year one. LegalZoom can cost $427 for a similar setup.',
       primaryKeyword: 'northwest registered agent vs legalzoom',
-      h1: 'Northwest Registered Agent vs LegalZoom (2026)',
+      h1: `Northwest Registered Agent vs LegalZoom (${GUIDE_YEAR})`,
       lastUpdated: '2026-05-01',
     },
     methodology: {
@@ -675,11 +676,11 @@ export const comparisons: ServiceComparison[] = [
       ],
     },
     meta: {
-      title: 'Bizee vs ZenBusiness (2026) - Honest LLC Service Comparison | LLCAtlas',
+      title: `Bizee vs ZenBusiness (${GUIDE_YEAR}) - Honest LLC Service Comparison | LLCAtlas`,
       description:
         'Bizee vs ZenBusiness: Bizee wins on real year-one LLC formation cost because registered agent service is currently bundled.',
       primaryKeyword: 'bizee vs zenbusiness',
-      h1: 'Bizee vs ZenBusiness (2026)',
+      h1: `Bizee vs ZenBusiness (${GUIDE_YEAR})`,
       lastUpdated: '2026-06-02',
     },
     methodology: {
@@ -817,11 +818,11 @@ export const comparisons: ServiceComparison[] = [
       ],
     },
     meta: {
-      title: 'Northwest vs ZenBusiness (2026) - Honest LLC Service Comparison | LLCAtlas',
+      title: `Northwest vs ZenBusiness (${GUIDE_YEAR}) - Honest LLC Service Comparison | LLCAtlas`,
       description:
         'Northwest vs ZenBusiness: Northwest is the better default for privacy, cleaner checkout, and registered agent value.',
       primaryKeyword: 'northwest vs zenbusiness',
-      h1: 'Northwest vs ZenBusiness (2026)',
+      h1: `Northwest vs ZenBusiness (${GUIDE_YEAR})`,
       lastUpdated: '2026-06-02',
     },
     methodology: {

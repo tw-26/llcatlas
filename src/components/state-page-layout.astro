@@ -2,6 +2,7 @@
 import AffiliateCard from './affiliate-card.astro';
 import SiteLayout from '../layouts/site-layout.astro';
 import { affiliates } from '../data/affiliates';
+import { GUIDE_YEAR as guideYear } from '../data/site';
 import { states, type StateData } from '../data/states';
 
 interface Props {
@@ -9,7 +10,6 @@ interface Props {
 }
 
 const { state } = Astro.props;
-const guideYear = 2026;
 
 const northwestAffiliateUrl = affiliates.northwest;
 const northwestPartnerName = 'Northwest Registered Agent';
