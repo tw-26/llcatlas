@@ -3,6 +3,7 @@ import '../styles/global.css';
 import atkinsonRegular from '@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff2?url';
 import { SEO } from 'astro-seo';
 import { getOgImagePath } from '../lib/seo/og-images';
+import { GA_MEASUREMENT_ID } from '../data/site';
 
 type StructuredData = Record<string, unknown>;
 
@@ -37,6 +38,7 @@ const ogImageUrl = new URL(ogImage ?? getOgImagePath(canonicalPath), siteUrl).to
 const resolvedOgImageAlt = ogImageAlt ?? `${title} social preview`;
 const logoUrl = new URL('/logo.svg', siteUrl).toString();
 const hasSidebar = Astro.slots.has('sidebar');
+const shouldLoadGa4 = import.meta.env.PROD;
 const isHomePage = currentPath === '/';
 const isComparisonPage = currentPath === '/best-llc-services/' || currentPath === '/best-llc-services';
 const isBestStatePage = currentPath === '/best-state/' || currentPath === '/best-state';
@@ -162,6 +164,25 @@ const allStructuredData = [
       data-cf-beacon='{"token": "9c94b268b27b4893a043076eae99ca12"}'
     />
     <!-- End Cloudflare Web Analytics -->
+    {
+      shouldLoadGa4 && (
+        <>
+          <script
+            is:inline
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          />
+          <script is:inline define:vars={{ measurementId: GA_MEASUREMENT_ID }}>
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function gtag() {
+              window.dataLayer.push(arguments);
+            };
+            window.gtag('js', new Date());
+            window.gtag('config', measurementId);
+          </script>
+        </>
+      )
+    }
     <script>
       import '../scripts/affiliate-click-tracking';
       import '../scripts/calculator-interaction-tracking';

@@ -1,14 +1,10 @@
+import { sendAnalyticsEvent } from './analytics';
+
 type CalculatorPayload = {
   calculator: string;
   action: 'start' | 'result_view' | 'result_cta_click';
   resultTier: string;
   sourcePath: string;
-};
-
-type ZarazWindow = Window & {
-  zaraz?: {
-    track?: (eventName: string, properties: CalculatorPayload) => Promise<unknown> | unknown;
-  };
 };
 
 const startedCalculators = new Set<string>();
@@ -26,10 +22,11 @@ const getCalculatorName = (root: HTMLElement | null) =>
 const trackCalculatorEvent = (payload: CalculatorPayload) => {
   window.dispatchEvent(new CustomEvent('llcatlas:calculator-interaction', { detail: payload }));
 
-  const zaraz = (window as ZarazWindow).zaraz;
-  if (typeof zaraz?.track === 'function') {
-    void zaraz.track('calculator_interaction', payload);
-  }
+  sendAnalyticsEvent('calculator_interaction', payload, {
+    calculator: payload.calculator,
+    calculator_action: payload.action,
+    result_tier: payload.resultTier,
+  });
 };
 
 const trackStart = (target: EventTarget | null) => {

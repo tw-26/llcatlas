@@ -1,3 +1,5 @@
+import { sendAnalyticsEvent } from './analytics';
+
 type AffiliateClickPayload = {
   affiliate: string;
   pageType: string;
@@ -5,12 +7,6 @@ type AffiliateClickPayload = {
   state: string;
   outboundHost: string;
   sourcePath: string;
-};
-
-type ZarazWindow = Window & {
-  zaraz?: {
-    track?: (eventName: string, properties: AffiliateClickPayload) => Promise<unknown> | unknown;
-  };
 };
 
 const getAffiliateAnchor = (target: EventTarget | null): HTMLAnchorElement | null => {
@@ -39,10 +35,13 @@ const trackAffiliateClick = (anchor: HTMLAnchorElement) => {
 
   window.dispatchEvent(new CustomEvent('llcatlas:affiliate-click', { detail: payload }));
 
-  const zaraz = (window as ZarazWindow).zaraz;
-  if (typeof zaraz?.track === 'function') {
-    void zaraz.track('affiliate_click', payload);
-  }
+  sendAnalyticsEvent('affiliate_click', payload, {
+    affiliate: payload.affiliate,
+    page_type: payload.pageType,
+    position: payload.position,
+    state: payload.state,
+    outbound_host: payload.outboundHost,
+  });
 };
 
 document.addEventListener('click', (event) => {
