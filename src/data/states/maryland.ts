@@ -3,14 +3,14 @@ import type { StateOverride } from './types';
 
 export const maryland: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: `How to Start an LLC in Maryland (${GUIDE_YEAR}): Costs, Steps, SDAT Filing | LLCAtlas`,
+  seoTitle: `How to Start an LLC in Maryland (${GUIDE_YEAR}): $100–$150 Fee, Steps & Timeline`,
   seoDescription:
-    'Start a Maryland LLC with clear SDAT steps: $100 mail filing, $150 online filing, resident agent rules, $300 annual report, and real Maryland costs.',
-  lastUpdated: '2026-04-30',
+    'Form a Maryland LLC for $100 by mail or about $155 online. Then the $300 annual report due April 15, resident agent rules, and how to avoid a 6-8 week wait.',
+  lastUpdated: '2026-09-23',
   intro:
     'Starting an LLC in Maryland is straightforward once you ignore the wrong state terminology. You do not file with the Secretary of State, and Maryland does not use "statutory agent" on the filing. You file Articles of Organization with SDAT, appoint a Maryland resident agent, pay either $100 by slow mail or $150 plus processing online, then calendar the $300 Annual Report / Personal Property Return due every April 15. The clean path is simple: pick a compliant name, choose a resident agent, file with SDAT, get an EIN, write an operating agreement, open a business bank account, and check whether your business needs a Trader\'s License or industry permit.',
   whatYoullNeed:
-    'To form a Maryland LLC, you need a distinguishable LLC name with an approved designator, a Maryland principal office street address, a resident agent with a physical Maryland street address, the resident agent\'s signed consent, an organizer signature, and the SDAT filing fee. Budget $100 if you are willing to mail the filing and wait 6-8 weeks, or about $154.50 if you file online through Maryland Business Express.',
+    'To form a Maryland LLC, you need a distinguishable LLC name with an approved designator, a Maryland principal office street address, a resident agent with a physical Maryland street address, the resident agent\'s signed consent, the signature of at least one authorized person, and the SDAT filing fee. Budget $100 if you are willing to mail the filing and wait 6-8 weeks, or about $154.50 if you file online through Maryland Business Express.',
   closing:
     'For most first-time founders who live and operate in Maryland, forming in Maryland is the right move even with the $300 annual filing. Forming in Delaware or Wyoming usually just adds another state to maintain because you still have to register in Maryland if you operate there. Keep the setup practical: file online if speed matters, use a professional resident agent if your home address should not be public, get the free EIN from the IRS after SDAT approval, and set a hard reminder for the April 15 Annual Report / Personal Property Return.',
   inlineCtaDescription:
@@ -22,15 +22,27 @@ export const maryland: StateOverride = {
     { label: 'Search Maryland business names', url: 'https://egov.maryland.gov/BusinessExpress/EntitySearch' },
     {
       label: 'Download Maryland Articles of Organization',
-      url: 'https://dat.maryland.gov/sdat%20forms/artorgan.pdf',
+      url: 'https://dat.maryland.gov/Documents/Accessible%20Documents/Charter%20-%20Create%20or%20Start%20a%20Business/Articles%20of%20Organization%20for%20a%20Limited%20Liability%20Company%5F0526-A.pdf',
     },
     {
       label: 'Maryland SDAT fee schedule',
       url: 'https://dat.maryland.gov/businesses/documents/fees.pdf',
     },
     {
-      label: 'Maryland Annual Report / Personal Property Return',
-      url: 'https://dat.maryland.gov/businesses/Pages/Annual-Report-and-Personal-Property-Tax-Returns.aspx',
+      label: 'Maryland Business Express online fee schedule',
+      url: 'https://egov.maryland.gov/BusinessExpress/Payment/FeesSchedule',
+    },
+    {
+      label: 'Maryland Business Express processing times',
+      url: 'https://egov.maryland.gov/BusinessExpress/home/ProcessingTimes',
+    },
+    {
+      label: 'Maryland Annual Report / Personal Property Return deadlines',
+      url: 'https://dat.maryland.gov/businesses/Pages/default.aspx',
+    },
+    {
+      label: 'Maryland SDAT forfeiture FAQ',
+      url: 'https://dat.maryland.gov/businesses/Pages/Frequently-Asked-Forfeiture-Questions.aspx',
     },
     {
       label: 'Maryland Business Express licenses and permits',
@@ -44,8 +56,8 @@ export const maryland: StateOverride = {
   taxHighlights: [
     'Maryland LLCs are usually pass-through entities by default: a single-member LLC is usually disregarded for federal tax, and a multi-member LLC is usually taxed as a partnership. Maryland state income tax now ranges up to 6.50% for high earners, and county or Baltimore City income tax can add up to 3.30%. That is why Maryland LLC owners should think about state and local taxes early, not after the first profitable year.',
     'Maryland does not have an Ohio-style Commercial Activity Tax. The Maryland-specific annual pain point is the $300 Annual Report / Personal Property Return due April 15. Even if the LLC owns no business personal property, the filing requirement still matters. Eligible employers with employees and a qualifying retirement plan may be able to use the MarylandSaves waiver, but solo founders with no employees should not count on it.',
-    'Maryland has an optional Pass-Through Entity Tax election that can matter for higher-income owners. For tax years beginning after December 31, 2025, Maryland expanded the PTET base for resident members so the entity can pay tax on the resident member\'s full distributive share from all sources. Treat this as a CPA question, not a DIY formation decision.',
-    'As of April 30, 2026, domestic Maryland LLCs are not required to file federal BOI reports under FinCEN\'s March 2025 interim final rule. Recheck FinCEN before publishing or filing because CTA rules have changed quickly, and Maryland has also considered state-level transparency legislation that was not law as of this update.',
+    'Maryland has an optional Pass-Through Entity Tax election that can matter for higher-income owners. For tax year 2026, the PTET base is still limited to income attributable to Maryland for both resident and nonresident members. The 2026 budget law pushed the planned expansion for resident members to tax year 2027. Treat this as a CPA question, not a DIY formation decision.',
+    'As of September 23, 2026, domestic Maryland LLCs do not file federal BOI reports. FinCEN\'s final rule, effective August 14, 2026, permanently exempts U.S.-created companies and U.S. persons from BOI reporting. Recheck FinCEN before filing because CTA rules have changed quickly.',
   ],
   comparisonRows: [
     {
@@ -84,10 +96,10 @@ export const maryland: StateOverride = {
   filingFeeNote: '$100 by mail; $150 + 3% online',
   annualReportFee: 300,
   filingTime:
-    'Mail filings without expedite take 6-8 weeks. Online filings through Maryland Business Express are automatically expedited and SDAT lists expedited review at 7-10 business days. Same-day rush is available if you meet the cutoff.',
-  filingTimeShort: '7-10 days',
+    'Mail filings without expedite take 6-8 weeks. Online filings through Maryland Business Express are treated as expedited, and SDAT lists online expedited review at 7-14 business days. Paper expedited filings are reviewed within 7-10 business days after SDAT receives them. Same-day rush is available if you meet the cutoff.',
+  filingTimeShort: '7-14 days',
   expeditedTime:
-    'Online filings are auto-expedited at $150 plus a 3% processing fee. Same-day online costs $425 plus processing if submitted by 2:30 PM. Same-day paper drop-box filing costs $525 if delivered by 10:00 AM.',
+    'Online filings are treated as expedited at $150 plus a 3% processing fee. Same-day online costs $425 plus processing and is reviewed within three hours if submitted by 2:30 PM. Same-day paper drop-box filing costs $525 if delivered by 10:00 AM.',
   expeditedFee: 50,
   filingAgency: 'Maryland State Department of Assessments and Taxation',
   filingAgencyUrl: 'https://dat.maryland.gov/businesses/',
@@ -109,17 +121,17 @@ export const maryland: StateOverride = {
     {
       title: 'Choose a Maryland resident agent',
       description:
-        'Maryland calls this role a resident agent, not a statutory agent. The agent can be a Maryland resident age 18 or older, a Maryland corporation, or a Maryland LLC, and must have a physical Maryland street address. P.O. boxes do not qualify. You can be your own resident agent if you are a Maryland resident with a real Maryland address, but your address becomes public and you need to be reachable during normal business hours. A professional resident agent is the cleaner default for home-based founders, non-Maryland residents, and anyone who wants fewer address headaches.',
+        'Maryland calls this role a resident agent, not a statutory agent. The agent can be a Maryland resident age 18 or older, a Maryland corporation, a Maryland LLC, or a Maryland limited partnership, and must have a physical Maryland street address. P.O. boxes do not qualify. You can be your own resident agent if you are a Maryland resident with a real Maryland address, but your address becomes public and you need to be reachable during normal business hours. A professional resident agent is the cleaner default for home-based founders, non-Maryland residents, and anyone who wants fewer address headaches.',
     },
     {
       title: 'File Articles of Organization with SDAT',
       description:
-        'File the Maryland Articles of Organization through Maryland Business Express or by mailing the SDAT form to the Corporate Charter Division. You will list the LLC name, a lawful business purpose, Maryland principal office street address, resident agent name and Maryland street address, resident agent signature, organizer signature, and return address. Maryland does not require member names, manager names, ownership percentages, or the member-managed vs. manager-managed choice on the Articles. The filing forms the LLC when SDAT accepts it, or at a later time stated in the Articles.',
+        'File the Maryland Articles of Organization through Maryland Business Express or by mailing the SDAT form to the Charter Division. You will list the LLC name, Maryland principal office street address, resident agent name and Maryland street address, resident agent consent signature, and the signature of at least one authorized person. A business purpose and return address are optional on the current form. Maryland does not require member names, manager names, ownership percentages, or the member-managed vs. manager-managed choice on the Articles. The filing forms the LLC when SDAT accepts it, or at a later time stated in the Articles.',
     },
     {
       title: 'Pick the filing speed deliberately',
       description:
-        'The cheapest Maryland filing is $100 by mail, but SDAT lists standard non-expedited review at 6-8 weeks. Online filing is the practical default for most founders because it is automatically expedited: $150 plus a 3% processing fee, with expedited review listed at 7-10 business days. If timing is critical, same-day rush is available: online costs $425 plus processing if submitted by 2:30 PM, and paper drop-box rush costs $525 if delivered by 10:00 AM. If SDAT rejects the filing, you generally have 60 days from the initial rejection to correct and resubmit before fees are retained.',
+        'The cheapest Maryland filing is $100 by mail, but SDAT lists standard non-expedited review at 6-8 weeks. Online filing is the practical default for most founders because it is treated as expedited: $150 plus a 3% processing fee, with online expedited review listed at 7-14 business days. If timing is critical, same-day rush is available: online costs $425 plus processing if submitted by 2:30 PM, and paper drop-box rush costs $525 if delivered by 10:00 AM. If SDAT rejects the filing, you generally have 60 days from the initial rejection to correct and resubmit before fees are retained.',
     },
     {
       title: 'Get a free EIN from the IRS',
@@ -139,7 +151,7 @@ export const maryland: StateOverride = {
     {
       title: 'Calendar the Maryland Annual Report / Personal Property Return',
       description:
-        'Every Maryland LLC must file the Annual Report / Personal Property Return with SDAT by April 15 each year, starting the calendar year after formation. The fee is $300. A 60-day extension to June 15 is available if requested before April 15, but an extension does not make the filing disappear. Late filings can trigger a $100 penalty plus interest and, if ignored, forfeiture. This is Maryland\'s biggest ongoing LLC cost, so put it on the calendar before you forget.',
+        'Every Maryland LLC must file the Annual Report / Personal Property Return with SDAT by April 15 each year, starting the calendar year after formation. The fee is $300. A 60-day extension to June 15 is available if you request it online by April 15, but an extension does not make the filing disappear. A late filing triggers a penalty of at least $30 (1-15 days late), $40 (16-30 days), or $50 (over 30 days), plus 2% of that penalty for each 30 days it stays late. If you ignore it, SDAT forfeits the LLC. This is Maryland\'s biggest ongoing LLC cost, so put it on the calendar before you forget.',
     },
   ],
   costBreakdown: [
@@ -160,7 +172,12 @@ export const maryland: StateOverride = {
     { item: 'Operating agreement', cost: 'Free if you draft it yourself', required: 'Recommended', notes: 'Internal document; not filed with SDAT' },
     { item: 'Certificate of Status', cost: '$20', required: 'Optional', notes: 'Good standing certificate' },
     { item: 'Annual Report / Personal Property Return', cost: '$300/yr', required: 'Yes', notes: 'Due April 15 each year' },
-    { item: 'Late annual report penalty', cost: '$100 + interest', required: 'If late', notes: 'Continued non-filing can lead to forfeiture' },
+    {
+      item: 'Late annual report penalty',
+      cost: '$30-$50 minimum',
+      required: 'If late',
+      notes: 'Minimum depends on days late; plus 2% of the penalty per 30 days. Non-filing leads to forfeiture',
+    },
     { item: 'Trader\'s License', cost: '$15-$800+', required: 'Conditional', notes: 'For businesses selling goods; higher caps in Baltimore City and Baltimore County' },
     { item: 'Resident agent change filing', cost: '$25', required: 'If changing', notes: 'File promptly if agent or address changes' },
     { item: 'Total (bare minimum DIY)', cost: '$100', isEmphasized: true, notes: 'Mail filing, self as agent, no optional extras' },
@@ -181,7 +198,12 @@ export const maryland: StateOverride = {
     {
       question: 'How long does it take to get a Maryland LLC?',
       answer:
-        'SDAT lists standard non-expedited mail review at 6-8 weeks. Online filings are automatically expedited and SDAT lists expedited review at 7-10 business days. Same-day rush is available if you submit by the required cutoff and pay the higher rush fee.',
+        'SDAT lists standard non-expedited mail review at 6-8 weeks. Online filings are treated as expedited and SDAT lists online expedited review at 7-14 business days. Same-day rush is available if you submit by the required cutoff and pay the higher rush fee.',
+    },
+    {
+      question: 'How do I register an LLC in Maryland?',
+      answer:
+        'Registering, forming, and filing a Maryland LLC all mean filing Articles of Organization with the State Department of Assessments and Taxation (SDAT): $100 by mail or about $154.50 online. That is the only state filing that creates the LLC. After approval, register with the Comptroller only if you will collect sales tax or run payroll, and get a county Trader\'s License if you sell goods. Then plan for the $300 Annual Report every April 15, which every Maryland LLC owes, even one with no revenue or property.',
     },
     {
       question: 'What is a Maryland resident agent?',
@@ -201,7 +223,7 @@ export const maryland: StateOverride = {
     {
       question: 'Does Maryland require an annual report for LLCs?',
       answer:
-        'Yes. Maryland LLCs file the Annual Report / Personal Property Return with SDAT by April 15 each year, starting the calendar year after formation. The fee is $300. Late filing can add a $100 penalty plus interest, and continued non-filing can lead to forfeiture.',
+        'Yes. Maryland LLCs file the Annual Report / Personal Property Return with SDAT by April 15 each year, starting the calendar year after formation. The fee is $300. Filing late adds a penalty of at least $30 to $50 depending on how late you are, and not filing leads to forfeiture of the LLC.',
     },
     {
       question: 'Does Maryland have an LLC publication requirement?',
@@ -209,9 +231,9 @@ export const maryland: StateOverride = {
         'No. Maryland does not require a newspaper publication step after LLC formation. That keeps the process simpler than states with publication rules, such as New York.',
     },
     {
-      question: 'Can I form a Maryland LLC online?',
+      question: 'How do I apply for an LLC in Maryland online?',
       answer:
-        'Yes. File through Maryland Business Express. Just know that there is no $100 online option: online filing is automatically expedited at $150 plus a 3% processing fee.',
+        'File through Maryland Business Express. Create an account, search your name, choose Articles of Organization for an LLC, and enter the principal office, your resident agent and their consent, and an authorized signature. Budget $150 plus a 3% processing fee, about $154.50, because Business Express treats online filings as expedited; SDAT lists that review at 7-14 business days. The only way to pay $100 is to mail the paper form and wait 6-8 weeks. For most founders, the extra $54.50 is worth it.',
     },
     {
       question: 'Do I need a business license for my Maryland LLC?',
@@ -246,7 +268,7 @@ export const maryland: StateOverride = {
     {
       question: 'Do Maryland LLCs need to file BOI reports?',
       answer:
-        'As of April 30, 2026, domestic Maryland LLCs are not required to file federal BOI reports under FinCEN\'s March 2025 interim final rule. Recheck FinCEN before relying on that answer because the rule is interim and could change.',
+        'No. As of September 23, 2026, domestic Maryland LLCs do not file federal BOI reports. FinCEN\'s final rule, effective August 14, 2026, made the exemption for U.S.-created companies permanent. Recheck FinCEN before filing because CTA rules have changed quickly.',
     },
     {
       question: 'How do I dissolve a Maryland LLC?',
@@ -257,9 +279,9 @@ export const maryland: StateOverride = {
   proscons: {
     pros: [
       'Maryland keeps the formation filing itself simple: no publication requirement, no member or manager names on the Articles, and a mature Maryland Business Express portal.',
-      'The $100 base formation fee is reasonable if you are not in a hurry, and online filing gives most founders a predictable 7-10 business day expedited path.',
+      'The $100 base formation fee is reasonable if you are not in a hurry, and online filing gives most founders a predictable 7-14 business day expedited path.',
       'If you live and operate in Maryland, forming in Maryland is usually cleaner than forming elsewhere and then registering back into Maryland as a foreign LLC.',
-      'The optional PTET election can be valuable for higher-income owners, especially after Maryland expanded the resident-member base for tax years beginning after December 31, 2025.',
+      'The optional PTET election can be valuable for higher-income owners, and Maryland plans to widen the resident-member base starting in tax year 2027.',
     ],
     cons: [
       'The $300 Annual Report / Personal Property Return is the biggest drawback. Maryland is cheap to start but not cheap to maintain.',

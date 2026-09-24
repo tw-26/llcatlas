@@ -3,10 +3,10 @@ import type { StateOverride } from './types';
 
 export const wyoming: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: `How to Start an LLC in Wyoming (${GUIDE_YEAR} Step-by-Step) | LLCAtlas`,
+  seoTitle: `How to Start an LLC in Wyoming (${GUIDE_YEAR}): $100 Fee, Steps & Timeline`,
   seoDescription:
-    'Form a Wyoming LLC for $100 — instant online filing, no member names on the public record, $60 annual report. Real costs, real timing, no upsells.',
-  lastUpdated: '2026-04-19',
+    'Form a Wyoming LLC for $100, active the moment you file online. The $60 annual report, the real privacy limits, and why it rarely saves money if you live elsewhere.',
+  lastUpdated: '2026-09-23',
   intro:
     'Starting an LLC in Wyoming is the cheapest serious privacy filing in the country. The state filing fee is $100, online filings are active immediately, there is no publication requirement, and the public record never lists members or managers. Wyoming uses the term registered agent — not statutory agent — so if a guide tells you to appoint a "statutory agent," it was written for Ohio. The real decisions are simple: pick a compliant name, appoint a registered agent with a physical Wyoming address, file the Articles of Organization through wyobiz, get an EIN, and plan for the one ongoing state filing — the Annual Report License Tax, $60 minimum, due the first day of your formation anniversary month.',
   whatYoullNeed:
@@ -29,6 +29,16 @@ export const wyoming: StateOverride = {
       url: 'https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online',
     },
     { label: 'File your Wyoming Annual Report', url: 'https://wyobiz.wyo.gov/Business/AnnualReport.aspx' },
+    { label: 'Wyoming Business Division fee schedule', url: 'https://sos.wyo.gov/Business/Docs/BusinessFees.pdf' },
+    { label: 'Wyoming Business Division FAQs', url: 'https://sos.wyo.gov/FAQS.aspx?root=BUS' },
+    {
+      label: 'Registered agent requirements',
+      url: 'https://sos.wyo.gov/Business/Docs/HowToFindOrBecomeARegisteredAgent.pdf',
+    },
+    {
+      label: 'Expedited filing rules and exclusions',
+      url: 'https://sos.wyo.gov/Business/Docs/HowToRequestAnExpeditedFiling.pdf',
+    },
   ],
   taxHighlights: [
     'Wyoming has no personal income tax, no corporate income tax, no franchise tax on income, no gross-receipts/Commercial Activity Tax, and no municipal income tax. If you read that Wyoming has a CAT or city income tax, that was Ohio — Wyoming has neither.',
@@ -100,7 +110,7 @@ export const wyoming: StateOverride = {
     {
       title: 'File the Articles of Organization',
       description:
-        'File online at wyobiz.wyo.gov for $100 — Visa or Mastercard only, plus a 2.4% credit-card surcharge ($1 minimum). Online filings are active immediately upon submission. Paper filing is the same $100 fee, mailed to Wyoming Secretary of State, Business Division, Herschler Building East, 122 W 25th Street, Suite 101, Cheyenne, WY 82002-0020 — but mail processing takes up to 15 business days after Cheyenne receives it. There is no expedited tier, by design. The Articles ask for the LLC name, the registered agent name and physical Wyoming address, the LLC mailing address, the principal office address, an organizer signature, a contact email, and an electronic service-of-process consent checkbox. The paper form does not ask whether the LLC is member-managed or manager-managed. The online wyobiz wizard does — pick member-managed unless you have passive investors who will not run the business. A separate Consent to Appointment by Registered Agent must accompany the filing. Wyoming does not require member or manager names on Articles, ever.',
+        'File online at wyobiz.wyo.gov for $100 — Visa or Mastercard only, plus a 2.4% credit-card surcharge ($1 minimum). Online filings are active immediately upon submission. Paper filing is the same $100 fee, mailed to Wyoming Secretary of State, Business Division, Herschler Building East, 122 W 25th Street, Suite 101, Cheyenne, WY 82002-0020 — but mail processing takes up to 15 business days after Cheyenne receives it. Since July 1, 2026, Wyoming sells expedited review ($700 next business day, $1,400 same day), but new formations are excluded because they can be filed online — and online is already instant. The Articles ask for the LLC name, the registered agent name and physical Wyoming address, the LLC mailing address, the principal office address, an organizer signature, a contact email, and an electronic service-of-process consent checkbox. The paper form does not ask whether the LLC is member-managed or manager-managed. The online wyobiz wizard does — pick member-managed unless you have passive investors who will not run the business. A separate Consent to Appointment by Registered Agent must accompany the filing. Wyoming does not require member or manager names on Articles, ever.',
     },
     {
       title: 'Get a free EIN from the IRS',
@@ -125,13 +135,18 @@ export const wyoming: StateOverride = {
     {
       title: 'Handle BOI, sales tax, and any industry licenses',
       description:
-        'Federal beneficial ownership: under FinCEN’s March 26, 2025 Interim Final Rule, domestic Wyoming LLCs are currently exempt from BOI reporting, and U.S. persons who are beneficial owners of foreign reporting companies are also exempt. The rule is interim and FinCEN has missed its self-imposed final-rule deadline, so verify before relying on it. Wyoming-registered foreign (non-U.S.) LLCs do still owe BOI within 30 days of registration. State business license: there is no general Wyoming business license. If you sell taxable goods or services, you need a sales tax license from the Wyoming Department of Revenue Excise Tax Division — $60 one-time under W.S. 39-15-106, with an exception for remote sellers registering through the SSUTA Certified Service Provider path. Industry licenses (contractor, liquor, professional boards) and city or county permits may apply on top of all of that.',
+        'Federal beneficial ownership: FinCEN’s final rule, effective August 14, 2026, made the 2025 exemption permanent — LLCs formed in the U.S., including Wyoming LLCs, do not file BOI reports, and U.S. persons are never reported as beneficial owners. Recheck fincen.gov/boi before filing in case the rule changes. Non-U.S. companies that register to do business in Wyoming still owe a BOI report within 30 days, listing only their non-U.S. owners. State business license: there is no general Wyoming business license. If you sell taxable goods or services, you need a sales tax license from the Wyoming Department of Revenue Excise Tax Division — $60 one-time under W.S. 39-15-106, with an exception for remote sellers registering through the SSUTA Certified Service Provider path. Industry licenses (contractor, liquor, professional boards) and city or county permits may apply on top of all of that.',
     },
   ],
   costBreakdown: [
     { item: 'Articles of Organization', cost: '$100', required: 'Yes', notes: 'Same online or by mail' },
-    { item: 'Online credit-card surcharge', cost: '~$3', required: 'If filing online', notes: '2.4% / $1 minimum' },
-    { item: 'Expedited filing', cost: 'N/A', required: 'Not offered', notes: 'Online is already instant' },
+    { item: 'Online credit-card surcharge', cost: '$2.40', required: 'If filing online', notes: '2.4% / $1 minimum' },
+    {
+      item: 'Expedited filing',
+      cost: 'N/A',
+      required: 'Not available for new LLCs',
+      notes: '$700/$1,400 tiers exclude formations; online is instant',
+    },
     { item: 'Name reservation', cost: '$60', required: 'Optional', notes: '120 days, mail only' },
     { item: 'Trade name (DBA) registration', cost: '$100', required: 'Optional', notes: '10 years, must be notarized' },
     { item: 'Trade name reservation', cost: '$30', required: 'Optional', notes: 'Hold a DBA before registration' },
@@ -175,8 +190,8 @@ export const wyoming: StateOverride = {
     {
       item: 'BOI (FinCEN) filing',
       cost: 'Free',
-      required: 'Currently N/A for domestic WY LLCs',
-      notes: 'March 2025 IFR exemption',
+      required: 'Not required for U.S.-formed LLCs',
+      notes: 'FinCEN final rule, effective Aug 14, 2026',
     },
     {
       item: 'Foreign LLC Certificate of Authority',
@@ -211,7 +226,17 @@ export const wyoming: StateOverride = {
     {
       question: 'How long does it take to get a Wyoming LLC?',
       answer:
-        'Online filings through wyobiz are active immediately upon submission — usually within minutes, during business hours. Mail filings take up to 15 business days after the Secretary of State receives them in Cheyenne, plus transit time, so plan on roughly three to five weeks end to end. Wyoming does not offer expedited service because online is already instant. Names that start with the letter "A" or contain special characters get pulled into manual paper review, which can slow even an online filing.',
+        'Online filings through wyobiz are active immediately upon submission — usually within minutes, during business hours. Mail filings take up to 15 business days after the Secretary of State receives them in Cheyenne, plus transit time, so plan on roughly three to five weeks end to end. Wyoming’s paid expedited service does not cover new formations, because online is already instant. Names that start with the letter "A" or contain special characters get pulled into manual paper review, which can slow even an online filing.',
+    },
+    {
+      question: 'How do I register an LLC in Wyoming?',
+      answer:
+        'Registering, forming, and filing a Wyoming LLC all mean filing Articles of Organization with the Wyoming Secretary of State for $100. Filed online on wyobiz, the LLC is active as soon as you submit. The registration people miss is the one back home: if you live and run the business in another state, that state generally treats your Wyoming LLC as a foreign LLC and requires you to register it there too, with its own fee and annual report. That is why a Wyoming LLC rarely saves money unless you actually operate in Wyoming.',
+    },
+    {
+      question: 'How do I apply for an LLC in Wyoming online?',
+      answer:
+        'File at wyobiz.wyo.gov. Pick a limited liability company and enter the name, a registered agent with a physical Wyoming address, the mailing and principal office addresses, an organizer, and a contact email. Pay $100 by Visa or Mastercard plus the 2.4% card fee ($2.40). The LLC is active the moment you submit, and you can download a free Certificate of Good Standing right away. One quirk: names that start with the letter "A" have to be filed on paper.',
     },
     {
       question: 'What is a Wyoming statutory agent?',
@@ -246,7 +271,7 @@ export const wyoming: StateOverride = {
     {
       question: 'Do Wyoming LLCs need to file BOI reports?',
       answer:
-        'Under FinCEN’s Interim Final Rule published March 26, 2025, domestic Wyoming LLCs are currently exempt from Beneficial Ownership Information reporting. The Eleventh Circuit upheld the Corporate Transparency Act on December 16, 2025, but that ruling did not reinstate domestic reporting because the IFR exemption is still in force. The rule is interim, not final, so verify the current status before relying on it. Wyoming-registered foreign (non-U.S.) LLCs do still owe BOI within 30 days of registration.',
+        'No. FinCEN issued a final rule on August 11, 2026 (effective August 14, 2026) that makes permanent the exemption first introduced in March 2025: every company formed in the U.S., including a Wyoming LLC, is exempt from Beneficial Ownership Information reporting. Recheck fincen.gov/boi before filing in case that changes. Non-U.S. companies that register to do business in Wyoming still owe a BOI report within 30 days, but they do not report U.S.-person owners.',
     },
     {
       question: 'How is a Wyoming LLC taxed?',
@@ -261,7 +286,7 @@ export const wyoming: StateOverride = {
     {
       question: 'Is Wyoming actually private?',
       answer:
-        'On the public state record, yes — more so than almost any other state. The Articles of Organization do not require member or manager names, and neither does the Annual Report. Only the organizer signature and the registered agent appear publicly. Federal BOI is a separate matter; under the March 2025 IFR, domestic Wyoming LLCs are currently exempt from disclosing beneficial owners to FinCEN. Compared with Nevada (which publishes managers and managing members on the Annual List) or Florida (which publishes the Annual Report), Wyoming’s privacy is real and structural.',
+        'On the public state record, yes — more so than almost any other state. The Articles of Organization do not require member or manager names, and neither does the Annual Report. Only the organizer signature and the registered agent appear publicly. Federal BOI is a separate matter; under FinCEN’s final rule (effective August 14, 2026), Wyoming LLCs do not disclose beneficial owners to FinCEN either. Compared with Nevada (which publishes managers and managing members on the Annual List) or Florida (which publishes the Annual Report), Wyoming’s privacy is real and structural.',
     },
     {
       question: 'Member-managed or manager-managed?',
@@ -281,7 +306,7 @@ export const wyoming: StateOverride = {
     {
       question: 'Does Wyoming offer expedited filing?',
       answer:
-        'No. The Secretary of State explicitly states that Wyoming statutes do not allow expedited filing. Online filings are already active immediately, so there is nothing to expedite.',
+        'Not for forming an LLC. Since July 1, 2026, the Secretary of State offers expedited review for $700 (next business day) or $1,400 (same day) on top of the filing fee, but filings that can be done online — including new LLC formations and annual reports — are excluded. File the Articles online and the LLC is active immediately, for $100 plus the 2.4% card fee.',
     },
     {
       question: 'Do I need a business license in Wyoming?',

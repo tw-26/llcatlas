@@ -3,10 +3,10 @@ import type { StateOverride } from './types';
 
 export const ohio: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: `How to Start an LLC in Ohio (${GUIDE_YEAR}): $99, No Annual Report | LLCAtlas`,
+  seoTitle: `How to Start an LLC in Ohio (${GUIDE_YEAR}): $99 Fee, Steps & Timeline`,
   seoDescription:
-    'File an Ohio LLC for $99 with no annual report. Real costs, statutory agent rules, and the Form 610 steps — without the upsells.',
-  lastUpdated: '2026-04-19',
+    'File an Ohio LLC (Form 610) for $99, approved in 3-7 business days, with no annual report to file after. Statutory agent rules and the add-ons to skip.',
+  lastUpdated: '2026-09-23',
   intro:
     'Starting an LLC in Ohio is relatively straightforward. The filing fee is $99, there is no annual report, and Ohio does not require newspaper publication. For most founders, the real decisions are simple: choose a compliant name, appoint a statutory agent, file Form 610, get an EIN, and decide whether handling the statutory agent role yourself is worth the privacy tradeoff.',
   whatYoullNeed:
@@ -20,14 +20,17 @@ export const ohio: StateOverride = {
   officialLinks: [
     { label: 'File your Ohio LLC online', url: 'https://bsportal.ohiosos.gov/' },
     { label: 'Check Ohio name availability', url: 'https://businesssearch.ohiosos.gov/' },
-    { label: 'Download Form 610', url: 'https://www.ohiosos.gov/globalassets/business/forms/610.pdf' },
+    { label: 'Download Form 610', url: 'https://www.ohiosos.gov/assets/610.pdf' },
+    { label: 'Ohio business filing forms and fee schedule', url: 'https://www.ohiosos.gov/business/business-filing-forms' },
+    { label: 'Required filings to keep an Ohio business active', url: 'https://www.ohiosos.gov/business/keep-your-active-status' },
+    { label: 'Ohio Commercial Activity Tax (CAT)', url: 'https://tax.ohio.gov/business/ohio-business-taxes/commercial-activities' },
     {
       label: 'Apply for an EIN with the IRS',
       url: 'https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number',
     },
   ],
   taxHighlights: [
-    'Ohio Commercial Activity Tax is the first major state-specific tax issue to watch as revenue grows. Most small LLCs will not owe CAT at current thresholds, but you still need to know it exists because it applies to gross receipts, not profit.',
+    'Ohio Commercial Activity Tax is the first major state-specific tax issue to watch as revenue grows. Since 2025 it only applies once Ohio taxable gross receipts pass $6 million, and the old annual minimum tax ended in 2024, so most small LLCs owe nothing. You still need to know it exists because it applies to gross receipts, not profit.',
     'Ohio’s municipal tax system is the bigger practical headache for many founders. City-level income taxes can apply where you live, where you work, and where the business operates, so local compliance can get messy fast.',
     'The actionable takeaway: the filing itself is simple and cheap, but once the business grows, taxes get more Ohio-specific. Keep an eye on CAT thresholds and local city tax obligations early.',
   ],
@@ -42,7 +45,7 @@ export const ohio: StateOverride = {
   filingTimeShort: '3–7 days',
   expeditedTime: '$100 -> 2-day, $200 -> 1-day, $300 -> 4-hour',
   expeditedFee: 100,
-  filingAgencyUrl: 'https://www.ohiosos.gov/businesses/',
+  filingAgencyUrl: 'https://www.ohiosos.gov/business/',
   agentTerm: 'statutory agent',
   stateTaxRate: 'Ohio CAT applies only to taxable gross receipts above $6 million, at 0.26% on the amount over that threshold.',
   stateTax:
@@ -59,7 +62,7 @@ export const ohio: StateOverride = {
     {
       title: 'Appoint a statutory agent',
       description:
-        'Ohio calls this role a statutory agent, but it is the same concept most states call a registered agent. The agent must have an Ohio street address, and PO boxes do not qualify. You can serve as your own agent if you are an Ohio resident and you are comfortable putting your address on the public filing.',
+        'Ohio calls this role a statutory agent, but it is the same concept most states call a registered agent. The agent must be an Ohio resident or a business with an Ohio address. PO boxes and virtual mailbox addresses (commercial mail receiving agencies) do not qualify, and the agent must sign an acceptance on the form. You can serve as your own agent if you are an Ohio resident and you are comfortable putting your address on the public filing. If the agent or address changes later, file the update within 30 days.',
     },
     {
       title: 'File Form 610 with the Ohio Secretary of State',
@@ -69,7 +72,7 @@ export const ohio: StateOverride = {
     {
       title: 'Wait for approval or pay for expedited filing',
       description:
-        'Standard processing is 3 to 7 business days under the official Ohio estimate. Online filings may move faster in practice, but they are not officially promised to. If speed matters, Level 1 expedite is available online, by mail, or walk-in for an extra $100 and targets 2 business days. Levels 2 and 3 are walk-in only at the Client Service Center in Columbus: $200 for 1 business day and $300 for 4-hour service if submitted by 1:00 PM. After approval, you receive the stamped Articles and the state approval record for your files.',
+        'Standard processing is 3 to 7 business days under the official Ohio estimate. Online filings may move faster in practice, but they are not officially promised to. If speed matters, Level 1 expedite costs an extra $100 and targets 2 business days, and Level 2 costs $200 for 1 business day. Level 3 costs $300 for 4-hour service if received by 1:00 PM, and it requires in-person delivery at the Client Service Center in Columbus. After approval, you receive the stamped Articles and the state approval record for your files.',
     },
     {
       title: 'Get a free EIN from the IRS',
@@ -85,17 +88,17 @@ export const ohio: StateOverride = {
   costBreakdown: [
     { item: 'Articles of Organization', cost: '$99', required: 'Yes', notes: 'One-time fee' },
     { item: 'Name reservation', cost: '$39', required: 'Optional', notes: '180-day hold' },
-    { item: 'Trade name / DBA', cost: '$39', required: 'Optional', notes: 'Different operating name' },
+    { item: 'Trade name / DBA', cost: '$39', required: 'Optional', notes: 'Different operating name; $25 renewal every 5 years' },
     { item: 'Statutory agent service', cost: '$49-$250/yr', required: 'Optional', notes: 'Self-file for $0 if eligible' },
     { item: 'Expedite Level 1', cost: '$100', required: 'Optional', notes: '2 business days' },
-    { item: 'Expedite Level 2', cost: '$200', required: 'Optional', notes: 'Walk-in only' },
-    { item: 'Expedite Level 3', cost: '$300', required: 'Optional', notes: 'Walk-in only, 4 hours' },
+    { item: 'Expedite Level 2', cost: '$200', required: 'Optional', notes: '1 business day' },
+    { item: 'Expedite Level 3', cost: '$300', required: 'Optional', notes: 'In-person delivery only, 4 hours' },
     { item: 'EIN', cost: 'Free', required: 'Recommended', notes: 'IRS direct' },
     { item: 'Operating agreement', cost: 'Free if you draft it yourself', required: 'Recommended', notes: 'Internal document' },
     { item: 'Certified copy of Articles', cost: '$5', required: 'Optional', notes: 'Sometimes requested' },
-    { item: 'Certificate of Good Standing', cost: '$5 standard / $25 long-form', required: 'Optional', notes: 'Situation-specific' },
-    { item: "Vendor's License", cost: '$50 if your business needs one', required: 'Conditional', notes: 'If selling taxable goods/services' },
-    { item: 'Ohio CAT', cost: 'Conditional', required: 'Conditional', notes: 'Only at higher revenue' },
+    { item: 'Certificate of Good Standing', cost: '$5', required: 'Optional', notes: 'Situation-specific' },
+    { item: "Vendor's License", cost: '$50 if your business needs one', required: 'Conditional', notes: 'If selling taxable goods/services; one per fixed location' },
+    { item: 'Ohio CAT', cost: '0.26% above $6M', required: 'Conditional', notes: 'Only once Ohio gross receipts pass $6 million' },
     { item: 'Total (bare minimum DIY)', cost: '$99', isEmphasized: true, notes: 'State filing only' },
     { item: 'Total (typical with service)', cost: '$148-$349 before optional extras', isEmphasized: true, notes: 'Paid agent, no expediting' },
   ],
@@ -109,6 +112,16 @@ export const ohio: StateOverride = {
       question: 'How long does it take to get an Ohio LLC?',
       answer:
         'The conservative official answer is 3 to 7 business days for standard processing. Online filings may move faster in practice, but the official estimate is still 3 to 7 business days. Ohio also offers expedited options for 2-business-day, 1-business-day, and 4-hour processing. If timing matters, pay for expedite instead of assuming a standard online filing will move fast.',
+    },
+    {
+      question: 'How do I register an LLC in Ohio?',
+      answer:
+        'Registering, forming, and filing an Ohio LLC all mean filing Articles of Organization (Form 610) with the Ohio Secretary of State for $99. That is the only state filing, and there is no annual report afterward. Other registrations depend on what you do: a $50 vendor\'s license if you sell taxable goods or services, an employer account if you hire, and a municipal income tax account with your city. None of those are part of forming the LLC, and none of them require a paid service.',
+    },
+    {
+      question: 'How do I apply for an LLC in Ohio online?',
+      answer:
+        'File through Ohio Business Central at bsportal.ohiosos.gov. Create an account, choose Articles of Organization for a domestic LLC, and enter the name, the statutory agent and their Ohio street address, the agent\'s acceptance, and the organizer signature. Pay $99 by card. Standard processing is 3 to 7 business days; $100 more gets it in 2 business days and $200 more in 1. Search the name on the Secretary of State business search first so a conflict does not get the filing rejected.',
     },
     {
       question: 'Do I need an operating agreement in Ohio?',
@@ -133,7 +146,7 @@ export const ohio: StateOverride = {
     {
       question: "What happens if I don't maintain a statutory agent?",
       answer:
-        'Ohio requires every LLC to maintain a statutory agent. If you let that lapse, you can miss legal notices and state correspondence, which creates unnecessary risk for the business. The practical takeaway is simple: if you do not want to manage that yourself, pay for a reliable service and remove the risk.',
+        'Ohio requires every LLC to maintain a statutory agent and to file an update within 30 days if the agent or address changes. If you let that lapse, you can miss legal notices and state correspondence, and the Secretary of State can cancel the LLC. The practical takeaway is simple: if you do not want to manage that yourself, pay for a reliable service and remove the risk.',
     },
     {
       question: 'Does Ohio require an annual report for an LLC?',
@@ -148,12 +161,12 @@ export const ohio: StateOverride = {
     {
       question: 'Do Ohio LLCs need to file BOI reports?',
       answer:
-        'Under the current FinCEN interim rule, domestic Ohio LLCs are exempt. This should still be rechecked before publication because federal reporting rules can change. The takeaway is to verify the current rule before you rely on an old checklist.',
+        'No. FinCEN’s final rule, effective August 14, 2026, exempts companies formed in the U.S., including Ohio LLCs, from BOI reporting. Recheck FinCEN’s BOI page before filing in case the rule changes again, and ignore any letter asking you to pay to file a BOI report.',
     },
     {
       question: 'What taxes should an Ohio LLC watch?',
       answer:
-        'For most small founders, the two big issues are local municipal income taxes and Ohio CAT if gross receipts ever rise above the current exclusion threshold. Most small LLCs will not owe CAT at the start, but they should know it exists. The practical takeaway is that Ohio is easy to form in, but tax complexity becomes more important as you scale.',
+        'For most small founders, the two big issues are local municipal income taxes and Ohio CAT if Ohio gross receipts ever rise above the $6 million exclusion. Most small LLCs will not owe CAT at the start, but they should know it exists. The practical takeaway is that Ohio is easy to form in, but tax complexity becomes more important as you scale.',
     },
     {
       question: 'Do I need a business license in Ohio?',

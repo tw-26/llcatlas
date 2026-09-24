@@ -3,12 +3,12 @@ import type { StateOverride } from './types';
 
 export const tennessee: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: `How to Start an LLC in Tennessee (${GUIDE_YEAR}): $300 Minimum | LLCAtlas`,
+  seoTitle: `How to Start an LLC in Tennessee (${GUIDE_YEAR}): $300 Fee, Steps & Timeline`,
   seoDescription:
-    'Start a Tennessee LLC through TNBear. See the $300 minimum filing fee, registered agent rules, annual report cost, and franchise tax warning.',
-  lastUpdated: '2026-05-04',
+    'File a Tennessee LLC on TNCaB for $300, often approved same day. Then the $300 annual report due April 1 and the franchise tax single-member LLCs still owe.',
+  lastUpdated: '2026-09-23',
   intro:
-    'Starting an LLC in Tennessee is fast, but it is not especially cheap. The filing fee is $50 per member, with a $300 minimum and a $3,000 maximum, and you file Articles of Organization with the Tennessee Secretary of State through TNBear. Online filings are processed immediately, there is no publication requirement, and every LLC files an Annual Report using the same $300 minimum fee formula. The big Tennessee warning: no personal income tax does not mean no entity-level tax. LLCs are generally subject to Tennessee franchise and excise tax, so budget beyond the formation filing.',
+    'Starting an LLC in Tennessee is fast, but it is not especially cheap. The filing fee is $50 per member, with a $300 minimum and a $3,000 maximum, and you file Articles of Organization with the Tennessee Secretary of State through TNCaB, the state online filing system. Online filings are processed immediately, there is no publication requirement, and every LLC files an Annual Report using the same $300 minimum fee formula. The big Tennessee warning: no personal income tax does not mean no entity-level tax. LLCs are generally subject to Tennessee franchise and excise tax, so budget beyond the formation filing.',
   whatYoullNeed:
     "To form a Tennessee LLC, you'll need a unique business name, a registered agent with a physical Tennessee street address, a principal office address, your fiscal year-end month, management structure, organizer information, member count for fee calculation, and at least $300 for the state filing fee.",
   closing:
@@ -18,14 +18,21 @@ export const tennessee: StateOverride = {
   sidebarCtaDescription:
     'If you work from home or need a reliable Tennessee street address, use a professional registered agent instead of putting your home address on the public record.',
   officialLinks: [
-    { label: 'File your Tennessee LLC online (TNBear)', url: 'https://tnbear.tn.gov/NewBiz' },
-    { label: 'Check Tennessee name availability', url: 'https://tnbear.tn.gov/Ecommerce/FilingSearch.aspx' },
+    { label: 'File your Tennessee LLC online (TNCaB)', url: 'https://tncab.tnsos.gov/' },
+    { label: 'Check Tennessee name availability', url: 'https://tncab.tnsos.gov/business-entity-search' },
     { label: 'Tennessee SOS forms and fees', url: 'https://sos.tn.gov/businesses/forms-and-fees' },
-    { label: 'File your Tennessee Annual Report (TNCaB)', url: 'https://tncab.tnsos.gov/' },
-    { label: 'Register Tennessee tax accounts (TNTAP)', url: 'https://tntap.tn.gov' },
+    {
+      label: 'File your Tennessee Annual Report (TNCaB)',
+      url: 'https://sos.tn.gov/businesses/pages/create-an-account-in-tncab-to-file-an-annual-report',
+    },
+    { label: 'Register Tennessee tax accounts (TNTAP)', url: 'https://tntap.tn.gov/eservices/' },
     {
       label: 'Tennessee franchise and excise tax',
       url: 'https://www.tn.gov/revenue/taxes/franchise---excise-tax.html',
+    },
+    {
+      label: 'Tennessee business license thresholds',
+      url: 'https://www.tn.gov/revenue/for-businesses/for-new-businesses/licenses-permits-registration.html',
     },
     {
       label: 'Apply for an EIN with the IRS',
@@ -77,11 +84,11 @@ export const tennessee: StateOverride = {
     'Tennessee uses a per-member LLC filing fee. Most 1-6 member LLCs pay the $300 minimum; larger member groups pay $50 per member up to the $3,000 cap.',
   annualReportFee: 300,
   filingTime:
-    'Online filings through TNBear are processed immediately or the same business day. Mail filings take about 3 to 5 business days after receipt, plus mail transit, so plan on roughly 2 to 3 weeks total.',
+    'Online filings through TNCaB are processed immediately or the same business day. Mail filings take about 3 to 5 business days after receipt, plus mail transit, so plan on roughly 2 to 3 weeks total.',
   filingTimeShort: 'Instant online',
   expeditedTime: null,
   expeditedFee: null,
-  filingAgency: 'Tennessee Secretary of State, Division of Business Services',
+  filingAgency: 'Tennessee Secretary of State, Division of Business and Charitable Organizations',
   filingAgencyUrl: 'https://sos.tn.gov/businesses',
   agentTerm: 'registered agent',
   stateTaxRate:
@@ -97,7 +104,7 @@ export const tennessee: StateOverride = {
     {
       title: 'Choose a Tennessee-compliant LLC name',
       description:
-        'Your name must be distinguishable on Tennessee Secretary of State records and include an approved designator such as Limited Liability Company, LLC, or L.L.C. It cannot include corporation or incorporated, and words tied to banking, trust, insurance, or similar regulated industries can require pre-approval. Search TNBear before you file. If you are ready to file soon, skip the $20 name reservation because approval of the Articles locks in the name.',
+        'Your name must be distinguishable on Tennessee Secretary of State records and include an approved designator such as Limited Liability Company, LLC, or L.L.C. It cannot include corporation or incorporated, and words tied to banking, trust, insurance, or similar regulated industries can require pre-approval. Search the TNCaB business entity database before you file. If you are ready to file soon, skip the $20 name reservation because approval of the Articles locks in the name.',
     },
     {
       title: 'Appoint a Tennessee registered agent',
@@ -105,9 +112,9 @@ export const tennessee: StateOverride = {
         'Tennessee uses the term registered agent, with a registered office for the address. The agent must have a physical Tennessee street address; PO boxes and addresses that fail deliverability checks can get the filing rejected. You can serve yourself, use another Tennessee resident, use a Tennessee-authorized business entity, or in Tennessee the LLC itself may serve as its own registered agent. The tradeoff is privacy: the registered office address becomes public.',
     },
     {
-      title: 'File Articles of Organization through TNBear',
+      title: 'File Articles of Organization through TNCaB',
       description:
-        'File Articles of Organization - Limited Liability Company, Form SS-4270, with the Tennessee Secretary of State. The cleanest path is TNBear online filing because approval is immediate or same-day. You will provide the LLC name, registered agent and registered office, principal office, fiscal year-end month, management structure, organizer signature, and member count if it affects the fee. Tennessee does not require member or manager names on the Articles, which is a real privacy advantage.',
+        'File Articles of Organization - Limited Liability Company, Form SS-4270, with the Tennessee Secretary of State. The cleanest path is TNCaB online filing because approval is immediate or same-day. You need a free TNCaB account before you can file. You will provide the LLC name, registered agent and registered office, principal office, fiscal year-end month, management structure, organizer signature, and member count if it affects the fee. Tennessee does not require member or manager names on the Articles, which is a real privacy advantage.',
     },
     {
       title: 'Pay the Tennessee LLC filing fee',
@@ -149,7 +156,7 @@ export const tennessee: StateOverride = {
       notes: 'E-check is usually cheaper, especially for larger filings',
     },
     { item: 'Expedited filing', cost: 'N/A', required: 'Not offered', notes: 'Online filing is already immediate' },
-    { item: 'Name reservation', cost: '$20', required: 'Optional', notes: '120-day hold' },
+    { item: 'Name reservation', cost: '$20', required: 'Optional', notes: '4-month hold' },
     { item: 'Assumed name / DBA', cost: '$20', required: 'Optional', notes: '5-year term' },
     {
       item: 'Registered agent service',
@@ -227,7 +234,17 @@ export const tennessee: StateOverride = {
     {
       question: 'How long does it take to get a Tennessee LLC?',
       answer:
-        'Online filings through TNBear are processed immediately or the same business day. Mail filings take about 3 to 5 business days after the state receives them, plus mail transit, so 2 to 3 weeks is a safer estimate if you mail the form.',
+        'Online filings through TNCaB are processed immediately or the same business day. Mail filings take about 3 to 5 business days after the state receives them, plus mail transit, so 2 to 3 weeks is a safer estimate if you mail the form.',
+    },
+    {
+      question: 'How do I register an LLC in Tennessee?',
+      answer:
+        'Registering, forming, and filing a Tennessee LLC all mean filing Articles of Organization (Form SS-4270) with the Secretary of State on TNCaB. The fee is $50 per member with a $300 minimum, so most LLCs pay $300. That creates the LLC but not your tax accounts. Register on TNTAP with the Department of Revenue for franchise and excise tax, which most single-member LLCs owned by an individual still owe ($100 minimum franchise tax). Once gross receipts pass $3,000, you also need a county or city business license.',
+    },
+    {
+      question: 'How do I apply for an LLC in Tennessee online?',
+      answer:
+        'Create a free account on TNCaB at tncab.tnsos.gov, the system that replaced TNBear in 2025. Search your name, start Articles of Organization for a limited liability company, and enter the registered agent and office, principal office, fiscal year-end month, management structure, and number of members. Pay the fee: $300 covers 1 to 6 members. Online filings are usually approved the same day. Tennessee has no paid expedite tier, so filing online is the fast option.',
     },
     {
       question: 'Does Tennessee offer expedited LLC filing?',
@@ -267,7 +284,7 @@ export const tennessee: StateOverride = {
     {
       question: 'How is a Tennessee LLC taxed?',
       answer:
-        'Federally, a Tennessee LLC usually defaults to pass-through taxation. At the Tennessee level, LLCs are generally subject to franchise tax and excise tax at the entity level, even though Tennessee has no personal income tax.',
+        'Federally, a Tennessee LLC usually defaults to pass-through taxation. At the Tennessee level, LLCs are generally subject to franchise tax and excise tax at the entity level, even though Tennessee has no personal income tax. That includes single-member LLCs owned by an individual: Tennessee only disregards a single-member LLC for franchise and excise tax when its owner is a corporation.',
     },
     {
       question: 'Does a Tennessee LLC need a business license?',
@@ -287,7 +304,7 @@ export const tennessee: StateOverride = {
   ],
   proscons: {
     pros: [
-      'Online filing through TNBear is immediate or same-day, so most founders do not need to wait on mail processing.',
+      'Online filing through TNCaB is immediate or same-day, so most founders do not need to wait on mail processing.',
       'Tennessee has no LLC publication requirement, which keeps formation simpler and more predictable.',
       'Member and manager names are not required on the Articles of Organization, giving Tennessee better public-record privacy than many states.',
       'Tennessee has no personal income tax, and the Hall income tax has been repealed.',

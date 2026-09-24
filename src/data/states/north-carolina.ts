@@ -3,14 +3,14 @@ import type { StateOverride } from './types';
 
 export const northCarolina: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: `How to Start an LLC in North Carolina (${GUIDE_YEAR}): $125 + April 15 Report | LLCAtlas`,
+  seoTitle: `How to Start an LLC in North Carolina (${GUIDE_YEAR}): $125 Fee, Steps & Timeline`,
   seoDescription:
-    'File a North Carolina LLC for $125. Real costs, the registered agent rule, and the $200 annual report due every April 15 most guides bury.',
-  lastUpdated: '2026-04-19',
+    'Form a North Carolina LLC for $125, approved in 5-10 business days. Then the $200 annual report due every April 15 that most guides bury, and what to skip.',
+  lastUpdated: '2026-09-23',
   intro:
     'Starting an LLC in North Carolina is straightforward but not the cheapest state to maintain. The filing fee is $125, there is no publication requirement, and you file Form L-01 with the NC Secretary of State. The thing most guides get wrong: NC uses registered agent (not statutory agent), NC has no Commercial Activity Tax (that is Ohio), and the real ongoing cost is the $200 annual report due every April 15 starting the year after you form. Decide on a compliant name, appoint a registered agent with a physical NC street address, file L-01, get an EIN, and put the April 15 annual report on the calendar.',
   whatYoullNeed:
-    "To form a North Carolina LLC, you'll need a unique business name, a registered agent with a physical NC street address, and $125 for the filing fee. NC does not publish a guaranteed turnaround for standard filings — only the expedited tiers ($100 for 24-hour, $200 for same-day) are guaranteed.",
+    "To form a North Carolina LLC, you'll need a unique business name, a registered agent with a physical NC street address, and $125 for the filing fee (plus a $2 ACH or $3 card fee if you file online). The NC Secretary of State lists 5–10 business days for new entities, but that is an estimate — only the expedited tiers ($100 for 24-hour, $200 for same-day) are guaranteed.",
   closing:
     'North Carolina is a clean, modern state to form an LLC in if you live or operate here. The Chapter 57D LLC Act is well-drafted, the $125 filing fee is mid-pack, there is no publication step, and default-taxed LLCs owe no franchise tax. The real ongoing reality is the $200 annual report every April 15 — high compared with Wyoming or Florida, but cheaper than Delaware once you account for DE’s $300 franchise tax. Two things to lock in before you file: pick a registered agent you actually trust to forward legal mail, and put April 15 on the calendar with a reminder a month out. Miss the report and NC will administratively dissolve the LLC after a 60-day cure window. If you live and operate in NC, there is no good reason to form in Wyoming or Delaware instead — you would just end up registering as a foreign LLC in NC and paying twice.',
   inlineCtaDescription:
@@ -32,6 +32,18 @@ export const northCarolina: StateOverride = {
       url: 'https://www.sosnc.gov/divisions/business_registration/annual_report',
     },
     {
+      label: 'NC annual report due dates and fees',
+      url: 'https://www.sosnc.gov/divisions/business_registration/annual_report_due_dates',
+    },
+    {
+      label: 'NC Business Registration fee schedule (incl. expedite and online fees)',
+      url: 'https://www.sosnc.gov/fees/by_title/_Business_Registration',
+    },
+    {
+      label: 'NC individual income tax rates (NCDOR)',
+      url: 'https://www.ncdor.gov/taxes-forms/individual-income-tax/tax-rate-schedules',
+    },
+    {
       label: 'Apply for an EIN with the IRS',
       url: 'https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number',
     },
@@ -39,7 +51,7 @@ export const northCarolina: StateOverride = {
   taxHighlights: [
     'NC has no Commercial Activity Tax, no gross-receipts tax, and no franchise tax on default-taxed LLCs. If a guide tells you NC has a CAT, that guide is wrong — CAT is Ohio. NC franchise tax only applies to LLCs that elect C-corp or S-corp treatment ($200 minimum).',
     'NC cities and counties are statutorily prohibited from levying income taxes on individuals or entities (N.C.G.S. § 105-247). So unlike Ohio or Michigan, you do not have a separate municipal income tax to worry about. Local taxes that do apply: business personal property tax in every county, local sales tax, and a handful of narrow privilege taxes (beer/wine, taxicab, vehicle, animal). General local business privilege license taxes were repealed July 1, 2015.',
-    'NC’s state tax trajectory is unusually founder-friendly. The 2026 individual income tax is 3.99% flat. The corporate income tax — which only hits LLCs that elect C-corp treatment — is 2.00% in 2026 and is on a statutory phase-out to 0% by 2030 under S.L. 2021-180. Eligible multi-member LLCs can also make the NC pass-through entity (PTE) election at the same 3.99% rate as a federal SALT-cap workaround.',
+    'NC’s state tax trajectory is unusually founder-friendly. The 2026 individual income tax is 3.99% flat, and S.L. 2026-41 (signed July 7, 2026) locks in cuts to 3.49% for 2027–2029, 3.24% for 2030–2032, and 2.99% from 2033. The corporate income tax — which only hits LLCs that elect C-corp treatment — is 2.00% in 2026 and is on a statutory phase-out to 0% by 2030 under S.L. 2021-180. Eligible multi-member LLCs can also make the NC pass-through entity (PTE) election at the individual rate (3.99% for 2026) as a federal SALT-cap workaround.',
   ],
   comparisonRows: [
     {
@@ -76,17 +88,17 @@ export const northCarolina: StateOverride = {
   filingFee: 125,
   annualReportFee: 200,
   filingTime:
-    'NC SOS does not publish a guaranteed turnaround for standard filings. The only guaranteed timelines are the expedited tiers — $100 for 24-hour or $200 for same-day (received before 12:00 noon).',
-  filingTimeShort: 'No published SLA',
+    'NC SOS lists 5–10 business days for new entity filings (online is faster than mail), but that is not a guarantee. The only guaranteed timelines are the expedited tiers — $100 for 24-hour or $200 for same-day (received before 12:00 noon).',
+  filingTimeShort: '5–10 business days',
   expeditedTime: '24-hour $100, same-day $200 (before 12:00 noon)',
   expeditedFee: 100,
   filingAgency: 'North Carolina Secretary of State, Business Registration Division',
   filingAgencyUrl: 'https://www.sosnc.gov/divisions/business_registration',
   agentTerm: 'registered agent',
   stateTaxRate:
-    'NC individual income tax is 3.99% flat for 2026. Corporate Income Tax is 2.00% (C-corp-elected entities only) and on a statutory phase-out to 0% by 2030. The elective Pass-Through Entity tax runs at the same 3.99% rate for eligible pass-throughs as a SALT-cap workaround.',
+    'NC individual income tax is 3.99% flat for 2026, dropping to 3.49% on January 1, 2027 under S.L. 2026-41. Corporate Income Tax is 2.00% (C-corp-elected entities only) and on a statutory phase-out to 0% by 2030. The elective Pass-Through Entity tax runs at the individual rate for eligible pass-throughs as a SALT-cap workaround.',
   stateTax:
-    'Default-taxed NC LLCs (single-member disregarded, multi-member partnership) owe no franchise tax and no state-level entity income tax. Members pick up their share at NC’s 3.99% individual rate. NC has no CAT and no municipal income tax.',
+    'Default-taxed NC LLCs (single-member disregarded, multi-member partnership) owe no franchise tax and no state-level entity income tax. Members pick up their share at NC’s 3.99% individual rate (3.49% from 2027). NC has no CAT and no municipal income tax.',
   annualReportDue: 'April 15',
   annualReportNote: '$200 paper / +$2 ACH or +$3 card online, due each year following formation',
   requiresOperatingAgreement: false,
@@ -105,12 +117,12 @@ export const northCarolina: StateOverride = {
     {
       title: 'File Articles of Organization (Form L-01) with the NC SOS',
       description:
-        'File online at sosnc.gov/online_filing/filing/creation or mail Form L-01 to the Business Registration Division at P.O. Box 29622, Raleigh, NC 27626-0622. The fee is $125 either way. Required fields: LLC name; name, address, and capacity of each organizer; the registered agent’s name; the registered office street address and county; principal office street address, county, and phone; and the organizer’s signature. NC does not require you to declare member-managed vs. manager-managed in the Articles — that is governed by your operating agreement, with member-managed as the default under § 57D-3-20. You can also set a delayed effective date up to 90 days after filing if you want the LLC to start on a specific future date. NC returns a date-stamped copy of the Articles as proof of formation; the state does not issue a separate certificate of formation.',
+        'File online at sosnc.gov/online_filing/filing/creation or mail Form L-01 to the Business Registration Division at P.O. Box 29622, Raleigh, NC 27626-0622. The state fee is $125 either way; online filings add a non-refundable $2 ACH or $3 credit-card electronic fee. Required fields: LLC name; name, address, and capacity of each organizer; the registered agent’s name; the registered office street address and county; principal office street address, county, and phone; and the organizer’s signature. NC does not require you to declare member-managed vs. manager-managed in the Articles — that is governed by your operating agreement, with member-managed as the default under § 57D-3-20. You can also set a delayed effective date up to 90 days after filing if you want the LLC to start on a specific future date. NC returns a date-stamped copy of the Articles as proof of formation; the state does not issue a separate certificate of formation.',
     },
     {
       title: 'Wait for approval or pay for expedited processing',
       description:
-        'This is where NC differs from most states: the Secretary of State does not publish a guaranteed standard turnaround. You will see secondary sources quote "3–5 business days online," but that is not an NC SOS commitment. The only guaranteed timelines are the expedited tiers, both on top of the $125 base fee: $100 for 24-hour processing or $200 for same-day if your filing is received before 12:00 noon. If timing is genuinely tight, pay for expedited — do not assume a standard online filing will move fast. After approval, you receive the file-stamped Articles back by email (online) or mail (paper).',
+        'The Secretary of State currently lists 5–10 business days for new entity filings and notes that online is always faster than mail. Treat that as an estimate, not a promise — it moves with filing volume. The only guaranteed timelines are the expedited tiers, both on top of the $125 base fee: $100 for 24-hour processing or $200 for same-day if your filing is received before 12:00 noon. If timing is genuinely tight, pay for expedited — do not assume a standard online filing will move fast. After approval, you receive the file-stamped Articles back by email (online) or mail (paper).',
     },
     {
       title: 'Get a free EIN from the IRS',
@@ -125,11 +137,16 @@ export const northCarolina: StateOverride = {
     {
       title: 'File the annual report every April 15',
       description:
-        'This is NC’s one major ongoing state filing, and it is more expensive than most states. Every NC LLC must file an annual report with the Secretary of State by April 15 of the year following formation, then every April 15 after that. The fee is $200 paper, or online for $200 plus a $2 ACH surcharge ($202 total) or $3 credit-card surcharge ($203 total). NC does not charge a traditional late fee, but missing the deadline is grounds for administrative dissolution under § 57D-6-06 after a 60-day cure window — and reinstatement costs $100 plus all delinquent reports. PLLCs are the one exception: § 57D-2-24(a) exempts them from the SOS annual report, but PLLCs typically have their own annual board registration to handle instead.',
+        'This is NC’s one major ongoing state filing, and it is more expensive than most states. Every NC LLC must file an annual report with the Secretary of State by April 15 of the year following formation, then every April 15 after that. The fee is $200 paper, or online for $200 plus a $2 ACH surcharge ($202 total) or $3 credit-card surcharge ($203 total). NC does not charge a traditional late fee, but a report more than 60 days late is grounds for administrative dissolution under § 57D-6-06. The SOS then mails a notice, and if you do not fix it within 60 days the LLC is dissolved — reinstatement costs $100 plus all delinquent reports. PLLCs are the one exception: § 57D-2-24(a) exempts them from the SOS annual report, but PLLCs typically have their own annual board registration to handle instead.',
     },
   ],
   costBreakdown: [
-    { item: 'Articles of Organization (Form L-01)', cost: '$125', required: 'Yes', notes: 'Same online or mail' },
+    {
+      item: 'Articles of Organization (Form L-01)',
+      cost: '$125',
+      required: 'Yes',
+      notes: '+$2 ACH or +$3 card if filed online',
+    },
     { item: 'Name reservation (Form BE-03)', cost: '$10', required: 'Optional', notes: '120 days, non-renewable' },
     {
       item: 'Assumed Business Name (DBA)',
@@ -148,7 +165,7 @@ export const northCarolina: StateOverride = {
     { item: 'Expedited same-day', cost: '+$200', required: 'Optional', notes: 'Received before 12:00 noon' },
     { item: 'EIN', cost: 'Free', required: 'Recommended', notes: 'IRS direct, instant online' },
     { item: 'Operating agreement', cost: 'Free if you draft it yourself', required: 'Recommended', notes: 'Internal document' },
-    { item: 'Certificate of Existence', cost: '$15', required: 'Optional', notes: 'Flat fee per SOS schedule' },
+    { item: 'Certificate of Existence', cost: '$10–$15', required: 'Optional', notes: '$10 electronic, $15 paper' },
     { item: 'Annual report (paper)', cost: '$200/yr', required: 'Yes (recurring)', notes: 'Due April 15' },
     {
       item: 'Annual report (online)',
@@ -197,12 +214,22 @@ export const northCarolina: StateOverride = {
     {
       question: 'How much does it cost to start an LLC in North Carolina?',
       answer:
-        'The state filing fee is $125, same online or by mail. If you serve as your own registered agent, that is your true day-one cost. The bigger ongoing cost to know about is the $200 annual report due every April 15 starting the year after you form. With a commercial registered agent service ($100–$300/yr), expect $225–$425 for year one and roughly $300–$500 every year after that. The takeaway: $125 is the floor to form, but plan for $200/year going forward.',
+        'The state filing fee is $125. Filing online adds a $2 ACH or $3 card electronic fee, so most people pay $127–$128. If you serve as your own registered agent, that is your true day-one cost. The bigger ongoing cost to know about is the $200 annual report due every April 15 starting the year after you form. With a commercial registered agent service ($100–$300/yr), expect $225–$425 for year one and roughly $300–$500 every year after that. The takeaway: $125 is the floor to form, but plan for $200/year going forward.',
     },
     {
       question: 'How long does it take to get an NC LLC?',
       answer:
-        'Honestly: nobody can tell you with certainty for standard filings, because the NC Secretary of State does not publish a guaranteed turnaround. You will see secondary guides quote "3–5 business days online" or "10–15 business days by mail," but those are unofficial estimates, not state commitments. The only guaranteed timelines are the expedited tiers on top of the $125 base fee: $100 for 24-hour processing or $200 for same-day if your filing is received before 12:00 noon. If timing actually matters for a contract, lease, or launch date, pay for expedited.',
+        'The NC Secretary of State currently lists 5–10 business days for new entity filings, and says online is always faster than mail. That is a posted estimate, not a guarantee, and it shifts with filing volume. The only guaranteed timelines are the expedited tiers on top of the $125 base fee: $100 for 24-hour processing or $200 for same-day if your filing is received before 12:00 noon. If timing actually matters for a contract, lease, or launch date, pay for expedited.',
+    },
+    {
+      question: 'How do I register an LLC in North Carolina?',
+      answer:
+        'Registering, forming, and filing a North Carolina LLC all mean filing Articles of Organization (Form L-01) with the Secretary of State\'s Business Registration Division for $125. That is the whole state formation step. After approval, register with the NC Department of Revenue (Form NC-BR) only if you will collect sales tax or have employees, and file an Assumed Business Name at your county Register of Deeds if you will use a different name. The recurring cost to plan for is the $200 annual report every April 15.',
+    },
+    {
+      question: 'How do I apply for an LLC in North Carolina online?',
+      answer:
+        'Use the Secretary of State\'s online filing at sosnc.gov/online_filing/filing/creation. Search your name first, then enter the organizer, registered agent, registered office street address and county, and principal office with a phone number. Pay $125 plus a $2 ACH or $3 card fee. The state currently lists 5 to 10 business days, and $100 more buys 24-hour processing. The file-stamped Articles come back by email, and that stamped copy is your proof the LLC exists; NC does not issue a separate certificate.',
     },
     {
       question: 'Do I need an operating agreement in NC?',
@@ -242,7 +269,7 @@ export const northCarolina: StateOverride = {
     {
       question: 'Do NC LLCs need to file BOI reports?',
       answer:
-        'No, not as of April 2026. Under FinCEN’s Interim Final Rule published March 26, 2025, U.S. domestic reporting companies — including NC LLCs — are exempt from Beneficial Ownership Information reporting. Only foreign reporting companies with non-U.S.-person beneficial owners must file. The IFR is still interim and a final rule has not yet been issued, so this is worth rechecking at fincen.gov/boi before you rely on the exemption.',
+        'No. FinCEN’s final rule, issued August 11, 2026 and effective August 14, 2026, makes permanent the exemption first introduced in the March 2025 interim rule: companies created in the U.S. — including NC LLCs — do not file Beneficial Ownership Information reports. Only foreign-formed companies registered to do business in the U.S. still report, and they do not report U.S.-person owners. Recheck fincen.gov/boi before filing in case the rules change again.',
     },
     {
       question: 'Does NC have a Commercial Activity Tax?',
@@ -252,7 +279,7 @@ export const northCarolina: StateOverride = {
     {
       question: 'What taxes should an NC LLC watch?',
       answer:
-        'For most small founders the picture is simple. NC’s 3.99% individual income tax (2026) flows through to LLC owners by default — single-member LLCs are disregarded, multi-member LLCs are partnerships. Eligible multi-member LLCs can elect the NC Pass-Through Entity tax at the same 3.99% rate as a federal SALT-cap workaround (irrevocable annual election on a timely-filed D-403). If the LLC elects C-corp treatment, NC corporate income tax is 2.00% in 2026 and on a statutory phase-out to 0% by 2030. Local-level items to plan for: business personal property tax in every county and any sales/use tax registration with NCDOR (Form NC-BR).',
+        'For most small founders the picture is simple. NC’s 3.99% individual income tax (2026; 3.49% from January 1, 2027) flows through to LLC owners by default — single-member LLCs are disregarded, multi-member LLCs are partnerships. Eligible multi-member LLCs can elect the NC Pass-Through Entity tax at the same individual rate as a federal SALT-cap workaround (irrevocable annual election on a timely-filed D-403). If the LLC elects C-corp treatment, NC corporate income tax is 2.00% in 2026 and on a statutory phase-out to 0% by 2030. Local-level items to plan for: business personal property tax in every county and any sales/use tax registration with NCDOR (Form NC-BR).',
     },
     {
       question: 'Do I need a business license in NC?',
@@ -289,12 +316,12 @@ export const northCarolina: StateOverride = {
     pros: [
       'Reasonable filing fee ($125) and no publication requirement, with a fully online filing path through the SOS portal.',
       'No Commercial Activity Tax, no franchise tax on default-taxed LLCs, and no municipal income tax — NC cities and counties are statutorily prohibited from levying income taxes.',
-      'Best-in-class state tax trajectory: 3.99% individual income tax in 2026, 2.00% corporate income tax (C-corp-elected only) phasing out to 0% by 2030, and an elective Pass-Through Entity tax for SALT-cap relief.',
+      'Falling state tax rates: 3.99% individual income tax in 2026 (3.49% from 2027), 2.00% corporate income tax (C-corp-elected only) phasing out to 0% by 2030, and an elective Pass-Through Entity tax for SALT-cap relief.',
       'Modern statute (Chapter 57D, effective 2014) with express charging-order exclusive-remedy language at § 57D-5-03(d) for multi-member LLCs.',
     ],
     cons: [
       'The $200 annual report fee is among the highest in the country — Wyoming’s minimum is $60, Delaware charges $0 for the LLC report (though $300 in franchise tax instead), and Florida’s is $138.75.',
-      'NC does not publish a guaranteed standard processing turnaround; only expedited filings have a real SLA, which means you cannot promise a customer or contract counterparty a specific formation date without paying for expedited.',
+      'Standard processing is a posted estimate (5–10 business days), not a guarantee; only expedited filings have a real SLA, which means you cannot promise a customer or contract counterparty a specific formation date without paying $100–$200 extra.',
       'Less privacy than Wyoming or Delaware — your registered agent address is on the Articles, and your company officials are listed on every annual report.',
       'For single-member LLCs specifically, § 57D-5-03(d) facially provides exclusive-remedy charging-order protection, but no reported NC appellate case has tested this against a creditor’s attempt to foreclose on a sole member’s interest. Asset-protection strategies that depend on SMLLC status in NC carry more uncertainty than in Wyoming, Delaware, Nevada, or Alaska.',
       'No Series LLC authorization in NC — if you need to silo multiple ventures under one umbrella, you will have to form somewhere else.',

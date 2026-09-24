@@ -3,7 +3,7 @@ import type { StateOverride } from './types';
 
 export const georgia: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: `How to Start an LLC in Georgia (${GUIDE_YEAR}): $100 Online, Steps & Timeline | LLCAtlas`,
+  seoTitle: `How to Start an LLC in Georgia (${GUIDE_YEAR}): $100 Fee, Steps & Timeline`,
   seoDescription:
     'Start a Georgia LLC for $100 online. Real steps, the $60 annual registration due by April 1, local business license rules, and when a service is worth it.',
   lastUpdated: '2026-09-23',
@@ -196,6 +196,16 @@ export const georgia: StateOverride = {
       question: 'Where do I file a Georgia LLC?',
       answer:
         'With the Georgia Secretary of State, Corporations Division, online through the eCorp system at ecorp.sos.ga.gov. You can also file by mail or in person at 2 Martin Luther King Jr. Dr. SE, Suite 313, West Tower, Atlanta.',
+    },
+    {
+      question: 'How do I register an LLC in Georgia?',
+      answer:
+        'Registering, forming, and filing a Georgia LLC all mean filing Articles of Organization with the Secretary of State\'s Corporations Division: $100 online through eCorp or $110 by mail. That creates the LLC. Georgia has no statewide business license, so the next registration is local: an occupation tax certificate from your city, or your county if you are in an unincorporated area. Register with the Georgia Department of Revenue if you will collect sales tax or have employees. Then file the $60 annual registration between January 1 and April 1 each year.',
+    },
+    {
+      question: 'How do I apply for an LLC in Georgia online?',
+      answer:
+        'Create an account at ecorp.sos.ga.gov, choose "create or register a business," and select domestic limited liability company. Enter the name, principal office mailing address, registered agent, organizer, and an email address, then pay $100 by card. Online filings take about 7 business days, or pay $100 more for two-business-day processing. Online is $10 cheaper and about twice as fast as mailing Form CD 030, so there is no reason to file on paper.',
     },
     {
       question: 'What is the formation document called in Georgia?',

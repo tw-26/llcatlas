@@ -3,10 +3,10 @@ import type { StateOverride } from './types';
 
 export const pennsylvania: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: `How to Start an LLC in Pennsylvania (${GUIDE_YEAR}): $125 Filing Fee | LLCAtlas`,
+  seoTitle: `How to Start an LLC in Pennsylvania (${GUIDE_YEAR}): $125 Fee, Steps & Timeline`,
   seoDescription:
-    'Start a Pennsylvania LLC for $125. Clear steps, registered office rules, annual report timing, publication rules, and PA-specific tax traps.',
-  lastUpdated: '2026-04-29',
+    'File a Pennsylvania LLC for $125, approved in about 3-5 business days. Then the new $7 annual report due September 30, registered office rules, and local taxes.',
+  lastUpdated: '2026-09-23',
   intro:
     'Starting an LLC in Pennsylvania is not hard, but the terminology trips people up. You do not file Articles of Organization with a Secretary of State, and you do not appoint a statutory agent. You file a Certificate of Organization with the Pennsylvania Department of State, list a Pennsylvania registered office or Commercial Registered Office Provider, attach the New Entity Docketing Statement, and pay the $125 filing fee. The clean path is simple: pick a compliant name, decide whether to use your own address or a CROP for privacy, file through Business Filing Services, get an EIN, write an operating agreement, and calendar the new $7 annual report due every September 30.',
   whatYoullNeed:
@@ -37,8 +37,20 @@ export const pennsylvania: StateOverride = {
       url: 'https://www.pa.gov/agencies/dos/programs/business/fees-and-payments',
     },
     {
+      label: 'Pennsylvania expedited filing services',
+      url: 'https://www.pa.gov/agencies/dos/programs/business/information-services/expedited-services',
+    },
+    {
       label: 'Commercial Registered Office Provider list',
       url: 'https://www.pa.gov/agencies/dos/programs/business/information-services/commercial-registered-office-providers',
+    },
+    {
+      label: 'Pennsylvania Personal Income Tax (Department of Revenue)',
+      url: 'https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/personal-income-tax',
+    },
+    {
+      label: 'FinCEN beneficial ownership (BOI) reporting',
+      url: 'https://www.fincen.gov/boi',
     },
     {
       label: 'Apply for an EIN with the IRS',
@@ -48,7 +60,7 @@ export const pennsylvania: StateOverride = {
   taxHighlights: [
     'Pennsylvania has no Commercial Activity Tax. That is an Ohio issue, not a Pennsylvania LLC issue. Default-taxed LLCs are usually pass-throughs, so members report income on their own returns and Pennsylvania Personal Income Tax applies at a flat 3.07%. If the LLC elects C-corp taxation, Pennsylvania Corporate Net Income Tax applies instead of the simple pass-through picture.',
     'The state filing is cheap; the local tax layer is where Pennsylvania gets annoying. Many municipalities and school districts impose local Earned Income Tax, and employers often deal with Local Services Tax. If you operate in Philadelphia, plan separately for city-level rules like BIRT, Net Profits Tax, and the Commercial Activity License. If you operate in Pittsburgh or another municipality with local business taxes, check local registration before you invoice customers.',
-    'As of April 2026, domestic Pennsylvania LLCs owned by U.S. persons generally do not file federal BOI reports under FinCEN’s interim final rule. Because CTA rules have moved quickly, recheck fincen.gov/boi within 48 hours of publishing or filing if BOI status matters to your compliance checklist.',
+    'Pennsylvania LLCs do not file federal BOI reports. FinCEN’s final rule, effective August 14, 2026, permanently exempts all U.S.-formed companies. Because CTA rules have moved quickly, recheck fincen.gov/boi before filing if BOI status matters to your compliance checklist.',
   ],
   comparisonRows: [
     {
@@ -85,10 +97,10 @@ export const pennsylvania: StateOverride = {
   filingFee: 125,
   annualReportFee: 7,
   filingTime:
-    'Online filings through Business Filing Services are commonly framed as a 3-7 business day standard estimate, but the Department of State posts a live processing date at file.dos.pa.gov. Check that banner before filing for the current turnaround. Mail filings can take longer because of processing time plus transit.',
-  filingTimeShort: '3-7 days',
+    'The Department of State says a typical filing is processed in 3-5 business days, and it reported average business-filing processing of about one business day through 2025. The logged-in Business Filing Services dashboard shows the past week’s average, so check it before you file. Mail filings take longer because of transit.',
+  filingTimeShort: '3-5 days',
   expeditedTime:
-    'In-person expedited service in Harrisburg: same-day $100 if received before 10 a.m., 3-hour $300 if received before 2 p.m., 1-hour $1,000 if received before 4 p.m.',
+    'Expedited service, requested online through Business Filing Services or in person (never by mail): same-day $100 if received before 10 a.m., 3-hour $300 if received before 2 p.m., 1-hour $1,000 if received before 4 p.m.',
   expeditedFee: 100,
   filingAgency: 'Pennsylvania Department of State, Bureau of Corporations and Charitable Organizations',
   filingAgencyUrl: 'https://www.pa.gov/agencies/dos/programs/business',
@@ -123,9 +135,9 @@ export const pennsylvania: StateOverride = {
         'This is the step easy guides bury. Pennsylvania requires the New Entity Docketing Statement, Form DSCB:15-134A, with the Certificate of Organization. There is no separate fee. It collects the business name, tax-report contact, EIN if you already have one, business activity, and fiscal year end. Online filings build this into the workflow. If you file by mail, attach the docketing statement or your filing can be rejected.',
     },
     {
-      title: 'Wait for approval, or use in-person expedite if timing matters',
+      title: 'Wait for approval, or pay to expedite if timing matters',
       description:
-        'For a normal online filing, use 3-7 business days as a conservative planning estimate and check file.dos.pa.gov for the Department of State live processing date before you submit. Mail filings take longer because of mail transit. If timing is critical for a contract, lease, or launch, Pennsylvania offers in-person expedited service in Harrisburg: same-day for $100, 3-hour for $300, or 1-hour for $1,000, with cutoff times. Do not assume a standard filing will clear by a specific date unless the portal backlog supports it.',
+        'For a normal online filing, plan on 3-5 business days, the Department of State’s typical processing time. Recent averages have been closer to one business day, and the Business Filing Services dashboard shows the past week’s average. Mail filings take longer because of mail transit. If timing is critical for a contract, lease, or launch, you can request expedited service online or in person (not by mail): same-day for $100, 3-hour for $300, or 1-hour for $1,000, on top of the $125 filing fee and with cutoff times. The expedite fee is nonrefundable even if the filing is rejected, so double-check the form first.',
     },
     {
       title: 'Get a free EIN from the IRS',
@@ -179,19 +191,19 @@ export const pennsylvania: StateOverride = {
       item: 'Expedited same-day',
       cost: '+$100',
       required: 'Optional',
-      notes: 'In-person in Harrisburg, received before 10 a.m.',
+      notes: 'Online or in person, received before 10 a.m.',
     },
     {
       item: 'Expedited 3-hour',
       cost: '+$300',
       required: 'Optional',
-      notes: 'In-person in Harrisburg, received before 2 p.m.',
+      notes: 'Online or in person, received before 2 p.m.',
     },
     {
       item: 'Expedited 1-hour',
       cost: '+$1,000',
       required: 'Optional',
-      notes: 'In-person in Harrisburg, received before 4 p.m.',
+      notes: 'Online or in person, received before 4 p.m.',
     },
     { item: 'EIN', cost: 'Free', required: 'Recommended', notes: 'Get it directly from the IRS' },
     {
@@ -220,15 +232,15 @@ export const pennsylvania: StateOverride = {
     },
     {
       item: 'Change of registered office',
-      cost: 'See fee schedule',
+      cost: '$5',
       required: 'Only when changing',
-      notes: 'Use the official PA fee schedule until the current fee is confirmed',
+      notes: 'Filed with the Department of State',
     },
     {
       item: 'Certified copies',
-      cost: 'See fee schedule',
+      cost: '$55 + $3/page',
       required: 'Optional',
-      notes: 'Verify current Department of State fees before ordering',
+      notes: 'Plain copies are $15 + $3/page',
     },
     {
       item: 'Total (bare-minimum DIY, year 1)',
@@ -263,7 +275,17 @@ export const pennsylvania: StateOverride = {
     {
       question: 'How long does it take to get a Pennsylvania LLC?',
       answer:
-        'Use 3-7 business days as a conservative planning estimate for online filings, then check the live processing date at file.dos.pa.gov before you file. The Department of State publishes the current receipt-to-processing gap there. Mail filings can take longer because of transit. If timing matters, Pennsylvania offers in-person expedited service in Harrisburg for same-day, 3-hour, or 1-hour processing at extra cost.',
+        'Plan on 3-5 business days for an online filing. That is the Department of State’s typical processing time, and its reported averages have recently been closer to one business day. Mail filings take longer because of transit. If timing matters, you can request expedited service online or in person: same-day for $100, 3-hour for $300, or 1-hour for $1,000, on top of the $125 filing fee.',
+    },
+    {
+      question: 'How do I register an LLC in Pennsylvania?',
+      answer:
+        'Registering, forming, and filing a Pennsylvania LLC all mean filing a Certificate of Organization (Form DSCB:15-8821) plus the Docketing Statement with the Department of State for $125. Pennsylvania calls it a Certificate of Organization, not Articles of Organization. After approval, register on myPATH only if you will collect sales tax or have employees, and check your city for local registration; Philadelphia businesses need a Commercial Activity License, which is free. Then file the $7 annual report by September 30 each year, starting the year after you form.',
+    },
+    {
+      question: 'How do I apply for an LLC in Pennsylvania online?',
+      answer:
+        'File through Business Filing Services at file.dos.pa.gov. Sign in or create an account, search your name, choose Certificate of Organization for a domestic LLC, and enter the registered office address or your commercial registered office provider (CROP), the organizer, and the effective date. Pay $125 by card. Plan on 3 to 5 business days, though recent averages have been closer to one. Same-day review costs $100 more if you file before the cutoff. Leave the restricted professional company and benefit company boxes unchecked unless they truly apply.',
     },
     {
       question: 'Does Pennsylvania require a registered agent for an LLC?',
@@ -293,7 +315,7 @@ export const pennsylvania: StateOverride = {
     {
       question: 'What happens if I miss the Pennsylvania annual report?',
       answer:
-        'For the transition years, Pennsylvania is phasing in enforcement. The consumer-relevant rule is this: beginning with 2027 reports, an LLC that fails to file within six months of the September 30 deadline can be administratively dissolved and can lose protection of its name. Put a recurring reminder on your calendar as soon as the LLC is approved.',
+        'For the transition years, Pennsylvania is phasing in enforcement. The consumer-relevant rule is this: beginning with 2027 reports, an LLC that fails to file within six months of the September 30 deadline can be administratively dissolved and can lose protection of its name. Reinstatement costs $35 online plus $15 for each missed annual report, and if another business takes your name in the meantime, you have to pick a new one. Put a recurring reminder on your calendar as soon as the LLC is approved.',
     },
     {
       question: 'Does Pennsylvania require newspaper publication for an LLC?',
@@ -308,7 +330,7 @@ export const pennsylvania: StateOverride = {
     {
       question: 'Do Pennsylvania LLCs need BOI reports?',
       answer:
-        'Generally no, as of April 2026. Under FinCEN’s interim final rule published in March 2025, domestic U.S. entities, including Pennsylvania LLCs, and their U.S.-person beneficial owners are exempt from BOI reporting. Because the rule is still a moving federal compliance issue, recheck fincen.gov/boi before publishing or relying on this for a live filing.',
+        'No. FinCEN’s final rule, issued August 11, 2026 and effective August 14, 2026, permanently exempts all companies formed in the United States, including Pennsylvania LLCs, from BOI reporting. Only foreign-formed companies registered to do business in the U.S. still report. The Pennsylvania annual report is a separate state filing and is still required. Recheck fincen.gov/boi before filing if BOI status matters to your compliance checklist.',
     },
     {
       question: 'Does Pennsylvania have a Commercial Activity Tax?',

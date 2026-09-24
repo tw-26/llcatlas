@@ -3,16 +3,16 @@ import type { StateOverride } from './types';
 
 export const michigan: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: `How to Start an LLC in Michigan (${GUIDE_YEAR}): $50 + LARA Steps | LLCAtlas`,
+  seoTitle: `How to Start an LLC in Michigan (${GUIDE_YEAR}): $50 Fee, Steps & Timeline`,
   seoDescription:
-    'Form a Michigan LLC for $50 through LARA. Real costs, the resident agent rule, and the $25 Annual Statement most guides get wrong.',
-  lastUpdated: '2026-04-19',
+    'Form a Michigan LLC with LARA for $50, approved in up to 10 business days. Then the $25 Annual Statement due February 15, resident agent rules, and what to skip.',
+  lastUpdated: '2026-09-23',
   intro:
     'Starting an LLC in Michigan is cheaper and cleaner than most states. The filing fee is $50, there is no publication requirement, and filing goes through the MiBusiness Registry Portal at LARA — not the Secretary of State. One thing to know up front: Michigan calls this role a resident agent, not a statutory agent or a registered agent. The real decisions are simple: pick a compliant name, appoint a resident agent with a Michigan street address, file Form CSCL/CD-700, get an EIN, and plan for the one ongoing filing Michigan actually requires — the $25 Annual Statement every February 15.',
   whatYoullNeed:
-    "To form a Michigan LLC, you'll need a unique business name, a resident agent with a physical Michigan street address, and $50 for the filing fee. Most online filings approve in about 7 to 10 business days.",
+    "To form a Michigan LLC, you'll need a unique business name, a resident agent with a physical Michigan street address, and $50 for the filing fee. LARA says standard review can take up to 10 business days.",
   closing:
-    'Michigan is one of the cheaper, cleaner states to form an LLC in. The $50 filing fee is low, there is no publication step, and the MiBusiness Registry Portal makes the filing itself genuinely quick. If you live and operate in Michigan, there is no good reason to complicate this by forming in Wyoming or Delaware. Two things matter after formation. First, the $25 Annual Statement every February 15 — miss it and Michigan adds a $50 late penalty on top of the fee; miss it two years in a row and the LLC loses good standing and your name becomes available to anyone. Second, if you live or work in one of Michigan’s 24 municipal income tax cities (Detroit, Grand Rapids, Lansing, and others), treat the local tax as a separate problem to plan for. If you work from home, use a professional resident agent service instead of putting your own address on the record.',
+    'Michigan is one of the cheaper, cleaner states to form an LLC in. The $50 filing fee is low, there is no publication step, and the MiBusiness Registry Portal makes the filing itself genuinely quick. If you live and operate in Michigan, there is no good reason to complicate this by forming in Wyoming or Delaware. Two things matter after formation. First, the $25 Annual Statement every February 15. There is no late fee for a standard LLC, but miss it two years in a row and LARA sends a notice; 60 days later the LLC falls out of good standing, your name becomes available to anyone, and getting back costs $50 plus every missed $25 statement. Second, if you live or work in one of Michigan’s 24 municipal income tax cities (Detroit, Grand Rapids, Lansing, and others), treat the local tax as a separate problem to plan for. If you work from home, use a professional resident agent service instead of putting your own address on the record.',
   inlineCtaDescription:
     'Your resident agent’s name and address are public and permanent in the Michigan record. If you work from home, travel often, or just do not want your address tied to a business filing, use a professional resident agent. It is the cleanest way to protect your privacy and the most reliable way to avoid missing a legal notice.',
   sidebarCtaDescription:
@@ -25,13 +25,33 @@ export const michigan: StateOverride = {
       url: 'https://www.michigan.gov/lara/-/media/Project/Websites/lara/cscl/NonImages_new/Corps/forms/llc/700-0725.pdf',
     },
     {
+      label: 'LARA Corporations Division filing fee schedule',
+      url: 'https://www.michigan.gov/lara/-/media/Project/Websites/lara/cscl/Folder6/Filing_Fees.pdf',
+    },
+    {
+      label: 'Annual Statement due date, fee, and consequences (LARA)',
+      url: 'https://www.michigan.gov/lara/bureau-list/cscl/corps/michigan-business-roadmap/annual-reports-and-annual-statements',
+    },
+    {
+      label: 'Michigan LLC Act filing fees (MCL 450.5101)',
+      url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-450-5101',
+    },
+    {
+      label: 'Michigan 2026 individual income tax rate (Treasury)',
+      url: 'https://www.michigan.gov/treasury/reference/taxpayer-notices/2026/04/15/425-income-tax-rate-for-individuals-and-fiduciaries-in-2026-tax-year',
+    },
+    {
+      label: 'Michigan cities that levy an income tax (Treasury)',
+      url: 'https://www.michigan.gov/taxes/citytax/what-cities-impose-an-income-tax',
+    },
+    {
       label: 'Apply for an EIN with the IRS',
       url: 'https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number',
     },
   ],
   taxHighlights: [
     'Michigan does not have a Commercial Activity Tax or any gross-receipts tax. If you have read that Michigan has a CAT, that was Ohio. Michigan’s state business taxes are the 6% Corporate Income Tax (C-corps only) and the elective Flow-Through Entity tax for eligible pass-throughs. Most small LLCs default to pass-through and simply pick up Michigan’s 4.25% individual income tax at the owner level.',
-    'The real Michigan tax complexity is local. 24 Michigan cities levy their own income tax, including Detroit (2.4% resident / 1.2% nonresident) and Grand Rapids (1.5% resident / 0.75% nonresident). Pass-through LLC members owe city tax where they live or work, and Michigan’s credit for tax paid to another city is capped at 0.5%. If you or your business touches a city with income tax, build local filings into your compliance plan from day one.',
+    'The real Michigan tax complexity is local. 24 Michigan cities levy their own income tax, including Detroit (2.4% resident / 1.2% nonresident) and Grand Rapids (1.5% resident / 0.75% nonresident). Pass-through LLC members owe city tax where they live or work, and the credit your home city gives for tax paid to another city is capped at your home city’s nonresident rate (0.5% in most cities). If you or your business touches a city with income tax, build local filings into your compliance plan from day one.',
     'Actionable takeaway: if you only operate outside the 24 city-tax jurisdictions, Michigan runs easy and cheap. If you touch Detroit, Grand Rapids, Lansing, or any other city with a local income tax, treat the city filing as a real obligation — not an afterthought — and coordinate it with your federal and state returns.',
   ],
   comparisonRows: [
@@ -68,8 +88,8 @@ export const michigan: StateOverride = {
   ],
   filingFee: 50,
   annualReportFee: 25,
-  filingTime: '~7 to 10 business days',
-  filingTimeShort: '7–10 days',
+  filingTime: 'Up to 10 business days (LARA posts a live "processed through" date)',
+  filingTimeShort: 'Up to 10 days',
   expeditedTime: '24-hour $50, same-day $100, 2-hour $500, 1-hour $1,000',
   expeditedFee: 50,
   filingAgency: 'Michigan Department of Licensing and Regulatory Affairs (LARA), Corporations Division',
@@ -102,7 +122,7 @@ export const michigan: StateOverride = {
     {
       title: 'Wait for approval or pay for expedited processing',
       description:
-        'Standard online processing is about 7 to 10 business days. If you need it faster, Michigan’s expedited tiers sit on top of the $50 base fee: 24-hour review for +$50, same-day for +$100, 2-hour for +$500, and 1-hour for +$1,000. After approval, LARA returns stamped Articles to the registered office and gives you a Customer ID Number and PIN for future filings through MiBRP.',
+        'LARA says standard review can take up to 10 business days, and the Business Entity Search shows a live "processed through" date so you can see the current backlog. If you need it faster, Michigan’s expedited tiers sit on top of the $50 base fee: 24-hour review for +$50, same-day for +$100, 2-hour for +$500, and 1-hour for +$1,000. After approval, LARA returns stamped Articles to the registered office and gives you a Customer ID Number and PIN for future filings through MiBRP.',
     },
     {
       title: 'Get a free EIN from the IRS',
@@ -117,7 +137,7 @@ export const michigan: StateOverride = {
     {
       title: 'File the Annual Statement every February 15',
       description:
-        'This is Michigan’s one ongoing state filing, and it is the thing generic guides get wrong. It is called an Annual Statement — not an annual report — and it is filed online only through MiBRP using Form CSCL/CD-2700. The fee is $25. Miss the February 15 deadline and Michigan adds a $50 late penalty. Miss it for two years in a row and the LLC loses good standing; your name becomes available for someone else to use, and getting back to good standing requires a restoration filing and all missed fees. One useful exception: if you form after September 30, you skip the immediately following February 15 filing.',
+        'This is Michigan’s one ongoing state filing, and it is the thing generic guides get wrong. It is called an Annual Statement — not an annual report — and it is filed online only through MiBRP using Form CSCL/CD-2700. The fee is $25. Standard LLCs do not pay a late fee (the $50 late penalty applies only to professional PLLCs), but do not treat that as slack: miss it two years in a row and LARA sends a notice, and if you do not catch up within 60 days the LLC is not in good standing. Your name becomes available for someone else to use, you cannot get a good standing certificate, and getting back requires a $50 Certificate of Restoration plus $25 for every missed year. One useful exception: if you form after September 30, you skip the immediately following February 15 filing. Under current law the fee is scheduled to drop to $15 for statements paid after September 30, 2027.',
     },
   ],
   costBreakdown: [
@@ -133,7 +153,7 @@ export const michigan: StateOverride = {
     { item: 'Operating agreement', cost: 'Free if you draft it yourself', required: 'Recommended', notes: 'Internal document' },
     { item: 'Certificate of Good Standing', cost: '$10', required: 'Optional', notes: 'Situation-specific' },
     { item: 'Annual Statement (Form CSCL/CD-2700)', cost: '$25/yr', required: 'Yes (recurring)', notes: 'Due February 15' },
-    { item: 'Annual Statement late penalty', cost: '$50', required: 'Only if late', notes: 'Added to $25 fee' },
+    { item: 'Certificate of Restoration of Good Standing (Form CSCL/CD-770)', cost: '$50 + $25 per missed year', required: 'Only if 2+ years missed', notes: 'No late fee for standard LLCs' },
     { item: 'Foreign LLC registration (Form CSCL/CD-760)', cost: '$50', required: 'Only out-of-state LLCs', notes: 'Certificate of Authority' },
     { item: 'Total (bare minimum DIY)', cost: '$50', isEmphasized: true, notes: 'State filing only' },
     { item: 'Total (typical with service)', cost: '$149-$299 first year', isEmphasized: true, notes: 'Paid agent, no expediting' },
@@ -147,7 +167,17 @@ export const michigan: StateOverride = {
     {
       question: 'How long does it take to get a Michigan LLC?',
       answer:
-        'Standard online processing through the MiBusiness Registry Portal is about 7 to 10 business days. If timing matters, Michigan offers expedited tiers on top of the $50 base fee: 24-hour for an extra $50, same-day for $100, 2-hour for $500, and 1-hour for $1,000. Mail filings can take noticeably longer because of transit and receipts processing — if you are in a hurry, do not mail it.',
+        'LARA says standard review can take up to 10 business days, and the MiBusiness Registry Business Entity Search posts a live "processed through" date that tells you how current the queue is. If timing matters, Michigan offers expedited tiers on top of the $50 base fee: 24-hour for an extra $50, same-day for $100, 2-hour for $500, and 1-hour for $1,000. Mail filings can take noticeably longer because of transit and receipts processing — if you are in a hurry, do not mail it.',
+    },
+    {
+      question: 'How do I register an LLC in Michigan?',
+      answer:
+        'Registering, forming, and filing a Michigan LLC all mean filing Articles of Organization (Form CSCL/CD-700) with LARA\'s Corporations Division, not the Secretary of State. The fee is $50, and that is the whole state formation step. After approval, register with the Michigan Department of Treasury only if you will collect sales tax or have employees; Michigan has no general state business license. If you will operate under a different name, register an assumed name with LARA for $25.',
+    },
+    {
+      question: 'How do I apply for an LLC in Michigan online?',
+      answer:
+        'File on the MiBusiness Registry Portal at mibusinessregistry.lara.state.mi.us, which replaced COFS in June 2025. Create an account, search your name, start Articles of Organization for a domestic LLC, and enter the resident agent, the registered office street address, and an organizer signature. Add a manager-managed statement only if you want one; otherwise Michigan defaults to member-managed. Pay $50. Standard review takes up to 10 business days, and 24-hour review costs $50 more. Keep the Customer ID and PIN you get after approval; you need them for every Annual Statement.',
     },
     {
       question: 'Do I need an operating agreement in Michigan?',
@@ -177,7 +207,7 @@ export const michigan: StateOverride = {
     {
       question: 'Does Michigan require an annual report for an LLC?',
       answer:
-        'Not an annual report — an Annual Statement. That is Michigan’s own terminology, and the distinction matters because a lot of generic LLC guides wrongly say Michigan has no annual filing. For a standard LLC, you file Form CSCL/CD-2700 every year by February 15, the fee is $25, and as of the 2025 portal change, it is filed online only through MiBRP. Miss the deadline and Michigan adds a $50 late penalty on top of the $25 fee.',
+        'Not an annual report — an Annual Statement. That is Michigan’s own terminology, and the distinction matters because a lot of generic LLC guides wrongly say Michigan has no annual filing. For a standard LLC, you file Form CSCL/CD-2700 every year by February 15, the fee is $25, and as of the 2025 portal change, it is filed online only through MiBRP. There is no late fee for a standard LLC, but miss two years in a row and the LLC falls out of good standing 60 days after LARA’s notice. Restoring it costs $50 plus $25 for every missed year.',
     },
     {
       question: 'Does Michigan require newspaper publication for an LLC?',
@@ -187,7 +217,7 @@ export const michigan: StateOverride = {
     {
       question: 'Do Michigan LLCs need to file BOI reports?',
       answer:
-        'Under the FinCEN interim final rule published March 26, 2025, domestic U.S. LLCs — including Michigan LLCs — are exempt from Beneficial Ownership Information reporting. The rule is still interim and could change, so this is worth rechecking before publication on any checklist that was written before April 2025.',
+        'No. FinCEN’s final rule, effective August 14, 2026, made permanent the exemption first issued in March 2025: companies created in the U.S. — including Michigan LLCs — do not file Beneficial Ownership Information reports. Ignore any checklist written before 2025 that says otherwise, and recheck FinCEN’s BOI page before filing in case the rules change again.',
     },
     {
       question: 'Does Michigan have a Commercial Activity Tax?',
@@ -232,7 +262,7 @@ export const michigan: StateOverride = {
       'Online filing through the MiBusiness Registry Portal is fast, and Michigan’s expedited tiers go all the way down to 1-hour processing if you need to form immediately.',
     ],
     cons: [
-      'Michigan does require an annual filing. It is called an Annual Statement and it is $25 every February 15. The "Michigan has no annual report" claim in some guides is technically narrow and practically misleading — miss the deadline and you owe a $50 late penalty.',
+      'Michigan does require an annual filing. It is called an Annual Statement and it is $25 every February 15. The "Michigan has no annual report" claim in some guides is technically narrow and practically misleading — miss two years and the LLC falls out of good standing and loses its hold on its name.',
       '24 Michigan cities levy their own income tax, and Detroit and Grand Rapids in particular can create real compliance overhead for pass-through LLC owners who live or work in those cities.',
       'Michigan does not authorize Series LLCs, so if you need to silo multiple ventures under one umbrella, you will have to form somewhere else.',
     ],

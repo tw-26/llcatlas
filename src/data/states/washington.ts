@@ -3,12 +3,12 @@ import type { StateOverride } from './types';
 
 export const washington: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: `How to Start an LLC in Washington (${GUIDE_YEAR}): Costs + Steps | LLCAtlas`,
+  seoTitle: `How to Start an LLC in Washington (${GUIDE_YEAR}): $200 Fee, Steps & Timeline`,
   seoDescription:
-    'Start a Washington LLC with the real filing fee, registered agent rules, annual report, B&O tax, and state business license steps.',
-  lastUpdated: '2026-05-04',
+    'File a Washington LLC for $200 online, approved in about 5 business days. Then the $70 annual report, B&O tax, and state business license most guides skip.',
+  lastUpdated: '2026-09-23',
   intro:
-    'Starting an LLC in Washington is straightforward, but it is not a one-and-done state. The Certificate of Formation is filed with the Washington Secretary of State, Corporations & Charities Division, for $180 by mail or $200 online when the online processing fee is included. Washington has no publication requirement, but it does require an Initial Report within 120 days, a $70 Annual Report every year, and a state business licensing/tax setup through the Department of Revenue for most operating businesses. The practical warning: the filing is easy; the B&O gross receipts tax and public registered agent address are what first-time founders usually underestimate.',
+    'Starting an LLC in Washington is straightforward, but it is not a one-and-done state. The Certificate of Formation is filed with the Washington Secretary of State, Corporations & Charities Division, for $180 by mail or $200 online once the $20 online processing fee is included. Washington has no publication requirement, but it does require an Initial Report within 120 days, a $70 Annual Report every year, and a state business licensing/tax setup through the Department of Revenue for most operating businesses. The practical warning: the filing is easy; the B&O gross receipts tax and public registered agent address are what first-time founders usually underestimate.',
   whatYoullNeed:
     "To form a Washington LLC, you will need a distinguishable LLC name, a registered agent with a physical Washington street address, a principal office address, required email addresses for the registered agent and principal office, executor information, governor information if you file the Initial Report with formation, and $180 by mail or $200 online.",
   closing:
@@ -35,18 +35,33 @@ export const washington: StateOverride = {
       label: 'Washington annual report information',
       url: 'https://www.sos.wa.gov/corporations-charities/business-entities/maintain-business-compliance/annual-reports',
     },
+    {
+      label: 'CCFS processing times and online fees',
+      url: 'https://www.sos.wa.gov/corporations-charities/frequently-asked-questions-faqs/corporations-charities-filing-system-tools-resources',
+    },
+    { label: 'Washington SOS fees rule (WAC 434-112-085)', url: 'https://app.leg.wa.gov/wac/default.aspx?cite=434-112-085' },
     { label: 'Apply for a Washington business license', url: 'https://dor.wa.gov/open-business/apply-business-license' },
+    {
+      label: 'Business license processing fees',
+      url: 'https://dor.wa.gov/open-business/apply-business-license/variable-business-license-processing-fees',
+    },
+    {
+      label: 'Washington B&O tax rates by classification',
+      url: 'https://dor.wa.gov/taxes-rates/business-occupation-tax/business-occupation-tax-classifications',
+    },
+    { label: 'Washington income tax (starts 2028)', url: 'https://dor.wa.gov/income-tax' },
+    { label: 'FinCEN BOI reporting', url: 'https://www.fincen.gov/boi' },
     {
       label: 'Apply for an EIN with the IRS',
       url: 'https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online',
     },
   ],
   taxHighlights: [
-    'Washington has no state income tax, but that does not make it a no-tax state for LLCs. The main issue is Business & Occupation tax, a gross receipts tax measured on business income before deductions for labor, materials, taxes, or other costs. Rates vary by classification; many small businesses fall somewhere in the 0.138% to 1.5% range.',
+    'Washington has no individual income tax today, but that does not make it a no-tax state for LLCs. The main issue is Business & Occupation tax, a gross receipts tax measured on business income before deductions for labor, materials, taxes, or other costs. The main rates are 0.471% for retailing, 0.484% for wholesaling and manufacturing, and 1.5% for services when prior-year service income was under $1 million (1.75% from $1 million, 2.1% from $5 million).',
+    'Two dated changes are already law. On January 1, 2027, the retailing, wholesaling, and standard manufacturing B&O rates rise to 0.5%. On January 1, 2028, a new 9.9% individual income tax starts on income above $1 million; it will not touch a typical first-year solo LLC, but "no income tax" is no longer the whole story.',
     'Most operating LLCs should expect to deal with the Department of Revenue after formation. The Business License Application is required if you meet conditions such as $12,000 or more in annual gross income, collecting sales tax, hiring employees, using a trade name, needing endorsements, or owing DOR taxes or fees.',
-    'The business license application is also where many Washington-specific add-ons show up. City, county, state, and trade name endorsements can add fees and approval time, so the LLC filing itself is not the full launch checklist. DOR says online business license applications take about 10 business days, and endorsements can add another 2 to 3 weeks.',
-    'Sales tax is destination-based in Washington. If you sell taxable products or taxable services, register and remit through DOR instead of assuming the LLC filing created every tax account you need.',
-    'Domestic Washington LLCs are currently exempt from FinCEN BOI reporting under FinCEN guidance in effect after the March 2025 interim final rule. Recheck BOI before publishing or filing because federal reporting rules have moved repeatedly.',
+    'The business license application is also where many Washington-specific add-ons show up. City, county, state, and trade name endorsements can add fees and approval time, so the LLC filing itself is not the full launch checklist. DOR says online business license applications take about 10 business days, and endorsements can add another 2 to 3 weeks. If you sell taxable products or services, sales tax is destination-based and runs through the same DOR account; the LLC filing does not create it for you.',
+    'Domestic Washington LLCs are exempt from FinCEN BOI reporting. FinCEN made that exemption permanent in a final rule effective August 14, 2026. Recheck BOI before filing because federal reporting rules have moved repeatedly.',
   ],
   comparisonRows: [
     {
@@ -82,19 +97,19 @@ export const washington: StateOverride = {
   ],
   filingFee: 180,
   filingFeeDisplay: '$180 by mail / $200 online',
-  filingFeeNote: 'Online filing includes the state filing fee plus the online processing fee.',
+  filingFeeNote: 'Online filing is the $180 state filing fee plus the $20 online processing fee.',
   annualReportFee: 70,
   filingTime:
-    'Washington does not publish a guaranteed standard processing SLA for LLC formations. Expedited filings are generally processed within three working days.',
-  filingTimeShort: 'No published SLA',
+    'The Secretary of State says standard online submissions are typically finalized within five business days. It does not publish a standard time for mailed filings. Expedited filings are generally processed within three business days.',
+  filingTimeShort: 'About 5 business days online',
   expeditedTime:
-    '$100 expedited service is generally processed within three working days. Front-counter same-day service is listed as a same-day option if received before 3:30 PM, but SOS fee handling for that service has changed, so verify the same-day fee before relying on it.',
+    '$100 expedited service is generally processed within three business days. Front-counter filings received before 3:30 PM can be processed the same day; SOS currently charges the $100 expedite fee for this instead of the $150 same-day fee on its fee schedule, and says it will give 30 days\' notice before charging $150.',
   expeditedFee: 100,
   filingAgency: 'Washington Secretary of State, Corporations & Charities Division',
   filingAgencyUrl: 'https://www.sos.wa.gov/corporations-charities',
   agentTerm: 'registered agent',
   stateTaxRate:
-    'Washington has no state income tax. B&O tax is a gross receipts tax with rates that vary by business classification, commonly cited from 0.138% to 1.5%; sales tax applies when selling taxable goods or services.',
+    'Washington has no individual income tax until a 9.9% tax on income over $1 million starts January 1, 2028. B&O tax is a gross receipts tax by classification: 0.471% retailing, 0.484% wholesaling/manufacturing (both 0.5% from January 1, 2027), and 1.5% for services under $1 million; sales tax applies when selling taxable goods or services.',
   stateTax:
     'Most Washington LLCs default to pass-through taxation federally, but the state-specific issue is B&O tax on gross receipts plus DOR business licensing, sales tax, and local endorsements when applicable.',
   annualReportDue: 'Last day of your formation anniversary month',
@@ -116,7 +131,7 @@ export const washington: StateOverride = {
     {
       title: 'File the Certificate of Formation',
       description:
-        'Form the LLC by filing a Certificate of Formation with the Washington Secretary of State through CCFS or by mail. The base filing fee is $180; online filing is $200 when the online processing fee is included. You will enter the LLC name, registered agent information, principal office address, duration, effective date, executor information, and any optional provisions. Washington now requires email addresses for the registered agent and principal office fields.',
+        'Form the LLC by filing a Certificate of Formation with the Washington Secretary of State through CCFS or by mail. The base filing fee is $180; online filing is $200 once the $20 online processing fee is added. You will enter the LLC name, registered agent information, principal office address, duration, effective date, executor information, and any optional provisions. Washington now requires email addresses for the registered agent and principal office fields.',
     },
     {
       title: 'Do not defer the Initial Report unless you mean to',
@@ -126,7 +141,7 @@ export const washington: StateOverride = {
     {
       title: 'Wait for approval or pay for expedited handling',
       description:
-        'Washington does not publish a guaranteed standard processing SLA for LLC formations, so do not promise a launch date around an ordinary filing. If timing matters, expedited service costs $100 per business entity and is generally processed within three working days. Front-counter same-day service is listed as available if received before 3:30 PM, but SOS notes around the same-day fee have changed, so verify the current charge before relying on it. After approval, Washington assigns or confirms the LLC\'s 9-digit UBI for use across state agencies.',
+        'The Secretary of State says standard online submissions are typically finalized within five business days; mailed filings take longer and have no published timeline. "Typically" is not a guarantee, so if a launch date depends on it, pay for expedited service: $100 per business entity, generally processed within three business days. Front-counter filings received before 3:30 PM can be processed the same day, currently for the same $100 expedite fee (the fee schedule lists a $150 same-day fee that SOS says it has not started charging). After approval, Washington assigns or confirms the LLC\'s 9-digit UBI for use across state agencies.',
     },
     {
       title: 'Get a free EIN from the IRS',
@@ -160,12 +175,12 @@ export const washington: StateOverride = {
     { item: 'Initial Report', cost: '$0 with formation / $10 later', required: 'Yes', notes: 'Due within 120 days' },
     { item: 'Name reservation', cost: '$30', required: 'Optional', notes: 'Useful only if not ready to form' },
     { item: 'Registered agent service', cost: '$50-$200/yr', required: 'Optional', notes: 'Self-file for $0 if eligible' },
-    { item: 'Expedited filing', cost: '+$100', required: 'Optional', notes: 'Generally processed within three working days' },
+    { item: 'Expedited filing', cost: '+$100', required: 'Optional', notes: 'Generally processed within three business days' },
     {
       item: 'Same-day front-counter service',
-      cost: 'Verify current charge',
+      cost: '+$100 today ($150 listed)',
       required: 'Optional',
-      notes: 'Listed for front-counter filings before 3:30 PM; SOS fee handling has changed',
+      notes: 'Front-counter filings before 3:30 PM; SOS will give 30 days\' notice before charging $150',
     },
     { item: 'EIN', cost: 'Free', required: 'Recommended', notes: 'IRS direct' },
     {
@@ -206,22 +221,32 @@ export const washington: StateOverride = {
     {
       question: 'How much does it cost to start an LLC in Washington?',
       answer:
-        'The Certificate of Formation is $180 by mail or $200 online when the online processing fee is included. If your business also needs the Washington Business License Application at launch, the open/reopen processing fee is currently $50 plus any endorsements. A commercial registered agent usually adds about $50 to $200 per year.',
+        'The Certificate of Formation is $180 by mail or $200 online once the $20 online processing fee is included. If your business also needs the Washington Business License Application at launch, the open/reopen processing fee is currently $50 plus any endorsements. A commercial registered agent usually adds about $50 to $200 per year.',
     },
     {
       question: 'What is the Washington LLC filing fee?',
       answer:
-        'The base Washington LLC filing fee is $180 for the Certificate of Formation. Online filing adds a processing fee, so the practical online total is $200. Expedited service is an extra $100.',
+        'The base Washington LLC filing fee is $180 for the Certificate of Formation. Online filing adds a $20 processing fee, so the practical online total is $200. Expedited service is an extra $100.',
     },
     {
       question: 'How long does it take to get a Washington LLC?',
       answer:
-        'Washington does not publish a guaranteed standard processing SLA for LLC formations. The state does publish an expedited option: $100 expedited service is generally processed within three working days. If timing matters, use expedited service instead of relying on a secondary-source estimate.',
+        'The Secretary of State says standard online submissions are typically finalized within five business days. Mailed filings take longer and have no published timeline. If timing matters, pay the $100 expedite fee; expedited filings are generally processed within three business days.',
     },
     {
-      question: 'What agency forms a Washington LLC?',
+      question: 'How do I register an LLC in Washington?',
       answer:
-        'Washington LLCs are formed with the Washington Secretary of State, Corporations & Charities Division. The online system is called CCFS, the Corporations and Charities Filing System. The Department of Revenue is separate and handles business licensing and tax accounts after formation.',
+        'Registering, forming, and filing a Washington LLC all mean the same thing: you file a Certificate of Formation with the Secretary of State through CCFS and pay $200 online ($180 by mail). That creates the LLC and gives it a 9-digit UBI number. Most operating businesses then need a second registration: a Washington business license through the Department of Revenue ($50 processing fee, about 10 business days online) once gross income reaches $12,000 a year, or sooner if you collect sales tax, hire, or use a trade name. Forming the LLC does not do that step for you.',
+    },
+    {
+      question: 'How do I apply for an LLC in Washington online?',
+      answer:
+        'Go to CCFS at ccfs.sos.wa.gov, create an account, search your name, and start a new Washington LLC filing. You will enter the name, registered agent, principal office, email addresses for both, the executor, and your governors. File the Initial Report in the same session so it is free instead of $10 later. Pay $200 by card. Online filings are typically finalized within five business days; pay $100 more if you need it in about three.',
+    },
+    {
+      question: 'Where do I file an LLC in Washington?',
+      answer:
+        'With the Washington Secretary of State, Corporations & Charities Division, online through CCFS (the Corporations and Charities Filing System) at ccfs.sos.wa.gov, or by mail. The Department of Revenue is separate and handles business licensing and tax accounts after formation.',
     },
     {
       question: 'What is the formation document called in Washington?',
@@ -261,7 +286,7 @@ export const washington: StateOverride = {
     {
       question: 'How is a Washington LLC taxed?',
       answer:
-        'Federally, most LLCs default to pass-through treatment. Washington has no state income tax, but it does impose B&O tax on gross receipts. That tax is measured before deductions for labor, materials, taxes, or other costs, so it matters even when profit margins are thin.',
+        'Federally, most LLCs default to pass-through treatment. Washington has no individual income tax today (a 9.9% tax on income over $1 million starts January 1, 2028), but it does impose B&O tax on gross receipts: 1.5% for most service businesses and 0.471% for retailers. That tax is measured before deductions for labor, materials, taxes, or other costs, so it matters even when profit margins are thin.',
     },
     {
       question: 'Can a non-resident form a Washington LLC?',
@@ -271,12 +296,12 @@ export const washington: StateOverride = {
     {
       question: 'Do Washington LLCs need to file BOI reports?',
       answer:
-        'Domestic Washington LLCs are currently exempt from FinCEN BOI reporting under the federal rule in effect after March 2025. Foreign entities registered to do business in the United States can still have BOI obligations. Because the federal rule has changed before, recheck FinCEN before relying on an old checklist.',
+        'No. Domestic Washington LLCs are exempt from FinCEN BOI reporting, and FinCEN made that exemption permanent in a final rule effective August 14, 2026. Entities formed outside the United States and registered to do business here can still have BOI obligations. Because the federal rule has changed before, recheck FinCEN before relying on an old checklist.',
     },
   ],
   proscons: {
     pros: [
-      'No state income tax, which helps owners compared with states that tax pass-through income directly.',
+      'No individual income tax on pass-through profit for now; the new 9.9% tax starting in 2028 only applies to income over $1 million.',
       'No publication requirement, so there is no newspaper notice cost or extra post-formation publication step.',
       'The Secretary of State online filing path is clear, and the Initial Report can be filed with formation for free.',
       'The registered agent role is flexible enough for eligible Washington founders to self-serve if they accept the privacy tradeoff.',
@@ -284,7 +309,7 @@ export const washington: StateOverride = {
     cons: [
       'B&O tax applies to gross receipts, not profit, so low-margin or early-stage businesses can still have state tax complexity.',
       'Most operating LLCs still need DOR business licensing and possibly city, county, state, or trade name endorsements after formation.',
-      'Washington does not publish a guaranteed standard LLC formation SLA, so timing-sensitive launches may need expedited service.',
+      'Standard online review is only "typically" five business days and mail has no published timeline, so timing-sensitive launches may need the $100 expedite.',
       'Registered agent, principal office, executor, and governor information can create public-record privacy issues for home-based founders.',
       'The Annual Report is real: $70 every year by the last day of the anniversary month, plus a separate Initial Report deadline after formation.',
     ],

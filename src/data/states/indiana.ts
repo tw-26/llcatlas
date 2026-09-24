@@ -3,10 +3,10 @@ import type { StateOverride } from './types';
 
 export const indiana: StateOverride = {
   contentStatus: 'ready',
-  seoTitle: `How to Start an LLC in Indiana (${GUIDE_YEAR}): $95 Online, No Publication | LLCAtlas`,
+  seoTitle: `How to Start an LLC in Indiana (${GUIDE_YEAR}): $95 Fee, Steps & Timeline`,
   seoDescription:
-    'Form an Indiana LLC for $95 online through INBiz. Registered agent rules, biennial report costs, timeline, and the real first-year cost.',
-  lastUpdated: '2026-04-26',
+    'Form an Indiana LLC on INBiz for $95, often approved within hours. Then the $32 Business Entity Report every two years, registered agent rules, and what to skip.',
+  lastUpdated: '2026-09-23',
   intro:
     'Starting an LLC in Indiana is straightforward if you ignore the generic state-guide sludge. The filing fee is $95 online, Indiana uses the term registered agent, there is no newspaper publication rule, and there is no annual report. The one ongoing state filing is a Business Entity Report every two years. For most founders, the real decisions are simple: pick a compliant name, decide whether you are comfortable putting your own address on the public record, file the Articles of Organization through INBiz, get a free EIN, and put a written operating agreement in place.',
   whatYoullNeed:
@@ -22,6 +22,16 @@ export const indiana: StateOverride = {
     { label: 'Search Indiana business names', url: 'https://bsd.sos.in.gov/PublicBusinessSearch' },
     { label: 'Download Form 49459 (Articles of Organization)', url: 'https://forms.in.gov/Download.aspx?id=16989' },
     { label: 'Indiana Business Entity Report filing rules', url: 'https://inbiz.in.gov/business-filings/business-entityreport' },
+    { label: 'Indiana filing fee statute (IC 23-0.5-9)', url: 'https://iga.in.gov/ic/2026/Title_23/Article_0.5/Chapter_9.pdf' },
+    {
+      label: 'Indiana 2026 principal office and CMRA address changes',
+      url: 'https://www.in.gov/sos/business/hb-1593-and-hb-1666-filing-process-changes/',
+    },
+    {
+      label: 'Indiana income tax rates (Department of Revenue)',
+      url: 'https://www.in.gov/dor/resources/tax-rates-and-reports/rates-fees-and-penalties/',
+    },
+    { label: 'FinCEN BOI reporting status', url: 'https://www.fincen.gov/boi' },
     {
       label: 'Apply for an EIN with the IRS',
       url: 'https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number',
@@ -60,7 +70,7 @@ export const indiana: StateOverride = {
   ],
   filingFee: 95,
   annualReportFee: 32,
-  filingTime: '~same day online; ~5 to 7 business days by mail',
+  filingTime: 'Minutes to hours online; 1 to 2 business days after the state receives a paper filing, plus mail time',
   filingTimeShort: 'Same day online',
   expeditedTime: null,
   expeditedFee: null,
@@ -71,7 +81,7 @@ export const indiana: StateOverride = {
     'Indiana individual income tax is 2.95% for tax year 2026. County income tax also applies, and all 92 Indiana counties levy one.',
   stateTax:
     'Most Indiana LLCs are taxed as pass-through entities by default. Indiana does not charge a franchise tax, gross-receipts tax, or separate annual LLC tax, but owners still pay Indiana income tax at 2.95% plus county income tax.',
-  annualReportDue: 'Every 2 years, in your anniversary month',
+  annualReportDue: 'Every 2 years, by the end of your formation anniversary month',
   annualReportNote: 'Business Entity Report, $32 online or $50 by paper',
   requiresOperatingAgreement: false,
   requiresPublication: false,
@@ -89,7 +99,7 @@ export const indiana: StateOverride = {
     {
       title: 'File the Articles of Organization through INBiz',
       description:
-        'For a domestic Indiana LLC, you file State Form 49459, Articles of Organization. Online filing through INBiz is the default move: it costs $95 plus card processing, while paper filing costs $100 and moves slower. You will need the LLC name, the principal office address, the registered agent information, and the organizer details. One Indiana-specific detail matters here: if you want a manager-managed LLC, say so in the filing. If you do not, Indiana defaults the LLC to member-managed.',
+        'For a domestic Indiana LLC, you file State Form 49459, Articles of Organization. Online filing through INBiz is the default move: it costs $95 plus card processing, while paper filing costs $100 and moves slower. You will need the LLC name, the principal office address, the registered agent information, and the organizer details. One Indiana-specific detail matters here: if you want a manager-managed LLC, say so in the filing. If you do not, Indiana defaults the LLC to member-managed. Since January 1, 2026, if you run the business entirely from home with no separate office, you can check the remote-business box and file State Form 9900382 so your home address stays off the public record as the principal office. The same form is required if you list a virtual mailbox (CMRA) address anywhere in the filing.',
     },
     {
       title: 'Get a free EIN from the IRS',
@@ -109,7 +119,7 @@ export const indiana: StateOverride = {
     {
       title: 'File the Business Entity Report every two years',
       description:
-        'Indiana does not have an annual report for LLCs. The ongoing filing is called a Business Entity Report, and for for-profit LLCs it is due every other year in your anniversary month. The fee is $32 on INBiz or $50 by paper. This is the compliance step generic guides often mangle, so make a note of it now instead of rediscovering it after the due date.',
+        'Indiana does not have an annual report for LLCs. The ongoing filing is called a Business Entity Report. The first one is due two years after you form, then every other year on your formation month and day, with until the end of that month before it counts as past due. The fee is $32 on INBiz or $50 by paper. Skip it and the state administratively dissolves the LLC, and reinstating requires a tax clearance from the Department of Revenue that takes 4 to 6 weeks. Put the date on your calendar now.',
     },
   ],
   costBreakdown: [
@@ -177,7 +187,12 @@ export const indiana: StateOverride = {
     {
       question: 'How long does it take to get an Indiana LLC?',
       answer:
-        'Online filings through INBiz are typically faster than paper and are often approved the same business day. Paper filings usually take about 5 to 7 business days plus mail time. Indiana does not offer a separate expedited LLC filing tier, so if speed matters, file online instead of mailing the form.',
+        'The Secretary of State says INBiz filings are processed in minutes to hours, and paper filings within 1 to 2 business days after they arrive. Mail time in both directions is what makes paper slow. Indiana does not sell an expedited LLC filing tier, so if speed matters, file online instead of mailing the form.',
+    },
+    {
+      question: 'How do I register an LLC in Indiana?',
+      answer:
+        'Registering, forming, and filing an Indiana LLC all mean filing Articles of Organization (State Form 49459) with the Secretary of State, almost always through INBiz for $95. That creates the LLC. If you sell taxable goods or services, you then register with the Department of Revenue for sales tax and a $25 Registered Retail Merchant Certificate per location. Indiana has no general state business license. The one ongoing state filing is the $32 Business Entity Report every two years.',
     },
     {
       question: 'What is a registered agent in Indiana?',
@@ -205,9 +220,9 @@ export const indiana: StateOverride = {
         'Indiana does not require you to file an operating agreement with the state, but you should still have one in writing. It helps with ownership proof, banking, internal decision-making, and keeping the LLC separate from you personally. Treat it as standard LLC setup, not optional fluff.',
     },
     {
-      question: 'Can I form an Indiana LLC online?',
+      question: 'How do I apply for an LLC in Indiana online?',
       answer:
-        'Yes. Indiana funnels founders to INBiz for online filing, and that is the cleanest option. Online filing is cheaper than paper for a domestic LLC, usually faster, and reduces the odds of a paper-form mistake slowing you down.',
+        'Go to INBiz at inbiz.in.gov, create an account, search your name, and start a new domestic LLC. Enter the principal office, registered agent, organizer, and whether the LLC is manager-managed (it defaults to member-managed). If you run the business from home, check the remote-business box and file State Form 9900382 to keep your home address off the public record. Pay $95 plus card processing. INBiz filings are usually processed in minutes to hours, while paper costs $100 and is slower, so file online.',
     },
     {
       question: 'How is an Indiana LLC taxed?',
@@ -232,7 +247,7 @@ export const indiana: StateOverride = {
     {
       question: 'Do Indiana LLCs need to file BOI reports?',
       answer:
-        'Under FinCEN’s interim final rule published in March 2025, domestic U.S. entities, including Indiana LLCs, are exempt from BOI reporting. Foreign entities registered to do business in the United States are treated differently. Because BOI rules have changed repeatedly, this is still worth rechecking against FinCEN before you rely on an old checklist.',
+        'No. FinCEN’s final rule, effective August 14, 2026, made the March 2025 exemption permanent: companies created in the United States, including Indiana LLCs, do not file BOI reports. Foreign entities registered to do business in the United States are treated differently. BOI rules have changed repeatedly, so recheck FinCEN before filing if you are working from an old checklist.',
     },
     {
       question: 'What is the difference between member-managed and manager-managed in Indiana?',
