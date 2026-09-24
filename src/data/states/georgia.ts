@@ -8,13 +8,13 @@ export const georgia: StateOverride = {
     'Start a Georgia LLC for $100 online. Real steps, the $60 annual registration due by April 1, local business license rules, and when a service is worth it.',
   lastUpdated: '2026-09-23',
   intro:
-    'Georgia is one of the cheaper, simpler states to form an LLC in. You file Articles of Organization with the Georgia Secretary of State, Corporations Division, for $100 online or $110 by mail. There is no publication requirement and no franchise tax for a standard pass-through LLC. The ongoing state cost is the annual registration: $60 a year as of 2026, due between January 1 and April 1. The practical warning: that deadline is the same for every LLC no matter when you formed, and the state business filing does not replace the city or county business license (occupation tax certificate) most Georgia businesses need.',
+    "A Georgia LLC costs $100 to file online, or $110 by mail. You file Articles of Organization with the Georgia Secretary of State, Corporations Division. There's no publication requirement and no franchise tax for a standard pass-through LLC. The one ongoing state cost is the annual registration: $60 a year as of 2026, due between January 1 and April 1. That window is the same for every LLC no matter when you formed, so an LLC formed in November owes its first registration by April 1 of the next year. Most Georgia businesses also need a city or county business license, called an occupation tax certificate, and the state filing doesn't replace it.",
   whatYoullNeed:
     'To form a Georgia LLC, you will need an available LLC name with a required designator (LLC, L.L.C., or Limited Liability Company), a registered agent with a physical Georgia street address, a principal office mailing address, an organizer, an email address for filing notices, and $100 for online filing or $110 by mail. Paper filings also need Transmittal Form 231.',
   closing:
-    'If you live and run your business in Georgia, form in Georgia. A Wyoming or Delaware LLC would still have to register as a foreign LLC in Georgia and pay Georgia fees on top of its home state costs. The calendar is simple: file the annual registration between January 1 and April 1 every year starting the year after you form, and renew your city or county occupation tax certificate on its local schedule. A professional registered agent is worth it if you work from home and don\'t want that address on the public record, or if you can\'t reliably receive legal papers at a Georgia street address during business hours.',
+    "If you live and run your business in Georgia, form in Georgia. A Wyoming or Delaware LLC would still have to register as a foreign LLC here and pay Georgia fees on top of its home state costs. Two dates go on your calendar: the annual registration between January 1 and April 1 every year starting the year after you form, and your city or county occupation tax certificate renewal on its local schedule. You can be your own registered agent if you have a Georgia street address where you can be found during business hours. A professional agent, usually $50 to $150 a year, is worth it if you work from home and don't want that address public, or can't reliably be there to receive legal papers.",
   inlineCtaDescription:
-    'Georgia requires a registered agent at a physical Georgia street address where someone can be found in person, and that address goes on the public record. If you work from home, travel, or live outside Georgia, a professional registered agent keeps your home address off the filing and makes sure legal notices don\'t get missed. If you have a Georgia office with regular hours, you can skip it.',
+    "Georgia requires a registered agent at a physical Georgia street address where someone can be found in person, and that address goes on the public record. If you have a Georgia office with regular hours, you can be your own agent and skip this. If you work from home, travel, or live outside Georgia, a professional registered agent, usually $50 to $150 a year, keeps your home address off the filing and makes sure legal notices don't get missed.",
   sidebarCtaDescription:
     'If you don\'t want your home address on Georgia\'s public business records or can\'t guarantee someone is at a Georgia street address during business hours, use a professional registered agent.',
   officialLinks: [
@@ -266,7 +266,7 @@ export const georgia: StateOverride = {
       'Online filing through eCorp is fast, about 7 business days, with affordable expedite options.',
     ],
     cons: [
-      'The annual registration deadline (April 1) is fixed for everyone, so it is easy to forget in your first year.',
+      "The annual registration deadline (April 1) is fixed for everyone, so it's easy to forget in your first year.",
       'Business licenses are handled by cities and counties, so rules and fees vary and take extra research.',
       'Your registered agent address is public, which matters if you work from home.',
       'State fees have been changing (service charges were added in 2025), so recheck the fee schedule before you file.',

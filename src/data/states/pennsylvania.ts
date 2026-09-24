@@ -8,15 +8,15 @@ export const pennsylvania: StateOverride = {
     'File a Pennsylvania LLC for $125, approved in about 3-5 business days. Then the new $7 annual report due September 30, registered office rules, and local taxes.',
   lastUpdated: '2026-09-23',
   intro:
-    'Starting an LLC in Pennsylvania is not hard, but the terminology trips people up. You do not file Articles of Organization with a Secretary of State, and you do not appoint a statutory agent. You file a Certificate of Organization with the Pennsylvania Department of State, list a Pennsylvania registered office or Commercial Registered Office Provider, attach the New Entity Docketing Statement, and pay the $125 filing fee. The clean path is simple: pick a compliant name, decide whether to use your own address or a CROP for privacy, file through Business Filing Services, get an EIN, write an operating agreement, and calendar the new $7 annual report due every September 30.',
+    "A Pennsylvania LLC costs $125 to file. You file a Certificate of Organization with the Pennsylvania Department of State through Business Filing Services, along with the required New Entity Docketing Statement. Instead of appointing an agent, you list a Pennsylvania registered office: either your own address or a Commercial Registered Office Provider (CROP). There's no publication requirement for LLC formation. The ongoing filing is the new $7 annual report, due every September 30.",
   whatYoullNeed:
     "To form a Pennsylvania LLC, you'll need a distinguishable LLC name, a Pennsylvania registered office street address or a contracted Commercial Registered Office Provider, organizer information, a completed Certificate of Organization, the required New Entity Docketing Statement, and $125 for the filing fee. If you want privacy or do not have a Pennsylvania street address, choose the CROP before you file.",
   closing:
-    'Pennsylvania is a good home-state LLC choice for founders who live or operate here. The $125 filing fee is reasonable, the $7 annual report is unusually cheap, and there is no LLC formation publication requirement. The real Pennsylvania headaches are not the filing - they are terminology, local taxes, and missed maintenance. Use the Department of State portal, do not skip the Docketing Statement, decide early whether your home address belongs on the public record, and set a recurring reminder for the September 30 annual report.',
+    "If you live or operate in Pennsylvania, form here. The $125 filing fee is reasonable, the $7 annual report is unusually cheap, and there's no LLC formation publication requirement. Where people slip up is terminology, local taxes, and maintenance. Don't skip the Docketing Statement, and set a recurring reminder for the September 30 annual report. If you operate in Philadelphia, Pittsburgh, or a municipality with a business privilege or earned income tax, check local tax rules separately. You can list your own Pennsylvania address as the registered office for free. A CROP, usually $49 to $300 a year, is worth it if you work from home, live outside Pennsylvania, or don't want your street address public.",
   inlineCtaDescription:
-    'Pennsylvania does not use the normal registered-agent filing model. If you work from home, live outside Pennsylvania, or do not want your street address on the public record, use a Commercial Registered Office Provider instead of listing your own address. Compare the provider price, privacy policy, and renewal terms before you buy.',
+    "Pennsylvania doesn't use the usual registered agent model. You list a registered office address, and it goes on the public record. If you work from home, live outside Pennsylvania, or don't want your street address public, use a Commercial Registered Office Provider instead. They usually cost $49 to $300 a year, so compare price, privacy policy, and renewal terms before you buy. If you have a Pennsylvania business address you're comfortable publishing, you don't need one.",
   sidebarCtaDescription:
-    'If you do not want your home address on Pennsylvania records, use a Commercial Registered Office Provider for the registered office.',
+    "If you don't want your home address on Pennsylvania records, use a Commercial Registered Office Provider for the registered office.",
   officialLinks: [
     { label: 'File your Pennsylvania LLC online', url: 'https://file.dos.pa.gov' },
     { label: 'Check Pennsylvania business name availability', url: 'https://file.dos.pa.gov/search/business' },
@@ -363,7 +363,7 @@ export const pennsylvania: StateOverride = {
     cons: [
       'The terminology is easy to get wrong: Certificate of Organization, registered office, and CROP are the Pennsylvania terms - not Articles of Organization or statutory agent.',
       'The annual report is new enough that founders who remember the old decennial report can easily miss the September 30 requirement.',
-      'Pennsylvania local taxes are genuinely fragmented, especially if you operate in Philadelphia, Pittsburgh, or municipalities with local business privilege or earned income tax rules.',
+      'Pennsylvania local taxes are fragmented, especially if you operate in Philadelphia, Pittsburgh, or municipalities with local business privilege or earned income tax rules.',
       'Pennsylvania does not let you form a domestic Series LLC, so multi-asset or multi-location structures may need a different entity plan.',
     ],
   },

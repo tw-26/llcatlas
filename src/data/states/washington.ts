@@ -8,15 +8,15 @@ export const washington: StateOverride = {
     'File a Washington LLC for $200 online, approved in about 5 business days. Then the $70 annual report, B&O tax, and state business license most guides skip.',
   lastUpdated: '2026-09-23',
   intro:
-    'Starting an LLC in Washington is straightforward, but it is not a one-and-done state. The Certificate of Formation is filed with the Washington Secretary of State, Corporations & Charities Division, for $180 by mail or $200 online once the $20 online processing fee is included. Washington has no publication requirement, but it does require an Initial Report within 120 days, a $70 Annual Report every year, and a state business licensing/tax setup through the Department of Revenue for most operating businesses. The practical warning: the filing is easy; the B&O gross receipts tax and public registered agent address are what first-time founders usually underestimate.',
+    "A Washington LLC costs $200 to file online, or $180 by mail. You file a Certificate of Formation with the Secretary of State's Corporations & Charities Division, and there's no newspaper publication requirement. After that, Washington requires an Initial Report within 120 days (free if you file it with the Certificate), a $70 Annual Report every year, and, for most operating businesses, a state business license through the Department of Revenue. The filing is the easy part. What first-time founders underestimate is the B&O tax, which is charged on gross receipts instead of profit, and the fact that your registered agent address goes on the public record.",
   whatYoullNeed:
     "To form a Washington LLC, you will need a distinguishable LLC name, a registered agent with a physical Washington street address, a principal office address, required email addresses for the registered agent and principal office, executor information, governor information if you file the Initial Report with formation, and $180 by mail or $200 online.",
   closing:
-    'Washington is usually the right state if you live and operate in Washington. Forming in Wyoming or Delaware does not avoid Washington B&O tax, state business licensing, city endorsements, or foreign registration if the business is actually run from Washington. The key compliance reminders are simple: file the free Initial Report with formation if you can, calendar the $70 Annual Report for the last day of your anniversary month, and register with DOR when your business activity requires it. A professional registered agent is worth it if you work from home, live outside Washington, or cannot reliably receive legal notices at a Washington street address during business hours.',
+    "If you live and run your business in Washington, form in Washington. A Wyoming or Delaware LLC doesn't get you out of B&O tax, state business licensing, city endorsements, or foreign registration here. If you freelance from Washington, B&O is figured on what you bill, at 1.5% for most service businesses. Put three things on your calendar: file the free Initial Report with your Certificate of Formation, file the $70 Annual Report by the last day of your anniversary month, and register with DOR once your business activity requires it. You can be your own registered agent if you have a Washington street address and are there during business hours. A professional agent, usually $50 to $200 a year, is worth it if you work from home and don't want that address public, live outside Washington, or can't reliably be there to receive legal papers.",
   inlineCtaDescription:
-    'Washington puts registered agent and principal office information into public business records, and the registered agent must have a real Washington street address. If you work from home, travel often, or do not want your personal address tied to the LLC, a professional registered agent is the cleanest privacy and reliability upgrade. It is not magic legal protection, but it solves a real Washington filing problem.',
+    "Washington puts your registered agent and principal office addresses on the public record, and a noncommercial agent needs a real Washington street address. If you have one and you're there during business hours, you can be your own agent for free. A professional registered agent, usually $50 to $200 a year, makes sense if you work from home and don't want that address public, travel often, or live outside Washington. It doesn't add legal protection. It keeps your address private and makes sure legal notices reach you.",
   sidebarCtaDescription:
-    'If you do not want your home address on Washington public records or you need a reliable Washington street address for legal notices, use a professional registered agent.',
+    "Don't want your home address on Washington's public records, or can't be at a Washington street address during business hours? A professional registered agent handles both for about $50 to $200 a year.",
   officialLinks: [
     { label: 'File your Washington LLC online (CCFS)', url: 'https://ccfs.sos.wa.gov/' },
     {
@@ -304,14 +304,14 @@ export const washington: StateOverride = {
       'No individual income tax on pass-through profit for now; the new 9.9% tax starting in 2028 only applies to income over $1 million.',
       'No publication requirement, so there is no newspaper notice cost or extra post-formation publication step.',
       'The Secretary of State online filing path is clear, and the Initial Report can be filed with formation for free.',
-      'The registered agent role is flexible enough for eligible Washington founders to self-serve if they accept the privacy tradeoff.',
+      "You can be your own registered agent for free if you have a Washington street address and don't mind it on the public record.",
     ],
     cons: [
-      'B&O tax applies to gross receipts, not profit, so low-margin or early-stage businesses can still have state tax complexity.',
+      'B&O tax applies to gross receipts, not profit, so you can owe it in a year when the business lost money.',
       'Most operating LLCs still need DOR business licensing and possibly city, county, state, or trade name endorsements after formation.',
       'Standard online review is only "typically" five business days and mail has no published timeline, so timing-sensitive launches may need the $100 expedite.',
       'Registered agent, principal office, executor, and governor information can create public-record privacy issues for home-based founders.',
-      'The Annual Report is real: $70 every year by the last day of the anniversary month, plus a separate Initial Report deadline after formation.',
+      'Two filing deadlines to track: the Initial Report within 120 days of formation, then the $70 Annual Report every year by the last day of your anniversary month.',
     ],
   },
 };

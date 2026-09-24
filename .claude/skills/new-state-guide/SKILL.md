@@ -60,7 +60,9 @@ Export a `StateOverride` named in camelCase (e.g. `newJersey`). Match Washington
 - `closing`: when to form in this state vs elsewhere, and the key calendar reminders.
 - `inlineCtaDescription` / `sidebarCtaDescription`: why a professional registered agent helps *in this state specifically* (privacy of public records, in-state address rules). Be honest about when it isn't needed.
 
-Voice: plainspoken, decisive, real numbers, no hedging filler, no "consult a professional" where a number is possible. Keep every number consistent across intro, steps, costs, and FAQ.
+Voice: follow `.claude/voice.md`. Keep every number consistent across intro, steps, costs, and FAQ.
+
+After drafting, run the self-edit pass at the bottom of `.claude/voice.md` on `intro`, `closing`, `inlineCtaDescription`, `sidebarCtaDescription`, and `proscons`, and rewrite anything that fails it.
 
 ## 4. Register it
 

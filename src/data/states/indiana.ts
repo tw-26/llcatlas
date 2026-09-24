@@ -8,15 +8,15 @@ export const indiana: StateOverride = {
     'Form an Indiana LLC on INBiz for $95, often approved within hours. Then the $32 Business Entity Report every two years, registered agent rules, and what to skip.',
   lastUpdated: '2026-09-23',
   intro:
-    'Starting an LLC in Indiana is straightforward if you ignore the generic state-guide sludge. The filing fee is $95 online, Indiana uses the term registered agent, there is no newspaper publication rule, and there is no annual report. The one ongoing state filing is a Business Entity Report every two years. For most founders, the real decisions are simple: pick a compliant name, decide whether you are comfortable putting your own address on the public record, file the Articles of Organization through INBiz, get a free EIN, and put a written operating agreement in place.',
+    "An Indiana LLC costs $95 to file online. You file Articles of Organization through INBiz, the state's business portal, and appoint a registered agent. There's no newspaper publication rule and no annual report. The only recurring state filing is a Business Entity Report every two years. The main decision is whether you're comfortable putting your own address on the public record as your registered agent. After approval, get a free EIN from the IRS. Indiana doesn't require an operating agreement, but writing one is still worth it because it sets ownership and management rules on paper.",
   whatYoullNeed:
     "To form an Indiana LLC, you'll need a unique LLC name, an Indiana registered agent with a physical Indiana street address, and $95 to file online or $100 to file by mail. Most founders can finish the filing itself in about 20 to 30 minutes.",
   closing:
-    'Indiana is a good home-state LLC for Indiana founders. The upfront fee is low, the state does not pile on a franchise tax or publication rule, and the recurring filing is only every other year. The catch is not the formation process. It is the stuff generic guides usually bury: county income tax applies on top of the state rate, and your registered agent choice decides whether your own address ends up tied to the filing. If you live and operate in Indiana, keep it simple, file in Indiana, and use a professional registered agent if you want privacy and less admin risk.',
+    "If you live and operate in Indiana, form in Indiana. The $95 fee is low, there's no franchise tax or publication rule, and the recurring report is only every other year. Budget for county income tax: all 92 counties levy one on top of the 2.95% state rate. You can be your own registered agent for free, but your address goes on the public filing. A professional agent, about $125 a year, is worth it if you work from home and want that address private, or can't reliably be available during business hours.",
   inlineCtaDescription:
-    'Indiana lets you be your own registered agent, but that is only the cheap option on paper. Your address goes on the public record, you need to stay reliably available during business hours, and missing a legal notice is a dumb reason to create risk. For most home-based founders, a professional registered agent is the better default.',
+    "Indiana lets you be your own registered agent for free. The tradeoff is that your address goes on the public record and you need to be reliably available during business hours to receive legal notices. If you work from home or travel often, a professional registered agent, about $125 a year, removes both problems. If you have an Indiana office with regular hours and don't mind it being public, you don't need one.",
   sidebarCtaDescription:
-    'If you work from home, travel often, or do not want your home address on the Indiana filing, use a professional registered agent instead of listing yourself.',
+    "If you work from home, travel often, or don't want your home address on the Indiana filing, use a professional registered agent instead of listing yourself.",
   officialLinks: [
     { label: 'Start an Indiana LLC on INBiz', url: 'https://inbiz.in.gov/start-business' },
     { label: 'Search Indiana business names', url: 'https://bsd.sos.in.gov/PublicBusinessSearch' },
@@ -260,12 +260,12 @@ export const indiana: StateOverride = {
     pros: [
       'Indiana is cheap to form and easy to maintain. The filing fee is $95 online, there is no publication requirement, and the recurring report is only every other year.',
       'Indiana does not hit LLCs with a franchise tax, gross-receipts tax, or separate annual LLC tax. For a normal small business, that keeps the state-level math clean.',
-      'The state uses one portal, INBiz, for formation and ongoing filings, which is a better experience than the patchwork systems some states still force on founders.',
+      'One portal, INBiz, handles formation and every ongoing filing.',
     ],
     cons: [
-      'Indiana’s county income tax system is the real tax wrinkle. All 92 counties levy one, so your effective state-local income tax bill is higher than the headline 2.95% state rate suggests.',
+      'County income tax is the part people miss. All 92 counties levy one, so your combined income tax bill is higher than the 2.95% state rate suggests.',
       'If you act as your own registered agent, you save money but give up privacy because your Indiana address goes on the public record.',
-      'Indiana defaults LLCs to member-managed unless you say otherwise in the filing. If you mean to create a manager-managed LLC and miss that detail, you create avoidable confusion from day one.',
+      'Indiana treats LLCs as member-managed unless the filing says otherwise. If you want a manager-managed LLC, say so in the Articles of Organization.',
     ],
   },
 };

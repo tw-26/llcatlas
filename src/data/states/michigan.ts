@@ -8,15 +8,15 @@ export const michigan: StateOverride = {
     'Form a Michigan LLC with LARA for $50, approved in up to 10 business days. Then the $25 Annual Statement due February 15, resident agent rules, and what to skip.',
   lastUpdated: '2026-09-23',
   intro:
-    'Starting an LLC in Michigan is cheaper and cleaner than most states. The filing fee is $50, there is no publication requirement, and filing goes through the MiBusiness Registry Portal at LARA — not the Secretary of State. One thing to know up front: Michigan calls this role a resident agent, not a statutory agent or a registered agent. The real decisions are simple: pick a compliant name, appoint a resident agent with a Michigan street address, file Form CSCL/CD-700, get an EIN, and plan for the one ongoing filing Michigan actually requires — the $25 Annual Statement every February 15.',
+    "A Michigan LLC costs $50 to file. You file Articles of Organization (Form CSCL/CD-700) through LARA's MiBusiness Registry Portal, not the Secretary of State, and LARA says standard review can take up to 10 business days. Michigan calls the required agent a resident agent, and they need a Michigan street address. There's no publication requirement. The one ongoing state filing is the $25 Annual Statement, due every February 15.",
   whatYoullNeed:
     "To form a Michigan LLC, you'll need a unique business name, a resident agent with a physical Michigan street address, and $50 for the filing fee. LARA says standard review can take up to 10 business days.",
   closing:
-    'Michigan is one of the cheaper, cleaner states to form an LLC in. The $50 filing fee is low, there is no publication step, and the MiBusiness Registry Portal makes the filing itself genuinely quick. If you live and operate in Michigan, there is no good reason to complicate this by forming in Wyoming or Delaware. Two things matter after formation. First, the $25 Annual Statement every February 15. There is no late fee for a standard LLC, but miss it two years in a row and LARA sends a notice; 60 days later the LLC falls out of good standing, your name becomes available to anyone, and getting back costs $50 plus every missed $25 statement. Second, if you live or work in one of Michigan’s 24 municipal income tax cities (Detroit, Grand Rapids, Lansing, and others), treat the local tax as a separate problem to plan for. If you work from home, use a professional resident agent service instead of putting your own address on the record.',
+    "If you live and operate in Michigan, form in Michigan. The $50 filing fee is low, there's no publication step, and there's no reason to form in Wyoming or Delaware instead. After formation, two things matter. The $25 Annual Statement is due every February 15. A standard LLC doesn't pay a late fee, but miss it two years in a row and LARA sends a notice. Sixty days later the LLC falls out of good standing, your name becomes available to anyone, and getting back costs $50 plus every missed $25 statement. And if you live or work in Detroit, Grand Rapids, Lansing, or another of Michigan's 24 cities with an income tax, plan for that city tax separately. You can be your own resident agent if you have a Michigan street address. A professional service, usually $99 to $249 a year, keeps your home address off the record if you work from home.",
   inlineCtaDescription:
-    'Your resident agent’s name and address are public and permanent in the Michigan record. If you work from home, travel often, or just do not want your address tied to a business filing, use a professional resident agent. It is the cleanest way to protect your privacy and the most reliable way to avoid missing a legal notice.',
+    "Your resident agent's name and address go on Michigan's public record permanently. If you have a Michigan street address and are there during business hours, you can serve yourself for free. If you work from home, travel often, or don't want your address tied to the filing, a professional resident agent, usually $99 to $249 a year, keeps it private and makes sure legal notices reach you.",
   sidebarCtaDescription:
-    'If you work from home, do not want your address on the public record, or cannot reliably be at a Michigan street address during business hours, use a professional resident agent instead of listing yourself.',
+    "If you work from home, don't want your address on the public record, or can't reliably be at a Michigan street address during business hours, use a professional resident agent instead of listing yourself.",
   officialLinks: [
     { label: 'File your Michigan LLC online (MiBRP)', url: 'https://www.michigan.gov/corpfileonline' },
     { label: 'Check Michigan name availability', url: 'https://www.michigan.gov/corpentitysearch' },
@@ -257,12 +257,12 @@ export const michigan: StateOverride = {
   ],
   proscons: {
     pros: [
-      'The $50 filing fee is one of the lowest among major states, and the $25 Annual Statement is genuinely cheap as ongoing fees go.',
+      'The $50 filing fee is one of the lowest among major states, and the $25 Annual Statement is cheap as ongoing fees go.',
       'No publication requirement, no gross-receipts tax, and no franchise tax. The baseline cost of running a Michigan LLC stays low year after year.',
       'Online filing through the MiBusiness Registry Portal is fast, and Michigan’s expedited tiers go all the way down to 1-hour processing if you need to form immediately.',
     ],
     cons: [
-      'Michigan does require an annual filing. It is called an Annual Statement and it is $25 every February 15. The "Michigan has no annual report" claim in some guides is technically narrow and practically misleading — miss two years and the LLC falls out of good standing and loses its hold on its name.',
+      "Michigan doesn't call it an annual report, but you still have an annual filing: the $25 Annual Statement every February 15. Miss two years and the LLC falls out of good standing and loses its hold on its name.",
       '24 Michigan cities levy their own income tax, and Detroit and Grand Rapids in particular can create real compliance overhead for pass-through LLC owners who live or work in those cities.',
       'Michigan does not authorize Series LLCs, so if you need to silo multiple ventures under one umbrella, you will have to form somewhere else.',
     ],

@@ -8,15 +8,15 @@ export const wyoming: StateOverride = {
     'Form a Wyoming LLC for $100, active the moment you file online. The $60 annual report, the real privacy limits, and why it rarely saves money if you live elsewhere.',
   lastUpdated: '2026-09-23',
   intro:
-    'Starting an LLC in Wyoming is the cheapest serious privacy filing in the country. The state filing fee is $100, online filings are active immediately, there is no publication requirement, and the public record never lists members or managers. Wyoming uses the term registered agent — not statutory agent — so if a guide tells you to appoint a "statutory agent," it was written for Ohio. The real decisions are simple: pick a compliant name, appoint a registered agent with a physical Wyoming address, file the Articles of Organization through wyobiz, get an EIN, and plan for the one ongoing state filing — the Annual Report License Tax, $60 minimum, due the first day of your formation anniversary month.',
+    "A Wyoming LLC costs $100 to file, and online filings are active immediately. You file Articles of Organization with the Wyoming Secretary of State through wyobiz and appoint a registered agent with a physical Wyoming street address. There's no publication requirement, and the public record doesn't list members or managers. The one ongoing state filing is the Annual Report License Tax: $60 minimum, due the first day of your formation anniversary month. If you live in another state, forming here rarely saves money, because you'll usually still register and pay fees in your home state.",
   whatYoullNeed:
     "To form a Wyoming LLC, you'll need a unique business name, a registered agent with a physical Wyoming street address, and $100 for the filing fee. Online filings are active immediately upon submission.",
   closing:
-    'Wyoming is the strongest privacy-and-cost combination in the country: $100 to file, $60 minimum a year to maintain, no member or manager names on the public record, and the oldest LLC case law in the U.S. (Wyoming wrote the first LLC statute in 1977). It is genuinely the right call if you want a privacy-optimized holding LLC, a Wyoming-based business, or a structure that uses the Series, Close, or DAO LLC tools the state allows. Two honest caveats. First, if you live and operate in another state, forming in Wyoming does not erase your home-state tax — California still wants $800, and most states require you to register your Wyoming LLC as a foreign LLC where you actually do business. Second, the statutory protections only hold if you operate the LLC as a real separate entity. Wyoming pierced the veil of a single-member LLC in GreenHunter for commingling and undercapitalization, so a separate bank account, capital adequacy, and an actual operating agreement matter more than the filing paperwork. If you work from anywhere outside Wyoming, use a commercial registered agent — your filing already requires a physical Wyoming address, and a service is the cleanest way to keep your personal address off the public record.',
+    "Form in Wyoming if you live and run your business here, want a privacy-focused holding LLC, or need the Series, Close, or DAO LLC structures the state allows. It's $100 to file, $60 minimum a year to maintain, and member and manager names stay off the public record. If you live and operate somewhere else, Wyoming usually won't lower your costs. Most states require you to register your Wyoming LLC as a foreign LLC where you actually do business, and home-state taxes still apply: California still wants $800. The legal protection also depends on how you run the LLC. Wyoming pierced the veil of a single-member LLC in GreenHunter for commingling and undercapitalization, so keep a separate bank account, adequate capital, and a real operating agreement. If you don't live in Wyoming, you need a commercial registered agent anyway, usually $99 to $199 a year.",
   inlineCtaDescription:
-    'Wyoming requires a physical Wyoming street address for your registered agent — no P.O. boxes, no virtual offices, no UPS Store mailboxes. If you live outside Wyoming, you need a commercial agent regardless. Even if you do live in Wyoming, that address becomes part of the permanent public record and gets the legal mail. A privacy-first commercial agent is usually worth the $99–$200 a year to keep your home address off the filing and make sure nothing important gets missed.',
+    "Wyoming requires a registered agent with a physical Wyoming street address. P.O. boxes, virtual offices, and UPS Store mailboxes don't qualify. If you live outside Wyoming, you need a commercial agent. If you live in Wyoming, you can be your own agent for free, but that address becomes part of the permanent public record. A privacy-focused commercial agent, usually $99 to $199 a year, keeps your home address off the filing and makes sure legal mail reaches you.",
   sidebarCtaDescription:
-    'You need a physical Wyoming address for your registered agent — no P.O. boxes. If you do not live in Wyoming, or you do not want your home address on the permanent public record, use a commercial registered agent.',
+    "You need a physical Wyoming address for your registered agent, and P.O. boxes don't qualify. If you don't live in Wyoming, or don't want your home address on the permanent public record, use a commercial registered agent.",
   officialLinks: [
     { label: 'File your Wyoming LLC online (wyobiz)', url: 'https://wyobiz.wyo.gov/Business/RegistrationInstr.aspx' },
     { label: 'Check Wyoming name availability', url: 'https://wyobiz.wyo.gov/Business/FilingSearch.aspx' },
@@ -321,17 +321,17 @@ export const wyoming: StateOverride = {
   ],
   proscons: {
     pros: [
-      'Cheapest meaningful filing in the U.S. — $100 to file, $60 minimum a year to maintain, and online filings are active immediately.',
-      'No personal income tax, no corporate income tax, no franchise tax on income, no gross-receipts or Commercial Activity Tax, no municipal income tax. The state tax stack is genuinely zero.',
+      'Low cost to start and keep: $100 to file, $60 minimum a year to maintain, and online filings are active immediately.',
+      'No personal income tax, no corporate income tax, no franchise tax on income, no gross-receipts or Commercial Activity Tax, and no municipal income tax.',
       'Real public-record privacy: member and manager names are not required on Articles or on the Annual Report — only the organizer and registered agent appear publicly.',
-      'Strongest charging-order protection in the country (W.S. 17-29-503(g)), explicitly extended to single-member LLCs — creditors cannot foreclose on a member’s LLC interest.',
+      "Strong charging-order protection (W.S. 17-29-503(g)), explicitly extended to single-member LLCs. Creditors can't foreclose on a member's LLC interest.",
       'Wyoming wrote the first U.S. LLC statute in 1977, which gives it the deepest body of LLC case law and a Series LLC, Close LLC, and DAO LLC framework most other states do not have.',
     ],
     cons: [
-      'The annual report is real. Miss it by 60 days and Wyoming administratively dissolves the LLC — there is no late fee, the penalty is dissolution itself.',
+      "Miss the annual report by 60 days and Wyoming administratively dissolves the LLC. There's no late fee; dissolution is the penalty.",
       'The Annual Report License Tax scales with Wyoming-located assets ($0.0002 × assets), so an LLC holding significant Wyoming property pays well above the $60 floor.',
       'If you live and operate the business in another state, forming in Wyoming does not erase home-state taxes. You will usually still owe foreign-LLC registration and the home state’s franchise or privilege tax.',
-      'GreenHunter v. Western Ecosystems (2014) — the Wyoming Supreme Court pierced the veil of a single-member Wyoming LLC for commingling and undercapitalization. Privacy and protection are not automatic; sloppy operations defeat the statute.',
+      'GreenHunter v. Western Ecosystems (2014) — the Wyoming Supreme Court pierced the veil of a single-member Wyoming LLC for commingling and undercapitalization. The statute only protects you if you run the LLC as a separate business.',
       'Some regional U.S. banks decline accounts for non-resident Wyoming LLCs, and major banks increasingly flag them for enhanced KYC review.',
     ],
   },

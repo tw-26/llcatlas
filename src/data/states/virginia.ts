@@ -8,15 +8,15 @@ export const virginia: StateOverride = {
     'Register a Virginia LLC with the SCC for $100, often approved right at checkout online. Then the $50 annual fee, local BPOL license, and what not to pay for.',
   lastUpdated: '2026-09-23',
   intro:
-    'Starting an LLC in Virginia is cleaner than most founders expect. The filing fee is $100, Virginia does not require an annual report, and there is no newspaper publication requirement. The part that matters is not the filing itself. It is the registered agent rule. Virginia uses the term registered agent, not statutory agent, and the state is stricter than most about who qualifies to serve. For most first-time founders, the real checklist is simple: pick a compliant name, appoint a Virginia registered agent, file Articles of Organization with the SCC, get a free EIN, and do not forget the separate $50 annual registration fee that keeps the LLC active.',
+    "A Virginia LLC costs $100 to file. You file Articles of Organization with the State Corporation Commission (SCC), and there's no annual report or newspaper publication requirement. There is a separate $50 annual registration fee that keeps the LLC active. Check the registered agent rule before you file, because Virginia is stricter than most states: an individual agent must be a Virginia resident who is a member or manager of the LLC, or a member of the Virginia State Bar. If that isn't you, you'll need a business entity authorized in Virginia, such as a commercial registered agent.",
   whatYoullNeed:
     "To form a Virginia LLC, you'll need a unique business name, a Virginia registered agent with a Virginia street address, your principal office address, and $100 for the filing fee. Online filings without attachments are usually accepted right after checkout; if the SCC has to review your name or an attached document, expect about 5 business days.",
   closing:
-    'Virginia is a solid home-state LLC for founders who live and operate in Virginia. The upfront cost is reasonable, there is no publication step, and the state does not force a yearly annual report. The catch is that Virginia hides its maintenance cost in a different place: the $50 annual registration fee due by the last day of your anniversary month. Keep that on your calendar, and do not overcomplicate the filing. If you are not clearly eligible to be your own registered agent, use a professional service and move on.',
+    "If you live and operate in Virginia, form here. The $100 fee is reasonable, there's no publication step, and there's no annual report. The recurring cost is the $50 annual registration fee, due by the last day of your anniversary month, and missing it can get the LLC canceled. Also check your city or county's BPOL license rules, which vary by locality. If you're a Virginia-resident member or manager with a Virginia street address, you can be your own registered agent for free. If you aren't, use a professional service, usually $100 to $200 a year.",
   inlineCtaDescription:
-    "Virginia's registered agent rule is narrower than most states. If you work from home, live outside Virginia, or do not want to gamble on whether you qualify, a professional registered agent is usually the cleanest default.",
+    "Virginia's registered agent rule is narrower than most states'. You can serve yourself only if you're a Virginia resident and a member or manager of the LLC, or a member of the Virginia State Bar. If you don't qualify, live outside Virginia, or don't want your address on the public filing, use a professional registered agent, usually $100 to $200 a year. If you qualify and don't mind the address being public, you don't need one.",
   sidebarCtaDescription:
-    'If you do not want your address tied to the public filing or you are not sure you qualify to be your own Virginia registered agent, use a professional service instead of guessing.',
+    "If you're not sure you qualify to be your own Virginia registered agent, or don't want your address on the public filing, use a professional service instead of guessing.",
   officialLinks: [
     { label: 'File your Virginia LLC online (CIS)', url: 'https://cis.scc.virginia.gov/' },
     {
@@ -214,8 +214,8 @@ export const virginia: StateOverride = {
     ],
     cons: [
       'Virginia\'s registered agent rule is narrower than in many states, so some founders who want to self-file still end up needing a paid service.',
-      'No annual report does not mean no ongoing cost. Virginia still charges a $50 annual registration fee, and missing it can get the LLC canceled.',
-      'Local compliance is where Virginia gets messy. BPOL and other locality-level rules vary enough that generic state-level guides can leave founders with a false sense of being done.',
+      'There is still a $50 annual registration fee every year, and missing it can get the LLC canceled.',
+      'BPOL and other local license rules vary by city and county, so the state filing is not the last step. Check with your locality after you form.',
     ],
   },
 };

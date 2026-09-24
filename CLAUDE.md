@@ -28,6 +28,8 @@ When new GSC exports arrive, re-check these claims before relying on them. GSC e
 
 ## Voice
 
+Full writer brief, with examples and a self-edit checklist: `.claude/voice.md`. The rules below are the summary.
+
 - Plainspoken, protective, decisive. Tell the reader what to do and why.
 - Numbers over principles: "At $45K net, an S-corp saves ~$2,800 and costs ~$2,500 to run. Wait until $60K+."
 - One recommended winner per use case. Never "any of these would work."

@@ -29,6 +29,7 @@ research/
 
 # local AI skill folders (project skills are committed)
 .claude/*
+!.claude/voice.md
 !.claude/skills/
 .claude/skills/*
 !.claude/skills/new-state-guide/

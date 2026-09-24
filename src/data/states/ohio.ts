@@ -8,15 +8,15 @@ export const ohio: StateOverride = {
     'File an Ohio LLC (Form 610) for $99, approved in 3-7 business days, with no annual report to file after. Statutory agent rules and the add-ons to skip.',
   lastUpdated: '2026-09-23',
   intro:
-    'Starting an LLC in Ohio is relatively straightforward. The filing fee is $99, there is no annual report, and Ohio does not require newspaper publication. For most founders, the real decisions are simple: choose a compliant name, appoint a statutory agent, file Form 610, get an EIN, and decide whether handling the statutory agent role yourself is worth the privacy tradeoff.',
+    "An Ohio LLC costs $99 to file. You file Articles of Organization (Form 610) with the Ohio Secretary of State and appoint a statutory agent, which is Ohio's term for a registered agent. Standard Ohio LLCs don't file an annual report, and there's no newspaper publication requirement. The main decision is whether to be your own statutory agent, which is free but puts your address on the public record.",
   whatYoullNeed:
     "To form an Ohio LLC, you'll need a unique business name, a statutory agent (Ohio's term for registered agent), and $99 for the filing fee. The whole process takes about 30 minutes online.",
   closing:
-    'Ohio is best for founders who live and operate in Ohio and want a low-friction home-state LLC. The biggest advantage is simple: standard Ohio LLCs do not file an annual report, so the state is cheaper and easier to maintain long term than many alternatives. The tradeoff is that Ohio gets more complicated on taxes once the business grows, especially with CAT and municipal tax rules. Reality check: if you live and operate in Ohio, forming in Wyoming or Delaware usually does not reduce your real compliance burden. Keep the filing simple, and if you work from home or care about privacy, use a professional statutory agent instead of putting your own address on the record.',
+    "If you live and operate in Ohio, form in Ohio. Standard Ohio LLCs don't file an annual report, so the state is cheaper to maintain long term than many alternatives, and forming in Wyoming or Delaware usually doesn't reduce your compliance burden. Where Ohio gets harder is taxes as the business grows: plan for the Commercial Activity Tax (CAT) and municipal tax rules. You can be your own statutory agent for free. A professional agent, usually $49 to $250 a year, is worth it if you work from home or want your address off the record.",
   inlineCtaDescription:
-    'If you work from home or care about privacy, do not put your personal address on the filing unless you are comfortable with that tradeoff. A professional statutory agent is usually worth it for cleaner records and less risk of missing legal notices.',
+    "Ohio lets you be your own statutory agent for free, but your address goes on the public filing and you need to be there to receive legal notices. If you work from home or care about privacy, a professional statutory agent, usually $49 to $250 a year, keeps your address off the record. If you have an Ohio office with regular hours and don't mind it being public, you can skip it.",
   sidebarCtaDescription:
-    'If you work from home or do not want your address public, use a professional statutory agent instead of listing yourself.',
+    "If you work from home or don't want your address public, use a professional statutory agent instead of listing yourself.",
   officialLinks: [
     { label: 'File your Ohio LLC online', url: 'https://bsportal.ohiosos.gov/' },
     { label: 'Check Ohio name availability', url: 'https://businesssearch.ohiosos.gov/' },
@@ -201,7 +201,7 @@ export const ohio: StateOverride = {
       'If you live and operate in Ohio, forming in Ohio is usually cleaner and cheaper than trying to force an out-of-state LLC strategy.',
     ],
     cons: [
-      'Ohio’s municipal tax system is genuinely messy compared with states that have simpler local compliance rules.',
+      "Ohio's municipal tax system is more complicated than most states' local rules, so check your city's requirements after you form.",
       'If you use your own address as the statutory agent, you give up privacy and take on more admin risk.',
       'Larger businesses still need to pay attention to Ohio CAT and other tax complexity as revenue grows.',
     ],
