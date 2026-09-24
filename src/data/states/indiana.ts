@@ -21,6 +21,7 @@ export const indiana: StateOverride = {
     { label: 'Start an Indiana LLC on INBiz', url: 'https://inbiz.in.gov/start-business' },
     { label: 'Search Indiana business names', url: 'https://bsd.sos.in.gov/PublicBusinessSearch' },
     { label: 'Download Form 49459 (Articles of Organization)', url: 'https://forms.in.gov/Download.aspx?id=16989' },
+    { label: 'Indiana Register: business filing fee rule', url: 'https://www.in.gov/sos/business/files/20250326-IR-075250155FNA.pdf' },
     { label: 'Indiana Business Entity Report filing rules', url: 'https://inbiz.in.gov/business-filings/business-entityreport' },
     { label: 'Indiana filing fee statute (IC 23-0.5-9)', url: 'https://iga.in.gov/ic/2026/Title_23/Article_0.5/Chapter_9.pdf' },
     {
@@ -99,7 +100,7 @@ export const indiana: StateOverride = {
     {
       title: 'File the Articles of Organization through INBiz',
       description:
-        'For a domestic Indiana LLC, you file State Form 49459, Articles of Organization. Online filing through INBiz is the default move: it costs $95 plus card processing, while paper filing costs $100 and moves slower. You will need the LLC name, the principal office address, the registered agent information, and the organizer details. One Indiana-specific detail matters here: if you want a manager-managed LLC, say so in the filing. If you do not, Indiana defaults the LLC to member-managed. Since January 1, 2026, if you run the business entirely from home with no separate office, you can check the remote-business box and file State Form 9900382 so your home address stays off the public record as the principal office. The same form is required if you list a virtual mailbox (CMRA) address anywhere in the filing.',
+        'For a domestic Indiana LLC, you file State Form 49459, Articles of Organization. Online filing through INBiz is the default move: it costs $95 plus a payment processing fee (at least $1, at most 2.15%), so expect to pay at least $96 at checkout, while paper filing costs $100 and moves slower. You will need the LLC name, the principal office address, the registered agent information, and the organizer details. One Indiana-specific detail matters here: if you want a manager-managed LLC, say so in the filing. If you do not, Indiana defaults the LLC to member-managed. Since January 1, 2026, if you run the business entirely from home with no separate office, you can check the remote-business box and file State Form 9900382 so your home address stays off the public record as the principal office. The same form is required if you list a virtual mailbox (CMRA) address anywhere in the filing.',
     },
     {
       title: 'Get a free EIN from the IRS',
@@ -125,7 +126,7 @@ export const indiana: StateOverride = {
   costBreakdown: [
     {
       item: 'Articles of Organization (online)',
-      cost: '$95 + card processing',
+      cost: '$95 + processing fee ($1 min)',
       required: 'Yes',
       notes: 'File through INBiz',
     },
@@ -182,7 +183,7 @@ export const indiana: StateOverride = {
     {
       question: 'How much does it cost to start an LLC in Indiana?',
       answer:
-        'The state filing fee is $95 online or $100 by mail. If you serve as your own registered agent, that is the true minimum cost to get the LLC formed. Most founders who want privacy should budget more, because a professional registered agent usually adds about $100 to $125 a year. The ongoing state filing is the Business Entity Report at $32 online every two years.',
+        'The state filing fee is $95 online or $100 by mail. INBiz adds a payment processing fee of at least $1, so the online checkout total starts at $96. If you serve as your own registered agent, that is the true minimum cost to get the LLC formed. Most founders who want privacy should budget more, because a professional registered agent usually adds about $100 to $125 a year. The ongoing state filing is the Business Entity Report at $32 online every two years.',
     },
     {
       question: 'How long does it take to get an Indiana LLC?',
@@ -222,7 +223,7 @@ export const indiana: StateOverride = {
     {
       question: 'How do I apply for an LLC in Indiana online?',
       answer:
-        'Go to INBiz at inbiz.in.gov, create an account, search your name, and start a new domestic LLC. Enter the principal office, registered agent, organizer, and whether the LLC is manager-managed (it defaults to member-managed). If you run the business from home, check the remote-business box and file State Form 9900382 to keep your home address off the public record. Pay $95 plus card processing. INBiz filings are usually processed in minutes to hours, while paper costs $100 and is slower, so file online.',
+        'Go to INBiz at inbiz.in.gov, create an account, search your name, and start a new domestic LLC. Enter the principal office, registered agent, organizer, and whether the LLC is manager-managed (it defaults to member-managed). If you run the business from home, check the remote-business box and file State Form 9900382 to keep your home address off the public record. Pay $95 plus the processing fee, so at least $96 total. INBiz filings are usually processed in minutes to hours, while paper costs $100 and is slower, so file online.',
     },
     {
       question: 'How is an Indiana LLC taxed?',

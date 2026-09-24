@@ -5,12 +5,12 @@ export const maryland: StateOverride = {
   contentStatus: 'ready',
   seoTitle: `How to Start an LLC in Maryland (${GUIDE_YEAR}): $100–$150 Fee, Steps & Timeline`,
   seoDescription:
-    'Form a Maryland LLC for $100 by mail or about $155 online. Then the $300 annual report due April 15, resident agent rules, and how to avoid a 6-8 week wait.',
+    'Form a Maryland LLC for $100 (plus 3% online), or $150 to skip the 6-8 week wait. Then the $300 annual report due April 15 and the resident agent rules.',
   lastUpdated: '2026-09-23',
   intro:
-    'Starting an LLC in Maryland is straightforward once you ignore the wrong state terminology. You do not file with the Secretary of State, and Maryland does not use "statutory agent" on the filing. You file Articles of Organization with SDAT, appoint a Maryland resident agent, pay either $100 by slow mail or $150 plus processing online, then calendar the $300 Annual Report / Personal Property Return due every April 15. The clean path is simple: pick a compliant name, choose a resident agent, file with SDAT, get an EIN, write an operating agreement, open a business bank account, and check whether your business needs a Trader\'s License or industry permit.',
+    'Starting an LLC in Maryland is straightforward once you ignore the wrong state terminology. You do not file with the Secretary of State, and Maryland does not use "statutory agent" on the filing. You file Articles of Organization with SDAT, appoint a Maryland resident agent, pay $100 for standard review (6-8 weeks) or $150 for expedited review, plus a 3% fee if you pay online, then calendar the $300 Annual Report / Personal Property Return due every April 15. The clean path is simple: pick a compliant name, choose a resident agent, file with SDAT, get an EIN, write an operating agreement, open a business bank account, and check whether your business needs a Trader\'s License or industry permit.',
   whatYoullNeed:
-    'To form a Maryland LLC, you need a distinguishable LLC name with an approved designator, a Maryland principal office street address, a resident agent with a physical Maryland street address, the resident agent\'s signed consent, the signature of at least one authorized person, and the SDAT filing fee. Budget $100 if you are willing to mail the filing and wait 6-8 weeks, or about $154.50 if you file online through Maryland Business Express.',
+    'To form a Maryland LLC, you need a distinguishable LLC name with an approved designator, a Maryland principal office street address, a resident agent with a physical Maryland street address, the resident agent\'s signed consent, the signature of at least one authorized person, and the SDAT filing fee. Budget $100 (about $103 online) if you can wait 6-8 weeks, or $150 (about $154.50 online) for expedited review.',
   closing:
     'For most first-time founders who live and operate in Maryland, forming in Maryland is the right move even with the $300 annual filing. Forming in Delaware or Wyoming usually just adds another state to maintain because you still have to register in Maryland if you operate there. Keep the setup practical: file online if speed matters, use a professional resident agent if your home address should not be public, get the free EIN from the IRS after SDAT approval, and set a hard reminder for the April 15 Annual Report / Personal Property Return.',
   inlineCtaDescription:
@@ -63,7 +63,7 @@ export const maryland: StateOverride = {
     {
       state: 'Maryland',
       annualReport: '$300/yr, due April 15',
-      upfrontCost: '$100 mail / ~$154.50 online',
+      upfrontCost: '$100 standard / $150 expedited',
       ongoingStateCost: '$300/yr',
     },
     {
@@ -93,13 +93,13 @@ export const maryland: StateOverride = {
   ],
   filingFee: 100,
   filingFeeDisplay: '$100-$150',
-  filingFeeNote: '$100 by mail; $150 + 3% online',
+  filingFeeNote: '$100 standard; $150 expedited; online adds 3%',
   annualReportFee: 300,
   filingTime:
-    'Mail filings without expedite take 6-8 weeks. Online filings through Maryland Business Express are treated as expedited, and SDAT lists online expedited review at 7-14 business days. Paper expedited filings are reviewed within 7-10 business days after SDAT receives them. Same-day rush is available if you meet the cutoff.',
+    'Standard (non-expedited) filings take 6-8 weeks, online or by mail. With the $50 expedite fee, SDAT lists online review at 7-14 business days. Paper expedited filings are reviewed within 7-10 business days after SDAT receives them. Same-day rush is available if you meet the cutoff.',
   filingTimeShort: '7-14 days',
   expeditedTime:
-    'Online filings are treated as expedited at $150 plus a 3% processing fee. Same-day online costs $425 plus processing and is reviewed within three hours if submitted by 2:30 PM. Same-day paper drop-box filing costs $525 if delivered by 10:00 AM.',
+    'Expedited review costs $50 extra ($150 total, plus 3% online). Same-day online costs $425 plus processing and is reviewed within three hours if submitted by 2:30 PM. Same-day paper drop-box filing costs $525 if delivered by 10:00 AM.',
   expeditedFee: 50,
   filingAgency: 'Maryland State Department of Assessments and Taxation',
   filingAgencyUrl: 'https://dat.maryland.gov/businesses/',
@@ -131,7 +131,7 @@ export const maryland: StateOverride = {
     {
       title: 'Pick the filing speed deliberately',
       description:
-        'The cheapest Maryland filing is $100 by mail, but SDAT lists standard non-expedited review at 6-8 weeks. Online filing is the practical default for most founders because it is treated as expedited: $150 plus a 3% processing fee, with online expedited review listed at 7-14 business days. If timing is critical, same-day rush is available: online costs $425 plus processing if submitted by 2:30 PM, and paper drop-box rush costs $525 if delivered by 10:00 AM. If SDAT rejects the filing, you generally have 60 days from the initial rejection to correct and resubmit before fees are retained.',
+        'The base Maryland filing is $100, online or by mail, but SDAT lists standard non-expedited review at 6-8 weeks. Online payments add a 3% fee, so standard online filing is about $103. For most founders the right move is to pay the $50 expedite fee: $150 plus 3% online, about $154.50, with online expedited review listed at 7-14 business days. Skip it only if you can genuinely wait two months. If timing is critical, same-day rush is available: online costs $425 plus processing if submitted by 2:30 PM, and paper drop-box rush costs $525 if delivered by 10:00 AM. If SDAT rejects the filing, you generally have 60 days from the initial rejection to correct and resubmit before fees are retained.',
     },
     {
       title: 'Get a free EIN from the IRS',
@@ -155,14 +155,14 @@ export const maryland: StateOverride = {
     },
   ],
   costBreakdown: [
-    { item: 'Articles of Organization by mail', cost: '$100', required: 'Yes', notes: 'Cheapest route; 6-8 week review' },
+    { item: 'Articles of Organization', cost: '$100', required: 'Yes', notes: 'Standard review, 6-8 weeks' },
+    { item: 'Online payment fee', cost: '3%', required: 'If paying online', notes: 'About $3 on a standard filing' },
     {
-      item: 'Articles of Organization online',
-      cost: '$150 + 3%',
-      required: 'Yes, if online',
-      notes: 'About $154.50 total; auto-expedited',
+      item: 'Expedited review',
+      cost: '$50 extra',
+      required: 'Optional',
+      notes: '$150 total; 7-14 business days online, 7-10 after receipt by mail',
     },
-    { item: 'Mail expedite', cost: '$50 extra', required: 'Optional', notes: '$150 total; 7-10 business days after receipt' },
     { item: 'Same-day rush online', cost: '$425 + 3%', required: 'Optional', notes: 'Submit by 2:30 PM' },
     { item: 'Same-day rush paper', cost: '$525', required: 'Optional', notes: 'Drop box by 10:00 AM' },
     { item: 'Name reservation', cost: '$25', required: 'Optional', notes: '30-day hold' },
@@ -181,29 +181,29 @@ export const maryland: StateOverride = {
     { item: 'Trader\'s License', cost: '$15-$800+', required: 'Conditional', notes: 'For businesses selling goods; higher caps in Baltimore City and Baltimore County' },
     { item: 'Resident agent change filing', cost: '$25', required: 'If changing', notes: 'File promptly if agent or address changes' },
     { item: 'Total (bare minimum DIY)', cost: '$100', isEmphasized: true, notes: 'Mail filing, self as agent, no optional extras' },
-    { item: 'Total (typical first year)', cost: '~$280', isEmphasized: true, notes: 'Online filing plus about $125 resident agent service' },
+    { item: 'Total (typical first year)', cost: '~$280', isEmphasized: true, notes: 'Expedited online filing plus about $125 resident agent service' },
     { item: 'Typical year 2+', cost: '~$425/yr', isEmphasized: true, notes: '$300 annual filing plus about $125 resident agent service' },
   ],
   faq: [
     {
       question: 'How much does it cost to start an LLC in Maryland?',
       answer:
-        'The cheapest Maryland LLC filing is $100 by mail, but that route can take 6-8 weeks. Online filing through Maryland Business Express costs $150 plus a 3% processing fee, or about $154.50, because online filings are automatically expedited. Starting the calendar year after formation, budget $300 per year for the Annual Report / Personal Property Return.',
+        'The Maryland LLC filing fee is $100, but standard review takes 6-8 weeks. Most founders should add the $50 expedite fee, which brings it to $150, or about $154.50 online after the 3% payment fee. Starting the calendar year after formation, budget $300 per year for the Annual Report / Personal Property Return.',
     },
     {
       question: 'What is the Maryland LLC filing fee?',
       answer:
-        'The base Articles of Organization fee is $100. Online filing adds a mandatory $50 expedite fee plus a 3% processing fee, so the practical online filing total is about $154.50. Paper expedite is $150 total, and same-day rush costs more.',
+        'The base Articles of Organization fee is $100, whether you file online or by mail. Expedited review adds $50, for $150 total, and paying online adds a 3% fee on either amount. Same-day rush costs more.',
     },
     {
       question: 'How long does it take to get a Maryland LLC?',
       answer:
-        'SDAT lists standard non-expedited mail review at 6-8 weeks. Online filings are treated as expedited and SDAT lists online expedited review at 7-14 business days. Same-day rush is available if you submit by the required cutoff and pay the higher rush fee.',
+        'SDAT lists standard non-expedited review at 6-8 weeks. With the $50 expedite fee, SDAT lists online review at 7-14 business days. Same-day rush is available if you submit by the required cutoff and pay the higher rush fee.',
     },
     {
       question: 'How do I register an LLC in Maryland?',
       answer:
-        'Registering, forming, and filing a Maryland LLC all mean filing Articles of Organization with the State Department of Assessments and Taxation (SDAT): $100 by mail or about $154.50 online. That is the only state filing that creates the LLC. After approval, register with the Comptroller only if you will collect sales tax or run payroll, and get a county Trader\'s License if you sell goods. Then plan for the $300 Annual Report every April 15, which every Maryland LLC owes, even one with no revenue or property.',
+        'Registering, forming, and filing a Maryland LLC all mean filing Articles of Organization with the State Department of Assessments and Taxation (SDAT): $100, or $150 with expedited review, plus 3% if you pay online. That is the only state filing that creates the LLC. After approval, register with the Comptroller only if you will collect sales tax or run payroll, and get a county Trader\'s License if you sell goods. Then plan for the $300 Annual Report every April 15, which every Maryland LLC owes, even one with no revenue or property.',
     },
     {
       question: 'What is a Maryland resident agent?',
@@ -233,7 +233,7 @@ export const maryland: StateOverride = {
     {
       question: 'How do I apply for an LLC in Maryland online?',
       answer:
-        'File through Maryland Business Express. Create an account, search your name, choose Articles of Organization for an LLC, and enter the principal office, your resident agent and their consent, and an authorized signature. Budget $150 plus a 3% processing fee, about $154.50, because Business Express treats online filings as expedited; SDAT lists that review at 7-14 business days. The only way to pay $100 is to mail the paper form and wait 6-8 weeks. For most founders, the extra $54.50 is worth it.',
+        'File through Maryland Business Express. Create an account, search your name, choose Articles of Organization for an LLC, and enter the principal office, your resident agent and their consent, and an authorized signature. Standard review is $100 plus a 3% online payment fee, about $103, and takes 6-8 weeks. Expedited review is $150 plus 3%, about $154.50, and SDAT lists it at 7-14 business days. Unless you can wait two months, pay the $50. If checkout shows the expedite fee without asking, go back and check the filing speed you selected.',
     },
     {
       question: 'Do I need a business license for my Maryland LLC?',
@@ -285,7 +285,7 @@ export const maryland: StateOverride = {
     ],
     cons: [
       'The $300 Annual Report / Personal Property Return is the biggest drawback. Maryland is cheap to start but not cheap to maintain.',
-      'Online filing is not the cheapest path because Maryland automatically adds the $50 expedite fee and 3% processing fee.',
+      'Standard review takes 6-8 weeks, so most founders end up paying the $50 expedite fee, and online payments add 3% on top.',
       'Maryland county and Baltimore City income taxes can push the real owner-level tax burden higher than founders expect.',
       'Maryland does not offer a domestic Series LLC or a separate PLLC structure, which matters for some real estate and licensed professional businesses.',
     ],

@@ -50,7 +50,7 @@ Work top to bottom inside each month. If something is blocked, skip it and come 
 ### Titles and search coverage on the 11 live guides
 - [x] Rewrite the title and meta description of every live guide to match how people search, with the fee in the title. Example: "How to Start an LLC in Washington (2026): $200 Fee, Steps & Timeline". (Done Sep 23. Request re-indexing in GSC; compare CTR and position after 4 weeks.)
 - [x] Make sure each guide naturally covers the synonym searches in headings and FAQ: register, apply for, form, file, get an LLC in {state}. (Done Sep 23: "How do I register an LLC in {state}?" and "How do I apply for an LLC in {state} online?" on every guide.)
-- [x] Re-check each guide's fees and deadlines against the official state site (use "Refresh the {state} state guide"). (Done Sep 23. Core fees unchanged. Open questions: Maryland $100 online option, Indiana $95 vs $96, Virginia next-day expedite fee.)
+- [x] Re-check each guide's fees and deadlines against the official state site (use "Refresh the {state} state guide"). (Done Sep 23. Core fees unchanged. Maryland, Indiana, and Virginia checkout fees confirmed against official sources.)
 
 ### Make Washington the best page on the site
 It's the closest page to page 1 (head terms rank 24–45). Add sections that answer the queries it already gets:
