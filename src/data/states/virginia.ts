@@ -6,7 +6,7 @@ export const virginia: StateOverride = {
   seoTitle: `How to Start an LLC in Virginia (${GUIDE_YEAR}): $100 Fee, Steps & Timeline`,
   seoDescription:
     'Register a Virginia LLC with the SCC for $100, often approved right at checkout online. Then the $50 annual fee, local BPOL license, and what not to pay for.',
-  lastUpdated: '2026-09-23',
+  lastUpdated: '2026-09-25',
   intro:
     "A Virginia LLC costs $100 to file. You file Articles of Organization with the State Corporation Commission (SCC), and there's no annual report or newspaper publication requirement. There is a separate $50 annual registration fee that keeps the LLC active. Check the registered agent rule before you file, because Virginia is stricter than most states: an individual agent must be a Virginia resident who is a member or manager of the LLC, or a member of the Virginia State Bar. If that isn't you, you'll need a business entity authorized in Virginia, such as a commercial registered agent.",
   whatYoullNeed:
@@ -36,6 +36,16 @@ export const virginia: StateOverride = {
       label: 'Virginia Code § 13.1-1011 (articles and registered agent rules)',
       url: 'https://law.lis.virginia.gov/vacode/title13.1/chapter12/section13.1-1011/',
     },
+    {
+      label: 'SCC how-to guide: form a Virginia LLC online',
+      url: 'https://www.scc.virginia.gov/media/sccvirginiagov-home/business-home/business-faqs/llc-faqs/how-to-guide-form-a-virginia-limited-liability-company.pdf',
+    },
+    { label: 'Virginia SCC professional LLC FAQs', url: 'https://www.scc.virginia.gov/businesses/business-faqs/professional-llc-faqs/' },
+    {
+      label: 'BPOL license fee and tax limits (Va. Code § 58.1-3703)',
+      url: 'https://law.lis.virginia.gov/vacode/title58.1/chapter37/section58.1-3703/',
+    },
+    { label: 'Register a business with Virginia Tax', url: 'https://www.tax.virginia.gov/register-business-virginia' },
     {
       label: 'Apply for an EIN with the IRS',
       url: 'https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online',
@@ -105,6 +115,219 @@ export const virginia: StateOverride = {
       title: 'Do not miss the annual registration fee',
       description:
         'Virginia LLCs do not file an annual report, which is good. But they do owe a separate $50 annual registration fee, first due by the last day of the LLC\'s anniversary month one year after formation, then every year by that date. The SCC mails the notice to your registered agent about two months ahead. Miss the due date and Virginia adds a $25 penalty. If it is still unpaid by the last day of the third month after the due date, the LLC is automatically canceled, and getting it back costs a $100 reinstatement fee plus everything unpaid. This is the one ongoing Virginia requirement first-time founders most often miss because they hear "no annual report" and assume there is no annual state maintenance at all.',
+    },
+  ],
+  sections: [
+    {
+      id: 'file-articles-scc-cis',
+      heading: 'How to file your Articles of Organization on the SCC website (CIS)',
+      summary:
+        "You file at cis.scc.virginia.gov, the SCC's Clerk's Information System. It costs $100 by credit card with no online payment fee, and if you fill in the form instead of uploading your own articles, the acceptance email usually arrives right after checkout. Here is the order of the screens and the choices that cause delays.",
+      facts: [
+        {
+          label: 'Start the filing',
+          detail:
+            'Create a login, click Online Services, choose Form or Register a Business, then Virginia Entity, Limited Liability Company, and Articles of Organization.',
+        },
+        {
+          label: 'Name',
+          detail:
+            'If you reserved a name, enter the Reservation ID and PIN. If not, type the name with an LLC designator and click Check Availability.',
+        },
+        {
+          label: 'Company details',
+          detail:
+            'An email and phone number for the LLC, an industry code (the SCC says most filers pick "0 - General"), and duration (most pick Perpetual).',
+        },
+        {
+          label: 'Registered agent',
+          detail:
+            'Choose Individual or Entity. For a commercial agent, search by name and select it. For yourself, create an individual agent and pick your RA Capacity, meaning the category that qualifies you, such as a Virginia-resident member or manager. The registered office must be a Virginia street address; PO boxes, virtual offices, and mail drops are rejected.',
+        },
+        {
+          label: 'Principal office and management',
+          detail:
+            'The physical location of the LLC\'s main office, not a PO box. Then choose member-managed or manager-managed from the drop-down. Virginia does not ask for member or manager names.',
+        },
+        {
+          label: 'Upload',
+          detail:
+            'Skip it. An upload sends your filing to staff review, which the SCC says adds about five business days, and mismatches between an uploaded document and the form, down to capitalization and punctuation in the name, are the top reason filings are rejected.',
+        },
+        {
+          label: 'Signature',
+          detail:
+            'The organizer signs as an individual or on behalf of an entity. The organizer\'s printed name is part of the public filing.',
+        },
+        {
+          label: 'Pay',
+          detail:
+            'Add to cart, check out, and pay $100 by card on the SCC\'s payment page. Expedite ($50 or $100 next-day, $200 same-day) only matters if your filing needs staff review.',
+        },
+        {
+          label: 'After approval',
+          detail:
+            'You get a receipt email and an acceptance email. Acceptance letters and any certificates you order also appear in your CIS dashboard. Download the filed articles; your bank will ask for them.',
+        },
+      ],
+      paragraphs: [
+        'Attorneys and dentists should stop before this form. The SCC rejects the regular Articles of Organization for legal and dental practices; those file Form LLC-1103 for a professional LLC instead (see the PLLC section below).',
+      ],
+    },
+    {
+      id: 'virginia-bpol-business-license',
+      heading: 'Virginia business license (BPOL) for your LLC',
+      summary:
+        'Virginia has no statewide general business license. Your city or county issues it, usually through the Commissioner of the Revenue, under a local Business, Professional and Occupational License (BPOL) ordinance. State law caps what localities can charge, and at typical first-year revenue most solo LLCs pay a small flat fee or nothing.',
+      facts: [
+        {
+          label: 'When to apply',
+          detail:
+            'State law says before you begin business. Localities set their own windows in practice: Fairfax County gives new businesses 75 days, and the City of Richmond gives 30 days. Renewals are due by March 1 in most localities (some use May 1), with a 10% late penalty.',
+        },
+        {
+          label: 'State caps on the flat fee',
+          detail:
+            'Up to $50 in localities with more than 25,000 people, and up to $30 in smaller ones.',
+        },
+        {
+          label: 'State caps on gross receipts tax',
+          detail:
+            'No BPOL tax on gross receipts under $100,000 in localities over 50,000 people, or under $50,000 in localities of 25,000 to 50,000. Above that, the maximum rate for professional services is $0.58 per $100 of gross receipts, and $0.36 for repair, personal, and business services.',
+        },
+        {
+          label: 'Fairfax County example',
+          detail:
+            '$0 at $10,000 or less in gross receipts, $30 from $10,001 to $50,000, $50 from $50,001 to $100,000. Above $100,000, the tax is a rate on gross receipts; professional services pay $0.31 per $100.',
+        },
+        {
+          label: 'City of Richmond example (2026)',
+          detail:
+            '$0 at $5,000 or less, a $30 fee from $5,001 to $500,000, and the gross receipts tax only above $500,000.',
+        },
+        {
+          label: 'Virginia Tax',
+          detail:
+            'A separate registration, done online. You need it before you collect sales tax or withhold wages from employees. Selling taxable goods without a sales tax certificate is a misdemeanor for each day.',
+        },
+      ],
+      paragraphs: [
+        "A freelance designer in Fairfax County expecting $60,000 in first-year revenue pays a $50 BPOL fee and no gross receipts tax. Check your Commissioner of the Revenue's website as soon as the SCC approves the LLC. The SCC filing doesn't register you locally, and each locality sets its own deadline.",
+      ],
+      related: { label: 'Estimate your self-employment tax', href: '/self-employment-tax/calculator/' },
+    },
+    {
+      id: 'anonymous-llc-virginia',
+      heading: 'Can you form an anonymous LLC in Virginia?',
+      summary:
+        "Mostly, yes. Virginia's Articles of Organization don't list members or managers, there is no annual report, and the SCC says it does not keep a record of members or managers. What can expose your name and address is the registered agent line, because of Virginia's narrow agent rule.",
+      facts: [
+        {
+          label: 'Public on SCC records',
+          detail:
+            "The LLC's name, the registered agent's name and registered office address, the principal office address, and the organizer's name on the filed articles. Anyone can download filing images from CIS for free without logging in.",
+        },
+        {
+          label: 'Not public',
+          detail:
+            'Members, managers, and ownership percentages. Virginia law requires the LLC to keep a current member list at its principal office, but it is an internal record, not a filing.',
+        },
+        {
+          label: 'The registered agent catch',
+          detail:
+            'An individual agent must be a Virginia resident who is a member, manager, or officer of the LLC, or a member of the Virginia State Bar. So if you serve as your own agent, the public record shows your name next to your street address, which ties you to the LLC.',
+        },
+        {
+          label: 'Principal office',
+          detail:
+            "It must be the physical location of the LLC's main office, not a PO box. If you run the business from home, your home address shows up here.",
+        },
+        {
+          label: 'Organizer',
+          detail:
+            "The organizer's name is on the articles. If a formation service prepares and signs them, its name can appear there instead of yours.",
+        },
+      ],
+      paragraphs: [
+        'To keep your name off Virginia records, use a commercial registered agent and let someone other than you sign as organizer. Your principal office address will still be public, so if privacy matters, use a business address that is not your home.',
+      ],
+      related: { label: 'Compare registered agent options: Northwest vs Bizee', href: '/northwest-vs-bizee/' },
+    },
+    {
+      id: 'pllc-virginia',
+      heading: 'PLLC in Virginia: who needs one',
+      summary:
+        'Most licensed professionals in Virginia can choose either a professional LLC (PLLC) or a regular LLC. The main exceptions are attorneys and dentists: the SCC rejects the regular LLC form for legal and dental practices, so they file Form LLC-1103. Everyone else should pick a regular LLC unless their licensing board says otherwise, because it has no ownership restrictions.',
+      facts: [
+        {
+          label: 'Professions covered',
+          detail:
+            'Attorneys, dentists, practitioners of the healing arts, pharmacists, optometrists, physical therapists, advanced practice registered nurses, behavioral science professionals, veterinarians, architects, professional engineers, land surveyors, landscape architects, certified interior designers, CPAs, insurance consultants, and audiologists and speech pathologists.',
+        },
+        {
+          label: 'Who can own it',
+          detail:
+            'Generally, all members must be licensed to provide the same service, and at least one must hold a Virginia license. Architecture, engineering, surveying, landscape architecture, and interior design firms need at least two-thirds licensed ownership.',
+        },
+        {
+          label: 'Filing',
+          detail:
+            'Form LLC-1103, $100, the same fee as a regular LLC. You must state the specific professional service; the SCC rejects vague purposes. It does not ask for a copy of your license.',
+        },
+        {
+          label: 'Name',
+          detail:
+            'PLLC, P.L.L.C., PLC, or P.L.C. are allowed but optional. A standard LLC ending also works.',
+        },
+        {
+          label: 'Before you practice',
+          detail:
+            'Law firms need a registration certificate from the Virginia State Bar. Architecture, engineering, surveying, landscape architecture, and interior design firms need a certificate of authority from their licensing board.',
+        },
+        {
+          label: 'Liability',
+          detail:
+            "A PLLC does not shield you from liability for your own professional services. It protects you from the company's obligations and from other members' acts.",
+        },
+      ],
+    },
+    {
+      id: 'sole-proprietorship-to-llc-virginia',
+      heading: 'Converting a sole proprietorship to an LLC in Virginia',
+      summary:
+        "Virginia has no conversion filing for sole proprietors. You form a new LLC for $100 and move the business into it. The steps that catch people are Virginia Tax accounts, the assumed name, and trade licenses, which belong to the old business.",
+      facts: [
+        {
+          label: '1. Form the LLC',
+          detail: 'File Articles of Organization on CIS for $100.',
+        },
+        {
+          label: '2. Decide on the EIN',
+          detail:
+            "The IRS lets a single-member LLC keep using the sole proprietor's EIN only if it has no employees, owes no excise tax, and hasn't elected corporate or S-corp tax treatment. If you'll hire or plan an S-corp election, get a new EIN for the LLC; it is free.",
+        },
+        {
+          label: '3. Virginia Tax accounts',
+          detail:
+            'If the LLC gets a new EIN, Virginia Tax requires a new registration and a new Virginia account number. Register the LLC online and close the sole proprietorship\'s accounts.',
+        },
+        {
+          label: '4. Assumed name',
+          detail:
+            "If you'll keep using your old business name, re-register it with the SCC as an assumed name of the LLC. The filing fee is $10.",
+        },
+        {
+          label: '5. DPOR and other trade licenses',
+          detail:
+            'Virginia contractor licenses are issued to the firm and are not transferable. When you form the LLC, the old license becomes void: return it to the board within 30 days and apply for a new license for the LLC within 30 days.',
+        },
+        {
+          label: '6. Local license and clients',
+          detail:
+            "Tell your Commissioner of the Revenue about the change so the BPOL license is in the LLC's name. Open an LLC bank account and send clients a new W-9.",
+        },
+      ],
+      related: { label: 'Still deciding? LLC vs sole proprietorship', href: '/llc-vs-sole-proprietorship/' },
     },
   ],
   costBreakdown: [
@@ -188,7 +411,27 @@ export const virginia: StateOverride = {
     {
       question: 'What is BPOL in Virginia?',
       answer:
-        'BPOL stands for Business, Professional and Occupational License tax. Many Virginia cities and counties impose it based on gross receipts. The exact rates, filing deadlines, and exemption thresholds vary by locality, so check your city or county Commissioner of the Revenue instead of assuming a generic state-level answer applies to you.',
+        'BPOL stands for Business, Professional and Occupational License tax, the local business license most Virginia cities and counties require. State law caps the flat fee at $50 ($30 in localities under 25,000 people) and bars the gross receipts tax below $100,000 in localities over 50,000 people. Deadlines and exact thresholds vary: Fairfax County charges $0 up to $10,000 in gross receipts and $50 up to $100,000. Check your Commissioner of the Revenue.',
+    },
+    {
+      question: 'Is there a free way to form an LLC in Virginia?',
+      answer:
+        'No. Virginia charges $100 for Articles of Organization, and the Code has no fee waiver, including for veterans. There is no online payment fee. If you qualify as your own registered agent, $100 is the full cost to form, plus the $50 annual registration fee each year after.',
+    },
+    {
+      question: 'Can I form an anonymous LLC in Virginia?',
+      answer:
+        "Mostly. Virginia doesn't list members or managers on the Articles, has no annual report, and the SCC keeps no member records. Your name becomes public if you serve as your own registered agent or sign as organizer, and the principal office address is always public.",
+    },
+    {
+      question: 'Do I need a PLLC in Virginia?',
+      answer:
+        'Usually not. Most licensed professionals can use either a PLLC or a regular LLC. Attorneys and dentists are the exception: the SCC rejects the regular LLC form for legal and dental practices, so they file Form LLC-1103 ($100).',
+    },
+    {
+      question: 'How do I change a sole proprietorship to an LLC in Virginia?',
+      answer:
+        "There is no conversion filing. Form a new LLC with the SCC ($100), re-register any assumed name under the LLC ($10), register with Virginia Tax again if the LLC gets a new EIN, and update your local BPOL license. Contractor licenses are void once the LLC forms, so apply for a new DPOR license within 30 days.",
     },
     {
       question: 'Do Virginia LLCs need to file BOI reports?',

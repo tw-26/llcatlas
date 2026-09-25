@@ -17,6 +17,8 @@ export type {
   ComparisonRow,
   CostBreakdownItem,
   FaqItem,
+  GuideSection,
+  GuideSectionFact,
   ResourceLink,
   StateData,
   StateOverride,

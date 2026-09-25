@@ -28,6 +28,20 @@ export type ResourceLink = {
   url: string;
 };
 
+export type GuideSectionFact = {
+  label: string;
+  detail: string;
+};
+
+export type GuideSection = {
+  id: string;
+  heading: string;
+  summary: string;
+  facts?: GuideSectionFact[];
+  paragraphs?: string[];
+  related?: { label: string; href: string };
+};
+
 export type ComparisonRow = {
   state: string;
   annualReport: string;
@@ -69,6 +83,7 @@ export type StateData = {
   seoDescription: string | null;
   lastUpdated: string | null;
   steps: Step[];
+  sections: GuideSection[];
   costBreakdown: CostBreakdownItem[];
   faq: FaqItem[];
   proscons: { pros: string[]; cons: string[] };

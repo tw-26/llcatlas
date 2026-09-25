@@ -113,6 +113,7 @@ export const buildDefaultState = ({ slug, name, abbreviation }: StateSeed): Stat
   seoDescription: null,
   lastUpdated: null,
   steps: buildSteps(name),
+  sections: [],
   costBreakdown: buildCostBreakdown(name),
   faq: buildFaq(name),
   proscons: buildProsCons(name),

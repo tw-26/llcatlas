@@ -54,15 +54,15 @@ Work top to bottom inside each month. If something is blocked, skip it and come 
 
 ### Make Washington the best page on the site
 It's the closest page to page 1 (head terms rank 24–45). Add sections that answer the queries it already gets:
-- [ ] Initial report (due within 120 days) and annual report
-- [ ] Certificate of formation walkthrough on the Secretary of State site ("sos wa gov llc" ranks 24)
-- [ ] Single-member LLC in Washington
-- [ ] Washington business license and how it relates to the LLC
-- [ ] Anonymous LLC in Washington
-- [ ] PLLC (who needs one)
-- [ ] Converting a sole proprietorship to an LLC
-- [ ] "Is there a free way to form an LLC in Washington?" (straight answer)
-- [ ] Then do the same query-gap pass for Virginia and Maryland.
+- [x] Initial report (due within 120 days) and annual report (Done Sep 25: new section with due dates, late fees, dissolution and reinstatement, plus 2 FAQs, verified against RCW 23.95.255/.605–.615 and the SOS fee schedule. Guides now support extra `sections` in state data for the items below.)
+- [x] Certificate of formation walkthrough on the Secretary of State site ("sos wa gov llc" ranks 24)
+- [x] Single-member LLC in Washington
+- [x] Washington business license and how it relates to the LLC
+- [x] Anonymous LLC in Washington
+- [x] PLLC (who needs one)
+- [x] Converting a sole proprietorship to an LLC
+- [x] "Is there a free way to form an LLC in Washington?" (straight answer)
+- [x] Then do the same query-gap pass for Virginia and Maryland. (Done Sep 25 without a GSC query export on hand; topics mirror Washington where each state has something specific. Virginia: CIS walkthrough, BPOL, anonymous LLC, PLLC, sole prop conversion. Maryland: Business Express walkthrough, missed annual report/forfeiture/reinstatement, trader's license, anonymous LLC, sole prop conversion. Also fixed Maryland's online trade name fee ($75 + 3%), resident agent eligibility, and trader's license cap. Re-check against the October GSC export, then request re-indexing for all three guides.)
 
 ### Cost pages (pilot)
 - [ ] Build `/llc/[state]/cost/` for Tennessee, Ohio, and Pennsylvania from the existing state data. Cover: filing fee, annual report fee and due date, franchise or excise tax, registered agent cost, publication requirements, and total cost for year 1 and year 2, with one recommendation. Title pattern: "{State} LLC Cost ({year}): $X to Form, $Y/Year".
