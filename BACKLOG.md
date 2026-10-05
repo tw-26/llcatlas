@@ -72,7 +72,7 @@ It's the closest page to page 1 (head terms rank 24–45). Add sections that ans
 ### New state guides, batch 1 (10 states with a weak result in the top 10)
 - [x] Georgia (done Sep 23; confirm the flagged fees)
 - [x] California, Utah, Texas, Delaware, Montana (done Oct 5; review the "needs your eyes" items, request indexing. Delaware's annual tax rose to $400 in 2026, now fixed in every guide's comparison row and on `/best-state/`.)
-- [ ] Arizona, Nevada, Illinois, Oregon, Oklahoma
+- [x] Arizona, Nevada, Illinois, Oregon, Oklahoma (done Oct 5; review the "needs your eyes" items, request indexing. Illinois SOS pages were unreachable, so its fees rest on 805 ILCS 180.)
 - [ ] Use the `new-state-guide` skill for each. Review the "needs your eyes" list, run `npm test`, push, and request indexing in GSC.
 - [ ] Texas, California, and Delaware need the franchise tax front and center (Texas franchise tax report, California $800 minimum tax, Delaware $300 annual tax). That's the state-specific trap for each.
 

@@ -1,13 +1,18 @@
+import { arizona } from './arizona';
 import { california } from './california';
 import { buildDefaultState } from './defaults';
 import { delaware } from './delaware';
 import { georgia } from './georgia';
+import { illinois } from './illinois';
 import { indiana } from './indiana';
 import { maryland } from './maryland';
 import { michigan } from './michigan';
 import { montana } from './montana';
+import { nevada } from './nevada';
 import { northCarolina } from './north-carolina';
 import { ohio } from './ohio';
+import { oklahoma } from './oklahoma';
+import { oregon } from './oregon';
 import { pennsylvania } from './pennsylvania';
 import { stateSeeds } from './seeds';
 import { tennessee } from './tennessee';
@@ -33,15 +38,20 @@ export type {
 } from './types';
 
 const stateOverrides: Record<string, StateOverride> = {
+  arizona,
   california,
   delaware,
   georgia,
+  illinois,
   indiana,
   maryland,
   michigan,
   montana,
+  nevada,
   'north-carolina': northCarolina,
   ohio,
+  oklahoma,
+  oregon,
   pennsylvania,
   tennessee,
   texas,
