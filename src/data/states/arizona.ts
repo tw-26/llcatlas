@@ -8,9 +8,9 @@ export const arizona: StateOverride = {
     'Form an Arizona LLC for $50 by mail or $85 online. No annual report, but you may owe newspaper publication within 60 days and need a TPT license.',
   lastUpdated: '2026-10-05',
   intro:
-    "An Arizona LLC costs $50 to file, or $85 with the $35 expedite fee that the Arizona Corporation Commission (ACC) quotes for online filing. You file Articles of Organization with the ACC's Corporations Division, online through Arizona Business Center, the portal that replaced eCorp on January 12, 2026. Arizona LLCs file no annual report and pay the ACC no yearly fee. Two things catch first-time founders here. First, within 60 days of approval, notice of your LLC must be published. If your statutory agent's street address is in Maricopa or Pima County, the ACC posts it online for free. Anywhere else, you buy three consecutive newspaper notices in that county. Second, if you sell goods or do another taxable activity, you need a transaction privilege tax (TPT) license from the Arizona Department of Revenue. Forming the LLC doesn't get you one.",
+    "The base filing fee for an Arizona LLC is $50. The Arizona Corporation Commission (ACC) states that online LLC formation costs $85, which is the $50 fee plus its $35 expedited-processing charge. Filing by mail at regular processing is $50. You file Articles of Organization with the ACC's Corporations Division, online through Arizona Business Center, the portal that replaced eCorp on January 12, 2026. Arizona LLCs file no annual report and pay the ACC no yearly fee. Two things catch first-time founders here. First, within 60 days of approval, notice of your LLC must be published. If your statutory agent's street address is in Maricopa or Pima County, the ACC posts it online for free. Anywhere else, you buy three consecutive newspaper notices in that county. Second, if you sell goods or do another taxable activity, you need a transaction privilege tax (TPT) license from the Arizona Department of Revenue. Forming the LLC doesn't get you one.",
   whatYoullNeed:
-    "To form an Arizona LLC, you will need an available name with an LLC identifier (LLC, L.L.C., LC, L.C., Limited Liability Company, or Limited Company), a statutory agent with an Arizona street address and mailing address plus an email address so they can accept the appointment, a principal address (it can be anywhere), the name and address of each member, or of each manager and every member owning 20% or more, an organizer to sign, an Arizona Business Center account, and $50, or $85 with expedited processing.",
+    "To form an Arizona LLC, you will need an available name with an LLC identifier (LLC, L.L.C., LC, L.C., Limited Liability Company, or Limited Company), a statutory agent with an Arizona street address and mailing address plus an email address so they can accept the appointment, a principal address (it can be anywhere), the name and address of each member, or of each manager and every member owning 20% or more, an organizer to sign, an Arizona Business Center account, and $85 to file online ($50 if you file by mail).",
   closing:
     "If you live and work in Arizona, form here. A Wyoming or Delaware LLC run from Arizona would still register with the ACC as a foreign LLC for $150, keep an Arizona statutory agent, and pay its home state's fees every year. A $50 Arizona LLC with no annual report is already one of the cheapest to keep alive. Put three things on your calendar. The publication deadline is 60 days after approval if your agent is outside Maricopa and Pima counties. If you hold a TPT license, it renews every January 1, and its returns are due on the schedule ADOR assigns you. And the ACC has announced an attestation email for LLCs that haven't filed anything in two years, so keep your agent's email current and answer it if it arrives. You can be your own statutory agent if you live in Arizona. A commercial agent, usually $50 to $150 a year, makes sense if you don't want your home address on the public record. Outside Maricopa and Pima, an agent with a Phoenix or Tucson address also means the ACC posts your notice instead of you paying a newspaper.",
   inlineCtaDescription:
@@ -70,7 +70,7 @@ export const arizona: StateOverride = {
     {
       state: 'Arizona',
       annualReport: 'No annual report for LLCs',
-      upfrontCost: '$50 ($85 expedited) + publication outside Maricopa/Pima',
+      upfrontCost: '$50 mail / $85 online + publication outside Maricopa/Pima',
       ongoingStateCost: '$0 state annual fee',
     },
     {
@@ -105,9 +105,9 @@ export const arizona: StateOverride = {
     },
   ],
   filingFee: 50,
-  filingFeeDisplay: '$50 regular / $85 expedited',
+  filingFeeDisplay: '$50 by mail / $85 online (includes expedite)',
   filingFeeNote:
-    "The ACC's fee schedule lists $50 for regular processing and $85 with the $35 expedite fee. Its FAQ quotes $85 for an online filing and doesn't say whether the online checkout offers regular processing, so check the options before you pay. A paper filing by mail can be submitted for $50 at regular processing.",
+    "The ACC's fee schedule lists a $50 base filing fee and a $35 expedite fee. The ACC states that online LLC formation costs $85, the two combined. A paper filing by mail at regular processing costs $50.",
   annualReportFee: 0,
   filingTime:
     "The ACC's FAQ estimates 14 to 16 business days for regular processing and 3 to 5 business days with the $35 expedite. Nothing is approved until your statutory agent accepts the appointment. The ACC posts current processing times on Arizona Business Center.",
@@ -146,7 +146,7 @@ export const arizona: StateOverride = {
     {
       title: 'File Articles of Organization on Arizona Business Center',
       description:
-        "Create an Arizona Business Center account and file Articles of Organization. Arizona Business Center replaced eCorp on January 12, 2026, so ignore any guide that sends you to eCorp. You enter the name, statutory agent and its email, a principal address (it can be anywhere, including a PO box), the management structure, and members or managers. The fee is $50, plus $35 to expedite; the ACC's FAQ quotes $85 for online filing. By mail, send a cover sheet, the Articles, the structure attachment, a signed Statutory Agent Acceptance (Form M002), and a $50 check or money order to 1300 W. Washington St., Phoenix. You can set an effective date up to 90 days out. Fees aren't refundable.",
+        "Create an Arizona Business Center account and file Articles of Organization. Arizona Business Center replaced eCorp on January 12, 2026, so ignore any guide that sends you to eCorp. You enter the name, statutory agent and its email, a principal address (it can be anywhere, including a PO box), the management structure, and members or managers. The ACC states that online formation costs $85: the $50 filing fee plus the $35 expedite charge. By mail, send a cover sheet, the Articles, the structure attachment, a signed Statutory Agent Acceptance (Form M002), and a $50 check or money order to 1300 W. Washington St., Phoenix. You can set an effective date up to 90 days out. Fees aren't refundable.",
     },
     {
       title: 'Wait for approval, or pay to expedite',
@@ -276,13 +276,13 @@ export const arizona: StateOverride = {
       item: 'Articles of Organization (regular processing)',
       cost: '$50',
       required: 'Yes',
-      notes: 'Online or by mail; fees are nonrefundable',
+      notes: 'Base fee; by mail at regular processing. Fees are nonrefundable',
     },
     {
       item: 'Expedite fee',
       cost: '+$35',
-      required: 'Optional',
-      notes: '$85 total, the amount the ACC quotes for online filing; typically 3 to 5 business days',
+      required: 'Included online',
+      notes: 'The ACC states online formation costs $85 ($50 + $35); typically 3 to 5 business days',
     },
     { item: 'Next-day review', cost: '+$100', required: 'Optional', notes: 'Received by 5 p.m.' },
     { item: 'Same-day review', cost: '+$200', required: 'Optional', notes: 'Received by 10 a.m.' },
@@ -337,7 +337,7 @@ export const arizona: StateOverride = {
       item: 'Total (bare minimum DIY)',
       cost: '$50 to form, then $0/yr',
       isEmphasized: true,
-      notes: 'Regular processing, self-serve agent in Maricopa or Pima; newspaper notices extra elsewhere',
+      notes: 'Mail filing at regular processing ($85 online), self-serve agent in Maricopa or Pima; newspaper notices extra elsewhere',
     },
     {
       item: 'Total (typical first year with commercial agent)',
@@ -350,12 +350,12 @@ export const arizona: StateOverride = {
     {
       question: 'How much does it cost to start an LLC in Arizona?',
       answer:
-        "The Articles of Organization cost $50, or $85 with the $35 expedite fee the ACC quotes for online filing. If your statutory agent is outside Maricopa and Pima counties, add the cost of three newspaper notices. After that, the ACC charges nothing yearly: no annual report and no annual fee. A commercial statutory agent typically adds $50 to $150 a year, and a TPT license costs $12 plus city fees if you do a taxable activity.",
+        "The base filing fee is $50. The ACC states that online LLC formation costs $85, which includes its $35 expedited-processing charge; filing by mail at regular processing is $50. If your statutory agent is outside Maricopa and Pima counties, add the cost of three newspaper notices. After that, the ACC charges nothing yearly: no annual report and no annual fee. A commercial statutory agent typically adds $50 to $150 a year, and a TPT license costs $12 plus city fees if you do a taxable activity.",
     },
     {
       question: 'What is the Arizona LLC filing fee?',
       answer:
-        "$50 for Articles of Organization at regular processing, per the ACC's fee schedule. Expediting adds $35, for $85 total, which is the figure the ACC's FAQ gives for online filing. Next-day, same-day, and 2-hour review add $100, $200, or $400.",
+        "The base fee for Articles of Organization is $50. The ACC states that online LLC formation costs $85, which is the $50 fee plus the $35 expedite charge. Filing by mail at regular processing costs $50. Next-day, same-day, and 2-hour review add $100, $200, or $400.",
     },
     {
       question: 'How long does it take to form an LLC in Arizona?',
@@ -425,7 +425,7 @@ export const arizona: StateOverride = {
   ],
   proscons: {
     pros: [
-      'Low cost to start: $50 at regular processing, or $85 expedited.',
+      'Low cost to start: $85 online (expedited processing included) or $50 by mail.',
       'No annual report and no yearly ACC fee, so a formed LLC costs the state nothing to keep.',
       'Free publication when your statutory agent is in Maricopa or Pima County, including Phoenix and Tucson.',
       'A flat 2.5% individual income tax on pass-through profit.',

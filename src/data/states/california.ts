@@ -8,11 +8,11 @@ export const california: StateOverride = {
     "California LLCs cost $70 to file, then $800 a year to the FTB even with no income. When it's due, the $20 Statement of Information, and the 2027 $400 cut.",
   lastUpdated: '2026-10-05',
   intro:
-    "Filing a California LLC costs $70. The bill that matters comes after: every California LLC owes the Franchise Tax Board an $800 annual tax, whether it earns anything or not. You file Articles of Organization (Form LLC-1) with the California Secretary of State on bizfile Online. Within 90 days you file a $20 Statement of Information, and you file it again every two years after that. The first $800 is due by the 15th day of the 4th month after you file, and every April 15 after that for a calendar-year LLC. The 2021-2023 first-year exemption has ended. A new state law cuts the first-year tax to $400 for LLCs whose first tax year begins in 2027, 2028, or 2029. If you're forming late in 2026, filing in January 2027 instead can save you $1,200. There's no newspaper publication requirement for the LLC itself.",
+    "Filing a California LLC costs $70. The bill that matters comes after: every California LLC owes the Franchise Tax Board an $800 annual tax, whether it earns anything or not. You file Articles of Organization (Form LLC-1) with the California Secretary of State on bizfile Online. Within 90 days you file a $20 Statement of Information, and you file it again every two years after that. The first $800 is due by the 15th day of the 4th month after you file, and every April 15 after that for a calendar-year LLC. The 2021-2023 first-year exemption has ended. For an LLC whose first taxable year begins between January 1, 2027 and December 31, 2029, California cuts the first year's tax from $800 to $400. Every year after the first, and every LLC formed before 2027, pays the normal $800. There's no newspaper publication requirement for the LLC itself.",
   whatYoullNeed:
     'To form a California LLC, you will need a bizfile Online account, an available name ending in LLC, L.L.C., or Limited Liability Company, a principal office street address, an agent for service of process (a California resident or a registered 1505 corporate agent), a decision on whether the LLC is member-managed or manager-managed, and $70. Plan for the $20 Statement of Information within 90 days and the annual tax to the Franchise Tax Board.',
   closing:
-    "If you live in California and run your business here, form in California. A Wyoming, Delaware, or Nevada LLC doesn't get you out of the $800. California treats an LLC run by a California resident as doing business here, so the out-of-state LLC registers as a foreign LLC ($70) and owes the same annual tax, plus its home state's fees and a registered agent there. The cheapest legal path is a California LLC, filed at the right time of year. If you're forming between now and December, compare filing in January 2027, when the first-year tax drops to $400. Put four things on your calendar: the $20 Statement of Information within 90 days, the first annual tax payment by the 15th day of the 4th month after filing, April 15 every year after that, and the Statement of Information again every two years. If you might not keep the business, the Short Form Cancellation within 12 months of forming avoids the first year's tax. You can be your own agent for service of process if you live in California. A commercial agent, usually $50 to $200 a year, makes sense if you don't want your home address on the public record.",
+    "If you live in California and run your business here, form in California. A Wyoming, Delaware, or Nevada LLC doesn't get you out of the $800. California treats an LLC run by a California resident as doing business here, so the out-of-state LLC registers as a foreign LLC ($70) and owes the same annual tax, plus its home state's fees and a registered agent there. The cheapest legal path is a California LLC, and your filing date matters: the first tax year runs from filing to December 31, so a December filing pays a full first-year tax for a few weeks. If your LLC's first taxable year begins in 2027 through 2029, that first year costs $400 instead of $800. Put four things on your calendar: the $20 Statement of Information within 90 days, the first annual tax payment by the 15th day of the 4th month after filing, April 15 every year after that, and the Statement of Information again every two years. If you might not keep the business, the Short Form Cancellation within 12 months of forming avoids the first year's tax. You can be your own agent for service of process if you live in California. A commercial agent, usually $50 to $200 a year, makes sense if you don't want your home address on the public record.",
   inlineCtaDescription:
     "California puts the name and street address of your agent for service of process on the public record, and the agent must be a California resident or a registered corporate agent. If you live in California and don't mind your address being public, you can be your own agent for free. A commercial agent, usually $50 to $200 a year, keeps your home address off bizfile and makes sure lawsuit papers and state notices reach you. It doesn't reduce the $800 annual tax or change any other California filing.",
   sidebarCtaDescription:
@@ -52,7 +52,11 @@ export const california: StateOverride = {
       url: 'https://www.ftb.ca.gov/file/business/types/limited-liability-company/index.html',
     },
     {
-      label: 'FTB Tax News: first-year tax cut to $400 (SB 180)',
+      label: 'FTB: first-year annual tax reduced to $400 (2027-2029)',
+      url: 'https://www.ftb.ca.gov/forms/whats-new.html',
+    },
+    {
+      label: 'FTB Tax News, August 2026',
       url: 'https://www.ftb.ca.gov/about-ftb/newsroom/tax-news/2026/08.html',
     },
     {
@@ -81,7 +85,7 @@ export const california: StateOverride = {
   ],
   taxHighlights: [
     'Every LLC organized in California, registered with the Secretary of State, or doing business here owes the Franchise Tax Board an $800 annual tax (Form FTB 3522) every year until it is canceled. It is owed even when the LLC has no income or does no business. The first payment is due by the 15th day of the 4th month after you file with the Secretary of State; after that it is due on the 15th day of the 4th month of each tax year, which is April 15 for a calendar-year LLC.',
-    'The first-year exemption from 2021 to 2023 is over. Under SB 180, effective July 13, 2026, the first-year tax is $400 instead of $800 for LLCs whose first tax year begins on or after January 1, 2027, and before January 1, 2030. LLCs formed in 2026 still owe the full $800 for their first year.',
+    'The first-year exemption from 2021 to 2023 is over. For taxable years beginning January 1, 2027, through December 31, 2029, California reduces the annual tax from $800 to $400 for an LLC\'s first taxable year. Existing LLCs, and every year after the first, stay at $800.',
     'An LLC fee applies on top of the $800 once total California income reaches $250,000: $900 from $250,000, $2,500 from $500,000, $6,000 from $1 million, and $11,790 from $5 million. You estimate and pay it with Form FTB 3536 by the 15th day of the 6th month of the tax year. Underpaying the estimate adds a 10% penalty.',
     "A default single-member LLC's profit is taxed on your personal California return. For 2025, the latest schedule the FTB has published, rates run from 1% to 12.3%, plus a 1% Behavioral Health Services Tax on taxable income over $1 million. Single filers reach the 9.3% bracket at $72,724 of taxable income. The LLC also files Form 568 every year.",
     "Domestic California LLCs don't file FinCEN BOI reports. FinCEN made the exemption for U.S. companies permanent in a final rule effective August 14, 2026. If you sell tangible goods at retail, register for a free seller's permit with the CDTFA; forming the LLC doesn't create one.",
@@ -162,7 +166,7 @@ export const california: StateOverride = {
     {
       title: 'Decide when to file, because the date sets your $800 bill',
       description:
-        "Your LLC's first tax year starts the day the Secretary of State files your Articles, and California doesn't let original Articles of Organization take a delayed effective date. An LLC filed in October 2026 owes $800 for 2026 by January 15, 2027, and another $800 for 2027 by April 15, 2027. An LLC filed in January 2027 owes $400 for its first year by April 15, 2027, then $800 the following April. That's $1,200 less. If your launch can wait until January, wait. If you need liability protection now, file now and budget for both payments.",
+        "Your LLC's first tax year starts the day the Secretary of State files your Articles and ends December 31, and California doesn't let original Articles of Organization take a delayed effective date. File in October and you owe the first-year tax by January 15, then the next year's $800 by April 15: two payments about three months apart. The first-year tax is $800, or $400 if that first taxable year begins between January 1, 2027 and December 31, 2029. If you're close to year-end and don't need liability protection yet, filing on or after January 1 means your first tax year is a full year. If you need the LLC now, file now and budget for both payments.",
     },
     {
       title: 'File Articles of Organization (Form LLC-1) on bizfile Online',
@@ -215,12 +219,12 @@ export const california: StateOverride = {
         {
           label: 'The year-end trap',
           detail:
-            'The first tax year runs from your filing date to December 31, however short. File on November 10, 2026, and you owe $800 for 2026 by February 15, 2027, then $800 for 2027 by April 15, 2027. That is $1,600 in two months.',
+            'The first tax year runs from your filing date to December 31, however short. File on November 10 and the first-year tax is due February 15, then the next year\'s $800 is due April 15. That is two full payments in about two months.',
         },
         {
-          label: '$400 first year from 2027',
+          label: '$400 first year (2027-2029)',
           detail:
-            'SB 180, effective July 13, 2026, sets the first-year tax at $400 for LLCs whose first tax year begins January 1, 2027, through December 31, 2029. LLCs filed in 2026 pay the full $800 for their first year.',
+            'For taxable years beginning January 1, 2027, through December 31, 2029, the annual tax is $400 instead of $800 for an LLC\'s first taxable year only. Existing LLCs and every later year stay at $800. Recheck the FTB before filing in 2030 or later; the reduction ends after 2029 unless the law is extended.',
         },
         {
           label: 'The 2021-2023 exemption',
@@ -244,7 +248,7 @@ export const california: StateOverride = {
         },
       ],
       paragraphs: [
-        "If you're a freelance designer in Los Angeles deciding in October whether to form now, run the numbers. Filing in October 2026 means $800 for 2026, $800 for 2027, and $800 for 2028: $2,400 through April 2028. Filing in January 2027 means $400 for 2027 and $800 for 2028: $1,200. The cost of waiting is three months without the LLC's liability protection. For most people billing from a laptop, that's an easy trade. If you have a lease, employees, or a client contract that requires an LLC, file now.",
+        "If you're a freelance designer in Los Angeles deciding in October whether to form now or on January 1, run the numbers. Filing in October buys a first tax year of about three months for a full first-year tax, then the next year's $800 comes due in April. Filing on January 1 makes your first tax year a full year, so you pay one fewer annual tax over the life of the LLC. The cost of waiting is three months without the LLC's liability protection. For most people billing from a laptop, that's an easy trade. If you have a lease, employees, or a client contract that requires an LLC, file now.",
         'Whatever date you pick, put the first due date on your calendar the day the filing is approved. Formation packages charge for the $70 filing; the annual tax is a separate payment you make to the FTB yourself.',
       ],
       related: { label: 'Estimate your California self-employment tax', href: '/self-employment-tax/california/' },
@@ -341,16 +345,16 @@ export const california: StateOverride = {
       notes: 'First one due within 90 days of filing',
     },
     {
-      item: 'Annual LLC tax (FTB 3522), formed in 2026',
+      item: 'Annual LLC tax (FTB 3522)',
       cost: '$800/yr',
       required: 'Yes (recurring)',
       notes: 'First payment due 15th day of the 4th month after filing; then April 15',
     },
     {
-      item: 'Annual LLC tax, first year beginning 2027-2029',
+      item: 'Annual LLC tax, first taxable year beginning 2027-2029',
       cost: '$400 first year, then $800/yr',
       required: 'Yes (recurring)',
-      notes: 'SB 180; applies to first tax years starting January 1, 2027, through 2029',
+      notes: 'First taxable year only; every later year is $800',
     },
     {
       item: 'LLC fee (FTB 3536)',
@@ -395,29 +399,29 @@ export const california: StateOverride = {
       notes: 'Plus interest',
     },
     {
-      item: 'Total (bare minimum DIY, formed in 2026)',
+      item: 'Total (bare minimum DIY, $800 first year)',
       cost: '$890 in year one, then $800/yr + $20 every 2 years',
       isEmphasized: true,
-      notes: '$70 + $20 + $800; self-serve agent, before local license fees. A late-2026 filing also owes the 2027 $800 by April 15, 2027.',
+      notes: '$70 + $20 + $800; self-serve agent, before local license fees. A late-year filing also owes the next year\'s $800 by April 15.',
     },
     {
-      item: 'Total (bare minimum DIY, first year beginning 2027)',
+      item: 'Total (bare minimum DIY, first taxable year beginning 2027-2029)',
       cost: '$490 in year one, then $800/yr + $20 every 2 years',
       isEmphasized: true,
       notes: '$70 + $20 + $400 first-year tax',
     },
     {
-      item: 'Total (typical first year with commercial agent, formed in 2026)',
+      item: 'Total (typical first year with commercial agent)',
       cost: '$940-$1,090 + local license',
       isEmphasized: true,
-      notes: '$890 in state costs plus a typical agent for service of process',
+      notes: '$890 in state costs plus a typical agent for service of process; $400 less if your first taxable year begins 2027-2029',
     },
   ],
   faq: [
     {
       question: 'How much does it cost to start an LLC in California?',
       answer:
-        'The filing is $70, the first Statement of Information is $20, and the first annual tax to the Franchise Tax Board is $800 for an LLC formed in 2026. That puts the real first-year minimum at $890. For LLCs whose first tax year begins in 2027 through 2029, the first-year tax is $400, so the minimum is $490. After that, expect $800 a year plus $20 every two years. A commercial agent for service of process adds about $50 to $200 a year.',
+        'The filing is $70, the first Statement of Information is $20, and the first annual tax to the Franchise Tax Board is normally $800. That puts the real first-year minimum at $890. For an LLC whose first taxable year begins between January 1, 2027 and December 31, 2029, the first-year tax is $400, so the minimum is $490. After that, expect $800 a year plus $20 every two years. A commercial agent for service of process adds about $50 to $200 a year.',
     },
     {
       question: 'What is the California LLC filing fee?',
@@ -427,7 +431,7 @@ export const california: StateOverride = {
     {
       question: 'Do I have to pay the $800 California LLC tax in the first year?',
       answer:
-        'Yes. The first-year exemption only covered LLCs formed in 2021 through 2023. An LLC formed in 2026 owes $800 by the 15th day of the 4th month after filing. Starting with first tax years that begin January 1, 2027, through 2029, the first-year amount drops to $400. After the first year, it is $800 every year.',
+        'Yes. The first-year exemption only covered LLCs formed in 2021 through 2023. The first payment is due by the 15th day of the 4th month after filing. It is $800, or $400 if the LLC\'s first taxable year begins between January 1, 2027 and December 31, 2029. After the first year, it is $800 every year.',
     },
     {
       question: 'When is the $800 California LLC tax due?',

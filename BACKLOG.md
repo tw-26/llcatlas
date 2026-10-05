@@ -97,6 +97,14 @@ It's the closest page to page 1 (head terms rank 24–45). Add sections that ans
 - [ ] Build `/llc/cost-by-state/`: one table with filing fee, annual fee, annual deadline, and year-1 and year-2 totals for all 50 states + DC, generated from the state data, with a short verdict (cheapest states, most expensive, and why your home state usually still wins). Title it to match what gets linked: "LLC Filing Fees and Annual Fees by State ({year})".
 - [ ] Start outreach for it right away (see the target list below). Links take weeks to count, so don't wait for January.
 - [ ] Last week of December: bump `GUIDE_YEAR` to 2027, run `npm test`, and re-check fee changes that take effect January 1.
+- [ ] January recheck for batch 1 guides:
+  - California: 2027 Form 3522 and its instructions apply the $400 first-taxable-year rule.
+  - Utah: replace the FY2026 fee schedule source if a new one is posted.
+  - Montana: confirm whether the January 1 to April 15 annual report fee waiver continues for 2027 (the guide says it runs through 2027).
+  - Arizona: test the live checkout to see whether a $50 non-expedited online filing is selectable.
+  - Oklahoma: check whether the old paper form now matches the $50 same-day fee.
+  - Oregon: change Portland's exemption to $100,000, make sure every Preschool for All reference says 2028, and update the indexed income tax brackets.
+  - Income tax rates set or indexed each year: Oklahoma, Oregon, Utah, Montana (2027 brackets), Delaware.
 - [ ] Update the self-employment tax and quarterly calculators for 2027 federal numbers before the January 15 estimated payment deadline.
 
 ---

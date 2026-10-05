@@ -111,7 +111,7 @@ export const oklahoma: StateOverride = {
     'The Secretary of State does not publish a processing time for online or mailed filings; mailed filings are processed in the order received. Documents delivered in person before 4:30 p.m. CT can get same-day service for $50 per document.',
   filingTimeShort: 'Not published; same day in person for $50',
   expeditedTime:
-    'Same-day service is available only for documents delivered in person to the Business Filing Department in Oklahoma City before 4:30 p.m. CT, for $50 per document on top of the filing fee. The Secretary of State lists no expedite option for online or mailed filings.',
+    'Same-day service is available only for documents delivered in person to the Business Filing Department in Oklahoma City before 4:30 p.m. CT, for $50 per document on top of the filing fee. That is the current Secretary of State fee; older paper forms may still show $25. The Secretary of State lists no expedite option for online or mailed filings.',
   expeditedFee: 50,
   filingAgency: 'Oklahoma Secretary of State, Business Filing Department',
   filingAgencyUrl: 'https://www.sos.ok.gov/business/default.aspx',
@@ -291,7 +291,7 @@ export const oklahoma: StateOverride = {
     {
       question: 'What is the Oklahoma LLC filing fee?',
       answer:
-        '$100, the same online, by mail, or in person. Credit card payments add a 4% service charge. Same-day service for filings delivered in person costs $50 more.',
+        '$100, the same online, by mail, or in person. Credit card payments add a 4% service charge. Same-day service for filings delivered in person costs $50 more under the current Secretary of State fee; older paper forms may still show $25.',
     },
     {
       question: 'How long does it take to form an LLC in Oklahoma?',

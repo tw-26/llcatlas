@@ -152,7 +152,7 @@ export const montana: StateOverride = {
     "Most Montana LLCs are pass-through entities, so profit is taxed on the owners' Montana returns at 4.7% and 5.65% for 2026 (5.4% top rate from 2027). Montana has no general sales tax, and the Secretary of State charges no annual LLC tax.",
   annualReportDue: 'Between January 1 and April 15 each year, starting the year after you form',
   annualReportNote:
-    'The fee is waived for reports filed January 1 to April 15 in 2026 and 2027. Reports filed after April 15 cost $35. An LLC that stays 140 days late can be involuntarily dissolved.',
+    'The fee is waived for reports filed January 1 to April 15 in 2026 and 2027. Reports filed after April 15 cost $35. A Montana LLC that still hasn\'t filed by December 1 can be involuntarily dissolved.',
   requiresOperatingAgreement: false,
   requiresPublication: false,
   steps: [
@@ -222,7 +222,7 @@ export const montana: StateOverride = {
         {
           label: 'If you miss it',
           detail:
-            "Montana law lets the Secretary of State involuntarily dissolve an LLC that has failed for 140 days to file its annual report. The Secretary of State's help center separately says domestic reports must be filed by December 1. Don't wait to find out which date applies to you.",
+            "The Secretary of State's help center sets the cutoff by entity type: a domestic (Montana) LLC must file its late report by December 1 to avoid involuntary dissolution, and a foreign LLC registered in Montana by November 1. The statute allows dissolution once a report is 140 days late, so treat April 15 as the real deadline and December 1 as the last chance.",
         },
         {
           label: 'Reinstatement',
@@ -429,7 +429,7 @@ export const montana: StateOverride = {
     {
       question: 'What happens if I miss the Montana annual report?',
       answer:
-        'A late report costs $35. If the report is still missing 140 days after it was due, Montana law lets the Secretary of State involuntarily dissolve the LLC. Reinstatement is available for 5 years: you file every missing report ($35 each) plus a $35 reinstatement application, and most LLCs also need a tax certificate from the Department of Revenue.',
+        'A late report costs $35. If a Montana LLC still hasn\'t filed by December 1, the Secretary of State can involuntarily dissolve it (foreign LLCs registered in Montana have until November 1). Reinstatement is available for 5 years: you file every missing report ($35 each) plus a $35 reinstatement application, and most LLCs also need a tax certificate from the Department of Revenue.',
     },
     {
       question: 'Does Montana require newspaper publication for an LLC?',

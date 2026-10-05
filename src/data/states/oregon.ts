@@ -63,6 +63,10 @@ export const oregon: StateOverride = {
     },
     { label: 'Portland and Multnomah County business taxes', url: 'https://www.portland.gov/revenue/business-tax' },
     { label: 'Metro SHS and Preschool for All personal income taxes', url: 'https://www.portland.gov/revenue/personal-tax' },
+    {
+      label: 'Preschool for All tax increase delayed to 2028 (Multnomah County)',
+      url: 'https://multco.us/news/news-release-multnomah-county-commissioners-unanimously-delay-preschool-all-income-tax',
+    },
     { label: 'FinCEN BOI reporting', url: 'https://www.fincen.gov/boi' },
     {
       label: 'Apply for an EIN with the IRS',
@@ -253,7 +257,7 @@ export const oregon: StateOverride = {
         {
           label: 'Personal income taxes for higher earners',
           detail:
-            "Metro's Supportive Housing Services tax is 1% on Metro taxable income above $128,000 single or $205,000 joint for 2026. Multnomah County's Preschool for All tax is 1.5% above $125,000 single or $200,000 joint, plus another 1.5% above $250,000 or $400,000, and the county says the rate rises in 2027. A disregarded single-member LLC owner falls under the Metro personal tax instead of Metro's business tax, which only applies above $5 million in gross receipts.",
+            "Metro's Supportive Housing Services tax is 1% on Metro taxable income above $128,000 single or $205,000 joint for 2026. Multnomah County's Preschool for All tax is 1.5% above $125,000 single or $200,000 joint, plus another 1.5% above $250,000 or $400,000. A scheduled 0.8-point increase was delayed on August 27, 2026, from January 1, 2027 to January 1, 2028; some county pages still show the old date. A disregarded single-member LLC owner falls under the Metro personal tax instead of Metro's business tax, which only applies above $5 million in gross receipts.",
         },
       ],
       paragraphs: [
