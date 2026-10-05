@@ -12,7 +12,7 @@ export const northCarolina: StateOverride = {
   whatYoullNeed:
     "To form a North Carolina LLC, you'll need a unique business name, a registered agent with a physical NC street address, and $125 for the filing fee (plus a $2 ACH or $3 card fee if you file online). The NC Secretary of State lists 5–10 business days for new entities, but that is an estimate — only the expedited tiers ($100 for 24-hour, $200 for same-day) are guaranteed.",
   closing:
-    "If you live or operate in North Carolina, form here. A Wyoming or Delaware LLC would still have to register as a foreign LLC in NC, so you'd pay both states. The $125 filing fee is mid-pack, and the number to plan around is the $200 annual report every April 15. That's more than Wyoming's $60 minimum and less than Delaware's $300 franchise tax. Set a reminder a month before April 15: miss the report and NC will administratively dissolve the LLC after a 60-day cure window. You can be your own registered agent if you have an NC street address and are there during business hours. A commercial agent, usually $100 to $300 a year, is worth it if you work from home or don't want your address public.",
+    "If you live or operate in North Carolina, form here. A Wyoming or Delaware LLC would still have to register as a foreign LLC in NC, so you'd pay both states. The $125 filing fee is mid-pack, and the number to plan around is the $200 annual report every April 15. That's more than Wyoming's $60 minimum and less than Delaware's $400 annual tax. Set a reminder a month before April 15: miss the report and NC will administratively dissolve the LLC after a 60-day cure window. You can be your own registered agent if you have an NC street address and are there during business hours. A commercial agent, usually $100 to $300 a year, is worth it if you work from home or don't want your address public.",
   inlineCtaDescription:
     "Your registered agent's name and NC street address stay on the public Articles of Organization permanently, and your company officials are listed on every annual report. If you have an NC office with regular hours, you can be your own agent for free. If you work from home, don't want your address public, or can't reliably be at an NC street address during business hours, use a commercial registered agent. Look for a flat annual price ($100 to $300 a year is normal) and skip bundled formation add-ons you don't need.",
   sidebarCtaDescription:
@@ -68,9 +68,9 @@ export const northCarolina: StateOverride = {
     },
     {
       state: 'Delaware',
-      annualReport: 'No annual report; $300 annual franchise tax',
-      upfrontCost: '~$110',
-      ongoingStateCost: '$300/yr',
+      annualReport: 'No annual report; $400 annual LLC tax due June 1',
+      upfrontCost: '$110',
+      ongoingStateCost: '$400/yr',
     },
     {
       state: 'Florida',
@@ -320,7 +320,7 @@ export const northCarolina: StateOverride = {
       'Modern statute (Chapter 57D, effective 2014) with express charging-order exclusive-remedy language at § 57D-5-03(d) for multi-member LLCs.',
     ],
     cons: [
-      'The $200 annual report fee is among the highest in the country — Wyoming’s minimum is $60, Delaware charges $0 for the LLC report (though $300 in franchise tax instead), and Florida’s is $138.75.',
+      'The $200 annual report fee is among the highest in the country — Wyoming’s minimum is $60, Delaware charges $0 for the LLC report (though $400 in annual tax instead), and Florida’s is $138.75.',
       "Standard processing is a posted estimate (5–10 business days), not a guarantee. If a contract or launch needs a firm formation date, you'll pay $100–$200 extra for expedited filing.",
       'Less privacy than Wyoming or Delaware — your registered agent address is on the Articles, and your company officials are listed on every annual report.',
       "If you're counting on a single-member LLC for asset protection, NC is less certain than Wyoming, Delaware, Nevada, or Alaska. The statute's charging-order protection (§ 57D-5-03(d)) hasn't been tested in a reported NC appellate case involving a sole member.",

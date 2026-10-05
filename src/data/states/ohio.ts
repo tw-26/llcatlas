@@ -37,7 +37,7 @@ export const ohio: StateOverride = {
   comparisonRows: [
     { state: 'Ohio', annualReport: 'None for standard LLCs', upfrontCost: '$99', ongoingStateCost: '$0 annual report fee' },
     { state: 'Wyoming', annualReport: 'Yes', upfrontCost: '~$100', ongoingStateCost: 'Annual report / license tax applies' },
-    { state: 'Delaware', annualReport: 'No annual report, but annual tax applies', upfrontCost: '~$110', ongoingStateCost: '$300 annual tax' },
+    { state: 'Delaware', annualReport: 'No annual report; $400 annual LLC tax due June 1', upfrontCost: '$110', ongoingStateCost: '$400/yr' },
     { state: 'California', annualReport: 'Statement filings apply', upfrontCost: 'Higher effective cost', ongoingStateCost: '$800+ annual tax burden' },
   ],
   filingFee: 99,

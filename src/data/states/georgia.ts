@@ -68,9 +68,9 @@ export const georgia: StateOverride = {
     },
     {
       state: 'Delaware',
-      annualReport: 'No annual report; $300 annual franchise tax',
-      upfrontCost: '~$110',
-      ongoingStateCost: '$300/yr',
+      annualReport: 'No annual report; $400 annual LLC tax due June 1',
+      upfrontCost: '$110',
+      ongoingStateCost: '$400/yr',
     },
   ],
   filingFee: 100,
