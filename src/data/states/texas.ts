@@ -125,9 +125,9 @@ export const texas: StateOverride = {
     'Texas has no individual income tax. LLCs are subject to franchise tax: no tax due at or below $2.65 million in annualized revenue for 2026 and 2027 reports; above that, 0.75% of taxable margin (0.375% for retail and wholesale) or 0.331% under the EZ Computation. Sales tax applies if you sell taxable goods or services.',
   stateTax:
     'Most Texas LLCs are pass-through for federal tax, and Texas has no individual income tax on that profit. The state-level obligation is franchise tax: most small LLCs owe $0 but must file a free Public Information Report with the Comptroller by May 15 each year.',
-  annualReportDue: 'May 15 each year, starting the year after you form (filed with the Comptroller)',
+  annualReportDue: 'Free, due May 15',
   annualReportNote:
-    'There is no Secretary of State annual report and no fee. Every LLC files a free Public Information Report (Form 05-102) with the Comptroller by May 15. A franchise tax report and payment are also due only if annualized total revenue is above $2.65 million (2026 and 2027 reports). Missing the report can forfeit the LLC\'s right to do business in Texas.',
+    'Public Information Report to the Comptroller, every year starting the year after you form. No Secretary of State annual report.',
   requiresOperatingAgreement: false,
   requiresPublication: false,
   steps: [
@@ -172,6 +172,13 @@ export const texas: StateOverride = {
         'Your first franchise tax filing is due May 15 of the year after the LLC forms, then every May 15. At or below $2.65 million in annualized revenue (2026 and 2027 reports), you file only the free Public Information Report (Form 05-102) through Webfile or by mail. Above that, you also file a franchise tax report and pay any tax. The Comptroller mails your XT Webfile number about six weeks before each due date. Don\'t wait for the letter to remember the deadline.',
     },
   ],
+  trap: {
+    name: 'Texas franchise tax',
+    headline: '$0 franchise tax for most LLCs, but a report every May 15',
+    body: "Every Texas LLC is subject to franchise tax. At or below $2.65 million in annualized revenue (2026 and 2027 reports), you owe nothing and file no franchise tax report. You still file the free Public Information Report with the Comptroller every May 15, starting the year after you form. Miss it and the Comptroller can forfeit the LLC's right to do business in Texas, which can make you personally liable for some of the LLC's debts.",
+    action: 'Put May 15 on your calendar the day your LLC is approved, and file the report in April. It takes a few minutes on Webfile.',
+    sectionId: 'texas-franchise-tax',
+  },
   sections: [
     {
       id: 'texas-franchise-tax',

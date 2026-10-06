@@ -42,6 +42,17 @@ export type GuideSection = {
   related?: { label: string; href: string };
 };
 
+/** The one state-specific cost or filing a first-time founder is most likely to miss. */
+export type StateTrap = {
+  /** Name of the obligation, used in the link to its section (e.g. "the $800 annual tax"). */
+  name: string;
+  headline: string;
+  body: string;
+  action: string;
+  /** Must match the `id` of an entry in `sections`. */
+  sectionId: string;
+};
+
 export type ComparisonRow = {
   state: string;
   annualReport: string;
@@ -84,6 +95,7 @@ export type StateData = {
   lastUpdated: string | null;
   steps: Step[];
   sections: GuideSection[];
+  trap?: StateTrap;
   costBreakdown: CostBreakdownItem[];
   faq: FaqItem[];
   proscons: { pros: string[]; cons: string[] };

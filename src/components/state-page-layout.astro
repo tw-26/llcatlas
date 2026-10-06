@@ -20,6 +20,9 @@ const taxHighlights = state.taxHighlights ?? [];
 const comparisonRows = state.comparisonRows ?? [];
 const isResearchPending = state.contentStatus === 'placeholder';
 const guideSections = isResearchPending ? [] : state.sections ?? [];
+const stateTrap = state.trap && guideSections.some((section) => section.id === state.trap?.sectionId)
+  ? state.trap
+  : null;
 const hasOfficialAgencyLink = Boolean(state.filingAgencyUrl) && !state.filingAgencyUrl.includes('example.com');
 const hasDetailedSteps = !isResearchPending && state.steps.length > 0;
 const hasFaqItems = !isResearchPending && faqItems.length > 0;
@@ -311,6 +314,36 @@ const structuredData = [
         <dd class="mt-1 text-[14px] leading-6 text-ink-muted">{publicationNote}</dd>
       </div>
     </dl>
+
+    {stateTrap && (
+      <aside
+        aria-labelledby="state-trap-heading"
+        class="space-y-3 rounded-r-[12px] border-l-4 border-accent bg-surface-warm px-5 py-5 sm:px-7 sm:py-6"
+      >
+        <p class="llc-helper !text-accent-ink">The {state.name} catch</p>
+        <h2 id="state-trap-heading" class="text-[1.375rem] sm:text-[1.625rem]">{stateTrap.headline}</h2>
+        <p class="llc-section-copy text-ink-soft">{stateTrap.body}</p>
+        <p class="llc-section-copy font-semibold text-ink-strong">{stateTrap.action}</p>
+        <a
+          href={`#${stateTrap.sectionId}`}
+          class="inline-flex min-h-11 items-center gap-1.5 text-[15px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+        >
+          How {stateTrap.name} works
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-3.5 w-3.5"
+          >
+            <path d="M3 8h10M9 4l4 4-4 4" />
+          </svg>
+        </a>
+      </aside>
+    )}
 
     {guideSections.length > 0 && (
       <nav aria-labelledby="guide-sections-heading" class="space-y-3">

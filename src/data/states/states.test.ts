@@ -7,6 +7,7 @@ const readyStates = states.filter((state) => state.contentStatus === 'ready');
 
 const PLACEHOLDER_PATTERNS = [/placeholder/i, /research pending/i, /example\.com/i, /\bTODO\b/, /\bTBD\b/, /lorem ipsum/i];
 const MAX_AGE_DAYS = 365;
+const STATES_REQUIRING_TRAP = ['texas', 'california', 'delaware'];
 
 const dollarAmounts = (text: string) => [...text.matchAll(/\$\d[\d,]*/g)].map((match) => match[0].replace(/,/g, ''));
 
@@ -82,5 +83,16 @@ describe.each(readyStates.map((state) => [state.name, state] as const))('%s guid
     expect(state.proscons.cons.length, 'cons').toBeGreaterThanOrEqual(3);
     expect(state.costBreakdown.some((row) => row.isEmphasized), 'cost total row').toBe(true);
     expect(state.comparisonRows.some((row) => row.state === state.name), 'own comparison row').toBe(true);
+  });
+
+  it('puts its state-specific trap up front when it has one', () => {
+    if (STATES_REQUIRING_TRAP.includes(state.slug)) {
+      expect(state.trap, 'trap').toBeDefined();
+    }
+    if (!state.trap) return;
+    expect(state.sections.map((section) => section.id), 'trap sectionId').toContain(state.trap.sectionId);
+    for (const field of ['name', 'headline', 'body', 'action'] as const) {
+      expect(state.trap[field].length, `trap.${field}`).toBeGreaterThan(0);
+    }
   });
 });

@@ -125,9 +125,9 @@ export const delaware: StateOverride = {
     'Delaware personal income tax runs from 0% to 6.6% for 2026 (6.6% on taxable income above $60,000). There is no sales tax. A gross receipts tax applies above a monthly exclusion, generally $100,000, at 0.3983% for most services.',
   stateTax:
     'A default Delaware LLC is a pass-through, so profit is taxed on the owners\' personal returns. The LLC itself owes the flat $400 annual tax every year, plus gross receipts tax above the exclusion if it does business in Delaware.',
-  annualReportDue: 'None; $400 tax due June 1',
+  annualReportDue: '$400 tax, June 1',
   annualReportNote:
-    'Flat $400 annual LLC tax for the prior calendar year (up from $300 starting January 1, 2026). Not prorated. Late payment adds a $200 penalty plus 1.5% interest a month on the tax and penalty.',
+    'No annual report. A flat $400 annual LLC tax for the prior year instead (up from $300 in 2026), not prorated.',
   requiresOperatingAgreement: false,
   requiresPublication: false,
   steps: [
@@ -172,6 +172,13 @@ export const delaware: StateOverride = {
         'Delaware LLCs never file an annual report. They pay a flat $400 tax on or before June 1 for the previous calendar year, starting the June 1 after the year you form. An LLC formed in 2026 pays $400 by June 1, 2027. Delaware mails the tax statement to your registered agent at least 60 days before the deadline, and you can pay online by card or ACH between 8:00 AM and 11:45 PM Eastern. Paying late adds a $200 penalty plus 1.5% interest a month on the tax and penalty. Three years unpaid and the LLC is canceled.',
     },
   ],
+  trap: {
+    name: 'the $400 annual tax',
+    headline: '$400 every June 1, whether the LLC earns anything or not',
+    body: "Delaware LLCs don't file an annual report. Each one pays a flat $400 tax by June 1 for the year before, starting the June 1 after the year you form. It rose from $300 in 2026, it isn't prorated, and the notice goes to your registered agent, not to you. Pay late and Delaware adds a $200 penalty plus 1.5% interest a month.",
+    action: "Set your own June 1 reminder. If you don't live in Delaware, form in your home state instead: it will charge you its own fees anyway, and the $400 lands on top.",
+    sectionId: 'delaware-llc-annual-tax',
+  },
   sections: [
     {
       id: 'delaware-llc-annual-tax',

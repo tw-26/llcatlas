@@ -146,10 +146,9 @@ export const california: StateOverride = {
     'California taxes pass-through LLC profit on your personal return at 1% to 12.3% (2025 schedule), plus 1% on taxable income over $1 million. Every LLC also owes the $800 annual tax ($400 for a first tax year beginning in 2027-2029), plus an LLC fee once California income reaches $250,000.',
   stateTax:
     "California charges the LLC itself an $800 annual tax every year, regardless of income, and an extra LLC fee starting at $900 once total California income reaches $250,000. Profit passes through to the owners' California returns at progressive rates up to 12.3%.",
-  annualReportDue:
-    'Statement of Information within 90 days of filing, then every 2 years in a 6-month window ending with your formation month',
+  annualReportDue: '$20 every 2 years',
   annualReportNote:
-    '$20 per Statement of Information. If you miss it, the Secretary of State sends a delinquency notice, and 60 days later a $250 penalty applies (collected by the FTB). Separately, the $800 annual tax is due to the FTB every year.',
+    'Statement of Information: first one within 90 days of filing, then every 2 years. Separate from the $800 annual tax to the FTB.',
   requiresOperatingAgreement: true,
   requiresPublication: false,
   steps: [
@@ -194,6 +193,13 @@ export const california: StateOverride = {
         'Pay the first annual tax by the 15th day of the 4th month after your filing date. Form on June 18 and it\'s due September 15. Pay with Form FTB 3522 by mail, or online through Web Pay without the voucher. For a calendar-year LLC, every later payment is due April 15. The LLC also files Form 568 every year, including single-member LLCs. If total California income reaches $250,000, estimate and pay the LLC fee with Form FTB 3536 by the 15th day of the 6th month. Late payment adds a 5% penalty plus 0.5% a month, and an LLC that stays unpaid can be suspended.',
     },
   ],
+  trap: {
+    name: 'the $800 annual tax',
+    headline: '$70 to file, then $800 a year, even with no income',
+    body: 'Every California LLC owes the Franchise Tax Board an $800 annual tax every year until it is canceled. The first payment is due by the 15th day of the 4th month after you file, then every April 15. Your first tax year ends December 31 however short it is, so filing in the fall can mean two payments a few months apart. If your first tax year begins between January 1, 2027 and December 31, 2029, the first payment is $400.',
+    action: "Budget $890 for year one ($70 filing, $20 Statement of Information, $800 tax), or $490 with the $400 first year. Filing late in the year and don't need the LLC yet? File on or after January 1 so your first tax year is a full year.",
+    sectionId: 'california-800-franchise-tax',
+  },
   sections: [
     {
       id: 'california-800-franchise-tax',

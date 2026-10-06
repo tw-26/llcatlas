@@ -33,6 +33,7 @@ export type {
   StateData,
   StateOverride,
   StateSeed,
+  StateTrap,
   Step,
   USStateCode,
 } from './types';
