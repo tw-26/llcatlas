@@ -147,6 +147,7 @@ Work top to bottom inside each month. If something is blocked, skip it and come 
   - California: 2027 Form 3522 and its instructions apply the $400 first-taxable-year rule.
   - Utah: replace the FY2026 fee schedule source if a new one is posted.
   - Montana: confirm whether the January 1 to April 15 annual report fee waiver continues for 2027 (the guide says it runs through 2027).
+  - Michigan: the Annual Statement fee is scheduled to drop from $25 to $15 for statements paid after September 30, 2027. Update the guide, cost page title, and `annualDisplay` once it takes effect.
   - Arizona: test the live checkout to see whether a $50 non-expedited online filing is selectable.
   - Oklahoma: check whether the old paper form now matches the $50 same-day fee.
   - Oregon: change Portland's exemption to $100,000, make sure every Preschool for All reference says 2028, and update the indexed income tax brackets.
