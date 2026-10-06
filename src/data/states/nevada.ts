@@ -333,6 +333,105 @@ export const nevada: StateOverride = {
       'https://www.leg.state.nv.us/NRS/NRS-086.html',
     ],
   },
+  registeredAgentPage: {
+    lastVerified: '2026-10-06',
+    seoTitle: `Nevada Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Every Nevada LLC needs an agent at a Nevada street address. Who can serve themselves, what a commercial agent costs, and the $60 filing to switch.',
+    intro:
+      "Every Nevada LLC needs a registered agent with a physical Nevada street address, available during normal business hours to receive legal papers. If you live in Nevada and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you'll pay a commercial registered agent, about $119 to $125 a year with the services we track. Switching agents later costs $60, and if your agent quits, you have 31 days to replace it before the LLC goes into default.",
+    facts: [
+      { label: 'What Nevada calls it', detail: 'Registered agent (NRS Chapter 77 and NRS 86.231).' },
+      {
+        label: 'Who can serve',
+        detail: 'An individual 18 or older, an office or position within your LLC, or a commercial registered agent.',
+      },
+      {
+        label: 'Address rule',
+        detail: 'An actual Nevada street address or rural route box. A P.O. box can only be the mailing address. The agent must be available during normal business hours.',
+      },
+      {
+        label: 'Consent',
+        detail: 'The agent signs the Certificate of Acceptance on the Articles, or a separate Registered Agent Acceptance form.',
+      },
+      { label: 'Email', detail: 'Optional. A noncommercial agent can give an email address for electronic notices from the state.' },
+      {
+        label: 'Commercial agents',
+        detail: 'Anyone serving as agent for 10 or more entities must register with the Secretary of State. Name one and your filing lists only its name.',
+      },
+      {
+        label: 'Change of agent',
+        detail: '$60. Statement of Change of Registered Agent by Represented Entity, with the new agent’s acceptance. 24-hour expedite is $25 more.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail: 'The resignation takes effect 31 days after it’s filed, or sooner if you appoint a new agent. Miss that window and the LLC is in default.',
+      },
+      {
+        label: 'Default and revocation',
+        detail: 'Nevada sends the default notice to your registered agent. Left in default, the LLC’s charter is revoked, about a year later.',
+      },
+      { label: 'Reinstatement', detail: '$300 plus every missed fee and penalty. Not available after 5 years revoked.' },
+    ],
+    lapse: [
+      "Yes. Nevada law requires every LLC to have a registered agent with a Nevada street address for service of process, from the Articles of Organization on. The agent receives lawsuits for the LLC, and it's also where the Secretary of State sends default and revocation notices. If nobody is there to receive them, you can miss both.",
+      "If your agent resigns, the resignation takes effect 31 days after it's filed, unless you appoint a new agent sooner. You have to file the change before that date. If you don't, Nevada treats the LLC as in default, and if it stays in default, the charter is revoked and the LLC loses the right to do business, about a year after the missed deadline. Reinstating costs $300 plus every missed fee and penalty, and after 5 years revoked, the LLC can't be reinstated.",
+    ],
+    selfAgent: [
+      "You can be your own agent if you're 18 or older and have a physical Nevada street address where you're available during normal business hours. You'd be a noncommercial registered agent. It's free: you name yourself in the Articles and sign the Certificate of Acceptance. Nevada also lets you name an office or position in your LLC, such as a manager, with that person's business office address.",
+      "What it costs you is privacy and availability. Your street address goes on the public record, and a process server can show up there during business hours. If that address is your home, anyone who looks up your LLC can find where you live. If you have a shop or office in Nevada where someone is reliably there during the day, use that address and skip the fee.",
+      "If you live outside Nevada and have no address there, you can't be your own agent. You can name a friend or relative who lives in Nevada, but they take on the job: staying available at that address and forwarding lawsuits and state notices to you quickly.",
+    ],
+    paidAgent: [
+      "A commercial registered agent gives your LLC a Nevada street address, receives lawsuits and state notices, and forwards them to you. Any agent serving 10 or more entities has to register with the Secretary of State, and when you name one, the filing lists only its name; its address comes from that registration. The services we track charge $119 to $125 a year.",
+      "Northwest charges $125 a year with no per-document fees, and its Nevada address goes on the public record instead of yours. It won't make your LLC anonymous: Nevada still publishes your managers or managing members on the Initial and Annual Lists, whoever your agent is. If you live in Nevada and already have a business address, you don't need it.",
+    ],
+    verdict:
+      "If you live in Nevada and have a business address that isn't your home, be your own registered agent and keep the $125. Everyone else, including every founder who lives outside Nevada, should hire a commercial registered agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      "File a Statement of Change of Registered Agent by Represented Entity with the Secretary of State. The fee is $60, plus $25 if you want 24-hour expedite. The filing names the new agent and has to include the new agent's signed acceptance. Your members or managers don't have to vote on it, and it takes effect when it's filed.",
+      "Sign up with the new agent first, since you need their acceptance. Don't cancel the old agent until the Secretary of State's business search shows the new one on your LLC's record. If your old agent has already resigned, file before the 31-day mark to keep the LLC out of default.",
+    ],
+    outOfStateNote:
+      "If you live in another state, a Nevada LLC usually doesn't save money. You'll pay Nevada $350 a year for the Annual List and State Business License plus a Nevada commercial agent, and your home state will almost always make you register the LLC there as a foreign LLC, which means a second registered agent, a second annual filing, and that state's fees and taxes. A California freelancer pays about $1,275 a year for a Nevada LLC registered in California, versus $800 for a California LLC. It isn't more private either, since your managers or managing members are on Nevada's public lists every year. For a business you run from home somewhere else, form in your home state.",
+    faq: [
+      {
+        question: 'Do I need a registered agent in Nevada?',
+        answer:
+          'Yes. Every Nevada LLC has to name a registered agent with a Nevada street address in its Articles of Organization and keep one for as long as the LLC exists. If your agent resigns and you don’t replace it within 31 days, the LLC goes into default.',
+      },
+      {
+        question: 'Can I be my own registered agent in Nevada?',
+        answer:
+          "Yes, if you're 18 or older and have a physical Nevada street address where you're available during normal business hours. It's free. The address goes on the public record. If you don't have a Nevada address, you can't serve as your own agent.",
+      },
+      {
+        question: 'How much does a registered agent cost in Nevada?',
+        answer:
+          'Nothing if you serve yourself. The services we track charge $119 to $125 a year; Northwest charges $125 with no per-document fees. Changing agents costs $60 in state fees.',
+      },
+      {
+        question: 'Can I use a P.O. box for my Nevada registered agent?',
+        answer:
+          'Only as a mailing address. Nevada requires an actual street address or rural route box in the state, and the agent has to be available there during normal business hours.',
+      },
+      {
+        question: 'How do I change my registered agent in Nevada?',
+        answer:
+          'Sign up with the new agent, then file a Statement of Change of Registered Agent by Represented Entity with the Secretary of State for $60, including the new agent’s signed acceptance. It takes effect when filed. Keep the old agent until the record shows the change.',
+      },
+      {
+        question: 'What happens if my Nevada registered agent resigns?',
+        answer:
+          'The resignation takes effect 31 days after the agent files it, or sooner if you appoint someone new. File the $60 change before then. If you don’t, the LLC is in default, and if it stays that way, Nevada revokes its charter. Reinstatement costs $300 plus missed fees and penalties.',
+      },
+    ],
+    sourceUrls: [
+      'https://www.leg.state.nv.us/NRS/NRS-077.html',
+      'https://www.leg.state.nv.us/NRS/NRS-086.html',
+      'https://bizhub.nv.gov/cms-webhook-bff/uploads/bizhub/LLC_Formation_V4_1_9e5c396592.pdf',
+    ],
+  },
   costBreakdown: [
     { item: 'Articles of Organization', cost: '$75', required: 'Yes', notes: 'Filed at formation' },
     {

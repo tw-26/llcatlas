@@ -4,7 +4,13 @@ import StateTrapCallout from './state-trap-callout.astro';
 import SiteLayout from '../layouts/site-layout.astro';
 import { affiliates } from '../data/affiliates';
 import { GUIDE_YEAR as guideYear } from '../data/site';
-import { getStateCostPath, states, type StateData } from '../data/states';
+import {
+  findRegisteredAgentStepIndex,
+  getStateCostPath,
+  getStateRegisteredAgentPath,
+  states,
+  type StateData,
+} from '../data/states';
 
 interface Props {
   state: StateData;
@@ -16,6 +22,8 @@ const northwestAffiliateUrl = affiliates.northwest;
 const northwestPartnerName = 'Northwest Registered Agent';
 const costPage = state.costPage ?? null;
 const costPagePath = getStateCostPath(state.slug);
+const registeredAgentPath = state.registeredAgentPage ? getStateRegisteredAgentPath(state.slug) : null;
+const registeredAgentStepIndex = findRegisteredAgentStepIndex(state.steps);
 const faqItems = state.faq ?? [];
 const officialLinks = state.officialLinks ?? [];
 const taxHighlights = state.taxHighlights ?? [];
@@ -452,6 +460,14 @@ const structuredData = [
                     {step.title}
                   </h3>
                   <p class="mt-3 llc-section-copy">{step.description}</p>
+                  {registeredAgentPath && index === registeredAgentStepIndex && (
+                    <a
+                      href={registeredAgentPath}
+                      class="mt-4 inline-flex min-h-11 items-center gap-1.5 text-[15px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+                    >
+                      {state.name} {state.agentTerm} rules and costs
+                    </a>
+                  )}
                 </div>
               </li>
             ))

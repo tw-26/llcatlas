@@ -41,6 +41,14 @@ export const oregon: StateOverride = {
       label: 'Registered agents and service of process',
       url: 'https://sos.oregon.gov/business/pages/registered-agents-service-of-process.aspx',
     },
+    {
+      label: 'Change your registered agent or addresses (Oregon SOS)',
+      url: 'https://sos.oregon.gov/business/register/pages/update-registration.aspx',
+    },
+    {
+      label: 'Information Change form (PDF)',
+      url: 'https://sos.oregon.gov/business/documents/business-registry-forms/general-aar.pdf',
+    },
     { label: 'Business privacy and public addresses', url: 'https://sos.oregon.gov/business/pages/business-privacy.aspx' },
     { label: 'Business registration FAQ (Oregon SOS)', url: 'https://sos.oregon.gov/business/pages/faq.aspx' },
     { label: 'Oregon LLC law (ORS chapter 63)', url: 'https://www.oregonlegislature.gov/bills_laws/ors/ors063.html' },
@@ -357,6 +365,114 @@ export const oregon: StateOverride = {
       'https://sos.oregon.gov/business/pages/obr-annual-report-renewal.aspx',
       'https://sos.oregon.gov/business/register/Pages/reinstate-a-business.aspx',
       'https://www.portland.gov/revenue/business-tax',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-06',
+    seoTitle: `Oregon Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Oregon owners who live in-state can be their own registered agent for free. The street-address rule, what a paid agent costs, and the $0 form to switch.',
+    intro:
+      "Every Oregon LLC needs a registered agent: an Oregon resident or a registered business, at a physical Oregon street address where legal papers can be handed to them. If you live in Oregon and have a business address that isn't your home, be your own agent and pay nothing; the Secretary of State says most Oregon businesses list an owner or employee. If you live anywhere else, you can't serve, so you'll pay a commercial agent, usually $50 to $150 a year. Changing agents later is free.",
+    facts: [
+      {
+        label: 'What Oregon calls it',
+        detail: 'Registered agent (ORS 63.111). The agent’s address is the registered office.',
+      },
+      {
+        label: 'Who can serve',
+        detail:
+          'An individual who lives in Oregon, or an Oregon business entity or a foreign one authorized in Oregon. The LLC can’t be its own agent; you, as the owner, can.',
+      },
+      {
+        label: 'Address rule',
+        detail:
+          'A physical Oregon street address where the agent keeps a business office and can be served in person. No P.O. boxes, commercial mail receiving agencies, mail forwarding businesses, or virtual offices.',
+      },
+      {
+        label: 'Consent',
+        detail:
+          'The agent must agree to serve. Someone listed without consent can tell the state, and the LLC then has to appoint a new agent or face dissolution.',
+      },
+      {
+        label: 'State mail',
+        detail: 'Renewal and late notices go to the registered office unless you give the state a separate mailing address.',
+      },
+      {
+        label: 'Change of agent',
+        detail: '$0. Information Change, filed online in the Oregon Business Registry or on the paper form by mail or fax.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail: 'The agent mails you a copy of the resignation. The appointment ends on the 31st day after the state files it.',
+      },
+      {
+        label: 'No agent',
+        detail:
+          'Grounds for administrative dissolution after a 45-day notice. Reinstatement within 5 years is a reinstatement fee plus every missed $100 annual fee.',
+      },
+      {
+        label: 'If nobody can be served',
+        detail:
+          'Process can be served on the Secretary of State for $20. The state doesn’t notify you or your agent when that happens.',
+      },
+    ],
+    lapse: [
+      "Yes. Oregon requires every LLC to keep a registered agent and registered office in the state at all times. The agent receives lawsuits, and the Corporation Division mails renewal and late notices to the registered office unless you've given it a separate mailing address. If a process server can't find your agent, they can serve the Secretary of State instead, and the state doesn't tell you or your agent. The Secretary of State warns this can end in a default judgment against your LLC.",
+      "If your agent quits, they file a signed resignation with the state and mail you a copy, and the appointment ends on the 31st day after it's filed. Having no agent, or not telling the state your agent changed, is grounds for administrative dissolution. Oregon sends written notice first and gives you 45 days to fix it. Reinstating within five years means paying a reinstatement fee plus every missed $100 annual fee. The state's fee schedule doesn't list the reinstatement fee itself.",
+    ],
+    selfAgent: [
+      "You can be your own agent if you live in Oregon and have a physical Oregon street address where you keep a business office and can be handed papers in person during normal business hours. You, as the owner, can serve; the LLC can't name itself. The Secretary of State says you don't have to pay a third party. It's free.",
+      "Oregon doesn't require the agent to be an owner. Any Oregon resident or registered business with an Oregon street address can serve if they consent, and the Secretary of State notes that many businesses use their attorney or accountant. Whoever you name has to be there during business hours and get legal papers to you quickly. If you live outside Oregon, you can't serve yourself.",
+      "The cost is privacy. The registered office address is public, and Oregon also requires a physical principal office address, so a home-based owner's address often ends up on the filing either way. If you have an Oregon shop or office that isn't your home and someone is there during the day, use it and skip the fee.",
+    ],
+    paidAgent: [
+      "A commercial agent gives your LLC an Oregon street address, accepts lawsuits and state notices, and forwards them to you. Mainstream providers charge $50 to $150 a year. The Secretary of State doesn't recommend specific companies; it suggests searching online for an Oregon registered agent service.",
+      "Northwest charges $125 a year with no per-document fees, and its Oregon address goes on the public record instead of yours. It scans the mail it receives. That keeps your home off the agent line, though not off the principal office line if you run the business from home. If you live in Oregon and already have a business address, you don't need it.",
+    ],
+    verdict:
+      "If you live in Oregon and have a business address that isn't your home, be your own registered agent and keep the $125. Everyone else, including every founder who lives outside Oregon or would have to list a home address, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      "File an Information Change with the Corporation Division. There's no fee. Online, log in to the Oregon Business Registry, choose Information Change, enter your registry number, and enter the new agent and their Oregon street address. The paper form goes by mail or fax, not email. Either way, you confirm that the new agent has consented and that their business address and the registered office are the same.",
+      "If your annual report is open for renewal, you can make the change on the report instead; online renewals are filed within one business day. Sign up with the new agent before you file, and keep the old one until the change shows in the state's business name search.",
+    ],
+    faq: [
+      {
+        question: 'Do I need a registered agent in Oregon?',
+        answer:
+          'Yes. Every Oregon LLC must keep a registered agent at an Oregon street address for as long as it exists. Having no agent is grounds for administrative dissolution after a 45-day notice.',
+      },
+      {
+        question: 'Can I be my own registered agent in Oregon?',
+        answer:
+          "Yes, if you live in Oregon and can accept legal papers in person at an Oregon street address during business hours. The address goes on the public record. An employee, attorney, or accountant who lives in Oregon can also serve if they consent. Non-residents can't serve as their own agent.",
+      },
+      {
+        question: 'How much does a registered agent cost in Oregon?',
+        answer:
+          'Nothing if you serve yourself. Mainstream commercial agents charge $50 to $150 a year; Northwest charges $125 with no per-document fees. Changing agents costs $0 in state fees.',
+      },
+      {
+        question: 'Can I use a P.O. box or virtual office for my Oregon registered agent?',
+        answer:
+          'No. Oregon law rules out P.O. boxes, commercial mail receiving agencies, mail forwarding businesses, and virtual offices. The registered office must be a physical Oregon street address where the agent can be served in person.',
+      },
+      {
+        question: 'How do I change my registered agent in Oregon?',
+        answer:
+          'File an Information Change online in the Oregon Business Registry, or mail or fax the paper form. It’s free. Confirm the new agent has consented, and keep the old one until the change shows on the state’s business search.',
+      },
+      {
+        question: 'What happens if my Oregon registered agent resigns?',
+        answer:
+          'The agent files a resignation and mails you a copy. The appointment ends on the 31st day after the state files it. Appoint a new agent before then, or Oregon can dissolve the LLC after a 45-day notice.',
+      },
+    ],
+    sourceUrls: [
+      'https://sos.oregon.gov/business/pages/registered-agents-service-of-process.aspx',
+      'https://www.oregonlegislature.gov/bills_laws/ors/ors063.html',
+      'https://sos.oregon.gov/business/Documents/business-registry-forms/br-fee-schedule.pdf',
+      'https://sos.oregon.gov/business/register/pages/update-registration.aspx',
     ],
   },
   costBreakdown: [

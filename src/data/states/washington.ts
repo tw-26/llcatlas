@@ -49,6 +49,26 @@ export const washington: StateOverride = {
     },
     { label: 'Washington SOS fees rule (WAC 434-112-085)', url: 'https://app.leg.wa.gov/wac/default.aspx?cite=434-112-085' },
     {
+      label: 'Registered agent requirements (Washington SOS)',
+      url: 'https://www.sos.wa.gov/corporations-charities/business-entities/maintain-business-compliance/registered-agents',
+    },
+    {
+      label: 'Registered agent and principal office email and address rules',
+      url: 'https://www.sos.wa.gov/corporations-charities/frequently-asked-questions-faqs/contact-info-requirements-updates',
+    },
+    {
+      label: 'Registered agent consent, change, and resignation rule (WAC 434-112-055)',
+      url: 'https://app.leg.wa.gov/wac/default.aspx?cite=434-112-055',
+    },
+    {
+      label: 'Registered agent law (RCW 23.95.400-.460)',
+      url: 'https://app.leg.wa.gov/rcw/default.aspx?cite=23.95&full=true',
+    },
+    {
+      label: 'Statement of Change/Designation of Registered Agent (PDF)',
+      url: 'https://www.sos.wa.gov/sites/default/files/2025-12/6.2025%20-%20Statement%20of%20Change%20or%20Designation%20of%20Agent%20-%20Non-Commercial%20Registered%20Agent%20%28Fillable%20Form%29.pdf',
+    },
+    {
       label: 'SOS online Certificate of Formation instructions',
       url: 'https://www.sos.wa.gov/so/node/30080',
     },
@@ -586,6 +606,121 @@ export const washington: StateOverride = {
       'https://www.sos.wa.gov/corporations-charities/business-entities/maintain-business-compliance/annual-reports',
       'https://dor.wa.gov/open-business/apply-business-license/variable-business-license-processing-fees',
       'https://dor.wa.gov/taxes-rates/business-occupation-tax/business-occupation-tax-classifications',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-06',
+    seoTitle: `Washington Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Anyone with a Washington street address can be your registered agent if they consent. The email rule, what a paid agent costs, and the free switch.',
+    intro:
+      "Every Washington LLC needs a registered agent with a physical Washington street address and an email address, and the agent has to consent in writing. Washington doesn't limit who can serve: you, a friend, a business, or a commercial agent listed with the Secretary of State. If you live in Washington and have a business address that isn't your home, be your own agent and pay nothing. If you'd have to list your home, or you have no Washington address, you'll want a commercial agent, usually $50 to $200 a year. Changing agents is free.",
+    facts: [
+      {
+        label: 'What Washington calls it',
+        detail: 'Registered agent (RCW 23.95.400–.460), either commercial or noncommercial.',
+      },
+      {
+        label: 'Who can serve',
+        detail:
+          'Anyone with a physical Washington address who consents: you, a friend, a business, or an office title in your LLC, such as Member. Your LLC can name a commercial agent instead.',
+      },
+      {
+        label: 'Address rule',
+        detail:
+          'A physical Washington street address where the agent is available during business hours. No P.O. boxes, private mailboxes, or virtual “real addresses.” A Washington mailing address can be added on top.',
+      },
+      {
+        label: 'Email',
+        detail:
+          'Required for the agent and the principal office. Since January 20, 2026, filings without both are rejected. Filing confirmations and rejections go only to the agent’s email and the filing’s return address.',
+      },
+      {
+        label: 'Consent',
+        detail:
+          'The agent must consent in writing before being appointed. Online, you affirm under oath that you have the signed consent, keep it, and hand it over within 10 business days if the state asks.',
+      },
+      {
+        label: 'Commercial agents',
+        detail: 'Listed with the Secretary of State through a commercial listing statement and shown on a public list on the CCFS login page.',
+      },
+      {
+        label: 'Change of agent',
+        detail:
+          'No fee. Statement of Change/Designation of Registered Agent, filed online in CCFS or by mail. Inside the 180-day window before your Annual Report is due, you can make the change on the Annual Report.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail:
+          'Takes effect 31 days after filing, or sooner if you name a new agent. The agent must warn you that the LLC can be dissolved without a new agent within 60 days.',
+      },
+      {
+        label: 'No agent',
+        detail:
+          '30 days in a row without an agent is grounds for administrative dissolution, with 60 days to fix it after notice. Reinstatement within 5 years is $140 plus missed annual report fees.',
+      },
+      {
+        label: 'Service with no agent',
+        detail:
+          'A lawsuit can be served by certified mail to the principal office on your latest annual report. Service can count 5 days after mailing.',
+      },
+    ],
+    lapse: [
+      "Yes. Every Washington LLC has to designate and keep a registered agent in the state. Lawsuits are served on the agent, and the Secretary of State sends filing confirmations and rejections only to the agent's email and your filing's return address. If your LLC has no agent, or the agent can't be found, a plaintiff can serve the LLC by certified mail to the principal office on your latest annual report. That service can count five days after it's mailed, even if nobody signs for it.",
+      "If your agent resigns, the resignation takes effect 31 days after it's filed, or sooner if you name a new agent. The agent has to tell you and warn you that the LLC can be administratively dissolved if you don't appoint a replacement within 60 days. Going 30 days in a row without an agent gives the Secretary of State grounds to start dissolution, and you then have 60 days after the notice to fix it. Reinstatement within five years costs $140 plus every annual report fee you missed.",
+    ],
+    selfAgent: [
+      "You can be your own agent if you have a physical Washington street address where you're available during business hours, plus an email address. In CCFS, choose Noncommercial and enter yourself. If you're the one filing online and you're also the agent, you don't need a separate signed consent. It's free.",
+      "You don't have to serve yourself, either. A friend or relative with a Washington address can be your agent if they sign a consent, and you can name an office title, such as Member, instead of a person, so the job follows whoever holds that role. If you file online and name someone else, you swear you have their signed consent and must produce it within 10 business days if the state asks. Get the signature before you file.",
+      "The cost is privacy and availability. The agent's address is public in CCFS, and someone has to be there during business hours to accept a summons. If that address is your home, anyone who looks up your LLC can find where you live. If you have a Washington office or shop that isn't your home, use it and skip the fee.",
+    ],
+    paidAgent: [
+      "A commercial agent gives your LLC a Washington street address, accepts lawsuits and state notices, and forwards them to you. Mainstream providers charge $50 to $200 a year. Washington's commercial agents file a listing statement with the Secretary of State and appear on a public list on the CCFS login page. When you pick one in CCFS, you search its name and skip the address, because the state already has it.",
+      "Northwest charges $125 a year with no per-document fees, and its Washington address goes on the public record instead of yours. It scans the mail it receives. Your principal office address is public too, so if you work from home, pair the agent with a principal office that isn't your home. If you live in Washington and already have a business address, you don't need it.",
+    ],
+    verdict:
+      "If you live in Washington and have a business address that isn't your home, be your own registered agent and keep the $125. Everyone else, including founders who live outside Washington or would have to list a home address, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      "File a Statement of Change/Designation of Registered Agent with the Secretary of State. There's no fee, and you don't need the $100 expedite. File it online in CCFS or mail the form to the Corporations & Charities Division in Olympia. The new agent signs the consent on the paper form; online, you confirm you have their signed consent. If you're within 180 days of your Annual Report due date, you can make the change on the Annual Report instead. Outside that window, use the free statement of change rather than the $10 Amended Annual Report.",
+      "Sign up with the new agent first so you have their consent. A commercial agent only needs its name on the form, not an address. Don't cancel the old agent until CCFS shows the new one on your LLC's record.",
+    ],
+    faq: [
+      {
+        question: 'Do I need a registered agent in Washington?',
+        answer:
+          'Yes. Every Washington LLC must designate and keep a registered agent with a physical Washington address. Going 30 days in a row without one is grounds for administrative dissolution, and reinstatement costs $140 plus missed annual report fees.',
+      },
+      {
+        question: 'Can I be my own registered agent in Washington?',
+        answer:
+          "Yes, if you have a physical Washington street address where you're available during business hours and an email address. A friend or relative with a Washington address can also serve if they sign a consent. Either way, the address goes on the public record.",
+      },
+      {
+        question: 'How much does a registered agent cost in Washington?',
+        answer:
+          'Nothing if you serve yourself. Mainstream commercial agents charge $50 to $200 a year; Northwest charges $125 with no per-document fees. Changing agents costs nothing in state fees.',
+      },
+      {
+        question: 'Can I use a P.O. box or virtual office for my Washington registered agent?',
+        answer:
+          'No. The Secretary of State rejects P.O. boxes, private mailboxes, and virtual “real addresses” for the agent’s physical address. You can add a Washington mailing address, but only on top of a physical street address.',
+      },
+      {
+        question: 'How do I change my registered agent in Washington?',
+        answer:
+          'File a free Statement of Change/Designation of Registered Agent in CCFS or by mail, with the new agent’s signed consent. Within 180 days of your Annual Report due date, you can make the change on the Annual Report instead.',
+      },
+      {
+        question: 'What happens if my Washington registered agent resigns?',
+        answer:
+          'The resignation takes effect 31 days after filing, or sooner if you name a new agent. Appoint one quickly. After 30 days in a row without an agent, the Secretary of State can start administrative dissolution.',
+      },
+    ],
+    sourceUrls: [
+      'https://www.sos.wa.gov/corporations-charities/business-entities/maintain-business-compliance/registered-agents',
+      'https://app.leg.wa.gov/wac/default.aspx?cite=434-112-055',
+      'https://www.sos.wa.gov/corporations-charities/frequently-asked-questions-faqs/fee-scheduleexpedited-service',
+      'https://app.leg.wa.gov/rcw/default.aspx?cite=23.95.605',
     ],
   },
   costBreakdown: [

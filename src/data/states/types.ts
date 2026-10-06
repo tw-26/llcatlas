@@ -82,6 +82,33 @@ export type StateCostPage = {
   sourceUrls: string[];
 };
 
+/** Content for `/llc/{slug}/registered-agent/`. Every fact must be read on an official state page. */
+export type StateRegisteredAgentPage = {
+  /** Date these registered agent facts were last checked against official sources (YYYY-MM-DD). */
+  lastVerified: string;
+  seoTitle: string;
+  seoDescription: string;
+  /** Answer-first opening paragraph. */
+  intro: string;
+  /** State-specific rules for the facts box: term, who qualifies, address, consent, change fee, resignation. */
+  facts: GuideSectionFact[];
+  /** Why the LLC needs one and what happens if it lapses. */
+  lapse: string[];
+  /** Who can be their own agent here, and what it costs them in privacy and availability. */
+  selfAgent: string[];
+  /** What a paid agent costs and what it solves in this state. */
+  paidAgent: string[];
+  /** One decisive recommendation that names both audiences: in-state self-agent and everyone else. */
+  verdict: string;
+  /** Form, fee, and steps to switch agents. */
+  changeAgent: string[];
+  /** For states that draw out-of-state founders (Wyoming, Delaware): why the home state usually still wins. */
+  outOfStateNote?: string;
+  faq: FaqItem[];
+  /** Must all appear in the state's `officialLinks`. */
+  sourceUrls: string[];
+};
+
 export type ComparisonRow = {
   state: string;
   annualReport: string;
@@ -126,6 +153,7 @@ export type StateData = {
   sections: GuideSection[];
   trap?: StateTrap;
   costPage?: StateCostPage;
+  registeredAgentPage?: StateRegisteredAgentPage;
   costBreakdown: CostBreakdownItem[];
   faq: FaqItem[];
   proscons: { pros: string[]; cons: string[] };

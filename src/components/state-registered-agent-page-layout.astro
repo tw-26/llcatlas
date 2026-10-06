@@ -1,0 +1,288 @@
+---
+import AffiliateCard from './affiliate-card.astro';
+import SiteLayout from '../layouts/site-layout.astro';
+import { getNorthwestRegisteredAgentUrl } from '../data/affiliates';
+import {
+  getStateCostPath,
+  getStateGuidePath,
+  getStateRegisteredAgentPath,
+  type StateData,
+  type StateRegisteredAgentPage,
+} from '../data/states';
+import { getAffiliateLinkAttributes } from '../lib/affiliate-links';
+import { getAffiliatePageType } from '../lib/affiliate-tracking';
+
+interface Props {
+  state: StateData & { registeredAgentPage: StateRegisteredAgentPage };
+}
+
+const { state } = Astro.props;
+const page = state.registeredAgentPage;
+
+const northwestPartnerName = 'Northwest Registered Agent';
+const northwestAgentUrl = getNorthwestRegisteredAgentUrl(state.abbreviation);
+const guidePath = getStateGuidePath(state.slug);
+const costPath = state.costPage ? getStateCostPath(state.slug) : null;
+const pagePath = getStateRegisteredAgentPath(state.slug);
+const pageUrl = `https://llcatlas.com${pagePath}`;
+const agentTerm = state.agentTerm;
+const agentArticle = /^[aeiou]/i.test(agentTerm) ? 'an' : 'a';
+const sourceLinks = page.sourceUrls
+  .map((url) => state.officialLinks.find((link) => link.url === url))
+  .filter((link) => link !== undefined);
+
+const recommendationCta = getAffiliateLinkAttributes({
+  href: northwestAgentUrl,
+  partnerName: northwestPartnerName,
+  pageType: getAffiliatePageType(Astro.url.pathname),
+  position: 'recommendation',
+  sourcePath: Astro.url.pathname,
+  state: state.name,
+});
+
+const relatedLinks = [
+  { label: `How to start an LLC in ${state.name}`, href: guidePath },
+  ...(costPath ? [{ label: `${state.name} LLC cost`, href: costPath }] : []),
+  { label: 'Which state to form your LLC in', href: '/best-state/' },
+  { label: 'Compare LLC services by real year-one cost', href: '/best-llc-services/' },
+  { label: 'Northwest vs Bizee', href: '/northwest-vs-bizee/' },
+];
+
+const lastVerifiedLabel = new Date(`${page.lastVerified}T00:00:00Z`).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `${state.name} ${agentTerm}`,
+    description: page.seoDescription,
+    author: { '@type': 'Organization', name: 'LLCAtlas', url: 'https://llcatlas.com' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+      logo: { '@type': 'ImageObject', url: 'https://llcatlas.com/logo.svg' },
+    },
+    datePublished: page.lastVerified,
+    dateModified: page.lastVerified,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://llcatlas.com/' },
+      { '@type': 'ListItem', position: 2, name: `${state.name} LLC guide`, item: `https://llcatlas.com${guidePath}` },
+      { '@type': 'ListItem', position: 3, name: `${state.name} ${agentTerm}`, item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: page.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+
+const proseSections = [
+  { id: 'do-you-need-one', heading: `Do you need ${agentArticle} ${agentTerm} in ${state.name}?`, paragraphs: page.lapse },
+  { id: 'be-your-own', heading: `Can you be your own ${agentTerm}?`, paragraphs: page.selfAgent },
+  { id: 'paid-agent-cost', heading: `What a paid ${agentTerm} costs in ${state.name}`, paragraphs: page.paidAgent },
+];
+---
+
+<SiteLayout title={page.seoTitle} description={page.seoDescription} ogType="article" structuredData={structuredData}>
+  <section class="space-y-8">
+    <div class="space-y-6">
+      <nav aria-label="Breadcrumb" class="text-[14px] text-ink-muted">
+        <a href={guidePath} class="underline decoration-rule-strong underline-offset-4 hover:decoration-ink-soft">
+          {state.name} LLC guide
+        </a>
+        <span aria-hidden="true" class="mx-1.5">/</span>
+        <span>{agentTerm.charAt(0).toUpperCase() + agentTerm.slice(1)}</span>
+      </nav>
+      <h1>{state.name} {agentTerm}</h1>
+      <p class="text-[13px] uppercase tracking-[0.08em] text-ink-muted">
+        Last verified <time datetime={page.lastVerified}>{lastVerifiedLabel}</time>
+      </p>
+      <p class="llc-section-copy text-ink-soft">{page.intro}</p>
+    </div>
+
+    <div class="llc-card-highlight space-y-5 !rounded-[1.5rem] !p-6 sm:!p-8">
+      <div class="space-y-3">
+        <p class="llc-helper">Our recommendation</p>
+        <h2>Be your own agent if you can. Otherwise, use Northwest.</h2>
+        <p class="llc-section-copy text-ink-soft">{page.verdict}</p>
+      </div>
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a
+          {...recommendationCta}
+          class="inline-flex min-h-11 items-center justify-center rounded-full bg-action px-5 py-3 text-sm font-semibold text-white transition hover:bg-action-hover"
+        >
+          Get a {state.name} agent from Northwest
+        </a>
+        <a
+          href="#be-your-own"
+          class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
+        >
+          Check if you can be your own
+        </a>
+      </div>
+      <p class="text-[12px] leading-5 text-ink-muted">Affiliate link &mdash; LLCAtlas may earn a commission.</p>
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-4">
+      <h2>{state.name} {agentTerm} rules</h2>
+      <p class="llc-section-copy">What the state requires, from the statute and the Secretary of State.</p>
+    </div>
+
+    <dl class="llc-card !p-0 divide-y divide-rule">
+      {page.facts.map((fact) => (
+        <div class="grid gap-1 px-5 py-4 text-[1.0625rem] leading-[1.72] sm:grid-cols-[minmax(0,13rem)_1fr] sm:gap-6 sm:px-6">
+          <dt class="font-semibold text-ink-strong">{fact.label}</dt>
+          <dd class="text-ink-soft">{fact.detail}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  {proseSections.map((section) => (
+    <section id={section.id} class="scroll-mt-24 space-y-4">
+      <h2>{section.heading}</h2>
+      {section.paragraphs.map((paragraph) => (
+        <p class="llc-section-copy">{paragraph}</p>
+      ))}
+    </section>
+  ))}
+
+  {page.outOfStateNote && (
+    <aside class="llc-card-subtle space-y-3">
+      <p class="llc-helper">Don't live in {state.name}?</p>
+      <p class="llc-section-copy">{page.outOfStateNote}</p>
+      <a
+        href="/best-state/"
+        class="inline-flex min-h-11 items-center text-[15px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+      >
+        Which state to form your LLC in
+      </a>
+    </aside>
+  )}
+
+  <section id="change-agent" class="scroll-mt-24 space-y-4">
+    <h2>How to change your {state.name} {agentTerm}</h2>
+    {page.changeAgent.map((paragraph) => (
+      <p class="llc-section-copy">{paragraph}</p>
+    ))}
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-4">
+      <h2>FAQ</h2>
+    </div>
+    <div class="space-y-5">
+      {page.faq.map((item) => (
+        <details class="group llc-card !p-0">
+          <summary class="flex cursor-pointer items-start justify-between gap-4 px-5 py-5 text-lg font-semibold text-ink-strong sm:px-6">
+            <span>{item.question}</span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="mt-2 h-3.5 w-3.5 shrink-0 text-ink-muted transition group-open:rotate-180"
+            >
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="border-t border-rule px-5 py-5 sm:px-6">
+            <p class="llc-section-copy text-ink-soft">{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="grid gap-8 border-t border-rule pt-8 md:grid-cols-2">
+    <div class="space-y-3">
+      <h2 class="text-xl">Official sources</h2>
+      <ul class="!space-y-0 divide-y divide-rule border-y border-rule">
+        {sourceLinks.map((link) => (
+          <li>
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex min-h-11 items-center py-3 text-[15px] font-semibold text-ink-strong underline decoration-transparent underline-offset-4 transition hover:decoration-ink-soft"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="space-y-3">
+      <h2 class="text-xl">Related</h2>
+      <ul class="!space-y-0 divide-y divide-rule border-y border-rule">
+        {relatedLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="group flex min-h-11 items-center justify-between gap-3 py-3 text-[15px] font-semibold text-ink-strong"
+            >
+              {link.label}
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-3.5 w-3.5 shrink-0 text-ink-soft transition group-hover:translate-x-0.5"
+              >
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <div slot="sidebar" class="space-y-5">
+    <AffiliateCard
+      partnerName={northwestPartnerName}
+      href={northwestAgentUrl}
+      stateName={state.name}
+      placement="sidebar"
+      heading={`${northwestPartnerName} for ${state.name}`}
+      description={state.sidebarCtaDescription}
+      buttonLabel={`Get a ${state.name} agent`}
+    />
+
+    <div class="rounded-[14px] border border-rule px-5 py-5 text-[14px] leading-6 text-ink-soft sm:px-6">
+      <p class="llc-helper">Ready to file?</p>
+      <p class="mt-3">The {state.name} guide walks through every step in order, with the official links.</p>
+      <a
+        href={guidePath}
+        class="mt-4 inline-flex items-center gap-1.5 text-[14px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+      >
+        How to start an LLC in {state.name}
+      </a>
+    </div>
+  </div>
+</SiteLayout>

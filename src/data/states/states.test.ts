@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { GUIDE_YEAR } from '../site';
-import { states, type StateData } from './index';
-import { READY_STATE_SLUGS } from './ready-slugs.mjs';
+import { llcServices } from '../llc-services';
+import { findRegisteredAgentStepIndex, states, type StateData } from './index';
+import { READY_STATE_SLUGS, REGISTERED_AGENT_PAGE_SLUGS } from './ready-slugs.mjs';
 
 const readyStates = states.filter((state) => state.contentStatus === 'ready');
 
@@ -33,6 +34,16 @@ describe('ready-state registry', () => {
 
   it('gives every cost page a unique SEO title', () => {
     const titles = readyStates.map((state) => state.costPage?.seoTitle);
+    expect(new Set(titles).size).toBe(titles.length);
+  });
+
+  it('lists exactly the ready states with a registered agent page in REGISTERED_AGENT_PAGE_SLUGS', () => {
+    const withPage = readyStates.filter((state) => state.registeredAgentPage).map((state) => state.slug);
+    expect(withPage.sort()).toEqual([...REGISTERED_AGENT_PAGE_SLUGS].sort());
+  });
+
+  it('gives every registered agent page a unique SEO title', () => {
+    const titles = readyStates.flatMap((state) => state.registeredAgentPage?.seoTitle ?? []);
     expect(new Set(titles).size).toBe(titles.length);
   });
 });
@@ -116,6 +127,44 @@ describe.each(readyStates.map((state) => [state.name, state] as const))('%s guid
     expect(cost.sourceUrls.length, 'sourceUrls').toBeGreaterThanOrEqual(2);
     for (const url of cost.sourceUrls) {
       expect(officialUrls, url).toContain(url);
+    }
+  });
+
+  it('has a complete registered agent page when it has one', () => {
+    const page = state.registeredAgentPage;
+    if (!page) return;
+
+    expect(page.seoTitle).toContain(state.name);
+    expect(page.seoTitle).toContain(String(GUIDE_YEAR));
+    expect(page.seoDescription.length, 'seoDescription').toBeGreaterThan(0);
+    expect(page.lastVerified, 'lastVerified').toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    const ageDays = (Date.now() - Date.parse(`${page.lastVerified}T00:00:00Z`)) / 86_400_000;
+    expect(ageDays).toBeGreaterThanOrEqual(0);
+    expect(ageDays).toBeLessThanOrEqual(MAX_AGE_DAYS);
+
+    expect(page.facts.length, 'facts').toBeGreaterThanOrEqual(5);
+    for (const field of ['lapse', 'selfAgent', 'paidAgent', 'changeAgent'] as const) {
+      expect(page[field].length, field).toBeGreaterThan(0);
+    }
+    expect(page.verdict.length, 'verdict').toBeGreaterThan(0);
+    expect(page.faq.length, 'faq').toBeGreaterThanOrEqual(4);
+
+    const officialUrls = state.officialLinks.map((link) => link.url);
+    expect(page.sourceUrls.length, 'sourceUrls').toBeGreaterThanOrEqual(2);
+    for (const url of page.sourceUrls) {
+      expect(officialUrls, url).toContain(url);
+    }
+
+    expect(findRegisteredAgentStepIndex(state.steps), 'guide step that links to the page').toBeGreaterThanOrEqual(0);
+  });
+
+  it('quotes Northwest’s current registered agent price on its registered agent page', () => {
+    const page = state.registeredAgentPage;
+    if (!page) return;
+    const northwest = llcServices.find((service) => service.slug === 'northwest');
+    const text = JSON.stringify(page);
+    for (const match of text.matchAll(/Northwest[^.]*?\$(\d+) a year/g)) {
+      expect(Number(match[1]), match[0]).toBe(northwest?.registeredAgentRenewal);
     }
   });
 

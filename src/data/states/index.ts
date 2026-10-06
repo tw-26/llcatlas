@@ -17,7 +17,7 @@ import { pennsylvania } from './pennsylvania';
 import { stateSeeds } from './seeds';
 import { tennessee } from './tennessee';
 import { texas } from './texas';
-import type { StateData, StateOverride } from './types';
+import type { StateData, StateOverride, Step } from './types';
 import { utah } from './utah';
 import { virginia } from './virginia';
 import { washington } from './washington';
@@ -28,6 +28,7 @@ export type {
   CostBreakdownItem,
   CostScheduleItem,
   StateCostPage,
+  StateRegisteredAgentPage,
   FaqItem,
   GuideSection,
   GuideSectionFact,
@@ -66,6 +67,10 @@ const stateOverrides: Record<string, StateOverride> = {
 
 export const getStateGuidePath = (slug: string) => `/llc/${slug}/`;
 export const getStateCostPath = (slug: string) => `/llc/${slug}/cost/`;
+export const getStateRegisteredAgentPath = (slug: string) => `/llc/${slug}/registered-agent/`;
+
+/** The guide step that links to the registered agent page: the first step whose title mentions an agent. */
+export const findRegisteredAgentStepIndex = (steps: Step[]) => steps.findIndex((step) => /\bagent\b/i.test(step.title));
 
 export const states: StateData[] = stateSeeds.map((seed) => {
   const base = buildDefaultState(seed);

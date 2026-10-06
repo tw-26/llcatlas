@@ -29,6 +29,19 @@ export const georgia: StateOverride = {
     { label: 'Georgia business forms (CD 030, Form 231)', url: 'https://sos.ga.gov/cgi-bin/corpforms.asp' },
     { label: 'Georgia business licenses (local)', url: 'https://georgia.org/small-business/get-business-license-georgia' },
     { label: 'Georgia Department of Revenue tax updates', url: 'https://dor.georgia.gov/taxes/important-tax-updates' },
+    { label: 'Amended annual registration fee (eCorp)', url: 'https://ecorp.sos.ga.gov/ARForm' },
+    {
+      label: 'Registered office and agent (O.C.G.A. § 14-11-209)',
+      url: 'https://law.justia.com/codes/georgia/title-14/chapter-11/article-2/section-14-11-209/',
+    },
+    {
+      label: 'Administrative dissolution (O.C.G.A. § 14-11-603)',
+      url: 'https://law.justia.com/codes/georgia/title-14/chapter-11/article-6/section-14-11-603/',
+    },
+    {
+      label: 'LLC filing fees, including reinstatement (O.C.G.A. § 14-11-1101)',
+      url: 'https://law.justia.com/codes/georgia/title-14/chapter-11/article-11/section-14-11-1101/',
+    },
     {
       label: 'Apply for an EIN with the IRS',
       url: 'https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online',
@@ -197,6 +210,103 @@ export const georgia: StateOverride = {
       'https://sos.ga.gov/how-to-guide/how-file-annual-registration',
       'https://georgia.gov/renew-llc',
       'https://georgia.org/small-business/get-business-license-georgia',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-06',
+    seoTitle: `Georgia Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Every Georgia LLC needs an agent at a Georgia street address. Who can be their own, what a paid agent costs, and the $20 filing to switch.',
+    intro:
+      "Every Georgia LLC needs a registered agent: a Georgia resident or a company authorized in Georgia, with a business office at a Georgia street address where legal papers can be delivered. If you live in Georgia and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you can't serve, so you'll pay a commercial agent, usually $50 to $150 a year. Switching agents later costs $20 with an amended annual registration.",
+    facts: [
+      { label: 'What Georgia calls it', detail: 'Registered agent, at a registered office (O.C.G.A. § 14-11-209).' },
+      {
+        label: 'Who can serve',
+        detail: 'An individual Georgia resident, a corporation, another LLC, or an out-of-state corporation or LLC with authority to do business in Georgia.',
+      },
+      {
+        label: 'Address rule',
+        detail: 'A Georgia street address that is also the agent’s business office. A P.O. box isn’t a street address.',
+      },
+      {
+        label: 'Change of agent',
+        detail: '$20. Amended annual registration on eCorp. From January 1 to April 1, you can update it on your regular annual registration instead.',
+      },
+      {
+        label: '60-day rule',
+        detail: 'Tell the Secretary of State within 60 days when your agent changes or resigns. Missing that is grounds for administrative dissolution.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail: 'They file a statement of resignation (no fee) and notify you on or before that day. It takes effect on the 31st day after filing, sooner if you name a new agent.',
+      },
+      {
+        label: 'With no agent',
+        detail: 'Someone suing the LLC can serve the Secretary of State after mailing the papers to your last registered office.',
+      },
+      {
+        label: 'Administrative dissolution',
+        detail: '60 days without an agent is grounds. After the state’s notice, you have 60 days to fix it.',
+      },
+      { label: 'Reinstatement', detail: '$250 in state fees.' },
+    ],
+    lapse: [
+      "Yes. Georgia requires every LLC to continuously maintain a registered agent and registered office in the state. The agent is where lawsuits and state notices are delivered. If you have no agent, or the agent can't be found at the registered office, the person suing you can serve the Georgia Secretary of State instead, after mailing the papers to your last registered office. If nobody is there to open that mail, the case can move forward without you knowing about it.",
+      "A missing agent also puts the LLC at risk. If it goes 60 days or more without an agent, or doesn't tell the state within 60 days that its agent resigned or changed, the Secretary of State can start administrative dissolution. You get a notice and 60 days to fix it. After that, reinstating costs $250.",
+    ],
+    selfAgent: [
+      "You can be your own agent if you live in Georgia and have a Georgia street address where you can be found during business hours. It's free, and you name yourself as the agent on the Articles of Organization.",
+      "What it costs you is privacy and availability. The address you list goes on the LLC's public record, and a process server can show up there during business hours to hand you a lawsuit. If that address is your home, anyone who looks up your LLC can find where you live. If you have a shop or office in Georgia where someone is reliably there during the day, use that address and skip the fee.",
+      "If you live outside Georgia, you can't be your own agent. You can name a friend or relative who lives there, but they take on the job: staying reachable at that address, forwarding lawsuits quickly, and telling you right away if they plan to resign, so you can replace them before Georgia's 60-day limit runs out.",
+    ],
+    paidAgent: [
+      "A commercial agent gives your LLC a Georgia street address, receives legal papers and state mail, and forwards them to you, usually as same-day scans. Mainstream providers charge $50 to $150 a year. Georgia's 60-day rule makes reliability matter here: if your agent resigns, you need to see their notice and name a replacement before the state counts you as having no agent.",
+      "Northwest charges $125 a year with no per-document fees, and its Georgia address goes on the public record instead of yours. That's what you're paying for: a reliable in-state address and someone who will scan a lawsuit the day it arrives. If you live in Georgia and already have a business address, you don't need it.",
+    ],
+    verdict:
+      "If you live in Georgia and have a business address that isn't your home, be your own registered agent and keep the $125. Everyone else, including every founder who lives outside Georgia, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      "File an amended annual registration on eCorp with the new agent's name and Georgia street address. The state lists the fee as $20. If it's between January 1 and April 1 and you haven't filed this year's annual registration yet, change the agent on that filing instead.",
+      "Sign up with the new agent first, since the filing needs their name and address. Don't cancel the old agent until eCorp shows the new one on your LLC's record. File within 60 days of any change, because Georgia treats a late update as grounds for dissolution.",
+    ],
+    faq: [
+      {
+        question: 'Do I need a registered agent in Georgia?',
+        answer:
+          'Yes. Every Georgia LLC has to name a registered agent on its Articles of Organization and keep one for as long as the LLC exists. Going 60 days without one is grounds for administrative dissolution, and reinstating costs $250.',
+      },
+      {
+        question: 'Can I be my own registered agent in Georgia?',
+        answer:
+          "Yes, if you live in Georgia and have a Georgia street address where you can be found during business hours. It's free. The address goes on the public record. Non-residents can't serve as their own agent.",
+      },
+      {
+        question: 'How much does a registered agent cost in Georgia?',
+        answer:
+          'Nothing if you serve yourself. Mainstream commercial agents charge $50 to $150 a year. Northwest charges $125 a year with no per-document fees. Changing agents costs $20 in state fees.',
+      },
+      {
+        question: 'Can I use a P.O. box or virtual mailbox for my Georgia registered agent?',
+        answer:
+          "No. Georgia requires the registered office to be a street address that is also the agent's business office. A P.O. box isn't a street address, and if the agent can't be found there, the person suing you can serve the Secretary of State instead.",
+      },
+      {
+        question: 'How do I change my registered agent in Georgia?',
+        answer:
+          'Sign up with the new agent, then file an amended annual registration on eCorp with their name and address. The fee is $20. Between January 1 and April 1, you can make the change on your regular annual registration instead.',
+      },
+      {
+        question: 'What happens if my Georgia registered agent resigns?',
+        answer:
+          'They file a statement of resignation and must notify you on or before the day they file. The resignation takes effect on the 31st day after filing. Name a new agent before then. If the LLC goes 60 days without one, the state can start administrative dissolution.',
+      },
+    ],
+    sourceUrls: [
+      'https://law.justia.com/codes/georgia/title-14/chapter-11/article-2/section-14-11-209/',
+      'https://law.justia.com/codes/georgia/title-14/chapter-11/article-6/section-14-11-603/',
+      'https://law.justia.com/codes/georgia/title-14/chapter-11/article-11/section-14-11-1101/',
+      'https://ecorp.sos.ga.gov/ARForm',
     ],
   },
   costBreakdown: [

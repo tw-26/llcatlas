@@ -44,6 +44,22 @@ export const california: StateOverride = {
       url: 'https://www.sos.ca.gov/business-programs/business-entities/faqs',
     },
     {
+      label: 'Agent for service of process law (Corporations Code 17701.13)',
+      url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CORP&sectionNum=17701.13',
+    },
+    {
+      label: 'Agent resignation law (Corporations Code 17701.15)',
+      url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CORP&sectionNum=17701.15',
+    },
+    {
+      label: 'Statement of Information form, instructions, and fees (LLC-12)',
+      url: 'https://bpd.cdn.sos.ca.gov/llc/forms/llc-12.pdf',
+    },
+    {
+      label: 'Service of process through the Secretary of State',
+      url: 'https://www.sos.ca.gov/business-programs/business-entities/service-process',
+    },
+    {
       label: 'Foreign (out-of-state) LLC registration fees',
       url: 'https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-foreign-out-state-or-out-country',
     },
@@ -402,6 +418,113 @@ export const california: StateOverride = {
       'https://www.ftb.ca.gov/file/business/types/limited-liability-company/index.html',
       'https://www.ftb.ca.gov/forms/whats-new.html',
       'https://www.sos.ca.gov/business-programs/business-entities/statements',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-06',
+    seoTitle: `California Registered Agent (${GUIDE_YEAR}): Agent for Service of Process Rules`,
+    seoDescription:
+      'California calls it an agent for service of process. Who can serve, how a 1505 corporate agent keeps your address off bizfile, and the free switch.',
+    intro:
+      "California doesn't use the term registered agent. It calls the same job an agent for service of process, and every California LLC needs one: an individual who lives in California with a California street address, or a corporation that has filed a 1505 certificate with the Secretary of State. If you live in California and have a business address that isn't your home, be your own agent and pay nothing. Otherwise, hire a 1505 corporate agent, usually $50 to $200 a year; only its name goes on your filing. Switching agents later is free.",
+    facts: [
+      {
+        label: 'What California calls it',
+        detail: 'Agent for service of process (Corporations Code 17701.13). Same role other states call a registered agent.',
+      },
+      {
+        label: 'Who can serve',
+        detail: 'An individual who lives in California, or a corporation with a current 1505 certificate on file. Your LLC can’t be its own agent.',
+      },
+      {
+        label: 'Address rule',
+        detail: 'An individual agent lists a physical California street address. P.O. boxes and “in care of” addresses are rejected.',
+      },
+      {
+        label: 'Corporate agents',
+        detail: 'Your filing lists only the 1505 agent’s exact registered name, no address. Its office address is on its own 1505 certificate.',
+      },
+      {
+        label: 'Consent',
+        detail: 'No consent form is filed. A 1505 corporate agent has to approve the appointment before you name it.',
+      },
+      {
+        label: 'Email',
+        detail: 'No email rule for the agent. The Statement of Information has an optional opt-in for state notices by email.',
+      },
+      {
+        label: 'Change of agent',
+        detail: 'File a new Statement of Information (Form LLC-12): no fee between your two-year filings, $20 if it is your regular filing. Online on bizfile or by mail.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail: 'The agent files a Resignation of Agent for Service of Process (Form RA-100, no fee). Its authority ends the day it’s filed. There is no notice period.',
+      },
+      {
+        label: 'With no agent',
+        detail: 'A court can let the person suing you serve the LLC through the Secretary of State. Service is complete 10 days later.',
+      },
+      {
+        label: 'If you move away',
+        detail: 'An individual agent who no longer lives in California can’t serve. File a new Statement of Information promptly.',
+      },
+    ],
+    lapse: [
+      "Yes. California requires every LLC to keep an agent for service of process in the state for as long as it exists. The agent is where court papers are delivered when someone sues the LLC, and its name and address are what a process server looks up on bizfile.",
+      "California doesn't give you a grace period when an agent quits. The resignation takes effect the day the Secretary of State files it, and the state then mails a notice to your principal office. If you haven't named a new agent and a plaintiff can't find one, a court can order service through the Secretary of State instead. Service counts as complete 10 days after the papers are delivered there, and the state forwards them by registered mail to the principal office on your record. If that address is out of date, a lawsuit can move forward without you knowing about it.",
+    ],
+    selfAgent: [
+      "You can be your own agent if you live in California and have a physical California street address. It's free, and you just enter your name and that address in the Articles of Organization or a Statement of Information.",
+      "What it costs you is privacy. The Secretary of State says the individual agent's name and street address are public, open to anyone on bizfile, and the address shows up again on every Statement of Information you file. If that address is your home, anyone who looks up your LLC can find where you live. If you have a shop or office in California where you or someone reliable is there during the day, use that address and skip the fee.",
+      "If you live outside California, or move away later, you can't serve. You can name a friend or relative who lives in California, but they have to stay at that address and hand court papers to you quickly. A corporate agent keeps the agent line off your address, but the Statement of Information still lists your managers or members with an address for each. California lets you use a business address there instead of your home.",
+    ],
+    paidAgent: [
+      "A paid agent in California has to be a corporation that has filed a 1505 certificate with the Secretary of State, listing its California office and the employees allowed to accept court papers. Your filing then shows only its name, which keeps your address off the agent line. Before you file, get the agent's exact registered name from the provider and check it on bizfile's Business Search, because the form has to match. Mainstream providers charge $50 to $200 a year.",
+      "Northwest charges $125 a year with no per-document fees and scans the mail it receives for you. It doesn't change anything else in California: you still owe the $800 annual tax and the $20 Statement of Information. If you live in California and already have a business address, you don't need it.",
+    ],
+    verdict:
+      "If you live in California and have a business address that isn't your home, be your own agent for service of process and keep the $125. Everyone else, including anyone who would list a home address or lives outside California, should hire a 1505 corporate agent. Our pick is Northwest: $125 a year, no per-document fees, and only its name on your filing instead of your address.",
+    changeAgent: [
+      "File a new Statement of Information (Form LLC-12) that names the new agent. Outside your regular two-year filing it costs nothing; if your regular filing is due anyway, change the agent on it for the usual $20. Since August 1, 2026, filing online on bizfile requires User Access to your LLC, so set that up first. You can also mail the form to the Secretary of State in Sacramento.",
+      "Sign up with the new agent before you file, since a 1505 agent has to approve the appointment first. The change only takes effect when the new Statement of Information is filed, so keep the old agent until bizfile shows the new one.",
+    ],
+    faq: [
+      {
+        question: 'Does California require a registered agent for an LLC?',
+        answer:
+          "Yes. California calls it an agent for service of process. Every California LLC must name one and keep one for as long as it exists. It must be an individual who lives in California or a corporation with a 1505 certificate on file.",
+      },
+      {
+        question: 'Can I be my own registered agent in California?',
+        answer:
+          "Yes, if you live in California and have a physical California street address. It's free. Your name and that address go on the public record on bizfile. If you move out of California, you have to name a new agent.",
+      },
+      {
+        question: 'How much does a registered agent cost in California?',
+        answer:
+          'Nothing if you serve yourself. Mainstream corporate agents charge $50 to $200 a year; Northwest charges $125 with no per-document fees. Changing agents costs nothing in state fees between your two-year Statement of Information filings.',
+      },
+      {
+        question: 'Can I use a P.O. box for my California agent for service of process?',
+        answer:
+          "No. An individual agent must list a physical California street address, and the Secretary of State rejects P.O. boxes and \"in care of\" addresses. If you want your address off the record, use a 1505 corporate agent; only its name goes on your filing.",
+      },
+      {
+        question: 'How do I change my agent for service of process in California?',
+        answer:
+          'File a new Statement of Information (Form LLC-12) naming the new agent, online on bizfile or by mail. It costs nothing outside your regular two-year filing. Get the new agent’s approval first, and keep the old one until bizfile shows the change.',
+      },
+      {
+        question: 'What happens if my California agent for service of process resigns?',
+        answer:
+          'The agent files Form RA-100, and its authority ends the day the state files it. The Secretary of State mails a notice to your principal office. File a new Statement of Information naming a replacement right away; California gives you no grace period.',
+      },
+    ],
+    sourceUrls: [
+      'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CORP&sectionNum=17701.13',
+      'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CORP&sectionNum=17701.15',
+      'https://bpd.cdn.sos.ca.gov/llc/forms/llc-12.pdf',
+      'https://www.sos.ca.gov/business-programs/business-entities/faqs',
     ],
   },
   costBreakdown: [

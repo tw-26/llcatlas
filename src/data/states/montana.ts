@@ -56,6 +56,15 @@ export const montana: StateOverride = {
       url: 'https://leg.mt.gov/bills/mca/title_0350/chapter_0070/part_0010/section_0040/0350-0070-0010-0040.html',
     },
     {
+      label: 'Model Registered Agents Act (MCA 35-7, Part 1)',
+      url: 'https://leg.mt.gov/bills/mca/title_0350/chapter_0070/part_0010/sections_index.html',
+    },
+    {
+      label: 'Registered agent resignation (MCA 35-7-111)',
+      url: 'https://leg.mt.gov/bills/mca/title_0350/chapter_0070/part_0010/section_0110/0350-0070-0010-0110.html',
+    },
+    { label: 'Montana registered agents and commercial agent list', url: 'https://sosmt.gov/business/agents/' },
+    {
       label: 'Annual report law (MCA 35-8-208)',
       url: 'https://leg.mt.gov/bills/mca/title_0350/chapter_0080/part_0020/section_0080/0350-0080-0020-0080.html',
     },
@@ -393,6 +402,112 @@ export const montana: StateOverride = {
       'https://help.sosmt.gov/en-us/article/how-do-i-file-my-annual-report-ywawrv/',
       'https://sosmt.gov/secretary-christi-jacobsen-continues-montana-business-support-by-waiving-fees-once-again/',
       'https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/independent-contractor/',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-06',
+    seoTitle: `Montana Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Every Montana LLC needs a registered agent at a Montana street address. Who can be their own, what a commercial agent costs, and the free online switch.',
+    intro:
+      "Every Montana LLC needs a registered agent: either a commercial agent listed with the Secretary of State, or a noncommercial agent, such as you, with an actual Montana street address or rural route box. If you live in Montana and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you'll pay a commercial agent, usually $50 to $150 a year, which is more than Montana charges to form and keep the LLC. Switching agents later is free and done online.",
+    facts: [
+      {
+        label: 'What Montana calls it',
+        detail: 'Registered agent (MCA Title 35, chapter 7, the Model Registered Agents Act).',
+      },
+      {
+        label: 'Two kinds',
+        detail: 'A commercial registered agent, which files a listing statement with the state, or a noncommercial agent: you, someone you know, or another business.',
+      },
+      {
+        label: 'Address rule',
+        detail: 'A noncommercial agent lists an actual Montana street address or rural route box, plus a Montana mailing address if different. A P.O. box alone doesn’t qualify.',
+      },
+      {
+        label: 'Commercial agents',
+        detail: 'Your filing lists only the commercial agent’s name; its address comes from its listing. The state publishes a list of commercial agents.',
+      },
+      {
+        label: 'Consent',
+        detail: 'No consent form. Naming an agent counts as your statement that the agent agreed to serve, so get their agreement first.',
+      },
+      {
+        label: 'State notice to the agent',
+        detail: 'The Secretary of State notifies the agent of filings that name it, so an agent you named without asking will find out.',
+      },
+      { label: 'Change of agent', detail: 'No fee. Registered Agent/Office Change by Entity, filed online at biz.sosmt.gov.' },
+      {
+        label: 'If the agent resigns',
+        detail: 'The resignation takes effect 31 days after it’s filed, or sooner if you appoint a new agent. The agent must notify you promptly.',
+      },
+      {
+        label: 'No agent for 60 days',
+        detail: 'Grounds for involuntary dissolution. So is going 60 days after a change of agent without filing the statement of change.',
+      },
+      {
+        label: 'Reinstatement',
+        detail: '$35 plus $35 for each missed annual report, within 5 years. Most LLCs also need a Department of Revenue tax certificate.',
+      },
+    ],
+    lapse: [
+      "Yes. Montana requires every LLC to appoint and keep a registered agent in the state. The agent is where lawsuits and Secretary of State notices are delivered. If nobody is there to receive them, a lawsuit can move forward without you knowing about it.",
+      "If your agent quits, the resignation takes effect 31 days after it's filed, unless you name a new agent sooner, and the agent has to tell you promptly when it files. Once you've gone 60 days without an agent, the Secretary of State can involuntarily dissolve the LLC. Reinstating within 5 years costs $35 plus $35 for each annual report you missed, and most LLCs also need a tax certificate from the Department of Revenue. Changing agents is free, so there's no reason to let it get that far.",
+    ],
+    selfAgent: [
+      "You can be your own agent if you have an actual Montana street address or rural route box where you're available during business hours. You'd be a noncommercial registered agent. It's free, and you just enter your name and address when you file the Articles of Organization online.",
+      "What it costs you is privacy and availability. Montana makes everything on a business filing public, including your agent's address, and a process server can show up there during business hours. If that address is your home, anyone who looks up your LLC can find where you live. If you have a shop or office in Montana where someone is reliably there during the day, use that address and skip the fee.",
+      "If you live outside Montana, you can't be your own agent unless you have a Montana address where you can be reached. You can name a friend or relative who lives in Montana, but they take on the job: staying available and forwarding lawsuits and state notices to you quickly. The Secretary of State suggests a commercial agent if your business has no physical presence in Montana or you have privacy concerns about your address.",
+    ],
+    paidAgent: [
+      "A commercial registered agent files a listing statement with the Secretary of State and gives your LLC a Montana address for lawsuits and state mail, then forwards them to you. Your filing lists only its name. The state publishes a list of commercial agents on its website; it's a starting point, not an endorsement. Mainstream providers charge $50 to $150 a year. In Montana that's usually the biggest ongoing cost of the LLC, since forming is $35 and the on-time annual report is free through 2027.",
+      "Northwest charges $125 a year with no per-document fees, and its Montana address goes on the public record instead of yours. That doesn't make your LLC anonymous: Montana still publishes your members' or managers' names and mailing addresses. If you live in Montana and already have a business address, you don't need it.",
+    ],
+    verdict:
+      "If you live in Montana and have a business address that isn't your home, be your own registered agent and keep the $125. Everyone else, including every founder who lives outside Montana, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      "Montana takes filings online only. Sign in at biz.sosmt.gov, search for your LLC, open the record, choose Filing Actions, and complete the Registered Agent/Office Change by Entity. There's no fee, and the change takes effect when it's filed. Your members or managers don't have to vote on it.",
+      "Sign up with the new agent first. Filing the change counts as your statement that they agreed to serve. Don't cancel the old agent until the LLC's record on biz.sosmt.gov shows the new one. Montana can dissolve an LLC that goes 60 days without an agent.",
+    ],
+    outOfStateNote:
+      "If you live in another state and you're forming a Montana LLC to register a car or RV, the registered agent is part of the real cost. You can't serve from out of state, so you'll pay a commercial agent $50 to $150 a year, more than the $35 filing and the free annual report combined. A light vehicle with an MSRP over $150,000 that's 10 years old or less also adds $825 a year to Montana registration. And Montana only decides what Montana charges. Your home state's sales, use, and registration rules still apply where you live and keep the vehicle, and if the LLC does business there, your home state can make you register it as a foreign LLC, with a second agent and its own fees. Form in the state where you live.",
+    faq: [
+      {
+        question: 'Do I need a registered agent in Montana?',
+        answer:
+          'Yes. Every Montana LLC has to appoint a registered agent and keep one. Going 60 days without an agent is grounds for involuntary dissolution, and reinstating costs $35 plus $35 for each missed annual report.',
+      },
+      {
+        question: 'Can I be my own registered agent in Montana?',
+        answer:
+          "Yes, if you have an actual Montana street address or rural route box where you're available during business hours. It's free, and you'd be a noncommercial registered agent. The address goes on the public record.",
+      },
+      {
+        question: 'How much does a registered agent cost in Montana?',
+        answer:
+          'Nothing if you serve yourself. Mainstream commercial agents charge $50 to $150 a year; Northwest charges $125 with no per-document fees. Changing agents is free.',
+      },
+      {
+        question: 'Can I use a P.O. box for my Montana registered agent?',
+        answer:
+          'Not by itself. A noncommercial agent must list an actual Montana street address or rural route box. A P.O. box can be the mailing address if you also give the street address.',
+      },
+      {
+        question: 'How do I change my registered agent in Montana?',
+        answer:
+          'Sign in at biz.sosmt.gov, open your LLC’s record, choose Filing Actions, and file the Registered Agent/Office Change by Entity. It’s free and takes effect on filing. Get the new agent’s agreement first, and keep the old one until the record shows the change.',
+      },
+      {
+        question: 'What happens if my Montana registered agent resigns?',
+        answer:
+          'The resignation takes effect 31 days after the agent files it, or sooner if you appoint a new agent. File the free change online in that window. After 60 days without an agent, Montana can involuntarily dissolve the LLC.',
+      },
+    ],
+    sourceUrls: [
+      'https://leg.mt.gov/bills/mca/title_0350/chapter_0070/part_0010/sections_index.html',
+      'https://leg.mt.gov/bills/mca/title_0350/chapter_0080/part_0020/section_0090/0350-0080-0020-0090.html',
+      'https://sosmt.gov/business/fees/',
+      'https://sosmt.gov/business/agents/',
     ],
   },
   costBreakdown: [

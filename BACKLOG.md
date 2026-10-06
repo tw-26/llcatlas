@@ -104,14 +104,14 @@ Work top to bottom inside each month. If something is blocked, skip it and come 
 
 ### Registered agent pages, first 10
 
-- [ ] Build `/llc/[state]/registered-agent/` for the 10 ready states with the most volume: Wyoming (4.1K), Texas (3.5K), Delaware (3.2K), Georgia (2.2K), California (1.9K), Nevada (1.3K), Montana (1.2K), Virginia (1.2K), Oregon (1.1K), Washington (1.1K).
+- [x] Build `/llc/[state]/registered-agent/` for the 10 ready states with the most volume: Wyoming (4.1K), Texas (3.5K), Delaware (3.2K), Georgia (2.2K), California (1.9K), Nevada (1.3K), Montana (1.2K), Virginia (1.2K), Oregon (1.1K), Washington (1.1K). (Done Oct 6 from official sources. Data lives in each state's `registeredAgentPage` block; slugs in `REGISTERED_AGENT_PAGE_SLUGS`. Request indexing for all 10 after deploying. Open items: Georgia's SOS site blocked access, so its fees rest on the eCorp page and statute excerpts; confirm the $20 change fee and $250 reinstatement. Oregon publishes no reinstatement fee amount. Confirm Northwest is listed as a California 1505 corporate agent.)
   - Answer in this order: do you need one (yes, and what happens if it lapses), can you be your own (who qualifies, what it costs you in privacy and being home during business hours), what a paid agent costs, which one to use, and how to change agents (form and state fee).
   - Each page needs state-specific facts verified against the official site, kept in `officialLinks`: the state's term for the role (Ohio "statutory agent", Maryland "resident agent", Virginia's rule that the agent must be a member, manager, Virginia attorney, or registered entity), address rules, the change-of-agent fee, and any commercial agent registry. If a state has nothing specific beyond the basics, it still ships, but the facts box must be real.
   - Recommend Northwest where it's genuinely the best pick, and say plainly when someone can be their own agent for free.
   - Wyoming and Delaware pull out-of-state founders. Write for a US founder forming outside their home state, and keep the "your home state usually still wins" warning with a link to `/best-state/`.
   - Link each page from the guide's registered agent step and from its cost page. Link out to the guide, the cost page, and `/best-llc-services/`.
-- [ ] Add registered agent facts to the `new-state-guide` skill checklist, so every new guide ships with its registered agent page.
-- [ ] Update the sitemap filter for `/llc/*/registered-agent/`.
+- [x] Add registered agent facts to the `new-state-guide` skill checklist, so every new guide ships with its registered agent page.
+- [x] Update the sitemap filter for `/llc/*/registered-agent/`.
 
 
 

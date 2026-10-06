@@ -30,6 +30,13 @@ Build this fact sheet before writing any copy. Record the value, the official UR
 | Expedited options and fees | Every tier the state lists |
 | Name reservation fee | |
 | Registered agent term and rules | "registered agent" vs "statutory agent" vs "resident agent" |
+| Who can serve as agent | Residency, entity types, any narrower rule (Virginia: member, manager, or Virginia lawyer only), whether the LLC can be its own agent |
+| Agent address rule | Physical street address, P.O. box / virtual office / mail-forwarding rules, business-hours availability |
+| Agent consent and email | Consent form or certification; any email requirement for the agent |
+| Change of agent | Exact form name, state fee, online or mail |
+| Agent resignation | Notice period, when it takes effect, what the LLC must do and by when |
+| No agent | Consequence (default, dissolution, cancellation) and reinstatement fee |
+| Commercial agent registry | Whether commercial agents register with the state and whether it publishes a list |
 | Annual/biennial report | Fee, due date, late fee, consequence of missing it |
 | Initial report | If the state has one |
 | Franchise, privilege, excise, or gross receipts tax | Minimums matter most |
@@ -59,6 +66,12 @@ Export a `StateOverride` named in camelCase (e.g. `newJersey`). Match Washington
   - `formTotal`: required state fees to form, cheapest filing method. `annualDisplay`: the recurring cost as it should read in a summary box (`'$70/yr'`, `'$32 every 2 years'`, `'$0'`).
   - `yearOneTotal`: what the reader pays in year one if they follow `verdict` and serve as their own agent. `yearTwoTotal`: required cost in year two. Short notes for each.
   - `schedule` (4–6 rows of what you pay and when), one decisive `verdict`, 4–5 cost-intent `faq` entries, and 3–4 `sourceUrls` copied exactly from `officialLinks`.
+- `registeredAgentPage`: drives `/llc/{slug}/registered-agent/`. Every ready state ships with one. Copy the shape of Wyoming's block:
+  - `lastVerified` set to today. `seoTitle`: `` `{State} Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use` ``. If the state uses another term, keep "Registered Agent" in the title (that's the search) and explain the state's term in the intro, like California.
+  - `facts` (8–10 rows from the agent rows of the fact sheet), `lapse`, `selfAgent`, `paidAgent`, `changeAgent`, 5–6 `faq`, and 3–4 `sourceUrls` copied exactly from `officialLinks`.
+  - `verdict`: if the reader lives in the state and has a business address that isn't their home, tell them to be their own agent. Everyone else gets Northwest. Northwest's price comes from `src/data/llc-services.ts` (the test checks it). Reuse the guide's own paid-agent price range so the two pages agree.
+  - `outOfStateNote` only for states that draw out-of-state founders (Wyoming, Delaware, Nevada, Montana): why the home state usually still wins, using numbers already in the guide.
+  - The guide's agent step must have "agent" in its title; that step links to the page.
 - `trap` (optional): the one state-specific cost or filing first-time founders miss, shown as a callout under the quick facts. `sectionId` must match a `sections` id.
 - `faq`: 10–14 questions phrased the way people search: cost, filing fee, how long, agency, document name, registered agent, being your own agent, operating agreement, annual report, publication, business license, taxes, non-residents, BOI. Add any from the GSC queries noted in step 1.
 - `comparisonRows`: this state, 2–3 neighboring states, plus Wyoming and Delaware. Only use numbers you verified or that already appear in another ready guide. Neighbors that are ready guides get linked automatically.
@@ -73,14 +86,14 @@ After drafting, run the self-edit pass at the bottom of `.claude/voice.md` on `i
 ## 4. Register it
 
 - Import and add it to `stateOverrides` in `src/data/states/index.ts`, keeping alphabetical order.
-- Add the slug to `READY_STATE_SLUGS` in `src/data/states/ready-slugs.mjs`, keeping alphabetical order.
+- Add the slug to `READY_STATE_SLUGS` and `REGISTERED_AGENT_PAGE_SLUGS` in `src/data/states/ready-slugs.mjs`, keeping alphabetical order.
 
 Internal links are automatic once the state is ready: homepage selector, `/best-llc-services/`, `/best-state/`, `/llc-vs-sole-proprietorship/`, the related-states list on every guide, and comparison-table rows in other guides.
 
 ## 5. Check
 
 - Run `npx vitest run src/data/states`. Fix every failure; don't loosen the test.
-- Run `npm run build` and confirm `/llc/{slug}/` and `/llc/{slug}/cost/` are generated.
+- Run `npm run build` and confirm `/llc/{slug}/`, `/llc/{slug}/cost/`, and `/llc/{slug}/registered-agent/` are generated.
 
 ## 6. Report back
 
@@ -89,7 +102,7 @@ End with:
 1. **Fact sheet**: the table from step 2 with values and source URLs.
 2. **Needs your eyes**: every unverified or conflicting fact, and anything that changes on a known date (e.g. a new tax rate on January 1).
 3. **Before you deploy**: open the 3–5 most important source links and confirm the filing fee, annual report fee and due date, and any franchise tax minimum.
-4. **After you deploy**: request indexing for `https://llcatlas.com/llc/{slug}/` and `https://llcatlas.com/llc/{slug}/cost/` in Google Search Console.
+4. **After you deploy**: request indexing for `https://llcatlas.com/llc/{slug}/`, `https://llcatlas.com/llc/{slug}/cost/`, and `https://llcatlas.com/llc/{slug}/registered-agent/` in Google Search Console.
 
 Never describe a fact as verified if you didn't read it on an official page in this session.
 

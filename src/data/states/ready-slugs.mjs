@@ -29,3 +29,20 @@ export const READY_STATE_SLUGS = [
   'washington',
   'wyoming',
 ];
+
+/**
+ * Ready states whose override has a `registeredAgentPage`, published at
+ * /llc/{slug}/registered-agent/. Keep in sync with the override files.
+ */
+export const REGISTERED_AGENT_PAGE_SLUGS = [
+  'california',
+  'delaware',
+  'georgia',
+  'montana',
+  'nevada',
+  'oregon',
+  'texas',
+  'virginia',
+  'washington',
+  'wyoming',
+];

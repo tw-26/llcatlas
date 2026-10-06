@@ -1,0 +1,17 @@
+---
+import StateRegisteredAgentPageLayout from '../../../components/state-registered-agent-page-layout.astro';
+import { states, type StateData, type StateRegisteredAgentPage } from '../../../data/states';
+
+export function getStaticPaths() {
+  return states
+    .filter((state) => state.contentStatus === 'ready' && state.registeredAgentPage)
+    .map((state) => ({
+      params: { state: state.slug },
+      props: { state },
+    }));
+}
+
+const { state } = Astro.props as { state: StateData & { registeredAgentPage: StateRegisteredAgentPage } };
+---
+
+<StateRegisteredAgentPageLayout state={state} />

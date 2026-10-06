@@ -7,6 +7,7 @@ import { getPublishedStatePages, getStateSlug } from '../data/tax/calculator-pag
 import {
   getStateCostPath,
   getStateGuidePath,
+  getStateRegisteredAgentPath,
   states,
   type StateCostPage,
   type StateData,
@@ -227,6 +228,14 @@ const structuredData = [
       <h2>{state.name} {state.agentTerm} cost</h2>
       <p class="llc-section-copy">{state.inlineCtaDescription}</p>
     </div>
+    {state.registeredAgentPage && (
+      <a
+        href={getStateRegisteredAgentPath(state.slug)}
+        class="inline-flex min-h-11 items-center gap-1.5 text-[15px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+      >
+        {state.name} {state.agentTerm} rules, and whether you can be your own
+      </a>
+    )}
   </section>
 
   <AffiliateCard

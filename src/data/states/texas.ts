@@ -67,6 +67,17 @@ export const texas: StateOverride = {
       label: 'Apply for an EIN with the IRS',
       url: 'https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online',
     },
+    {
+      label: 'Registered agents and registered offices (Business Organizations Code ch. 5)',
+      url: 'https://statutes.capitol.texas.gov/Docs/BO/htm/BO.5.htm',
+    },
+    {
+      label: 'Involuntary termination and reinstatement (Business Organizations Code ch. 11)',
+      url: 'https://statutes.capitol.texas.gov/Docs/BO/htm/BO.11.htm',
+    },
+    { label: 'Form 401 instructions: change of registered agent', url: 'https://www.sos.state.tx.us/corp/instructions/401.shtml' },
+    { label: 'Form 402 instructions: registered agent resignation', url: 'https://www.sos.state.tx.us/corp/instructions/402.shtml' },
+    { label: 'Form 811 instructions: reinstatement', url: 'https://www.sos.state.tx.us/corp/instructions/811.shtml' },
   ],
   taxHighlights: [
     'Texas has no individual income tax. The state constitution bars the legislature from taxing individuals\' net income, including an individual\'s share of partnership and unincorporated association income. A default single-member or multi-member LLC owes federal income and self-employment tax only.',
@@ -391,6 +402,104 @@ export const texas: StateOverride = {
       'https://www.sos.texas.gov/corp/options.shtml',
       'https://comptroller.texas.gov/taxes/franchise/',
       'https://comptroller.texas.gov/taxes/franchise/pir-oir-filing-req.php',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-06',
+    seoTitle: `Texas Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Every Texas LLC needs an agent at a Texas street address. Who can be their own, what a paid agent costs, and the $15 Form 401 to switch.',
+    intro:
+      "Every Texas LLC needs a registered agent: a Texas resident or a business registered in Texas, at a Texas street address where legal papers can be handed to them during business hours. If you live in Texas and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you can't serve, so you'll pay a commercial agent, usually $50 to $150 a year. Switching agents later costs $15 with Form 401.",
+    facts: [
+      { label: 'What Texas calls it', detail: 'Registered agent, at a registered office (Business Organizations Code § 5.201).' },
+      {
+        label: 'Who can serve',
+        detail: 'An individual Texas resident, or an organization registered or authorized to do business in Texas. The LLC can’t be its own agent.',
+      },
+      {
+        label: 'Address rule',
+        detail: 'A Texas street address where the agent can be personally served during normal business hours. It can’t be only a mailbox service or telephone answering service.',
+      },
+      {
+        label: 'Company agents',
+        detail: 'An organization serving as agent must have an employee at the registered office during normal business hours to accept papers.',
+      },
+      {
+        label: 'Consent',
+        detail: 'Required, in writing or electronically. You don’t file it. Naming the agent on a filing is your statement that they agreed.',
+      },
+      { label: 'Change of agent', detail: '$15. Form 401, filed on SOSPortal or by mail.' },
+      {
+        label: 'If the agent resigns',
+        detail: 'Form 402, no fee. The resignation takes effect 31 days after the Secretary of State receives it, and the state notifies you.',
+      },
+      {
+        label: 'With no agent',
+        detail: 'The Secretary of State becomes your agent for lawsuits. After a notice, it can terminate the LLC if the agent isn’t fixed within 90 days.',
+      },
+      { label: 'Reinstatement', detail: '$75 with Form 811, plus a tax clearance letter from the Comptroller.' },
+      {
+        label: 'Named without consent',
+        detail: 'Anyone listed as your agent without agreeing can file a free rejection (Form 428), which ends the appointment.',
+      },
+    ],
+    lapse: [
+      "Yes. Texas requires every LLC to keep a registered agent and registered office in the state for as long as it exists, starting with the Certificate of Formation. The agent's legal job is to accept lawsuits and official notices and forward them to you. If the LLC has no agent, or the agent can't be found at the registered office, Texas makes the Secretary of State your agent instead. The Secretary mails the papers by certified mail to the last address the state has for you. If that address is out of date, a lawsuit can move forward without you knowing about it.",
+      "The Secretary of State can also end the LLC. After mailing a notice, it can involuntarily terminate an LLC that still hasn't fixed its missing agent by the 91st day. Reinstating costs $75 with Form 811, and you need a tax clearance letter from the Comptroller first, so your franchise tax filings have to be current. Reinstate within three years and the LLC is treated as never having stopped. Reinstatement doesn't settle questions of personal liability for the time it was terminated.",
+    ],
+    selfAgent: [
+      "You can be your own agent if you live in Texas and have a Texas street address where you can be personally served during normal business hours. It's free, and you name yourself as the agent on Form 205. The LLC itself can't be its own agent.",
+      "What it costs you is privacy and availability. The registered office goes on the LLC's public record, and a process server can show up there on any weekday to hand you a lawsuit. If that address is your home, anyone who looks up your LLC can find where you live. If you have a shop or office in Texas where someone is reliably there during the day, use that address and skip the fee.",
+      "If you live outside Texas, you can't be your own agent. You can name a friend or relative who lives there, but they have to agree first, and listing someone who didn't agree is a false statement on a state filing. They also take on the job: being at that address during business hours and forwarding every lawsuit and notice to you quickly.",
+    ],
+    paidAgent: [
+      "A commercial agent gives your LLC a Texas street address, receives legal papers and state mail, and forwards them to you, usually as same-day scans. Mainstream providers charge $50 to $150 a year. Texas requires a company acting as agent to keep an employee at the registered office during normal business hours, so a legitimate agent's address is a staffed office, not a mail drop.",
+      "Northwest charges $125 a year with no per-document fees, and its Texas address goes on the public record instead of yours. It doesn't hide the member or manager addresses you list on Form 205, so use an address there you're comfortable seeing published. If you live in Texas and already have a business address, you don't need a paid agent.",
+    ],
+    verdict:
+      "If you live in Texas and have a business address that isn't your home, be your own registered agent and keep the $125. Everyone else, including every founder who lives outside Texas, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      "File Form 401, the statement of change of registered agent and office, with the Secretary of State. The fee is $15. File it on SOSPortal and pay by ACH, or by card with a convenience fee of $0.25 plus 2.25%, or mail it with a check. It names the new agent and their Texas street address, and it takes effect when filed unless you choose a later date up to 90 days out. You don't attach the new agent's consent, but you need to have it before you file.",
+      "Sign up with the new agent first, since the form needs their name and address. Keep the old agent until SOSPortal shows the new one on your LLC's record. A gap leaves the LLC without an agent.",
+    ],
+    faq: [
+      {
+        question: 'Do I need a registered agent in Texas?',
+        answer:
+          'Yes. Every Texas LLC has to name a registered agent on its Certificate of Formation and keep one for as long as the LLC exists. Without one, lawsuits are served through the Secretary of State, and the state can terminate the LLC. Reinstating after that costs $75 plus a Comptroller tax clearance letter.',
+      },
+      {
+        question: 'Can I be my own registered agent in Texas?',
+        answer:
+          "Yes, if you live in Texas and have a Texas street address where you can be personally served during normal business hours. It's free. The address goes on the public record. Your LLC can't be its own agent, and non-residents can't serve.",
+      },
+      {
+        question: 'How much does a registered agent cost in Texas?',
+        answer:
+          'Nothing if you serve yourself. Mainstream commercial agents charge $50 to $150 a year. Northwest charges $125 a year with no per-document fees. Changing agents costs $15 in state fees.',
+      },
+      {
+        question: 'Can I use a P.O. box or virtual mailbox for my Texas registered agent?',
+        answer:
+          "No. The registered office has to be a Texas street address where the agent can be personally served during business hours, and Texas law says it can't be only a mailbox service or answering service.",
+      },
+      {
+        question: 'How do I change my registered agent in Texas?',
+        answer:
+          'Sign up with the new agent, then file Form 401 with the Secretary of State for $15, on SOSPortal or by mail. The new agent must have agreed to serve before you file. Keep the old agent until the change shows on your record.',
+      },
+      {
+        question: 'What happens if my Texas registered agent resigns?',
+        answer:
+          'The agent sends you written notice and files Form 402 with the Secretary of State within 10 days after that. The resignation takes effect on the 31st day after the state receives it, and the state notifies you too. File Form 401 with a new agent before then.',
+      },
+    ],
+    sourceUrls: [
+      'https://statutes.capitol.texas.gov/Docs/BO/htm/BO.5.htm',
+      'https://www.sos.state.tx.us/corp/instructions/401.shtml',
+      'https://www.sos.state.tx.us/corp/instructions/402.shtml',
+      'https://www.sos.state.tx.us/corp/instructions/811.shtml',
     ],
   },
   costBreakdown: [

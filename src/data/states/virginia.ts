@@ -37,6 +37,18 @@ export const virginia: StateOverride = {
       url: 'https://law.lis.virginia.gov/vacode/title13.1/chapter12/section13.1-1011/',
     },
     {
+      label: 'Who can be a registered agent (Va. Code § 13.1-1015)',
+      url: 'https://law.lis.virginia.gov/vacode/title13.1/chapter12/section13.1-1015/',
+    },
+    {
+      label: 'Virginia SCC registered agent and office FAQs',
+      url: 'https://www.scc.virginia.gov/businesses/business-faqs/registered-agents/',
+    },
+    {
+      label: 'Virginia SCC: maintaining your business',
+      url: 'https://www.scc.virginia.gov/businesses/maintaining-your-business/',
+    },
+    {
       label: 'SCC how-to guide: form a Virginia LLC online',
       url: 'https://www.scc.virginia.gov/media/sccvirginiagov-home/business-home/business-faqs/llc-faqs/how-to-guide-form-a-virginia-limited-liability-company.pdf',
     },
@@ -382,6 +394,119 @@ export const virginia: StateOverride = {
       'https://www.scc.virginia.gov/businesses/business-faqs/annual-registration-fees/',
       'https://law.lis.virginia.gov/vacode/title13.1/chapter12/section13.1-1011/',
       'https://law.lis.virginia.gov/vacode/title58.1/chapter37/section58.1-3703/',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-06',
+    seoTitle: `Virginia Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Virginia only lets owners, managers, or Virginia lawyers be an individual registered agent. Who qualifies, what a paid agent costs, and the free switch.',
+    intro:
+      "Every Virginia LLC needs a registered agent, and Virginia is stricter than most states about who can serve. An individual agent must be a Virginia resident who is a member or manager of the LLC, or a member of the Virginia State Bar. Anyone else needs a business entity authorized in Virginia. If you're a Virginia-resident owner with a business address that isn't your home, be your own agent and pay nothing. Everyone else needs a commercial agent, usually $100 to $200 a year. Changing agents later is free.",
+    facts: [
+      {
+        label: 'What Virginia calls it',
+        detail: 'Registered agent (Va. Code § 13.1-1015). The agent’s address is the registered office.',
+      },
+      {
+        label: 'Who can serve as an individual',
+        detail:
+          'A Virginia resident who is a member or manager of the LLC (or a member, manager, officer, director, general partner, or trustee of an entity that is one), or a member of the Virginia State Bar.',
+      },
+      {
+        label: 'Who can serve as a business',
+        detail: 'A corporation, LLC, or registered LLP authorized to do business in Virginia. Your LLC can’t be its own agent.',
+      },
+      {
+        label: 'Address rule',
+        detail:
+          'The agent’s physical Virginia business office, where the agent is available during normal business hours. P.O. boxes are only allowed in towns under 2,000 people with no street address, and only on paper.',
+      },
+      {
+        label: 'Qualification on the filing',
+        detail: 'The Articles state which category qualifies the agent. CIS calls this the RA Capacity.',
+      },
+      {
+        label: 'State mail',
+        detail: 'The SCC mails your $50 annual registration fee notice to the registered office, so the agent receives it.',
+      },
+      {
+        label: 'Change of agent',
+        detail:
+          'No fee. Statement of Change of Registered Office and/or Registered Agent (LLC-1016), filed online in CIS in real time or on a paper form you request from the SCC.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail:
+          'The agent mails you a copy by certified mail. The resignation takes effect 31 days after it’s filed, or sooner if you file a change.',
+      },
+      {
+        label: 'No agent',
+        detail:
+          'The LLC goes to pending inactive status, then is automatically canceled. Reinstatement within 5 years is $100 plus any unpaid annual fees and penalties.',
+      },
+      {
+        label: 'Business-entity agents',
+        detail:
+          'Must name, in a notarized document, the people at their office who can accept service, and keep at least one of them there.',
+      },
+    ],
+    lapse: [
+      "Yes. Virginia requires every LLC to keep a registered agent and registered office in the state at all times. Lawsuits are served on the agent, and the SCC mails your $50 annual registration fee notice to the registered office. An agent who doesn't forward mail can cost you the LLC over a fee you never saw. If the LLC has no agent, or the agent can't be found at the registered office, the SCC's clerk can accept service for the LLC instead, and you may not hear about the lawsuit in time to respond.",
+      "If your agent resigns, they have to mail you a copy by certified mail, and the resignation takes effect 31 days after it's filed. If you haven't appointed a new agent by then, the SCC places the LLC in pending inactive status and mails you a notice. If you still haven't filed a change by the last day of the second month after that notice, the LLC is automatically canceled. Reinstating within five years costs $100 plus any annual fees and penalties that went unpaid.",
+    ],
+    selfAgent: [
+      "You can be your own agent if you live in Virginia, you're a member or manager of the LLC, and you have a Virginia business address where you're available during normal business hours. In CIS, you choose the RA Capacity that fits, usually member or manager. It's free, and there's no extra form beyond naming yourself in the Articles of Organization.",
+      "Virginia doesn't let just any adult resident serve. A spouse, parent, or friend who lives in Virginia can't be your agent unless they're a member or manager of the LLC or a member of the Virginia State Bar. Don't add a relative as a member or manager only to qualify them; that gives them a real role in your LLC. If you live outside Virginia, you can't serve either, even as the only owner. That leaves a Virginia lawyer or a business entity authorized in Virginia, which for most people means a commercial agent.",
+      "Serving yourself costs you privacy. Your name and the registered office address go on the public record, and because an individual agent has to be an owner, manager, or lawyer, the filing ties your name to the LLC. If the address is your home, anyone who looks up your LLC can find where you live. If you have a Virginia office or shop that isn't your home and you're there during business hours, use it and skip the fee.",
+    ],
+    paidAgent: [
+      "A commercial agent gives your LLC a Virginia business address, accepts lawsuits and SCC notices, including the annual registration fee notice, and forwards them to you. Mainstream providers charge $100 to $200 a year. Virginia requires a business-entity agent to name, in a notarized document, the people at its office who can accept service, and to keep at least one of them there.",
+      "Northwest charges $125 a year with no per-document fees, and its address goes on the public record instead of yours. It scans the mail it receives. In Virginia, any commercial agent also keeps your name off the agent line, which serving yourself can't do. If you're a Virginia-resident owner with a business address that isn't your home, you don't need it.",
+    ],
+    verdict:
+      "If you live in Virginia, you're a member or manager of the LLC, and you have a business address that isn't your home, be your own registered agent and keep the $125. Everyone else, including every founder who lives outside Virginia or would have to list a home address, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      "File a Statement of Change of Registered Office and/or Registered Agent, form LLC-1016, with the SCC. There's no fee. In CIS, choose Manage an Existing Business, select the statement of change, pick the new agent and their RA Capacity, sign, and check out. CIS records the change in real time. You can also request a paper form from the SCC and mail it back.",
+      "Sign up with the new agent first so you have their exact name and address. If you're switching because your old agent resigned, filing the change ends the 31-day resignation period early. Don't cancel the old agent until CIS shows the new one on your LLC's record.",
+    ],
+    faq: [
+      {
+        question: 'Do I need a registered agent in Virginia?',
+        answer:
+          'Yes. Every Virginia LLC must keep a registered agent and a Virginia registered office for as long as it exists. If your agent resigns and you don’t appoint a new one, the SCC moves the LLC to pending inactive status and then cancels it automatically. Reinstatement costs $100 plus unpaid fees.',
+      },
+      {
+        question: 'Can I be my own registered agent in Virginia?',
+        answer:
+          "Yes, if you live in Virginia, you're a member or manager of the LLC, and you have a Virginia business address where you're available during business hours. A friend or relative who isn't a member or manager can't serve unless they're a member of the Virginia State Bar. Non-residents can't serve as their own agent.",
+      },
+      {
+        question: 'How much does a registered agent cost in Virginia?',
+        answer:
+          'Nothing if you qualify to serve yourself. Mainstream commercial agents charge $100 to $200 a year; Northwest charges $125 with no per-document fees. Changing agents costs nothing in state fees.',
+      },
+      {
+        question: 'Can I use a P.O. box or virtual office for my Virginia registered agent?',
+        answer:
+          'Not a P.O. box, except in towns under 2,000 people with no street address. The registered office must be the agent’s Virginia business office, and the agent has to be available there during normal business hours to accept papers in person. An address where nobody can do that won’t work.',
+      },
+      {
+        question: 'How do I change my registered agent in Virginia?',
+        answer:
+          'File a Statement of Change of Registered Office and/or Registered Agent (LLC-1016) in CIS. It’s free and recorded in real time. Sign up with the new agent first, and keep the old one until CIS shows the change.',
+      },
+      {
+        question: 'What happens if my Virginia registered agent resigns?',
+        answer:
+          'The agent mails you a copy by certified mail, and the resignation takes effect 31 days after filing. Appoint a new agent in CIS before then. If you don’t, the LLC goes to pending inactive status and is canceled at the end of the second month after the SCC’s notice.',
+      },
+    ],
+    sourceUrls: [
+      'https://law.lis.virginia.gov/vacode/title13.1/chapter12/section13.1-1015/',
+      'https://www.scc.virginia.gov/businesses/business-faqs/registered-agents/',
+      'https://www.scc.virginia.gov/businesses/forms-and-fees/virginia-limited-liability-companies/',
+      'https://www.scc.virginia.gov/businesses/maintaining-your-business/',
     ],
   },
   costBreakdown: [

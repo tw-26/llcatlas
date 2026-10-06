@@ -45,6 +45,11 @@ export const delaware: StateOverride = {
       url: 'https://delcode.delaware.gov/title6/c018/sc01/index.html',
     },
     {
+      label: 'Change of registered agent form (LLC)',
+      url: 'https://corpfiles.delaware.gov/LLC_Forms/LLCAmendCOA.pdf',
+    },
+    { label: 'Certificate of Revival form (LLC)', url: 'https://corpfiles.delaware.gov/LLC_Forms/Revival%20-%20LLC.pdf' },
+    {
       label: 'HB 400 (2026): LLC annual tax raised to $400',
       url: 'https://legis.delaware.gov/BillDetail?legislationId=143069',
     },
@@ -383,6 +388,103 @@ export const delaware: StateOverride = {
       'https://corp.delaware.gov/alt-entitytaxinstructions/',
       'https://revenue.delaware.gov/business-tax-forms/doing-business-in-delaware/step-2-requirements/',
       'https://legis.delaware.gov/BillDetail?legislationId=143069',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-06',
+    seoTitle: `Delaware Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Every Delaware LLC needs an agent at a Delaware street address. Who can be their own, what a paid agent costs, the $50 switch, and why non-residents pay twice.',
+    intro:
+      "Every Delaware LLC needs a registered agent at a Delaware street address, where someone is generally present to accept legal papers. If you live in Delaware and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you can't serve, so you'll pay a commercial agent, about $119 to $125 a year with the services we track. That agent also receives the statement for your $400 annual tax. Switching agents later costs $50.",
+    facts: [
+      { label: 'What Delaware calls it', detail: 'Registered agent, at a registered office (6 Del. C. § 18-104).' },
+      {
+        label: 'Who can serve',
+        detail: 'The LLC itself, a Delaware resident, a Delaware business entity, or an out-of-state entity authorized to do business in Delaware.',
+      },
+      {
+        label: 'Address rule',
+        detail: 'A Delaware street address with street, number, city, and ZIP, generally open or staffed often enough to accept legal papers. Agents can’t work only through a virtual office or mail forwarding.',
+      },
+      { label: 'Consent', detail: 'The agent must agree to serve before you submit the filing.' },
+      {
+        label: 'Communications contact',
+        detail: 'Your LLC must give the agent the name, business address, and phone number of a person who can receive messages. If you don’t, the agent can resign.',
+      },
+      { label: 'Annual tax notice', detail: 'The agent is required to forward Delaware’s annual tax statement to you.' },
+      {
+        label: 'Change of agent',
+        detail: '$50. Certificate of Amendment Changing Only the Registered Office/Agent, uploaded through eCorp or mailed to Dover.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail: 'At least 30 days’ written notice before they file, effective 30 days after filing. No new agent by then and the LLC is canceled.',
+      },
+      { label: 'Revival', detail: '$220, plus any annual tax, penalties, and interest owed when the LLC was canceled.' },
+      {
+        label: 'Commercial agents',
+        detail: 'Agents serving more than 50 entities need a Delaware business license and an office staffed during business hours. The state lists agents but doesn’t vouch for them.',
+      },
+    ],
+    lapse: [
+      "Yes. Delaware requires every LLC to have and maintain a registered agent in the state for as long as it exists, starting with the Certificate of Formation. The agent accepts lawsuits for the LLC and forwards Delaware's annual tax statement, which is how most owners hear about the $400 due June 1. An agent who stops forwarding mail can cost you both a lawsuit you never saw and a $200 late penalty.",
+      "If your agent quits, they must give you written notice at least 30 days before filing their resignation, and the resignation takes effect 30 days after it's filed. That gives you at least 60 days to appoint a new agent. Miss that window and Delaware cancels the LLC's Certificate of Formation, and lawsuits against it are served on the Secretary of State instead. Reviving a canceled LLC costs $220 plus any annual tax, penalties, and interest owed when it was canceled.",
+    ],
+    selfAgent: [
+      "You can be your own agent if you live in Delaware and are generally present at a Delaware street address often enough to accept legal papers. Delaware also lets the LLC act as its own agent, which only works if the LLC keeps a Delaware office that's generally open. Either way it's free, and you just name the agent and address on the Certificate of Formation.",
+      "What it costs you is privacy and availability. The registered office address goes on the LLC's public record, and a process server can show up there to hand you a lawsuit. If that address is your home, anyone who looks up your LLC can find where you live. If you have a shop or office in Delaware where someone is reliably there during the day, use that address and skip the fee. The annual tax statement then comes straight to you.",
+      "If you live outside Delaware, you can't be your own agent. You can name a friend or relative who lives there, but they have to agree first and take on the job: staying reachable at a Delaware address, forwarding lawsuits and the tax statement quickly, and keeping your LLC's contact person on file, as the statute requires of every agent.",
+    ],
+    paidAgent: [
+      "A commercial agent gives your LLC a Delaware street address, receives legal papers and state mail, and forwards them to you, usually as same-day scans. The services we track charge $119 to $125 a year. Delaware requires any agent serving more than 50 entities to hold a Delaware business license and keep an office open during business hours with a person there. The Division of Corporations publishes a list of agents but makes no promises about them, so treat it as a starting point.",
+      "Northwest charges $125 a year with no per-document fees, and its Delaware address goes on the public record instead of yours. In Delaware the agent also forwards your annual tax statement, so a reliable one protects you from a missed June 1 as well as a missed lawsuit. If you live in Delaware and already have a business address, you don't need it.",
+    ],
+    verdict:
+      "If you live in Delaware and have a business address that isn't your home, be your own registered agent and keep the $125. Everyone else, including every founder who lives outside Delaware, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      "File a Certificate of Amendment Changing Only the Registered Office/Agent with the Division of Corporations. The fee is $50. It lists the LLC's name and the new agent's name and Delaware street address, and an authorized person signs it. Upload it through eCorp's Document Filing and Certificate Request service, or mail it to Dover with a cover letter and a check payable to \"Delaware Secretary of State.\"",
+      "Sign up with the new agent first, since they have to agree before you submit and the form needs their address. Don't cancel the old agent until the Division's records show the new one. A gap leaves the LLC without an agent and without anyone to forward the tax statement.",
+    ],
+    outOfStateNote:
+      "If you live in another state, a Delaware LLC usually costs more, not less. Your home state will almost always make you register the LLC there as a foreign LLC, which means a second registered agent in your home state, a second annual filing, and that state's fees on top of Delaware's $400 a year. A New Jersey LLC costs $100 to form and $75 a year. Run the same business through a Delaware LLC and it's about $600 a year: $400 to Delaware, $75 to New Jersey, and roughly $125 for a Delaware agent. For a business you run from home somewhere else, form in your home state.",
+    faq: [
+      {
+        question: 'Do I need a registered agent in Delaware?',
+        answer:
+          'Yes. Every Delaware LLC has to name a registered agent on its Certificate of Formation and keep one for as long as the LLC exists. If your agent resigns and you don’t replace them in time, Delaware cancels the LLC, and reviving it costs $220 plus any tax owed.',
+      },
+      {
+        question: 'Can I be my own registered agent in Delaware?',
+        answer:
+          "Yes, if you live in Delaware and are generally present at a Delaware street address to accept legal papers. Your LLC can also be its own agent if it keeps a Delaware office that's generally open. It's free, and the address goes on the public record. Non-residents can't serve as their own agent.",
+      },
+      {
+        question: 'How much does a registered agent cost in Delaware?',
+        answer:
+          'Nothing if you serve yourself. The services we track charge $119 to $125 a year. Northwest charges $125 a year with no per-document fees. Changing agents costs $50 in state fees.',
+      },
+      {
+        question: 'Can I use a P.O. box or virtual office for my Delaware registered agent?',
+        answer:
+          "No. Delaware requires a street address with a street, number, city, and ZIP code, and its law bars agents who work only through a virtual office or mail forwarding.",
+      },
+      {
+        question: 'How do I change my registered agent in Delaware?',
+        answer:
+          'Sign up with the new agent, then file a Certificate of Amendment Changing Only the Registered Office/Agent with the Division of Corporations for $50, uploaded through eCorp or mailed to Dover. Keep the old agent until the change shows on your record.',
+      },
+      {
+        question: 'What happens if my Delaware registered agent resigns?',
+        answer:
+          'They must give you written notice at least 30 days before filing the resignation, and it takes effect 30 days after filing. Appoint a new agent in that window. If you don’t, Delaware cancels the LLC’s Certificate of Formation.',
+      },
+    ],
+    sourceUrls: [
+      'https://delcode.delaware.gov/title6/c018/sc01/index.html',
+      'https://corpfiles.delaware.gov/Fee_Schedule/AugustFee2026.pdf',
+      'https://corpfiles.delaware.gov/LLC_Forms/LLCAmendCOA.pdf',
+      'https://corp.delaware.gov/agents/',
     ],
   },
   costBreakdown: [

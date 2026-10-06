@@ -39,6 +39,12 @@ export const wyoming: StateOverride = {
       label: 'Expedited filing rules and exclusions',
       url: 'https://sos.wyo.gov/Business/Docs/HowToRequestAnExpeditedFiling.pdf',
     },
+    {
+      label: 'Registered Offices and Agents Act (W.S. 17-28)',
+      url: 'https://sos.wyo.gov/Forms/WyoBiz/Registered_Offices_and_Agents_Act_Chapter_28.pdf',
+    },
+    { label: 'Commercial registered agent FAQs', url: 'https://sos.wyo.gov/faqs.aspx?root=RAO' },
+    { label: 'Wyoming commercial registered agent roster', url: 'https://sos.wyo.gov/Business/Docs/CRA-Roster.pdf' },
   ],
   taxHighlights: [
     'Wyoming has no personal income tax, no corporate income tax, no franchise tax on income, no gross-receipts/Commercial Activity Tax, and no municipal income tax. If you read that Wyoming has a CAT or city income tax, that was Ohio — Wyoming has neither.',
@@ -203,6 +209,103 @@ export const wyoming: StateOverride = {
       'https://wyobiz.wyo.gov/Business/AnnualReport.aspx',
       'https://sos.wyo.gov/FAQS.aspx?root=BUS',
       'https://sos.wyo.gov/Business/Docs/HowToFindOrBecomeARegisteredAgent.pdf',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-06',
+    seoTitle: `Wyoming Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Every Wyoming LLC needs an agent with a physical Wyoming address. Who can be their own, what a paid agent costs, and the $5 form to switch.',
+    intro:
+      "Every Wyoming LLC needs a registered agent: a Wyoming resident or a business authorized in Wyoming, with a physical street address in the state where legal papers can be delivered. If you live in Wyoming and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you can't serve, so you'll pay a commercial agent, usually $99 to $199 a year. Switching agents later costs $5.",
+    facts: [
+      { label: 'What Wyoming calls it', detail: 'Registered agent (W.S. 17-28-101). Wyoming doesn’t use “statutory agent” or “resident agent.”' },
+      {
+        label: 'Who can serve',
+        detail: 'A Wyoming resident age 18 or older, or a business entity authorized to do business in Wyoming.',
+      },
+      {
+        label: 'Address rule',
+        detail: 'A physical Wyoming street address. P.O. boxes, drop boxes, mail-forwarding services, and UPS Store mailboxes don’t qualify.',
+      },
+      { label: 'Email', detail: 'The agent must keep an email address the Secretary of State can use to serve documents.' },
+      {
+        label: 'Consent',
+        detail: 'The agent signs a Consent to Appointment by Registered Agent. Paper filings attach it; online, you certify you have it and keep a copy.',
+      },
+      {
+        label: 'Records the agent keeps',
+        detail: 'Names and addresses of your members or managers, plus a member or manager the agent can contact. Kept at the agent’s office, not on the public record.',
+      },
+      { label: 'Change of agent', detail: '$5. Appointment of New Registered Agent and Office, signed and mailed.' },
+      {
+        label: 'If the agent resigns',
+        detail: 'The agent must give you 30 days’ notice. Appoint a new one in that window or the LLC is marked delinquent and heads to dissolution.',
+      },
+      {
+        label: 'Commercial agents',
+        detail: 'Agents serving more than 10 Wyoming businesses must register with the state every year. The state publishes a roster.',
+      },
+      { label: 'Reinstatement with no agent', detail: '$350, versus $100 for an LLC dissolved over the annual report.' },
+    ],
+    lapse: [
+      "Yes. Wyoming requires every LLC to have and keep a registered agent in the state for as long as the LLC exists, starting with the Articles of Organization. The agent is where lawsuits and Secretary of State notices are delivered. If nobody is there to receive them, a lawsuit can move forward without you knowing about it.",
+      "If your agent quits, they have to notify you at least 30 days before filing their resignation. Use that window to appoint a new one. If you haven't by the time the resignation is filed, Wyoming marks the LLC delinquent and starts administrative dissolution. Reinstating an LLC dissolved for having no agent costs $350, more than three times the $100 it costs after a missed annual report.",
+    ],
+    selfAgent: [
+      "You can be your own agent if you're at least 18, live in Wyoming, and have a physical Wyoming address that isn't a P.O. box or mailbox service. It's free, and there's no extra form beyond naming yourself in the Articles of Organization.",
+      "What it costs you is privacy and availability. The address you list goes on the LLC's permanent public record, and a process server can show up there during business hours to hand you a lawsuit. If that address is your home, anyone who looks up your LLC can find where you live. If you have a shop or office in Wyoming where someone is reliably there during the day, use that address and skip the fee.",
+      "If you live outside Wyoming, you can't be your own agent. You can name a friend or relative who lives there, but they take on the job: staying reachable, forwarding lawsuits quickly, and keeping your members' or managers' names and addresses on file, as the statute requires of every agent.",
+    ],
+    paidAgent: [
+      "A commercial agent gives your LLC a Wyoming street address, receives legal papers and state mail, and forwards them to you, usually as same-day scans. Mainstream providers charge $99 to $199 a year. Wyoming requires any agent serving more than 10 businesses to register with the Secretary of State every year, and the state publishes a roster of them. The roster isn't complete and isn't an endorsement, so treat it as a starting point.",
+      "Northwest charges $125 a year with no per-document fees, and its Wyoming address goes on the public record instead of yours. That's what you're paying for: a reliable in-state address and someone who will scan a lawsuit the day it arrives. If you live in Wyoming and already have a business address, you don't need it.",
+    ],
+    verdict:
+      "If you live in Wyoming and have a business address that isn't your home, be your own registered agent and keep the $125. Everyone else, including every founder who lives outside Wyoming, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      "File the Appointment of New Registered Agent and Office with the Secretary of State. The fee is $5, and the form is signed and mailed to the Business Division in Cheyenne. It names the new agent, their physical Wyoming address, and their email, and the new agent has to sign their consent.",
+      "Sign up with the new agent first, since the form needs their consent and address. Don't cancel the old agent until wyobiz shows the new one on your LLC's record. A gap leaves the LLC without an agent.",
+    ],
+    outOfStateNote:
+      "If you live in another state, a Wyoming LLC usually doesn't save money. Your home state will almost always make you register the LLC there as a foreign LLC, which means a second registered agent in your home state, a second annual filing, and that state's fees and taxes on top of Wyoming's. A Wyoming LLC run from California still owes California's $800 a year. For a business you run from home somewhere else, form in your home state.",
+    faq: [
+      {
+        question: 'Do I need a registered agent in Wyoming?',
+        answer:
+          'Yes. Every Wyoming LLC has to name a registered agent in its Articles of Organization and keep one for as long as the LLC exists. Losing your agent leads to administrative dissolution, and reinstating after that costs $350.',
+      },
+      {
+        question: 'Can I be my own registered agent in Wyoming?',
+        answer:
+          "Yes, if you're at least 18, live in Wyoming, and have a physical Wyoming address that isn't a P.O. box or mailbox service. It's free. The address goes on the public record, and you need to be reachable there during business hours. Non-residents can't serve as their own agent.",
+      },
+      {
+        question: 'How much does a registered agent cost in Wyoming?',
+        answer:
+          "Nothing if you serve yourself. Mainstream commercial agents charge $99 to $199 a year; Northwest charges $125 with no per-document fees. Changing agents costs $5 in state fees.",
+      },
+      {
+        question: 'Can I use a P.O. box or virtual office for my Wyoming registered agent?',
+        answer:
+          "No. Wyoming requires a physical street address in the state. P.O. boxes, drop boxes, mail-forwarding services, and UPS Store mailboxes are rejected.",
+      },
+      {
+        question: 'How do I change my registered agent in Wyoming?',
+        answer:
+          'Sign up with the new agent, then mail the Appointment of New Registered Agent and Office to the Secretary of State with the $5 fee and the new agent’s signed consent. Keep the old agent until wyobiz shows the change.',
+      },
+      {
+        question: 'What happens if my Wyoming registered agent resigns?',
+        answer:
+          'They must notify you at least 30 days before filing the resignation. Appoint a new agent in that window. If you don’t, Wyoming marks the LLC delinquent and moves to dissolve it.',
+      },
+    ],
+    sourceUrls: [
+      'https://sos.wyo.gov/Business/Docs/HowToFindOrBecomeARegisteredAgent.pdf',
+      'https://sos.wyo.gov/Forms/WyoBiz/Registered_Offices_and_Agents_Act_Chapter_28.pdf',
+      'https://sos.wyo.gov/Business/Docs/BusinessFees.pdf',
+      'https://sos.wyo.gov/faqs.aspx?root=RAO',
     ],
   },
   costBreakdown: [
