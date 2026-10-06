@@ -271,6 +271,69 @@ export const arizona: StateOverride = {
       related: { label: 'Estimate your Arizona self-employment tax', href: '/self-employment-tax/arizona/' },
     },
   ],
+  costPage: {
+    seoTitle: `Arizona LLC Cost (${GUIDE_YEAR}): $50 to Form, $0/Year`,
+    seoDescription:
+      'An Arizona LLC costs $50 by mail or $85 online, then $0 a year. No annual report, but you may pay for newspaper notices and a TPT license.',
+    intro:
+      "An Arizona LLC costs $50 to form by mail at regular processing, or $85 online, which includes the ACC's $35 expedite. After that, the ACC charges nothing: Arizona LLCs file no annual report and pay no yearly fee. The cost people miss is publication. If your statutory agent's street address is outside Maricopa and Pima counties, you pay a newspaper for three consecutive notices within 60 days of approval, and the ACC doesn't publish what that costs. If you sell goods or do another taxable activity, add a $12 TPT license plus a city fee, renewed every January 1.",
+    formTotal: 50,
+    annualDisplay: '$0',
+    yearOneTotal: 85,
+    yearTwoTotal: 0,
+    yearOneNote: 'Online filing with expedite; $50 by mail at regular processing',
+    yearTwoNote: 'No annual report or ACC fee; TPT renewal only if licensed',
+    schedule: [
+      { item: 'Articles of Organization', cost: '$50 / $85', due: 'When you form. $50 by mail at regular processing, $85 online with the expedite included.' },
+      {
+        item: 'Publication',
+        cost: 'Varies',
+        due: "Within 60 days of approval, only if your statutory agent's street address is outside Maricopa and Pima counties. The newspaper sets the price.",
+      },
+      { item: 'Annual report', cost: '$0', due: 'None. Arizona LLCs file no annual report and pay the ACC no yearly fee.' },
+      {
+        item: 'TPT license',
+        cost: '$12 + city',
+        due: 'Before you start a taxable activity. Renews every January 1; a late renewal costs 50% of the city fee.',
+      },
+      { item: 'Reinstatement', cost: '$100', due: 'Only if dissolved, within 6 years. An LLC without a statutory agent or principal address for 60 days can be dissolved.' },
+    ],
+    verdict:
+      "File online for $85. The $35 expedite is built into the online price and turns 14 to 16 business days into 3 to 5, and your agent accepts by email instead of signing a paper form. Skip next-day, same-day, and 2-hour review. If you live outside Maricopa and Pima counties, price a year of statutory agent service with a Phoenix or Tucson address against two newspaper quotes before you file; the agent often costs less and also keeps your home address off the record. Then calendar 60 days after approval for publication, and January 1 if you hold a TPT license.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Arizona?',
+        answer:
+          "$50 to file Articles of Organization by mail at regular processing, or $85 online with the $35 expedite included. If your statutory agent is outside Maricopa and Pima counties, add three newspaper notices. After that, the ACC charges nothing yearly. A TPT license costs $12 plus city fees if you do a taxable activity.",
+      },
+      {
+        question: 'What is the Arizona LLC annual fee?',
+        answer:
+          "There isn't one. The ACC says only corporations file annual reports, and LLCs pay the ACC no yearly fee. Keep your statutory agent and principal address current: an LLC without either for 60 days can be administratively dissolved, and reinstatement costs $100.",
+      },
+      {
+        question: 'How much does Arizona LLC publication cost?',
+        answer:
+          "Nothing if your statutory agent's street address is in Maricopa or Pima County; the ACC posts the notice online for free. Anywhere else, you buy three consecutive notices in a newspaper in the agent's county within 60 days of approval. The newspaper sets the price and the ACC doesn't publish a typical cost, so get quotes from two papers on the ACC's list.",
+      },
+      {
+        question: 'How much is a TPT license in Arizona?',
+        answer:
+          "$12 per location for the state license, plus a fee for each city where you operate. ADOR lists Phoenix, Tempe, Scottsdale, and Peoria at $50 and Mesa, Tucson, and Flagstaff at $20. It renews every January 1. You only need one if the LLC does a taxable activity such as retail sales; a consulting business generally doesn't.",
+      },
+      {
+        question: 'How much is a statutory agent in Arizona?',
+        answer:
+          "Free if you're an Arizona resident and serve yourself, but your address goes on the ACC's public record and its county decides whether you publish. A commercial statutory agent usually costs $50 to $150 a year. One with a Maricopa or Pima County address also means the ACC handles your publication for free.",
+      },
+    ],
+    sourceUrls: [
+      'https://azcc.gov/docs/default-source/corps-files/fee-schedules/fee-schedule-llcs.pdf',
+      'https://azcc.gov/faqs/BusinessServicesFAQs',
+      'https://www.azleg.gov/ars/29/03201.htm',
+      'https://azdor.gov/transaction-privilege-tax/tpt-license/license-fees-cancellation-and-other-changes',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Articles of Organization (regular processing)',

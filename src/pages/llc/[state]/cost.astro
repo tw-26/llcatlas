@@ -1,0 +1,17 @@
+---
+import StateCostPageLayout from '../../../components/state-cost-page-layout.astro';
+import { states, type StateCostPage, type StateData } from '../../../data/states';
+
+export function getStaticPaths() {
+  return states
+    .filter((state) => state.contentStatus === 'ready' && state.costPage)
+    .map((state) => ({
+      params: { state: state.slug },
+      props: { state },
+    }));
+}
+
+const { state } = Astro.props as { state: StateData & { costPage: StateCostPage } };
+---
+
+<StateCostPageLayout state={state} />

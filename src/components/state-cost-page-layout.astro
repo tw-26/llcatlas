@@ -1,0 +1,393 @@
+---
+import AffiliateCard from './affiliate-card.astro';
+import StateTrapCallout from './state-trap-callout.astro';
+import SiteLayout from '../layouts/site-layout.astro';
+import { affiliates } from '../data/affiliates';
+import { getPublishedStatePages, getStateSlug } from '../data/tax/calculator-pages';
+import {
+  getStateCostPath,
+  getStateGuidePath,
+  states,
+  type StateCostPage,
+  type StateData,
+} from '../data/states';
+
+interface Props {
+  state: StateData & { costPage: StateCostPage };
+}
+
+const { state } = Astro.props;
+const cost = state.costPage;
+
+const northwestPartnerName = 'Northwest Registered Agent';
+const guidePath = getStateGuidePath(state.slug);
+const pageUrl = `https://llcatlas.com${getStateCostPath(state.slug)}`;
+const costBreakdown = state.costBreakdown;
+const hasCostMeta = costBreakdown.some((row) => row.required || row.notes);
+const sourceLinks = cost.sourceUrls
+  .map((url) => state.officialLinks.find((link) => link.url === url))
+  .filter((link) => link !== undefined);
+const formatUsd = (value: number) =>
+  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
+
+const costPageStates = new Map(
+  states
+    .filter((entry) => entry.contentStatus === 'ready' && entry.costPage)
+    .map((entry) => [entry.name, entry]),
+);
+const linkForStateName = (name: string): string | null => {
+  if (name === state.name) return null;
+  const target = costPageStates.get(name);
+  return target ? getStateCostPath(target.slug) : null;
+};
+
+const hasTaxPage = getPublishedStatePages().some((page) => getStateSlug(page.state) === state.slug);
+const relatedLinks = [
+  { label: `How to start an LLC in ${state.name}`, href: guidePath },
+  ...(hasTaxPage
+    ? [{ label: `${state.name} self-employment tax calculator`, href: `/self-employment-tax/${state.slug}/` }]
+    : []),
+  { label: 'Which state to form your LLC in', href: '/best-state/' },
+  { label: 'Compare LLC services by real year-one cost', href: '/best-llc-services/' },
+  { label: 'Northwest vs Bizee', href: '/northwest-vs-bizee/' },
+];
+
+const lastUpdatedIso = state.lastUpdated;
+const lastUpdatedLabel = lastUpdatedIso
+  ? new Date(`${lastUpdatedIso}T00:00:00Z`).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    })
+  : null;
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `${state.name} LLC cost`,
+    description: cost.seoDescription,
+    author: { '@type': 'Organization', name: 'LLCAtlas', url: 'https://llcatlas.com' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+      logo: { '@type': 'ImageObject', url: 'https://llcatlas.com/logo.svg' },
+    },
+    datePublished: lastUpdatedIso,
+    dateModified: lastUpdatedIso,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://llcatlas.com/' },
+      { '@type': 'ListItem', position: 2, name: `${state.name} LLC guide`, item: `https://llcatlas.com${guidePath}` },
+      { '@type': 'ListItem', position: 3, name: `${state.name} LLC cost`, item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cost.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+---
+
+<SiteLayout title={cost.seoTitle} description={cost.seoDescription} ogType="article" structuredData={structuredData}>
+  <section class="space-y-8">
+    <div class="space-y-6">
+      <nav aria-label="Breadcrumb" class="text-[14px] text-ink-muted">
+        <a href={guidePath} class="underline decoration-rule-strong underline-offset-4 hover:decoration-ink-soft">
+          {state.name} LLC guide
+        </a>
+        <span aria-hidden="true" class="mx-1.5">/</span>
+        <span>Cost</span>
+      </nav>
+      <h1>{state.name} LLC cost</h1>
+      {lastUpdatedLabel && lastUpdatedIso && (
+        <p class="text-[13px] uppercase tracking-[0.08em] text-ink-muted">
+          Last verified <time datetime={lastUpdatedIso}>{lastUpdatedLabel}</time>
+        </p>
+      )}
+      <p class="llc-section-copy text-ink-soft">{cost.intro}</p>
+    </div>
+
+    <dl class="grid gap-px overflow-hidden border-y border-rule bg-rule sm:grid-cols-3">
+      <div class="bg-surface px-5 py-5 sm:px-6 sm:py-6">
+        <dt class="llc-helper">To form</dt>
+        <dd class="mt-3 text-[28px] font-semibold leading-tight tracking-tight text-ink-strong tabular-nums">{formatUsd(cost.formTotal)}</dd>
+        <dd class="mt-1 text-[14px] leading-6 text-ink-muted">Cheapest way to file</dd>
+      </div>
+      <div class="bg-surface px-5 py-5 sm:px-6 sm:py-6">
+        <dt class="llc-helper">Year one total</dt>
+        <dd class="mt-3 text-[28px] font-semibold leading-tight tracking-tight text-ink-strong tabular-nums">{formatUsd(cost.yearOneTotal)}</dd>
+        <dd class="mt-1 text-[14px] leading-6 text-ink-muted">{cost.yearOneNote}</dd>
+      </div>
+      <div class="bg-surface px-5 py-5 sm:px-6 sm:py-6">
+        <dt class="llc-helper">Every year after</dt>
+        <dd class="mt-3 text-[28px] font-semibold leading-tight tracking-tight text-ink-strong tabular-nums">{cost.annualDisplay}</dd>
+        <dd class="mt-1 text-[14px] leading-6 text-ink-muted">{cost.yearTwoNote}</dd>
+      </div>
+    </dl>
+
+    <div class="llc-card-highlight space-y-5 !rounded-[1.5rem] !p-6 sm:!p-8">
+      <div class="space-y-3">
+        <p class="llc-helper">Our recommendation</p>
+        <h2>Budget {formatUsd(cost.yearOneTotal)} for year one and {formatUsd(cost.yearTwoTotal)} for year two</h2>
+        <p class="llc-section-copy text-ink-soft">{cost.verdict}</p>
+      </div>
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a
+          href={guidePath}
+          class="inline-flex min-h-11 items-center justify-center rounded-full bg-action px-5 py-3 text-sm font-semibold text-white transition hover:bg-action-hover"
+        >
+          File it yourself: {state.name} guide
+        </a>
+        <a
+          href="/best-llc-services/"
+          class="inline-flex min-h-11 items-center justify-center rounded-full border border-rule-strong px-5 py-3 text-sm font-semibold text-ink-strong transition hover:border-ink-muted hover:bg-surface"
+        >
+          Compare LLC services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-4">
+      <h2>Every {state.name} LLC fee, line by line</h2>
+      <p class="llc-section-copy">
+        What's required, what's optional, and where the total climbs past the filing fee.
+      </p>
+    </div>
+
+    <div class="llc-card overflow-hidden !p-0">
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-rule">
+          <thead class="bg-surface-subtle">
+            <tr>
+              <th scope="col" class="llc-table-head px-5 py-4 text-left">Item</th>
+              <th scope="col" class="llc-table-head px-5 py-4 text-right">Cost</th>
+              {hasCostMeta && <th scope="col" class="llc-table-head px-5 py-4 text-left">Required?</th>}
+              {hasCostMeta && <th scope="col" class="llc-table-head hidden px-5 py-4 text-left lg:table-cell">Notes</th>}
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-rule bg-surface">
+            {costBreakdown.map((row) => (
+              <tr class={row.isEmphasized ? 'bg-surface-warm' : undefined}>
+                <td class={['px-5 py-4', row.isEmphasized ? 'font-semibold text-ink-strong' : 'text-ink-soft'].join(' ')}>
+                  {row.item}
+                </td>
+                <td class={['whitespace-nowrap px-5 py-4 text-right tabular-nums', row.isEmphasized ? 'font-semibold text-ink-strong' : 'text-ink-soft'].join(' ')}>
+                  {row.cost}
+                </td>
+                {hasCostMeta && <td class="whitespace-nowrap px-5 py-4 text-ink-soft">{row.required ?? '—'}</td>}
+                {hasCostMeta && <td class="hidden px-5 py-4 text-ink-soft lg:table-cell">{row.notes ?? '—'}</td>}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-4">
+      <h2>What you pay {state.name}, and when</h2>
+      <p class="llc-section-copy">
+        The recurring dates are the ones people miss. Put each one on your calendar the day the LLC is approved.
+      </p>
+    </div>
+
+    <dl class="llc-card !p-0 divide-y divide-rule">
+      {cost.schedule.map((entry) => (
+        <div class="grid gap-1 px-5 py-4 text-[1.0625rem] leading-[1.72] sm:grid-cols-[minmax(0,13rem)_minmax(0,7rem)_1fr] sm:gap-6 sm:px-6">
+          <dt class="font-semibold text-ink-strong">{entry.item}</dt>
+          <dd class="font-semibold tabular-nums text-ink-strong">{entry.cost}</dd>
+          <dd class="text-ink-soft">{entry.due}</dd>
+        </div>
+      ))}
+    </dl>
+
+    {state.trap && (
+      <StateTrapCallout trap={state.trap} stateName={state.name} href={`${guidePath}#${state.trap.sectionId}`} />
+    )}
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-4">
+      <h2>{state.name} {state.agentTerm} cost</h2>
+      <p class="llc-section-copy">{state.inlineCtaDescription}</p>
+    </div>
+  </section>
+
+  <AffiliateCard
+    partnerName={northwestPartnerName}
+    href={affiliates.northwest}
+    stateName={state.name}
+    placement="inline"
+    heading={`If you'd rather not file it yourself: ${northwestPartnerName}`}
+    description={`${northwestPartnerName} files your ${state.name} LLC and acts as your ${state.agentTerm}, so your home address stays off the public record. The state fees above are the same either way.`}
+    buttonLabel={`Start with ${northwestPartnerName}`}
+    benefits={[
+      `Acts as your ${state.agentTerm}, keeping your home address off the public ${state.name} filing`,
+      'No upsells or surprise add-ons at checkout',
+      'Year one of registered agent service included',
+    ]}
+    ctaNote={`File your ${state.name} LLC with ${northwestPartnerName} handling the ${state.agentTerm} role.`}
+  />
+
+  {state.comparisonRows.length > 0 && (
+    <section class="space-y-5">
+      <div class="space-y-4">
+        <h2>{state.name} LLC cost vs nearby states</h2>
+        <p class="llc-section-copy">
+          Cheaper elsewhere doesn't mean cheaper for you. If you live and work in {state.name}, an
+          out-of-state LLC still has to register here and pay {state.name}'s fees too.
+        </p>
+      </div>
+
+      <div class="llc-card overflow-hidden !p-0">
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-rule">
+            <thead class="bg-surface-subtle">
+              <tr>
+                <th scope="col" class="llc-table-head px-5 py-4 text-left">State</th>
+                <th scope="col" class="llc-table-head px-5 py-4 text-right">Upfront cost</th>
+                <th scope="col" class="llc-table-head px-5 py-4 text-right">Ongoing state cost</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-rule bg-surface">
+              {state.comparisonRows.map((row) => {
+                const href = linkForStateName(row.state);
+                return (
+                  <tr class={row.state === state.name ? 'bg-surface-warm' : undefined}>
+                    <th scope="row" class="px-5 py-4 text-left font-semibold text-ink-strong">
+                      {href ? (
+                        <a href={href} class="whitespace-nowrap underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft">
+                          {row.state}
+                        </a>
+                      ) : (
+                        <span class="whitespace-nowrap">{row.state}</span>
+                      )}
+                    </th>
+                    <td class="whitespace-nowrap px-5 py-4 text-right tabular-nums text-ink-soft">{row.upfrontCost}</td>
+                    <td class="px-5 py-4 text-right text-ink-soft">{row.ongoingStateCost}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="space-y-5">
+    <div class="space-y-4">
+      <h2>FAQ</h2>
+    </div>
+    <div class="space-y-5">
+      {cost.faq.map((item) => (
+        <details class="group llc-card !p-0">
+          <summary class="flex cursor-pointer items-start justify-between gap-4 px-5 py-5 text-lg font-semibold text-ink-strong sm:px-6">
+            <span>{item.question}</span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="mt-2 h-3.5 w-3.5 shrink-0 text-ink-muted transition group-open:rotate-180"
+            >
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="border-t border-rule px-5 py-5 sm:px-6">
+            <p class="llc-section-copy text-ink-soft">{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="grid gap-8 border-t border-rule pt-8 md:grid-cols-2">
+    <div class="space-y-3">
+      <h2 class="text-xl">Official fee sources</h2>
+      <ul class="!space-y-0 divide-y divide-rule border-y border-rule">
+        {sourceLinks.map((link) => (
+          <li>
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex min-h-11 items-center py-3 text-[15px] font-semibold text-ink-strong underline decoration-transparent underline-offset-4 transition hover:decoration-ink-soft"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="space-y-3">
+      <h2 class="text-xl">Related</h2>
+      <ul class="!space-y-0 divide-y divide-rule border-y border-rule">
+        {relatedLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="group flex min-h-11 items-center justify-between gap-3 py-3 text-[15px] font-semibold text-ink-strong"
+            >
+              {link.label}
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-3.5 w-3.5 shrink-0 text-ink-soft transition group-hover:translate-x-0.5"
+              >
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <div slot="sidebar" class="space-y-5">
+    <AffiliateCard
+      partnerName={northwestPartnerName}
+      href={affiliates.northwest}
+      stateName={state.name}
+      placement="sidebar"
+      heading={`${northwestPartnerName} for ${state.name}`}
+      description={state.sidebarCtaDescription}
+      buttonLabel={`Visit ${northwestPartnerName}`}
+    />
+
+    <div class="rounded-[14px] border border-rule px-5 py-5 text-[14px] leading-6 text-ink-soft sm:px-6">
+      <p class="llc-helper">Ready to file?</p>
+      <p class="mt-3">The {state.name} guide walks through every step in order, with the official links.</p>
+      <a
+        href={guidePath}
+        class="mt-4 inline-flex items-center gap-1.5 text-[14px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+      >
+        How to start an LLC in {state.name}
+      </a>
+    </div>
+  </div>
+</SiteLayout>

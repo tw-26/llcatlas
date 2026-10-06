@@ -53,6 +53,35 @@ export type StateTrap = {
   sectionId: string;
 };
 
+export type CostScheduleItem = {
+  item: string;
+  cost: string;
+  due: string;
+};
+
+/** Content for `/llc/{slug}/cost/`. Every number must come from data already verified in the guide. */
+export type StateCostPage = {
+  seoTitle: string;
+  seoDescription: string;
+  /** Answer-first opening paragraph. */
+  intro: string;
+  /** Required state fees to form, cheapest filing method. */
+  formTotal: number;
+  /** Recurring required state cost, as it should read in the summary strip (e.g. "$800/yr", "$32 every 2 years"). */
+  annualDisplay: string;
+  /** Year-one state cost if the reader follows `verdict` and serves as their own agent. */
+  yearOneTotal: number;
+  /** Year-two required state cost, serving as your own agent. */
+  yearTwoTotal: number;
+  yearOneNote: string;
+  yearTwoNote: string;
+  schedule: CostScheduleItem[];
+  verdict: string;
+  faq: FaqItem[];
+  /** Must all appear in the state's `officialLinks`. */
+  sourceUrls: string[];
+};
+
 export type ComparisonRow = {
   state: string;
   annualReport: string;
@@ -96,6 +125,7 @@ export type StateData = {
   steps: Step[];
   sections: GuideSection[];
   trap?: StateTrap;
+  costPage?: StateCostPage;
   costBreakdown: CostBreakdownItem[];
   faq: FaqItem[];
   proscons: { pros: string[]; cons: string[] };

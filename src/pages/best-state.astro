@@ -3,7 +3,7 @@ import AffiliateCard from '../components/affiliate-card.astro';
 import SiteLayout from '../layouts/site-layout.astro';
 import { affiliates } from '../data/affiliates';
 import { GUIDE_YEAR } from '../data/site';
-import { states } from '../data/states';
+import { getStateCostPath, getStateGuidePath, states } from '../data/states';
 
 const title = `Best State to Form an LLC (${GUIDE_YEAR}) | LLCAtlas`;
 const description =
@@ -568,10 +568,10 @@ const structuredData = [
     <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {
         readyStates.map((state) => (
-          <li>
+          <li class="flex flex-col rounded-[14px] border border-rule transition hover:border-rule-strong">
             <a
-              href={`/llc/${state.slug}/`}
-              class="group flex items-center justify-between gap-3 rounded-[14px] border border-rule px-5 py-4 transition hover:border-rule-strong hover:bg-surface-subtle"
+              href={getStateGuidePath(state.slug)}
+              class="group flex items-center justify-between gap-3 rounded-t-[14px] px-5 pt-4 pb-2 transition hover:bg-surface-subtle"
             >
               <span class="text-base font-semibold text-ink-strong">
                 How to start an LLC in {state.name}
@@ -592,6 +592,14 @@ const structuredData = [
                 </svg>
               </span>
             </a>
+            {state.costPage && (
+              <a
+                href={getStateCostPath(state.slug)}
+                class="flex min-h-11 items-center px-5 pb-3 text-sm text-ink-soft underline decoration-rule-strong underline-offset-4 transition hover:text-ink-strong hover:decoration-ink-soft"
+              >
+                {state.name} LLC cost: ${state.costPage.formTotal} to form, then {state.costPage.annualDisplay}
+              </a>
+            )}
           </li>
         ))
       }

@@ -332,6 +332,69 @@ export const montana: StateOverride = {
       ],
     },
   ],
+  costPage: {
+    seoTitle: `Montana LLC Cost (${GUIDE_YEAR}): $35 to Form, $0/Year`,
+    seoDescription:
+      'A Montana LLC costs $35 to form online, and the annual report is free if filed by April 15 through 2027. The $35 late fee and the $125 contractor certificate.',
+    intro:
+      "A Montana LLC costs $35 to form, filed online. The only recurring state filing is the annual report, due between January 1 and April 15 every year starting the year after you form. The Secretary of State has waived its fee for on-time reports in 2026 and 2027, so keeping the LLC active costs $0 a year through 2027 if you file on time. File after April 15 and it costs $35. The cost freelancers miss is the $125 Independent Contractor Exemption Certificate, which Montana expects if you regularly work at clients' locations without your own workers' comp.",
+    formTotal: 35,
+    annualDisplay: '$0',
+    yearOneTotal: 35,
+    yearTwoTotal: 0,
+    yearOneNote: 'Articles of Organization online; no annual report in year one',
+    yearTwoNote: 'On-time annual report, fee waived through 2027; $35 if late',
+    schedule: [
+      { item: 'Articles of Organization', cost: '$35', due: 'When you form. Online only, through biz.sosmt.gov.' },
+      {
+        item: 'Annual report',
+        cost: '$0',
+        due: 'January 1 to April 15 every year, starting the year after you form. Fee waived for on-time reports in 2026 and 2027.',
+      },
+      { item: 'Late annual report', cost: '$35', due: 'If filed after April 15. Not filed by December 1, the LLC can be dissolved.' },
+      { item: 'Reinstatement', cost: '$35+', due: 'Only if dissolved, plus $35 for each missing annual report. Available for 5 years.' },
+      {
+        item: 'Independent Contractor Exemption Certificate',
+        cost: '$125',
+        due: "Every two years, if you work at clients' locations without your own workers' comp.",
+      },
+    ],
+    verdict:
+      "File online for $35 and skip the expedite unless a bank appointment or contract is waiting on approval; then the $20 24-hour option is worth it. Be your own registered agent if you have a Montana street address you're comfortable making public. Pay for a commercial agent only if you want your home address off the record or can't be there during business hours. Put April 15 on your calendar every year, starting the year after you form, and check the fee page before you file in 2028, since the waiver only runs through 2027.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Montana?',
+        answer:
+          '$35 to file the Articles of Organization online. The annual report is free if you file it between January 1 and April 15 in 2026 or 2027, and $35 if you file late. If you serve as your own registered agent, $35 is your whole state cost in year one.',
+      },
+      {
+        question: 'What is the Montana LLC annual fee?',
+        answer:
+          "$0 through 2027 if you file the annual report on time, between January 1 and April 15. The Secretary of State waived the fee for on-time reports in 2026 and 2027. A report filed after April 15 costs $35. The waiver is the current Secretary of State's decision, so check the fee page before you file in 2028.",
+      },
+      {
+        question: 'What happens if I file the Montana annual report late?',
+        answer:
+          "A late report costs $35. If a Montana LLC still hasn't filed by December 1, the Secretary of State can involuntarily dissolve it. Reinstatement is available for 5 years and costs $35 plus $35 for each missing annual report, and most LLCs also need a tax certificate from the Department of Revenue.",
+      },
+      {
+        question: 'Do I need an Independent Contractor Exemption Certificate in Montana?',
+        answer:
+          "If you regularly work at clients' locations and don't carry your own workers' compensation coverage, yes. It costs $125 and lasts two years, and renewal is another $125. Working without one or your own coverage can bring fines of up to $5,000 per violation.",
+      },
+      {
+        question: 'How much is a registered agent in Montana?',
+        answer:
+          "Free if you serve yourself: you need a Montana street address or rural route box where you're available during business hours, and that address goes on the public record. A commercial registered agent usually costs $50 to $150 a year, which is often more than the state charges to keep the LLC active.",
+      },
+    ],
+    sourceUrls: [
+      'https://sosmt.gov/business/fees/',
+      'https://help.sosmt.gov/en-us/article/how-do-i-file-my-annual-report-ywawrv/',
+      'https://sosmt.gov/secretary-christi-jacobsen-continues-montana-business-support-by-waiving-fees-once-again/',
+      'https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/independent-contractor/',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Articles of Organization (online)',

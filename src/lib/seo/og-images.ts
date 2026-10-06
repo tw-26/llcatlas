@@ -140,6 +140,17 @@ const stateGuideEntries: OgImageEntry[] = states
     }),
   );
 
+const stateCostEntries: OgImageEntry[] = states
+  .filter((state) => state.contentStatus === 'ready' && state.costPage)
+  .map((state) =>
+    createEntry({
+      path: `/llc/${state.slug}/cost/`,
+      title: state.costPage!.seoTitle,
+      description: state.costPage!.seoDescription,
+      eyebrow: `${state.name} LLC cost`,
+    }),
+  );
+
 const comparisonEntries: OgImageEntry[] = comparisons.map((comparison) =>
   createEntry({
     path: `/${comparison.slug}/`,
@@ -188,6 +199,7 @@ const comboEntries: OgImageEntry[] = getPublishedComboPages().map((combo) => {
 export const ogImageEntries: OgImageEntry[] = [
   ...staticEntries,
   ...stateGuideEntries,
+  ...stateCostEntries,
   ...comparisonEntries,
   ...taxStateEntries,
   ...professionEntries,

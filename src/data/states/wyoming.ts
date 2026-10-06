@@ -138,6 +138,73 @@ export const wyoming: StateOverride = {
         'Federal beneficial ownership: FinCEN’s final rule, effective August 14, 2026, made the 2025 exemption permanent — LLCs formed in the U.S., including Wyoming LLCs, do not file BOI reports, and U.S. persons are never reported as beneficial owners. Recheck fincen.gov/boi before filing in case the rule changes. Non-U.S. companies that register to do business in Wyoming still owe a BOI report within 30 days, listing only their non-U.S. owners. State business license: there is no general Wyoming business license. If you sell taxable goods or services, you need a sales tax license from the Wyoming Department of Revenue Excise Tax Division — $60 one-time under W.S. 39-15-106, with an exception for remote sellers registering through the SSUTA Certified Service Provider path. Industry licenses (contractor, liquor, professional boards) and city or county permits may apply on top of all of that.',
     },
   ],
+  costPage: {
+    seoTitle: `Wyoming LLC Cost (${GUIDE_YEAR}): $100 to Form, $60+/Year`,
+    seoDescription:
+      'A Wyoming LLC costs $100 to form and $60 a year minimum for the Annual Report License Tax. Plus the registered agent most non-residents need.',
+    intro:
+      "A Wyoming LLC costs $100 to file, online or by mail, and online filings are active immediately. Paying online by card adds a 2.4% surcharge, about $2.40. After that, the Annual Report License Tax is $60 a year for most small LLCs, due the first day of your formation anniversary month, starting the year after you form. It only rises above $60 if the LLC holds more than $300,000 in Wyoming assets. The cost people miss is the one back home: if you live and run the business in another state, you'll usually register there as a foreign LLC and pay that state's fees and taxes too.",
+    formTotal: 100,
+    annualDisplay: '$60+/yr',
+    yearOneTotal: 100,
+    yearTwoTotal: 60,
+    yearOneNote: 'Articles of Organization; card payment adds about $2.40',
+    yearTwoNote: '$60 minimum license tax; more if WY assets top $300,000',
+    schedule: [
+      { item: 'Articles of Organization', cost: '$100', due: 'When you form. Same fee online or by mail; online card payments add 2.4%.' },
+      {
+        item: 'Annual Report License Tax',
+        cost: '$60+',
+        due: 'The first day of your anniversary month every year. The greater of $60 or $0.0002 times your Wyoming assets.',
+      },
+      {
+        item: 'Missed annual report',
+        cost: 'No late fee',
+        due: 'The LLC is delinquent the next month. After 60 days, Wyoming administratively dissolves it.',
+      },
+      {
+        item: 'Reinstatement',
+        cost: '$100 / $350',
+        due: '$100 if dissolved for the license tax, $350 if dissolved for losing your registered agent. Within 2 years.',
+      },
+      { item: 'Sales tax license', cost: '$60', due: 'One time, only if you sell taxable goods or services.' },
+    ],
+    verdict:
+      "File online for $100 and skip the paper form, which can take up to 15 business days. There's no expedite to buy for a new LLC, and you don't need one. If you live in Wyoming and don't mind your street address on the permanent public record, be your own registered agent. If you live anywhere else, a commercial agent is required in practice, usually $99 to $199 a year. Calendar the first day of your anniversary month; Wyoming has no late fee, so the real penalty for missing it is dissolution.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Wyoming?',
+        answer:
+          '$100 to file the Articles of Organization, online or by mail, plus a 2.4% card surcharge online. Starting the year after you form, the Annual Report License Tax is at least $60 a year. With a commercial registered agent, which most non-resident founders need, a typical first year runs $199 to $299 and later years $159 to $259.',
+      },
+      {
+        question: 'What is the Wyoming LLC annual fee?',
+        answer:
+          "The Annual Report License Tax: the greater of $60 or $0.0002 times the value of your Wyoming-located capital, property, and assets. An LLC with $300,000 or less in Wyoming assets pays the $60 minimum. It's due the first day of your anniversary month, and you can file up to 120 days early. If the tax owed is over $500, you have to file on paper.",
+      },
+      {
+        question: 'What happens if I miss the Wyoming annual report?',
+        answer:
+          "There's no flat late fee. The LLC becomes delinquent on the second day of the following month, and if it's 60 days late, Wyoming administratively dissolves it. Reinstatement within 2 years costs $100 if you were dissolved for the tax, or $350 if you were dissolved for losing your registered agent.",
+      },
+      {
+        question: 'Does a Wyoming LLC save money if I live in another state?',
+        answer:
+          "Usually not. If you live and run the business somewhere else, that state will almost always make you register the Wyoming LLC as a foreign LLC and pay its fees and taxes. A California resident running a California business through a Wyoming LLC still owes California's $800 franchise tax, on top of Wyoming's $60 and a commercial registered agent.",
+      },
+      {
+        question: 'How much is a registered agent in Wyoming?',
+        answer:
+          'Free if you are a Wyoming resident with a physical Wyoming street address, but that address goes on the permanent public record. Commercial agents range from about $25 to $249 a year, with mainstream providers between $99 and $199. Non-residents need one.',
+      },
+    ],
+    sourceUrls: [
+      'https://sos.wyo.gov/Business/Docs/BusinessFees.pdf',
+      'https://wyobiz.wyo.gov/Business/AnnualReport.aspx',
+      'https://sos.wyo.gov/FAQS.aspx?root=BUS',
+      'https://sos.wyo.gov/Business/Docs/HowToFindOrBecomeARegisteredAgent.pdf',
+    ],
+  },
   costBreakdown: [
     { item: 'Articles of Organization', cost: '$100', required: 'Yes', notes: 'Same online or by mail' },
     { item: 'Online credit-card surcharge', cost: '$2.40', required: 'If filing online', notes: '2.4% / $1 minimum' },

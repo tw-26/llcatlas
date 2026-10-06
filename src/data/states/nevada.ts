@@ -270,6 +270,69 @@ export const nevada: StateOverride = {
       ],
     },
   ],
+  costPage: {
+    seoTitle: `Nevada LLC Cost (${GUIDE_YEAR}): $425 to Form, $350/Year`,
+    seoDescription:
+      'A Nevada LLC costs $425 to form and $350 a year: the Articles, the Initial and Annual Lists, and the $200 State Business License every LLC pays.',
+    intro:
+      "A Nevada LLC costs $425 to form: $75 for the Articles of Organization, $150 for the Initial List of Managers or Managing Members, and $200 for the State Business License, all filed together. After that, the $150 Annual List and $200 business license renewal are due together by the last day of your formation anniversary month, so plan on $350 a year. The cost people miss is that $200 license. Every Nevada LLC pays it, even a home-based one with no revenue, because the home-based exemption only covers sole proprietors and general partnerships.",
+    formTotal: 425,
+    annualDisplay: '$350/yr',
+    yearOneTotal: 425,
+    yearTwoTotal: 350,
+    yearOneNote: 'Articles + Initial List + State Business License, own agent',
+    yearTwoNote: 'Annual List + business license renewal, plus any local license',
+    schedule: [
+      {
+        item: 'Articles, Initial List, and State Business License',
+        cost: '$425',
+        due: 'When you form. $75 + $150 + $200, filed together.',
+      },
+      {
+        item: 'Annual List + State Business License renewal',
+        cost: '$350',
+        due: 'By the last day of your anniversary month, every year. File within the 90 days before the deadline.',
+      },
+      { item: 'Late penalties', cost: '+$175', due: '$75 for the list and $100 for the license. The LLC goes into default.' },
+      { item: 'Reinstatement', cost: '$300+', due: 'Only if revoked, plus every missed fee and penalty. Not available after 5 years.' },
+      { item: 'City or county business license', cost: 'Varies', due: 'Set by your city, or your county if unincorporated. Separate from the state license.' },
+    ],
+    verdict:
+      "Form in Nevada only if you live here or the business operates here; otherwise form in your home state. File all three formation documents together online through SilverFlume for $425, and skip the $125 24-hour expedite unless a specific date depends on it. Be your own registered agent if you live in Nevada and don't mind your street address on the public record. Calendar the last day of your anniversary month for the $350 renewal, and file it inside the 90-day window so it counts for the current year.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Nevada?',
+        answer:
+          "$425 to form: $75 for the Articles of Organization, $150 for the Initial List, and $200 for the State Business License. You can't file the Articles alone. After that, it's $350 a year. A commercial registered agent adds about $119 to $125 a year with the services we track.",
+      },
+      {
+        question: 'What is the Nevada LLC annual fee?',
+        answer:
+          '$350: the $150 Annual List of Managers or Managing Members plus the $200 State Business License renewal, due together by the last day of your formation anniversary month. Filing late adds $175 in penalties, for $525 total, and puts the LLC in default. Reinstating a revoked LLC costs $300 plus every missed fee and penalty.',
+      },
+      {
+        question: 'Does every Nevada LLC need the $200 State Business License?',
+        answer:
+          "Yes, with three narrow exceptions: governmental entities, businesses licensed by the Nevada Division of Insurance, and 501(c) tax-exempt LLCs. The home-based business exemption doesn't apply to LLCs. Your city or county license is a separate cost on top.",
+      },
+      {
+        question: 'Is a Nevada LLC cheaper if I live in another state?',
+        answer:
+          "No. Your home state usually requires the Nevada LLC to register there as a foreign LLC, so you pay both states plus a Nevada registered agent. A California freelancer would pay about $1,275 a year for a Nevada LLC registered in California, versus $800 a year for a California LLC.",
+      },
+      {
+        question: 'How much is a registered agent in Nevada?',
+        answer:
+          "Free if you serve yourself: you need a Nevada street address where you're available during business hours, and that address goes on the public record. A commercial registered agent runs about $119 to $125 a year with the services we track, and out-of-state owners need one.",
+      },
+    ],
+    sourceUrls: [
+      'https://bizhub.nv.gov/cms-webhook-bff/uploads/bizhub/LLC_Formation_V4_1_9e5c396592.pdf',
+      'https://bizhub.nv.gov/cms-webhook-bff/uploads/bizhub/Annual_List_and_State_Business_License_Non_Corps_Final_6904713d13.pdf',
+      'https://www.leg.state.nv.us/NRS/NRS-076.html',
+      'https://www.leg.state.nv.us/NRS/NRS-086.html',
+    ],
+  },
   costBreakdown: [
     { item: 'Articles of Organization', cost: '$75', required: 'Yes', notes: 'Filed at formation' },
     {

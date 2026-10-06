@@ -10,7 +10,7 @@ import preact from '@astrojs/preact';
 
 const SITE_URL = 'https://llcatlas.com';
 const readyStateUrls = new Set(
-  READY_STATE_SLUGS.map((slug) => `${SITE_URL}/llc/${slug}/`),
+  READY_STATE_SLUGS.flatMap((slug) => [`${SITE_URL}/llc/${slug}/`, `${SITE_URL}/llc/${slug}/cost/`]),
 );
 
 // https://astro.build/config

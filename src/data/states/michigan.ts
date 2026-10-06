@@ -140,6 +140,73 @@ export const michigan: StateOverride = {
         'This is Michigan’s one ongoing state filing, and it is the thing generic guides get wrong. It is called an Annual Statement — not an annual report — and it is filed online only through MiBRP using Form CSCL/CD-2700. The fee is $25. Standard LLCs do not pay a late fee (the $50 late penalty applies only to professional PLLCs), but do not treat that as slack: miss it two years in a row and LARA sends a notice, and if you do not catch up within 60 days the LLC is not in good standing. Your name becomes available for someone else to use, you cannot get a good standing certificate, and getting back requires a $50 Certificate of Restoration plus $25 for every missed year. One useful exception: if you form after September 30, you skip the immediately following February 15 filing. Under current law the fee is scheduled to drop to $15 for statements paid after September 30, 2027.',
     },
   ],
+  costPage: {
+    seoTitle: `Michigan LLC Cost (${GUIDE_YEAR}): $50 to Form, $25/Year`,
+    seoDescription:
+      'A Michigan LLC costs $50 to form and $25 a year for the Annual Statement due February 15. Who skips the first one, and what restoration costs if you miss two.',
+    intro:
+      "A Michigan LLC costs $50 to form, online or by mail, and $25 a year after that for the Annual Statement, due every February 15. If you form after September 30, you skip the February 15 right after, so your first statement is due about 15 months later. Under current law, the fee is scheduled to drop to $15 for statements paid after September 30, 2027. A standard LLC pays no late fee, which is the trap: miss two years in a row and the LLC falls out of good standing 60 days after LARA's notice, and restoring it costs $50 plus $25 for every missed year.",
+    formTotal: 50,
+    annualDisplay: '$25/yr',
+    yearOneTotal: 50,
+    yearTwoTotal: 25,
+    yearOneNote: 'Articles if you form Oct-Dec; add the $25 statement if Jan-Sep',
+    yearTwoNote: 'Annual Statement due Feb 15; scheduled to drop to $15 in late 2027',
+    schedule: [
+      { item: 'Articles of Organization', cost: '$50', due: 'When you form. Same fee online or by mail.' },
+      {
+        item: 'Annual Statement',
+        cost: '$25',
+        due: 'February 15 every year, online only. Form after September 30 and you skip the first February 15.',
+      },
+      { item: 'Late fee', cost: '$0', due: 'None for a standard LLC. Professional PLLCs pay $50.' },
+      {
+        item: 'Certificate of Restoration',
+        cost: '$50+',
+        due: "Only if you miss two years and don't catch up within 60 days of LARA's notice. Plus $25 for every missed year.",
+      },
+      {
+        item: 'City income tax',
+        cost: 'Varies',
+        due: 'If you live or work in one of 24 cities with an income tax, such as Detroit (2.4% resident) or Grand Rapids (1.5% resident).',
+      },
+    ],
+    verdict:
+      "File online through MiBRP for $50 and skip the expedite. Standard review takes up to 10 business days, and the $50 24-hour option is only worth it if a deadline depends on it. Be your own resident agent if you have a Michigan street address and don't mind it on the permanent public record; otherwise a professional agent costs $99 to $249 a year. Calendar February 15 every year, and keep the Customer ID and PIN LARA gives you, because you need them to file.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Michigan?',
+        answer:
+          "$50 to file the Articles of Organization, online or by mail. If you serve as your own resident agent, that's the whole formation cost. After that, the Annual Statement is $25 every February 15. If you form after September 30, your first statement isn't due until the second February 15.",
+      },
+      {
+        question: 'What is the Michigan LLC annual fee?',
+        answer:
+          "$25 for the Annual Statement, due February 15 every year and filed online only. Under current law, the fee is scheduled to drop to $15 for statements paid after September 30, 2027. A standard LLC pays no late fee, but if you miss two years in a row, the LLC falls out of good standing 60 days after LARA's notice and loses its hold on its name.",
+      },
+      {
+        question: 'What happens if I miss the Michigan Annual Statement?',
+        answer:
+          "Nothing right away for a standard LLC; there's no late fee. Miss two years in a row and LARA sends a notice. If you don't catch up within 60 days, the LLC isn't in good standing, anyone can take your name, and you can't get a good standing certificate. Restoring it costs $50 plus $25 for every missed year.",
+      },
+      {
+        question: 'Is the Michigan expedite fee worth it?',
+        answer:
+          "Usually not. Standard review takes up to 10 business days, and LARA posts a live \"processed through\" date so you can see the backlog. If a deadline depends on the LLC, 24-hour review is $50 more and same-day is $100 more. The 2-hour ($500) and 1-hour ($1,000) tiers aren't worth it for a first LLC.",
+      },
+      {
+        question: 'How much is a resident agent in Michigan?',
+        answer:
+          "Free if you have a Michigan street address and serve yourself, but the address goes on the permanent public record. A professional resident agent usually costs $99 to $249 a year.",
+      },
+    ],
+    sourceUrls: [
+      'https://www.michigan.gov/lara/-/media/Project/Websites/lara/cscl/Folder6/Filing_Fees.pdf',
+      'https://www.michigan.gov/lara/bureau-list/cscl/corps/michigan-business-roadmap/annual-reports-and-annual-statements',
+      'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-450-5101',
+      'https://www.michigan.gov/taxes/citytax/what-cities-impose-an-income-tax',
+    ],
+  },
   costBreakdown: [
     { item: 'Articles of Organization (Form CSCL/CD-700)', cost: '$50', required: 'Yes', notes: 'Same online or mail' },
     { item: 'Name reservation (Form CSCL/CD-540)', cost: '$25', required: 'Optional', notes: '6-month hold' },

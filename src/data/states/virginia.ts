@@ -330,6 +330,60 @@ export const virginia: StateOverride = {
       related: { label: 'Still deciding? LLC vs sole proprietorship', href: '/llc-vs-sole-proprietorship/' },
     },
   ],
+  costPage: {
+    seoTitle: `Virginia LLC Cost (${GUIDE_YEAR}): $100 to Form, $50/Year`,
+    seoDescription:
+      'A Virginia LLC costs $100 to form and $50 a year to keep active. Who can skip the $100-$200 registered agent, plus local BPOL and the late fee.',
+    intro:
+      "A Virginia LLC costs $100 to file and $50 a year after that. The $50 is the annual registration fee, due by the last day of your anniversary month; Virginia has no annual report. The cost that swings your total is the registered agent. Virginia only lets you be your own agent if you're a Virginia resident who is a member or manager of the LLC, or a member of the Virginia State Bar. If you qualify, you pay $100 in year one and $50 a year after. If you don't, add $100 to $200 a year for a commercial agent.",
+    formTotal: 100,
+    annualDisplay: '$50/yr',
+    yearOneTotal: 100,
+    yearTwoTotal: 50,
+    yearOneNote: 'Articles of Organization, serving as your own agent',
+    yearTwoNote: 'Annual registration fee, plus any local BPOL license',
+    schedule: [
+      { item: 'Articles of Organization', cost: '$100', due: 'When you form. Same fee online or by mail.' },
+      { item: 'Annual registration fee', cost: '$50', due: 'By the last day of your anniversary month, every year.' },
+      { item: 'Late penalty', cost: '+$25', due: 'Added if the annual fee is late. Unpaid 3 months past due, the SCC cancels the LLC.' },
+      { item: 'Reinstatement', cost: '$100+', due: 'Only if canceled, plus every unpaid fee.' },
+      { item: 'Local BPOL license', cost: 'Varies', due: 'Set by your city or county, often based on gross receipts. Ask your Commissioner of the Revenue.' },
+    ],
+    verdict:
+      "File online for $100. Skip the expedite unless the SCC flags your filing for review; online filings without attachments are usually accepted at checkout. If you're a Virginia-resident member or manager with a Virginia street address, be your own registered agent and your state cost is $100, then $50 a year. If you aren't, a commercial agent isn't optional, so budget $200 to $300 for the first year.",
+    faq: [
+      {
+        question: 'How much does it cost to form an LLC in Virginia?',
+        answer:
+          "$100 for the Articles of Organization, online or by mail. That's the whole state cost in year one if you can be your own registered agent. If you can't, a commercial agent adds about $100 to $200 a year, for a first-year total of $200 to $300.",
+      },
+      {
+        question: 'What is the Virginia LLC annual fee?',
+        answer:
+          "$50 a year, called the annual registration fee, due by the last day of your anniversary month. A late payment adds a $25 penalty. If the fee is still unpaid 3 months after the due date, the SCC cancels the LLC, and reinstatement costs $100 plus the unpaid fees.",
+      },
+      {
+        question: 'Does a Virginia LLC file an annual report?',
+        answer: 'No. Virginia LLCs pay the $50 annual registration fee instead. There is no report to fill in.',
+      },
+      {
+        question: 'Do I have to pay for a registered agent in Virginia?',
+        answer:
+          "Only if you don't qualify to serve yourself. An individual agent must be a Virginia resident who is a member or manager of the LLC, or a member of the Virginia State Bar. Anyone else needs a business entity authorized in Virginia, which usually means a commercial registered agent at about $100 to $200 a year.",
+      },
+      {
+        question: 'Do I need a local business license for a Virginia LLC?',
+        answer:
+          "Virginia has no statewide general business license, but many cities and counties require a BPOL license and charge a tax based on gross receipts. The rules and fees vary by locality, so check with your Commissioner of the Revenue before you start operating.",
+      },
+    ],
+    sourceUrls: [
+      'https://www.scc.virginia.gov/businesses/forms-and-fees/virginia-limited-liability-companies/',
+      'https://www.scc.virginia.gov/businesses/business-faqs/annual-registration-fees/',
+      'https://law.lis.virginia.gov/vacode/title13.1/chapter12/section13.1-1011/',
+      'https://law.lis.virginia.gov/vacode/title58.1/chapter37/section58.1-3703/',
+    ],
+  },
   costBreakdown: [
     { item: 'Articles of Organization (Form LLC-1011)', cost: '$100', required: 'Yes', notes: 'Same online or by mail; no online payment fee' },
     { item: 'Name reservation', cost: '$10', required: 'Optional', notes: '120-day hold' },

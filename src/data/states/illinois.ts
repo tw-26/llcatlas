@@ -243,6 +243,73 @@ export const illinois: StateOverride = {
       related: { label: 'Compare registered agent options: Northwest vs Bizee', href: '/northwest-vs-bizee/' },
     },
   ],
+  costPage: {
+    seoTitle: `Illinois LLC Cost (${GUIDE_YEAR}): $150 to Form, $75/Year`,
+    seoDescription:
+      'An Illinois LLC costs $150 to form and $75 a year for the annual report due before your anniversary month. Plus the $100 late penalty and replacement tax.',
+    intro:
+      "An Illinois LLC costs $150 to form, online or by mail, and $75 a year after that for the annual report. The report is due before the first day of the month you formed in, every year starting the year after you form, so an LLC formed in October 2026 files before October 1, 2027. If it's still unfiled a month later, Illinois adds a $100 penalty with no waiver. The cost people miss is the 1.5% replacement tax. A default single-member LLC doesn't pay it, but a multi-member LLC or one taxed as an S corporation pays 1.5% of its net Illinois income.",
+    formTotal: 150,
+    annualDisplay: '$75/yr',
+    yearOneTotal: 150,
+    yearTwoTotal: 75,
+    yearOneNote: 'Articles of Organization online, plus a small card processing fee',
+    yearTwoNote: 'Annual report, plus 1.5% replacement tax if not single-member',
+    schedule: [
+      { item: 'Articles of Organization', cost: '$150', due: 'When you form. Same fee online or by mail; online adds a payment processor fee.' },
+      {
+        item: 'Annual report',
+        cost: '$75',
+        due: 'Before the first day of your anniversary month, every year starting the year after you form. Filing opens 60 days early.',
+      },
+      {
+        item: 'Late penalty',
+        cost: '+$100',
+        due: 'If still unfiled by the first day of the second month after your anniversary month. Another $100 for each additional year.',
+      },
+      { item: 'Reinstatement', cost: '$200+', due: 'Only if dissolved, plus every missed report and penalty.' },
+      {
+        item: 'Replacement tax',
+        cost: '1.5%',
+        due: "Of net Illinois income, on the LLC's return, if it's taxed as a partnership or S corporation. Not owed by a default single-member LLC.",
+      },
+    ],
+    verdict:
+      "File online for $150. The fee is the same as mail, and online comes with an emailed confirmation and a published turnaround of about 10 business days. Skip the $100 24-hour expedite unless a deadline depends on it. Pay for a registered agent only if you don't want your home address in the public business search or can't be at an Illinois street address during business hours. Calendar the last day of the month before your anniversary month, every year starting next year.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Illinois?',
+        answer:
+          "$150 to file the Articles of Organization, online or by mail. Online adds a small payment processor fee. That's the state cost in year one if you serve as your own registered agent. Starting the year after you form, the annual report is $75 a year. Some cities, including Chicago, charge separately for a business license.",
+      },
+      {
+        question: 'What is the Illinois LLC annual fee?',
+        answer:
+          "$75 a year for the annual report, due before the first day of your anniversary month, starting the year after you form. You can file up to 60 days early. If it's still unfiled by the first day of the second month after your anniversary month, there's a $100 penalty, plus $100 for each additional year. An LLC that never files can be dissolved, and reinstatement costs $200 plus every missed report and penalty.",
+      },
+      {
+        question: 'Does an Illinois LLC pay franchise tax or replacement tax?',
+        answer:
+          "No franchise tax. The replacement tax depends on how the LLC is taxed. A default single-member LLC doesn't pay it. A multi-member LLC taxed as a partnership, or an LLC taxed as an S corporation, pays 1.5% of its net Illinois income. At $80,000 of net income, that's about $1,200 a year.",
+      },
+      {
+        question: 'Is the Illinois expedite fee worth it?',
+        answer:
+          "Usually not. Online filings take about 10 business days. The $100 expedite gets a response within 24 hours, excluding weekends and holidays, for $250 total. Pay it only if a bank, lease, or contract is waiting on the LLC.",
+      },
+      {
+        question: 'How much is a registered agent in Illinois?',
+        answer:
+          "Free if you live in Illinois and serve yourself, but that address goes in the Secretary of State's public business search. A commercial registered agent usually costs $50 to $150 a year.",
+      },
+    ],
+    sourceUrls: [
+      'https://www.ilsos.gov/publications/business_services/llc.html',
+      'https://www.ilsos.gov/departments/business-services/annual-reports/llc-instructions.html',
+      'https://www.ilga.gov/documents/legislation/ilcs/documents/080501800K50-15.htm',
+      'https://tax.illinois.gov/research/taxrates/income.html',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Articles of Organization (Form LLC-5.5)',

@@ -529,6 +529,65 @@ export const washington: StateOverride = {
       related: { label: 'Still deciding? LLC vs sole proprietorship', href: '/llc-vs-sole-proprietorship/' },
     },
   ],
+  costPage: {
+    seoTitle: `Washington LLC Cost (${GUIDE_YEAR}): $180 to Form, $70/Year`,
+    seoDescription:
+      'A Washington LLC costs $180 by mail or $200 online, then $70 a year for the annual report. Plus the $50 business license and B&O tax most guides leave out.',
+    intro:
+      "A Washington LLC costs $180 to form by mail or $200 online, and $70 a year after that for the Annual Report. If your business grosses $12,000 or more a year, add the $50 Department of Revenue business license application when you start. That makes a realistic do-it-yourself first year $230 to $250, and every year after $70. The cost Washington founders underestimate is B&O tax: it's charged on gross receipts, not profit, at 1.5% for most service businesses.",
+    formTotal: 180,
+    annualDisplay: '$70/yr',
+    yearOneTotal: 250,
+    yearTwoTotal: 70,
+    yearOneNote: '$200 online filing + $50 business license; $230 by mail',
+    yearTwoNote: 'Annual Report, plus B&O tax on gross receipts',
+    schedule: [
+      { item: 'Certificate of Formation', cost: '$180 / $200', due: 'When you form. $180 by mail, $200 online with the processing fee.' },
+      { item: 'Initial Report', cost: '$0', due: 'File it with the Certificate of Formation. Filed separately within 120 days, it costs $10.' },
+      {
+        item: 'Business License Application',
+        cost: '$50+',
+        due: 'When you start doing business, if you gross $12,000 or more a year, collect sales tax, hire, or use a trade name. Endorsements add fees.',
+      },
+      { item: 'Annual Report', cost: '$70', due: 'By the last day of your anniversary month, every year. Late adds $25.' },
+      { item: 'B&O tax', cost: '1.5%', due: 'Of gross receipts for most service businesses under $1 million, filed with your DOR tax returns.' },
+    ],
+    verdict:
+      "File online for $200 and include the free Initial Report in the same filing, so you don't pay $10 for it later. Apply for the $50 business license when you start billing, not before. Skip the $100 expedite unless you have a deadline; standard online filings typically clear in about five business days. Pay for a registered agent only if you don't want your home address on the public record.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Washington?',
+        answer:
+          '$180 to file the Certificate of Formation by mail, or $200 online. Most operating businesses also pay the $50 business license application fee to the Department of Revenue, so a realistic first year is $230 to $250 if you serve as your own registered agent. After that, the Annual Report is $70 a year.',
+      },
+      {
+        question: 'What is the Washington LLC annual fee?',
+        answer:
+          'The Annual Report costs $70 and is due by the last day of your formation anniversary month every year. You can file it up to 180 days early. A late report adds a $25 delinquency fee, and if you never file, the state can administratively dissolve the LLC. Reinstatement costs $140 plus the missed annual report fees.',
+      },
+      {
+        question: 'Do I need a Washington business license for my LLC?',
+        answer:
+          'Most operating LLCs do. You need the Business License Application if you gross $12,000 or more a year, collect sales tax, hire employees, use a trade name, need endorsements, or owe DOR taxes or fees. The processing fee is $50 to open a business, and city or state endorsements add their own fees. DOR says online applications take about 10 business days.',
+      },
+      {
+        question: 'Does Washington have a franchise tax or income tax for LLCs?',
+        answer:
+          'No franchise tax, and no individual income tax until a 9.9% tax on income over $1 million starts January 1, 2028. What Washington does charge is B&O tax on gross receipts: 1.5% for most service businesses under $1 million, 0.471% for retailing, and 0.484% for wholesaling and manufacturing (both 0.5% from January 1, 2027).',
+      },
+      {
+        question: 'How much is a registered agent in Washington?',
+        answer:
+          "Free if you serve yourself: you need a Washington street address where you're available during business hours, and that address goes on the public record. A commercial registered agent usually costs $50 to $200 a year.",
+      },
+    ],
+    sourceUrls: [
+      'https://www.sos.wa.gov/corporations-charities/frequently-asked-questions-faqs/fee-scheduleexpedited-service',
+      'https://www.sos.wa.gov/corporations-charities/business-entities/maintain-business-compliance/annual-reports',
+      'https://dor.wa.gov/open-business/apply-business-license/variable-business-license-processing-fees',
+      'https://dor.wa.gov/taxes-rates/business-occupation-tax/business-occupation-tax-classifications',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Certificate of Formation (mail)',

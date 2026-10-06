@@ -140,6 +140,64 @@ export const northCarolina: StateOverride = {
         'This is NC’s one major ongoing state filing, and it is more expensive than most states. Every NC LLC must file an annual report with the Secretary of State by April 15 of the year following formation, then every April 15 after that. The fee is $200 paper, or online for $200 plus a $2 ACH surcharge ($202 total) or $3 credit-card surcharge ($203 total). NC does not charge a traditional late fee, but a report more than 60 days late is grounds for administrative dissolution under § 57D-6-06. The SOS then mails a notice, and if you do not fix it within 60 days the LLC is dissolved — reinstatement costs $100 plus all delinquent reports. PLLCs are the one exception: § 57D-2-24(a) exempts them from the SOS annual report, but PLLCs typically have their own annual board registration to handle instead.',
     },
   ],
+  costPage: {
+    seoTitle: `North Carolina LLC Cost (${GUIDE_YEAR}): $125 to Form, $200/Year`,
+    seoDescription:
+      'A North Carolina LLC costs $125 to form and $200 a year for the annual report due every April 15. Online fees, expedite costs, and the $100 reinstatement.',
+    intro:
+      "A North Carolina LLC costs $125 to file the Articles of Organization. Filing online adds a $2 ACH or $3 card fee. The recurring cost is the $200 annual report, due every April 15 starting the year after you form, which is high next to many states. NC has no franchise tax for default-taxed LLCs and no publication requirement, so the annual report is the number to plan around. Miss it, and NC can dissolve the LLC; reinstatement costs $100 plus every delinquent report.",
+    formTotal: 125,
+    annualDisplay: '$200/yr',
+    yearOneTotal: 127,
+    yearTwoTotal: 200,
+    yearOneNote: '$125 filing + $2 ACH fee online; $125 by mail',
+    yearTwoNote: 'Annual report due April 15; $202 online by ACH',
+    schedule: [
+      { item: 'Articles of Organization (Form L-01)', cost: '$125', due: 'When you form. Online adds $2 by ACH or $3 by card.' },
+      { item: 'Annual report', cost: '$200', due: 'April 15 every year, starting the year after you form. Online adds $2 or $3.' },
+      {
+        item: 'Late annual report',
+        cost: '$0',
+        due: 'No late fee. More than 60 days late, the state can start dissolution, with 60 days to fix it after notice.',
+      },
+      { item: 'Reinstatement (Form L-08)', cost: '$100+', due: 'Only if dissolved, plus every delinquent annual report.' },
+      { item: 'Change of registered agent', cost: '$5', due: 'Only when you change agents. Update the state within 60 days.' },
+    ],
+    verdict:
+      "File online and pay by ACH, $127 in total. Skip the $100 24-hour expedite unless a contract or launch date depends on it; standard filings are estimated at 5 to 10 business days, though that isn't guaranteed. Be your own registered agent if you have an NC office with regular hours. If you work from home and don't want that address on the permanent public record, a commercial agent is worth paying for. Put April 15 on your calendar the day the LLC is approved.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in North Carolina?',
+        answer:
+          '$125 to file the Articles of Organization, plus $2 by ACH or $3 by card if you file online. If you serve as your own registered agent, that is your whole state cost in year one. Starting the year after you form, the annual report costs $200 every April 15.',
+      },
+      {
+        question: 'What is the North Carolina LLC annual fee?',
+        answer:
+          '$200 for the annual report, due April 15 every year starting the year after formation. Filing online adds $2 by ACH ($202) or $3 by card ($203). PLLCs are exempt from the Secretary of State report but usually have an annual licensing-board registration instead.',
+      },
+      {
+        question: 'Is there a late fee for the NC annual report?',
+        answer:
+          'No traditional late fee. A report more than 60 days late is grounds for administrative dissolution. The Secretary of State mails a notice, and if you do not fix it within 60 days, the LLC is dissolved. Reinstatement costs $100 plus every delinquent annual report.',
+      },
+      {
+        question: 'Does North Carolina charge a franchise tax on LLCs?',
+        answer:
+          'Not on default-taxed LLCs. NC franchise tax only applies to LLCs that elect C-corp or S-corp treatment, with a $200 minimum. NC also has no Commercial Activity Tax and no municipal income tax.',
+      },
+      {
+        question: 'How much is a registered agent in North Carolina?',
+        answer:
+          "Free if you serve yourself: you need to be an NC resident with a physical NC street address where you're available during business hours, and that address stays on the public Articles permanently. A commercial registered agent usually costs $100 to $300 a year.",
+      },
+    ],
+    sourceUrls: [
+      'https://www.sosnc.gov/fees/by_title/_Business_Registration',
+      'https://www.sosnc.gov/divisions/business_registration/annual_report_due_dates',
+      'https://www.sosnc.gov/divisions/business_registration/annual_report',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Articles of Organization (Form L-01)',

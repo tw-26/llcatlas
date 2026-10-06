@@ -334,6 +334,65 @@ export const texas: StateOverride = {
       related: { label: 'Still deciding? LLC vs sole proprietorship', href: '/llc-vs-sole-proprietorship/' },
     },
   ],
+  costPage: {
+    seoTitle: `Texas LLC Cost (${GUIDE_YEAR}): $300 to Form, $0/Year`,
+    seoDescription:
+      'A Texas LLC costs $300 to form. Most small LLCs then pay the state $0 a year, but every one files a free report by May 15. What it costs if you miss it.',
+    intro:
+      "A Texas LLC costs $300 to form, and for most small LLCs that's the last check you write to the state. Texas has no annual report fee, and an LLC with $2.65 million or less in annualized revenue (2026 and 2027 reports) owes no franchise tax. What every Texas LLC does owe is a free Public Information Report, filed with the Comptroller by May 15 each year starting the year after you form. It costs nothing to file and a lot to miss: the state can forfeit the LLC's right to do business.",
+    formTotal: 300,
+    annualDisplay: '$0',
+    yearOneTotal: 300,
+    yearTwoTotal: 0,
+    yearOneNote: 'Form 205 paid by ACH; about $307 by card',
+    yearTwoNote: 'Free Public Information Report by May 15',
+    schedule: [
+      { item: 'Certificate of Formation (Form 205)', cost: '$300', due: 'When you form, on SOSPortal or by mail. Cards add about $7; ACH doesn\'t.' },
+      { item: 'Public Information Report', cost: '$0', due: 'May 15 every year, starting the year after you form.' },
+      {
+        item: 'Franchise tax',
+        cost: '$0',
+        due: 'At or below $2.65 million in annualized revenue (2026 and 2027 reports). Above that, a report and any tax are due May 15.',
+      },
+      { item: 'Late franchise tax report', cost: '+$50', due: 'Plus 5% or 10% of any late tax. Missing the reports can forfeit the LLC.' },
+      { item: 'Assumed name certificate', cost: '$25', due: 'Only if you do business under a different name. Lasts up to 10 years.' },
+    ],
+    verdict:
+      "File Form 205 on SOSPortal and pay by ACH, so you pay $300 flat instead of about $307 by card. Skip expediting unless you have a hard date; if you do, the $50 standard tier is enough. Put May 15 on your calendar for the free Public Information Report, every year starting the year after you form. Pay for a registered agent only if you work from home and don't want that address public, or you live outside Texas.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Texas?',
+        answer:
+          '$300 for the Certificate of Formation, online or by mail. Card payments on SOSPortal add about $7; ACH is free. After that, most small LLCs pay the state nothing: the Public Information Report is free, and there is no franchise tax at or below $2.65 million in annualized revenue. A commercial registered agent typically adds $50 to $150 a year.',
+      },
+      {
+        question: 'Is there an annual fee for a Texas LLC?',
+        answer:
+          'No. Texas has no Secretary of State annual report or fee. Every LLC files a free Public Information Report with the Comptroller by May 15 each year, starting the year after it forms.',
+      },
+      {
+        question: 'How much is the Texas franchise tax for an LLC?',
+        answer:
+          '$0 for an LLC with annualized total revenue of $2.65 million or less, for reports due in 2026 and 2027. Above that, the rate is 0.75% of taxable margin (0.375% for retail and wholesale), or 0.331% of apportioned revenue under the EZ Computation for businesses up to $20 million. If the calculated tax is under $1,000, you file but owe nothing.',
+      },
+      {
+        question: "What does it cost if I miss the Texas Public Information Report?",
+        answer:
+          "More than money. After a notice and at least 45 days, the Comptroller can forfeit the LLC's right to do business in Texas, and its owners can become personally liable for certain LLC debts. Late franchise tax reports also carry a $50 penalty. To fix it, file the missing report.",
+      },
+      {
+        question: 'How much is a registered agent in Texas?',
+        answer:
+          'Free if you live in Texas and are reliably at a Texas street address during business hours; that address goes on the public record. A commercial registered agent usually costs $50 to $150 a year.',
+      },
+    ],
+    sourceUrls: [
+      'https://www.sos.texas.gov/corp/instructions/205.shtml',
+      'https://www.sos.texas.gov/corp/options.shtml',
+      'https://comptroller.texas.gov/taxes/franchise/',
+      'https://comptroller.texas.gov/taxes/franchise/pir-oir-filing-req.php',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Certificate of Formation (Form 205)',

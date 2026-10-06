@@ -371,6 +371,65 @@ export const maryland: StateOverride = {
       related: { label: 'Still deciding? LLC vs sole proprietorship', href: '/llc-vs-sole-proprietorship/' },
     },
   ],
+  costPage: {
+    seoTitle: `Maryland LLC Cost (${GUIDE_YEAR}): $100 to Form, $300/Year`,
+    seoDescription:
+      'A Maryland LLC costs $100 to form ($150 to skip the 6-8 week wait) and $300 a year for the April 15 annual report. Every fee and deadline.',
+    intro:
+      "A Maryland LLC costs $100 to form with standard review, which takes 6-8 weeks, or $150 with expedited review. Paying online adds 3%. The bigger number comes later: the $300 Annual Report / Personal Property Return, due every April 15 starting the year after you form, even if the LLC owns no business property. Plan on $150 in year one, since most founders pay to skip the wait, and $300 every year after.",
+    formTotal: 100,
+    annualDisplay: '$300/yr',
+    yearOneTotal: 150,
+    yearTwoTotal: 300,
+    yearOneNote: 'Expedited filing (about $154.50 online); $100 if you can wait 6-8 weeks',
+    yearTwoNote: 'Annual Report / Personal Property Return, due April 15',
+    schedule: [
+      { item: 'Articles of Organization', cost: '$100 / $150', due: 'When you form. $150 with the expedite; paying online adds 3%.' },
+      { item: 'Annual Report / Personal Property Return', cost: '$300', due: 'April 15 every year, starting the year after you form.' },
+      {
+        item: 'Late annual report penalty',
+        cost: '$30-$50+',
+        due: 'Minimum depends on how late, plus 2% of the penalty per 30 days. Not filing leads to forfeiture.',
+      },
+      { item: 'Articles of Reinstatement', cost: '$100', due: 'Only if forfeited, after every missed report and penalty is paid.' },
+      { item: "Trader's License", cost: '$15-$800', due: 'Only if you sell goods. Plus a $2 issuing fee.' },
+    ],
+    verdict:
+      "Pay the $50 expedite and file online, about $154.50 in total. Standard review takes 6-8 weeks; expedited online review takes 7-14 business days. Then put April 15 on your calendar: the $300 annual filing is the cost that adds up, $1,500 over five years. Pay for a resident agent only if you don't want your address on SDAT records.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Maryland?',
+        answer:
+          "$100 to file the Articles of Organization with standard review, or $150 with expedited review. Paying online adds a 3% fee, so expedited online comes to about $154.50. Starting the year after you form, the Annual Report / Personal Property Return costs $300 every year.",
+      },
+      {
+        question: 'What is the Maryland LLC annual fee?',
+        answer:
+          "$300 for the Annual Report / Personal Property Return, due April 15 every year starting the year after formation. It's owed even if the LLC owns no business personal property. Late filing starts at a $30 to $50 minimum penalty plus 2% of the penalty for every 30 days, and an LLC that never files is forfeited.",
+      },
+      {
+        question: 'Is the $50 Maryland expedite fee worth it?',
+        answer:
+          'For most founders, yes. Standard review takes 6-8 weeks, online or by mail. With the $50 expedite, SDAT lists online review at 7-14 business days and paper at 7-10 business days after it arrives. Same-day service costs $425 online or $525 on paper, which a first LLC rarely needs.',
+      },
+      {
+        question: 'Why does Maryland charge 3% more online?',
+        answer:
+          'Maryland Business Express adds a 3% payment fee to online filings. On a $150 expedited filing, that is about $4.50. Mailing the paper Articles avoids it, at the cost of mail time.',
+      },
+      {
+        question: 'How much is a resident agent in Maryland?',
+        answer:
+          'Free if you serve yourself, but your address goes on SDAT records and you have to be there to receive legal papers. A professional resident agent typically costs about $100 to $150 a year.',
+      },
+    ],
+    sourceUrls: [
+      'https://dat.maryland.gov/businesses/documents/fees.pdf',
+      'https://egov.maryland.gov/BusinessExpress/Payment/FeesSchedule',
+      'https://dat.maryland.gov/businesses/Pages/default.aspx',
+      'https://dat.maryland.gov/businesses/Pages/Frequently-Asked-Forfeiture-Questions.aspx',
+    ],
+  },
   costBreakdown: [
     { item: 'Articles of Organization', cost: '$100', required: 'Yes', notes: 'Standard review, 6-8 weeks' },
     { item: 'Online payment fee', cost: '3%', required: 'If paying online', notes: 'About $3 on a standard filing' },

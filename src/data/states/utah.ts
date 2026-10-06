@@ -219,6 +219,69 @@ export const utah: StateOverride = {
       related: { label: 'Estimate your self-employment tax', href: '/self-employment-tax/calculator/' },
     },
   ],
+  costPage: {
+    seoTitle: `Utah LLC Cost (${GUIDE_YEAR}): $59 to Form, $18/Year`,
+    seoDescription:
+      'A Utah LLC costs $59 to form and $18 a year to renew, starting the year after you form. The $10 late fee, reinstatement cost, and local license.',
+    intro:
+      "A Utah LLC costs $59 to file and $18 a year after that. The $18 is the annual renewal, due by the end of the month you formed, starting the year after; it already includes a $5 state portal fee. Utah has no franchise tax on a standard LLC, so that's the whole recurring state cost. The cost people miss is a lapse: the renewal postcard goes to your registered agent, not to you, and an LLC that expires pays $54 plus every missed renewal to reinstate. Most businesses also need a city or county business license, with fees set locally.",
+    formTotal: 59,
+    annualDisplay: '$18/yr',
+    yearOneTotal: 59,
+    yearTwoTotal: 18,
+    yearOneNote: 'Certificate of Organization; renewals start in year two',
+    yearTwoNote: 'Annual renewal, plus your city or county business license',
+    schedule: [
+      { item: 'Certificate of Organization', cost: '$59', due: 'When you form. Same fee online and on paper; nonrefundable.' },
+      {
+        item: 'Annual renewal',
+        cost: '$18',
+        due: 'By the end of your formation month every year, starting the year after. You can file up to 60 days early.',
+      },
+      { item: 'Late renewal fee', cost: '+$10', due: 'Added if you miss the deadline. More than 60 days late can lead to dissolution.' },
+      {
+        item: 'Reinstatement',
+        cost: '$54+',
+        due: 'Only if the LLC expires. Plus $18 for each missed year and a $10 delinquency fee.',
+      },
+      { item: 'City or county business license', cost: 'Varies', due: 'From the city or town where you operate, or the county if unincorporated.' },
+    ],
+    verdict:
+      "File online for $59 and skip the $75 expedite; most online filings are processed immediately, and the expedite costs more than the filing. Be your own registered agent if you have a Utah street address you don't mind on the public search. A commercial agent at $50 to $150 a year costs several times Utah's own $18 fee, so pay for one only for privacy or if you live out of state. Calendar the renewal for a few weeks before your formation date each year. That date meets both the Division's one-year reading and the statute's end-of-month deadline.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Utah?',
+        answer:
+          "$59 to file the Certificate of Organization, then $18 a year for the annual renewal starting the year after you form. That's the whole required state cost if you serve as your own registered agent. Most businesses also pay a city or county business license fee, which varies by location.",
+      },
+      {
+        question: 'What is the Utah LLC annual fee?',
+        answer:
+          '$18 a year for the annual renewal, which Utah also calls the annual report. It includes a $5 state portal fee. Utah law sets the deadline as the last day of your formation anniversary month, and you can file up to 60 days early. Filing late adds $10.',
+      },
+      {
+        question: 'How much does it cost to reinstate an expired Utah LLC?',
+        answer:
+          "$54, plus $18 for each year the renewal was missed and a $10 delinquency fee. An LLC becomes eligible for administrative dissolution once its renewal is more than 60 days late, and you get 60 days to cure it after the Division's notice. Reinstatement is filed online and relates back to the dissolution date.",
+      },
+      {
+        question: 'Is the $75 Utah expedite fee worth it?',
+        answer:
+          "Rarely. The Division says most online filings are processed immediately. Only filings that need manual review, such as paper uploads, attachments, or possible name conflicts, take 5 to 7 business days. The expedite costs more than the $59 filing itself.",
+      },
+      {
+        question: 'How much is a registered agent in Utah?',
+        answer:
+          "Free if you serve yourself at a Utah street address during business hours. That address is public, and it's where the renewal postcard goes. A commercial registered agent usually costs $50 to $150 a year.",
+      },
+    ],
+    sourceUrls: [
+      'https://commerce.utah.gov/wp-content/uploads/2023/04/currentfees.pdf',
+      'https://commerce.utah.gov/corporations/renewal-process/',
+      'https://commerce.utah.gov/corporations/faqs/how-to-renew-a-business/',
+      'https://commerce.utah.gov/2021/11/15/business-licensing/',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Certificate of Organization',

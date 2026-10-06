@@ -85,6 +85,55 @@ export const ohio: StateOverride = {
         'Create an operating agreement, open a business bank account, and handle any tax or licensing registrations that apply to your business. Ohio does not require an operating agreement as part of the filing, and it is not filed with the state, but it is still legally important for internal governance, liability protection, and banking.',
     },
   ],
+  costPage: {
+    seoTitle: `Ohio LLC Cost (${GUIDE_YEAR}): $99 to Form, $0/Year`,
+    seoDescription:
+      'An Ohio LLC costs $99 to form and $0 a year, since standard LLCs file no annual report. The $50 vendor\'s license, expedite fees, and city income tax.',
+    intro:
+      "An Ohio LLC costs $99 to file Form 610, and standard Ohio LLCs pay nothing to the Secretary of State after that. There's no annual report and no publication requirement. If you serve as your own statutory agent, $99 is your whole required state cost. The cost Ohio founders miss is local: city income taxes can apply where you live, where you work, and where the business operates.",
+    formTotal: 99,
+    annualDisplay: '$0',
+    yearOneTotal: 99,
+    yearTwoTotal: 0,
+    yearOneNote: 'Form 610 filing, serving as your own statutory agent',
+    yearTwoNote: 'No annual report; city income tax may still apply',
+    schedule: [
+      { item: 'Articles of Organization (Form 610)', cost: '$99', due: 'When you form. Online or by mail.' },
+      { item: 'Annual report', cost: '$0', due: 'None. Standard Ohio LLCs have no recurring state filing.' },
+      { item: "Vendor's License", cost: '$50', due: 'Before you sell taxable goods or services. One per fixed location.' },
+      { item: 'Municipal income tax', cost: 'Varies', due: 'Set by your city. Can apply where you live, work, and operate.' },
+      { item: 'Commercial Activity Tax', cost: '0.26%', due: 'Only on Ohio taxable gross receipts above $6 million.' },
+    ],
+    verdict:
+      "File Form 610 online through Ohio Business Central for $99 and skip the expedite; standard processing is 3 to 7 business days, and $100 more only buys 2-day service. Be your own statutory agent if you're an Ohio resident with a street address you don't mind on the public filing. Pay for a statutory agent, usually $49 to $250 a year, if you work from home and want that address private. There's no state renewal date to calendar, so spend that attention on your city's income tax rules right after you form.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Ohio?',
+        answer:
+          '$99 to file the Articles of Organization (Form 610). Standard Ohio LLCs file no annual report, so if you serve as your own statutory agent, $99 is the whole required state cost. A professional statutory agent adds about $49 to $250 a year.',
+      },
+      {
+        question: 'What is the Ohio LLC annual fee?',
+        answer:
+          'There is none for standard LLCs. Ohio does not require an annual or biennial report, so there is no recurring Secretary of State fee. You do have to keep a statutory agent on file and update it within 30 days if the agent or address changes.',
+      },
+      {
+        question: "Do I need a vendor's license for my Ohio LLC?",
+        answer:
+          "Only if you sell taxable goods or services. It costs $50, and you need one for each fixed location. Forming the LLC does not get you one.",
+      },
+      {
+        question: 'How much is a statutory agent in Ohio?',
+        answer:
+          "Free if you serve yourself: you need to be an Ohio resident with a physical Ohio street address, and that address goes on the public filing. A professional statutory agent usually costs $49 to $250 a year.",
+      },
+    ],
+    sourceUrls: [
+      'https://www.ohiosos.gov/business/business-filing-forms',
+      'https://www.ohiosos.gov/business/keep-your-active-status',
+      'https://tax.ohio.gov/business/ohio-business-taxes/commercial-activities',
+    ],
+  },
   costBreakdown: [
     { item: 'Articles of Organization', cost: '$99', required: 'Yes', notes: 'One-time fee' },
     { item: 'Name reservation', cost: '$39', required: 'Optional', notes: '180-day hold' },

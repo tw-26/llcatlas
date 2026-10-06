@@ -26,6 +26,8 @@ import { wyoming } from './wyoming';
 export type {
   ComparisonRow,
   CostBreakdownItem,
+  CostScheduleItem,
+  StateCostPage,
   FaqItem,
   GuideSection,
   GuideSectionFact,
@@ -61,6 +63,9 @@ const stateOverrides: Record<string, StateOverride> = {
   washington,
   wyoming,
 };
+
+export const getStateGuidePath = (slug: string) => `/llc/${slug}/`;
+export const getStateCostPath = (slug: string) => `/llc/${slug}/cost/`;
 
 export const states: StateData[] = stateSeeds.map((seed) => {
   const base = buildDefaultState(seed);

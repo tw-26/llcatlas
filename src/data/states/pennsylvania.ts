@@ -155,6 +155,69 @@ export const pennsylvania: StateOverride = {
         'Pennsylvania does not have a general state business license, but your business may need sales tax registration through myPATH, employer withholding, professional licensing, city registration, or local business tax accounts. Every Pennsylvania LLC also needs to file the new annual report by September 30 each year. The fee is $7 for for-profit LLCs. For an LLC formed in 2026, the first annual report is due September 30, 2027. Beginning with 2027 reports, missing the deadline by six months can lead to administrative dissolution, so calendar it as soon as the LLC is approved.',
     },
   ],
+  costPage: {
+    seoTitle: `Pennsylvania LLC Cost (${GUIDE_YEAR}): $125 to Form, $7/Year`,
+    seoDescription:
+      'A Pennsylvania LLC costs $125 to form and $7 a year for the annual report due September 30. When a $49-$300 CROP is worth it, plus local taxes.',
+    intro:
+      "A Pennsylvania LLC costs $125 to file, online or by mail, and the required Docketing Statement is free. After that, the annual report is $7 a year, due every September 30, starting the year after you form. That makes Pennsylvania one of the cheapest states to keep an LLC active. The cost that changes your total is the registered office: list your own Pennsylvania street address for free, or pay a Commercial Registered Office Provider (CROP) $49 to $300 a year. The other cost people miss is local tax, especially in Philadelphia and Pittsburgh.",
+    formTotal: 125,
+    annualDisplay: '$7/yr',
+    yearOneTotal: 125,
+    yearTwoTotal: 7,
+    yearOneNote: 'Certificate of Organization, using your own registered office',
+    yearTwoNote: 'Annual report; add $49-$300 if you use a CROP',
+    schedule: [
+      { item: 'Certificate of Organization', cost: '$125', due: 'When you form. Same fee online or by mail; the Docketing Statement is free.' },
+      { item: 'Annual report', cost: '$7', due: 'By September 30 every year, starting the year after you form.' },
+      {
+        item: 'Missed annual report',
+        cost: 'Dissolution',
+        due: 'Beginning with 2027 reports, an LLC more than six months late can be administratively dissolved.',
+      },
+      { item: 'Reinstatement', cost: '$35 + $15', due: 'Only if dissolved. $35 online plus $15 for each missed annual report.' },
+      {
+        item: 'Local taxes',
+        cost: 'Varies',
+        due: 'Local Earned Income Tax in many municipalities. Philadelphia adds BIRT and Net Profits Tax, plus a free Commercial Activity License.',
+      },
+    ],
+    verdict:
+      "File online for $125 and skip the expedite. Typical processing is 3-5 business days, and recent averages have been closer to one. If you have a Pennsylvania business address you're comfortable publishing, list it as your registered office and your state cost is $125, then $7 a year. If you work from home or live outside Pennsylvania, a CROP at $49 to $300 a year is the one add-on worth paying for. Put September 30 on your calendar every year.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Pennsylvania?',
+        answer:
+          '$125 to file the Certificate of Organization, and the required New Entity Docketing Statement has no separate fee. If you list your own Pennsylvania address as the registered office, that is the whole first-year state cost. Starting the next year, the annual report is $7. A CROP adds about $49 to $300 a year if you use one.',
+      },
+      {
+        question: 'What is the Pennsylvania LLC annual fee?',
+        answer:
+          '$7 a year for a for-profit LLC, paid with the annual report due September 30. An LLC formed in 2026 files its first report by September 30, 2027. Pennsylvania replaced the old decennial report with this annual report beginning in 2025, so older guides may not mention it.',
+      },
+      {
+        question: 'What happens if I miss the Pennsylvania annual report?',
+        answer:
+          'Beginning with 2027 reports, an LLC that files more than six months after the September 30 deadline can be administratively dissolved and can lose protection of its name. Reinstatement costs $35 online plus $15 for each missed report. If another business takes your name in the meantime, you have to pick a new one.',
+      },
+      {
+        question: 'Do Pennsylvania LLCs pay local taxes?',
+        answer:
+          "Often, yes. Many municipalities and school districts impose a local Earned Income Tax. In Philadelphia, plan for BIRT and the Net Profits Tax, and get the free Commercial Activity License before you do business there. Pittsburgh and other municipalities have their own business taxes, so check local registration before you invoice customers.",
+      },
+      {
+        question: 'How much is a Commercial Registered Office Provider in Pennsylvania?',
+        answer:
+          "Usually $49 to $300 a year. Pennsylvania doesn't use a registered agent. You list a registered office, which can be your own Pennsylvania street address for free. It goes on the public record. A CROP lets you list the provider instead, which matters if you work from home or live outside Pennsylvania.",
+      },
+    ],
+    sourceUrls: [
+      'https://www.pa.gov/agencies/dos/programs/business/fees-and-payments',
+      'https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports',
+      'https://www.pa.gov/agencies/dos/programs/business/information-services/commercial-registered-office-providers',
+      'https://www.pa.gov/agencies/dos/programs/business/information-services/expedited-services',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Certificate of Organization (DSCB:15-8821)',

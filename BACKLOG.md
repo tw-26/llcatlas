@@ -96,9 +96,9 @@ Work top to bottom inside each month. If something is blocked, skip it and come 
 
 ### Cost pages for every ready state (no pilot)
 
-- [ ] Build `/llc/[state]/cost/` for all 21 ready states from the existing state data. Cover: filing fee, annual report fee and due date, franchise or excise tax, registered agent cost, publication requirements, and total cost for year 1 and year 2, with one recommendation. Title pattern: "{State} LLC Cost ({year}): $X to Form, $Y/Year".
-- [ ] Update the sitemap filter in `astro.config.mjs` so cost pages are included.
-- [ ] Keep a short cost summary on each guide that links to its cost page, so the two don't compete for the same query.
+- [x] Build `/llc/[state]/cost/` for all 21 ready states from the existing state data. Cover: filing fee, annual report fee and due date, franchise or excise tax, registered agent cost, publication requirements, and total cost for year 1 and year 2, with one recommendation. Title pattern: "{State} LLC Cost ({year}): $X to Form, $Y/Year". (Done Oct 5 from each guide's `costPage` block; no new fee research. Request indexing for all 21 in GSC after deploying.)
+- [x] Update the sitemap filter in `astro.config.mjs` so cost pages are included.
+- [x] Keep a short cost summary on each guide that links to its cost page, so the two don't compete for the same query. (The full cost table moved to the cost page. `/best-state/` links every cost page from its state grid.)
 
 
 

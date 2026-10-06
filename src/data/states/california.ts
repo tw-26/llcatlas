@@ -337,6 +337,73 @@ export const california: StateOverride = {
       related: { label: 'See how states compare on cost', href: '/best-state/' },
     },
   ],
+  costPage: {
+    seoTitle: `California LLC Cost (${GUIDE_YEAR}): $70 to Form, $800/Year`,
+    seoDescription:
+      'A California LLC costs $70 to file, then $800 a year to the FTB even with no income. When the first $800 is due, and the $400 first year from 2027.',
+    intro:
+      "A California LLC costs $70 to file. The real cost is the $800 annual tax every California LLC owes the Franchise Tax Board, whether it earns anything or not, until you cancel it. Add the $20 Statement of Information within 90 days of forming and every two years after. For an LLC whose first tax year begins between January 1, 2027 and December 31, 2029, the first year's tax is $400, so year one costs $490. Form in 2026 and year one costs $890. Every year after the first is $800.",
+    formTotal: 70,
+    annualDisplay: '$800/yr',
+    yearOneTotal: 490,
+    yearTwoTotal: 800,
+    yearOneNote: '$70 + $20 + $400 first-year tax (2027-2029); $890 if you form in 2026',
+    yearTwoNote: 'Annual tax, plus the $20 Statement of Information every 2 years',
+    schedule: [
+      { item: 'Articles of Organization', cost: '$70', due: 'When you form, on bizfile Online or by mail.' },
+      {
+        item: 'Statement of Information',
+        cost: '$20',
+        due: 'Within 90 days of filing, then every 2 years. Ignore the delinquency notice for 60 days and a $250 penalty applies.',
+      },
+      {
+        item: 'Annual tax, first year',
+        cost: '$800 / $400',
+        due: 'By the 15th day of the 4th month after you file. $400 if your first tax year begins in 2027 through 2029.',
+      },
+      { item: 'Annual tax, every year after', cost: '$800', due: 'April 15 for a calendar-year LLC, until you cancel the LLC.' },
+      {
+        item: 'LLC fee',
+        cost: '$900+',
+        due: 'Only at $250,000 or more of total California income. Estimate and pay by the 15th day of the 6th month.',
+      },
+    ],
+    verdict:
+      "If it's late in 2026 and you don't need the LLC yet, file on or after January 1, 2027. Your first tax year becomes a full year, and it costs $400 instead of $800 for a few weeks. If you need the LLC now, file now and budget $890. Either way, pay the FTB yourself with Web Pay; formation packages charge for the $70 filing, not the tax. Put the first due date and the 90-day Statement of Information on your calendar the day you're approved.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in California?',
+        answer:
+          '$70 to file, $20 for the first Statement of Information, and the annual tax to the Franchise Tax Board. The tax is normally $800. If your first tax year begins between January 1, 2027 and December 31, 2029, the first year is $400, making year one $490 instead of $890. After that, budget $800 a year plus $20 every two years.',
+      },
+      {
+        question: 'Do I have to pay the $800 if my California LLC made no money?',
+        answer:
+          "Yes. The annual tax is owed every year the LLC exists on the Secretary of State's records, with or without income, until you cancel it. The one escape is the Short Form Cancellation: cancel within 12 months of forming and the FTB says the LLC isn't subject to the first year's tax.",
+      },
+      {
+        question: 'When is the California $800 LLC tax due?',
+        answer:
+          'The first payment is due by the 15th day of the 4th month after the Secretary of State files your Articles: form on June 18, pay by September 15. After that, it is due April 15 each year for a calendar-year LLC. Late payment adds a 5% penalty plus 0.5% a month.',
+      },
+      {
+        question: 'Is the first year of a California LLC $400?',
+        answer:
+          "Only if the LLC's first taxable year begins between January 1, 2027 and December 31, 2029. The reduced rate applies to that first year only; every year after is $800. LLCs formed before 2027 pay the full $800 in their first year. The 2021-2023 first-year exemption has ended.",
+      },
+      {
+        question: 'How much is an agent for service of process in California?',
+        answer:
+          "Free if you live in California and serve yourself; your name and street address go on the public record. A registered corporate agent usually costs $50 to $200 a year and puts only its name on your filing.",
+      },
+    ],
+    sourceUrls: [
+      'https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-california-domestic',
+      'https://www.ftb.ca.gov/file/business/types/limited-liability-company/index.html',
+      'https://www.ftb.ca.gov/forms/whats-new.html',
+      'https://www.sos.ca.gov/business-programs/business-entities/statements',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Articles of Organization (LLC-1)',

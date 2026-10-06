@@ -326,6 +326,65 @@ export const delaware: StateOverride = {
       related: { label: 'Estimate your self-employment tax', href: '/self-employment-tax/calculator/' },
     },
   ],
+  costPage: {
+    seoTitle: `Delaware LLC Cost (${GUIDE_YEAR}): $110 to Form, $400/Year`,
+    seoDescription:
+      'A Delaware LLC costs $110 to form and $400 a year in annual tax, due June 1. The late penalty, the business license, and what it costs if you live elsewhere.',
+    intro:
+      "A Delaware LLC costs $110 to form and $400 a year to keep. The $400 is a flat annual tax, due June 1 for the year before, starting the June 1 after the year you form. It isn't prorated and it's owed whether the LLC earns anything or not. If the business operates in Delaware, add a state business license, $75 a year for most services. If you live in another state, a Delaware LLC usually costs more, not less: you'll pay your home state's fees too, plus a Delaware registered agent.",
+    formTotal: 110,
+    annualDisplay: '$400/yr',
+    yearOneTotal: 185,
+    yearTwoTotal: 475,
+    yearOneNote: '$110 filing + up to $75 business license (prorated in year one)',
+    yearTwoNote: 'Annual tax, plus $75 business license if you operate in Delaware',
+    schedule: [
+      { item: 'Certificate of Formation', cost: '$110', due: 'When you form, uploaded through eCorp or mailed to Dover.' },
+      {
+        item: 'Delaware business license',
+        cost: '$75',
+        due: 'If you do business in Delaware. Prorated in year one, then renewed by December 31. $90 for general retail.',
+      },
+      { item: 'Annual LLC tax', cost: '$400', due: 'June 1 every year, for the year before. Your first one is the June 1 after the year you form.' },
+      { item: 'Late tax penalty', cost: '+$200', due: 'Plus 1.5% interest a month on the tax and penalty. Unpaid for 3 years, the LLC is canceled.' },
+      { item: 'Revival after cancellation', cost: '$220+', due: 'Only if canceled, plus every year of unpaid tax, penalties, and interest.' },
+    ],
+    verdict:
+      "Form in Delaware only if you live here or the business actually operates here. If you live in another state, form there; a New Jersey freelancer saves about $525 a year that way. If Delaware is your home, upload the Certificate through eCorp, skip expediting unless you need a date, and register for the $75 business license when you start. Set your own June 1 reminder, because the tax notice goes to your registered agent, not to you.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Delaware?',
+        answer:
+          "$110 to file the Certificate of Formation, then a $400 annual tax every June 1 for the year before. If the business operates in Delaware, add a state business license, usually $75 a year. If you don't live in Delaware, add a commercial registered agent (about $119 to $125 a year with the services we track) and your home state's foreign registration fees.",
+      },
+      {
+        question: 'When is the Delaware $400 LLC tax due, and what if I pay late?',
+        answer:
+          'June 1 every year, for the previous calendar year. An LLC formed in 2026 pays its first $400 by June 1, 2027. Paying late adds a $200 penalty plus 1.5% interest a month on the tax and penalty; two months late, $400 becomes about $618. After 3 years unpaid, the LLC is canceled.',
+      },
+      {
+        question: "Is a Delaware LLC cheaper if I don't live in Delaware?",
+        answer:
+          "No. Your home state will make the LLC register there as a foreign LLC and pay its fees anyway. A New Jersey LLC costs $100 to form and $75 a year. A Delaware LLC run from New Jersey costs about $600 a year: $400 to Delaware, $75 to New Jersey, and roughly $125 for a Delaware agent.",
+      },
+      {
+        question: 'Do I need a Delaware business license for my LLC?',
+        answer:
+          "If you do business in Delaware, yes: generally $75 a year for the first location ($90 for general retail), prorated in your first year, and it expires every December 31. If you live and work outside Delaware and only use a Delaware registered agent, you generally don't.",
+      },
+      {
+        question: 'How much is a registered agent in Delaware?',
+        answer:
+          "Free if you're a Delaware resident or the LLC has a Delaware office and serves as its own agent. Everyone else needs a commercial agent, typically about $119 to $125 a year with the services we track. The agent also receives the annual tax notice, so pick one that forwards mail reliably.",
+      },
+    ],
+    sourceUrls: [
+      'https://corpfiles.delaware.gov/Fee_Schedule/AugustFee2026.pdf',
+      'https://corp.delaware.gov/alt-entitytaxinstructions/',
+      'https://revenue.delaware.gov/business-tax-forms/doing-business-in-delaware/step-2-requirements/',
+      'https://legis.delaware.gov/BillDetail?legislationId=143069',
+    ],
+  },
   costBreakdown: [
     { item: 'Certificate of Formation', cost: '$110', required: 'Yes', notes: 'Same fee uploaded or mailed' },
     { item: 'Name reservation', cost: '$75', required: 'Optional', notes: 'Holds the name for 120 days' },

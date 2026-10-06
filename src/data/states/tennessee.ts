@@ -142,6 +142,81 @@ export const tennessee: StateOverride = {
         'Register through TNTAP if you need Tennessee tax accounts for franchise and excise tax, sales tax, or business tax. Tennessee business license rules are tied to gross receipts by county or city jurisdiction, not a single statewide license. File the Tennessee Annual Report through TNCaB every year by the 1st day of the 4th month after your fiscal year closes. The Annual Report starts at $300 and does not replace franchise and excise tax filings with the Department of Revenue.',
     },
   ],
+  costPage: {
+    seoTitle: `Tennessee LLC Cost (${GUIDE_YEAR}): $300 to Form, $400+/Year`,
+    seoDescription:
+      'A Tennessee LLC costs $300 to form for 1-6 members, then a $300 annual report plus a $100 minimum franchise tax every year. Every fee and deadline.',
+    intro:
+      "A Tennessee LLC costs $300 to file if it has six or fewer members. The fee is $50 per member with a $300 minimum and a $3,000 maximum, and paying online adds a small surcharge. Every year after, the Annual Report uses the same formula, so most LLCs pay $300 again by April 1 if they use a calendar year. The cost people miss is franchise tax: Tennessee LLCs generally owe it even with one member, with a $100 minimum, filed separately with the Department of Revenue. Plan on at least $400 a year to keep a Tennessee LLC active.",
+    formTotal: 300,
+    annualDisplay: '$400+/yr',
+    yearOneTotal: 300,
+    yearTwoTotal: 400,
+    yearOneNote: '$300 filing, plus $0.95 by e-check or 2.29% by card',
+    yearTwoNote: '$300 Annual Report + $100 minimum franchise tax',
+    schedule: [
+      {
+        item: 'Articles of Organization',
+        cost: '$300+',
+        due: 'When you form. $50 per member, $300 minimum. Online adds 2.29% by card or $0.95 by e-check.',
+      },
+      {
+        item: 'Annual Report',
+        cost: '$300+',
+        due: 'By the 1st day of the 4th month after your fiscal year closes. April 1 for calendar-year LLCs.',
+      },
+      {
+        item: 'Franchise tax',
+        cost: '$100 min',
+        due: '0.25% of Tennessee net worth, $100 minimum. Filed with the Department of Revenue, separate from the Annual Report.',
+      },
+      {
+        item: 'Excise tax',
+        cost: '6.5%',
+        due: 'Of net earnings, after a $50,000 standard deduction. Filed on the same Department of Revenue return as franchise tax.',
+      },
+      {
+        item: 'Local business license',
+        cost: '$15+',
+        due: 'None under $3,000 in gross receipts. A $15 minimal activity license may apply from $3,001 to $99,999.',
+      },
+    ],
+    verdict:
+      "File online on TNCaB and pay by e-check. Approval is usually immediate, and e-check costs $0.95 instead of 2.29% by card. Tennessee doesn't sell an expedite, and you don't need one. Be your own registered agent if you have a Tennessee street address you're fine publishing; pay $50 to $300 a year for one only if you work from home and want that address off the record. Calendar April 1 for the Annual Report and register on TNTAP for franchise and excise tax right after approval.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Tennessee?',
+        answer:
+          '$300 to file the Articles of Organization if the LLC has 1 to 6 members. The fee is $50 per member, with a $300 minimum and a $3,000 maximum. Paying online adds 2.29% by card or $0.95 by e-check. After that, budget at least $400 a year: the $300 Annual Report plus the $100 minimum franchise tax.',
+      },
+      {
+        question: 'What is the Tennessee LLC annual fee?',
+        answer:
+          'The Annual Report uses the same formula as formation: $50 per member, $300 minimum, $3,000 maximum. It is due by the 1st day of the 4th month after your fiscal year closes, which is April 1 for calendar-year LLCs. Changing your registered agent or registered office on the report adds $20.',
+      },
+      {
+        question: 'Does a single-member Tennessee LLC pay franchise tax?',
+        answer:
+          'Yes, if it is owned by an individual. Tennessee only disregards a single-member LLC for franchise and excise tax when its owner is a corporation. The franchise tax is 0.25% of Tennessee net worth with a $100 minimum. Excise tax is 6.5% of net earnings, after a $50,000 standard deduction. Both go on a Department of Revenue filing, separate from the Annual Report.',
+      },
+      {
+        question: 'Do I need a business license for my Tennessee LLC?',
+        answer:
+          'Tennessee sets the license by your gross receipts in each city or county where you do business. Under $3,000, no license is required. From $3,001 to $99,999, a $15 minimal activity license may apply. At $100,000 or more, a standard business license and a state business tax return may apply.',
+      },
+      {
+        question: 'How much is a registered agent in Tennessee?',
+        answer:
+          'Free if you serve yourself at a Tennessee street address, and Tennessee even lets the LLC serve as its own agent. The registered office address is public. A professional registered agent usually costs $50 to $300 a year.',
+      },
+    ],
+    sourceUrls: [
+      'https://sos.tn.gov/businesses/forms-and-fees',
+      'https://sos.tn.gov/businesses/pages/create-an-account-in-tncab-to-file-an-annual-report',
+      'https://www.tn.gov/revenue/taxes/franchise---excise-tax.html',
+      'https://www.tn.gov/revenue/for-businesses/for-new-businesses/licenses-permits-registration.html',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Articles of Organization (Form SS-4270)',

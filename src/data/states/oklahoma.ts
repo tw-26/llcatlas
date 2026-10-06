@@ -221,6 +221,65 @@ export const oklahoma: StateOverride = {
       related: { label: 'Compare LLC services by real year-one cost', href: '/best-llc-services/' },
     },
   ],
+  costPage: {
+    seoTitle: `Oklahoma LLC Cost (${GUIDE_YEAR}): $100 to Form, $25/Year`,
+    seoDescription:
+      'An Oklahoma LLC costs $100 to form ($104 by card) and $25 a year for the annual certificate due on your filing anniversary. The reminder only comes by email.',
+    intro:
+      "An Oklahoma LLC costs $100 to form, or $104 if you pay by card. After that, the only recurring state cost is the $25 annual certificate, due every year on the anniversary of the date your Articles were filed. There's no franchise tax and no publication requirement. What people miss is the reminder: the Secretary of State emails the notice only to the address on your filing, so a changed inbox can cost you your good standing. If you sell products, add the $20 sales tax permit plus a handling fee.",
+    formTotal: 100,
+    annualDisplay: '$25/yr',
+    yearOneTotal: 104,
+    yearTwoTotal: 25,
+    yearOneNote: 'Online filing with 4% card charge; $100 by mail with a check',
+    yearTwoNote: 'Annual certificate on your filing anniversary; $26 by card',
+    schedule: [
+      { item: 'Articles of Organization', cost: '$100', due: 'When you form. Paying by card adds 4%, so $104.' },
+      { item: 'Annual certificate', cost: '$25', due: 'Every year on the anniversary of your filing date. The notice comes only by email.' },
+      {
+        item: 'Missed certificate',
+        cost: '$25/yr',
+        due: 'After a 60-day grace period, the LLC loses good standing. After three years unpaid, the Articles are canceled.',
+      },
+      { item: 'Reinstatement', cost: '$0 + back fees', due: 'The form is free. You pay $25 for each missed year.' },
+      { item: 'Sales tax permit', cost: '$20+', due: 'Before your first sale, if you sell products. Plus a handling fee.' },
+    ],
+    verdict:
+      "File online at sos.ok.gov and pay the $4 card charge; mailing a check saves $4 but neither path has a published processing time. Skip the $50 same-day service unless you can deliver the filing in Oklahoma City and need the LLC today. Be your own registered agent if you live in Oklahoma and work from a real office. Pay for a commercial agent if you live out of state or don't want your home address on the agent line. Put your filing anniversary in your own calendar for the $25 certificate, because the state's email is the only reminder.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Oklahoma?',
+        answer:
+          '$100 to file the Articles of Organization, or $104 if you pay by card. After that, the $25 annual certificate is the only required state cost each year. If you sell products, the sales tax permit costs $20 plus a handling fee.',
+      },
+      {
+        question: 'What is the Oklahoma LLC annual fee?',
+        answer:
+          '$25 for the annual certificate, due every year on the anniversary of the date your Articles were filed. Paying by card adds 4%. The Secretary of State emails a notice at least 60 days ahead, but only to the email address on record.',
+      },
+      {
+        question: 'What happens if I miss the Oklahoma annual certificate?',
+        answer:
+          "You have a 60-day grace period. After that, the LLC is no longer in good standing, so the state won't accept other filings or issue a certificate of good standing. After three years unpaid, the Articles are deemed canceled. Reinstatement is a free form plus $25 for each missed year.",
+      },
+      {
+        question: 'Does Oklahoma charge a franchise tax on LLCs?',
+        answer:
+          'No. LLCs were already exempt by statute, and the state ended its corporate franchise tax after tax year 2023. The $25 annual certificate is the only recurring state charge to keep the LLC alive.',
+      },
+      {
+        question: 'How much is a registered agent in Oklahoma?',
+        answer:
+          'Free if you serve yourself or name the LLC as its own agent, as long as the registered office is an Oklahoma street address open during business hours. That address is public. A commercial registered agent usually costs $50 to $150 a year.',
+      },
+    ],
+    sourceUrls: [
+      'https://www.sos.ok.gov/business/fees.aspx',
+      'https://sos.ok.gov/business/faq.aspx',
+      'https://govt.westlaw.com/okjc/Document/N3D55DBE0624711DD82E3CAD89E409C48?contextData=%28sc.Default%29&originationContext=documenttoc&transitionType=DocumentItem&viewType=FullText',
+      'https://oklahoma.gov/business/operate/licenses-and-permits.html',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Articles of Organization',

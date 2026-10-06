@@ -123,6 +123,71 @@ export const indiana: StateOverride = {
         'Indiana does not have an annual report for LLCs. The ongoing filing is called a Business Entity Report. The first one is due two years after you form, then every other year on your formation month and day, with until the end of that month before it counts as past due. The fee is $32 on INBiz or $50 by paper. Skip it and the state administratively dissolves the LLC, and reinstating requires a tax clearance from the Department of Revenue that takes 4 to 6 weeks. Put the date on your calendar now.',
     },
   ],
+  costPage: {
+    seoTitle: `Indiana LLC Cost (${GUIDE_YEAR}): $95 to Form, $32 Every 2 Years`,
+    seoDescription:
+      'An Indiana LLC costs $95 to form online and $32 every two years for the Business Entity Report. No annual report, franchise tax, or publication cost.',
+    intro:
+      "An Indiana LLC costs $95 to form online through INBiz, plus a payment processing fee of at least $1, or $100 by mail. There's no annual report. The only recurring state filing is the Business Entity Report: $32 online every two years, first due two years after you form, by the end of your formation month. Indiana has no franchise tax and no publication cost. The cost people miss isn't a state fee at all: all 92 counties levy a county income tax on top of the 2.95% state rate.",
+    formTotal: 95,
+    annualDisplay: '$32 every 2 years',
+    yearOneTotal: 95,
+    yearTwoTotal: 0,
+    yearOneNote: 'Online Articles of Organization, plus at least $1 processing',
+    yearTwoNote: 'First $32 Business Entity Report is due at the 2-year mark',
+    schedule: [
+      { item: 'Articles of Organization', cost: '$95 / $100', due: 'When you form. $95 online plus a processing fee of at least $1, or $100 by mail.' },
+      {
+        item: 'Business Entity Report',
+        cost: '$32',
+        due: 'Every 2 years, by the end of your formation month, starting two years after you form. $50 on paper.',
+      },
+      {
+        item: 'Missed report',
+        cost: 'Dissolution',
+        due: 'The state administratively dissolves the LLC. Reinstating needs a Department of Revenue tax clearance that takes 4 to 6 weeks.',
+      },
+      {
+        item: 'Registered Retail Merchant Certificate',
+        cost: '$25',
+        due: 'One time, per location, only if you collect Indiana sales tax.',
+      },
+    ],
+    verdict:
+      "File online through INBiz for $95 plus the processing fee. Paper costs $5 more and adds mail time in both directions, and Indiana doesn't sell an expedite because online filings are processed in minutes to hours. If you run the business from home, check the remote-business box and file State Form 9900382 so your home address stays off the principal office line. Pay for a registered agent, about $125 a year, only if you also want your address off the agent line or can't be available during business hours. Calendar the end of your formation month two years out for the first $32 report.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Indiana?',
+        answer:
+          "$95 to file Articles of Organization online through INBiz, plus a payment processing fee of at least $1, or $100 by mail. If you serve as your own registered agent, that's the whole state cost for your first two years. After that, the Business Entity Report costs $32 online every two years.",
+      },
+      {
+        question: 'What is the Indiana LLC annual fee?',
+        answer:
+          "There isn't one. Indiana has no annual report for LLCs. The recurring filing is the Business Entity Report, $32 online or $50 on paper, due every two years by the end of your formation month. Skip it and the state dissolves the LLC, and reinstating requires a tax clearance from the Department of Revenue that takes 4 to 6 weeks.",
+      },
+      {
+        question: 'Does Indiana have a franchise tax for LLCs?',
+        answer:
+          "No. Indiana has no franchise tax, gross-receipts tax, or separate annual LLC tax. Owners pay Indiana income tax on LLC profit at 2.95% for 2026, plus county income tax, which all 92 counties levy. If you sell taxable goods or services, sales tax is 7% and the Registered Retail Merchant Certificate costs $25 per location.",
+      },
+      {
+        question: 'Can I pay to expedite an Indiana LLC?',
+        answer:
+          "No, and you don't need to. Indiana has no expedited LLC filing tier. INBiz filings are processed in minutes to hours, and paper filings within 1 to 2 business days after they arrive, plus mail time. File online.",
+      },
+      {
+        question: 'How much is a registered agent in Indiana?',
+        answer:
+          "Free if you live in Indiana and serve yourself, but your address goes on the public filing and you need to be available during business hours. A professional registered agent costs about $125 a year.",
+      },
+    ],
+    sourceUrls: [
+      'https://www.in.gov/sos/business/files/20250326-IR-075250155FNA.pdf',
+      'https://inbiz.in.gov/business-filings/business-entityreport',
+      'https://iga.in.gov/ic/2026/Title_23/Article_0.5/Chapter_9.pdf',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Articles of Organization (online)',

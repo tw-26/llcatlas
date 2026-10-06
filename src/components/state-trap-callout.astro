@@ -1,0 +1,40 @@
+---
+import type { StateTrap } from '../data/states';
+
+interface Props {
+  trap: StateTrap;
+  stateName: string;
+  /** Where the "How X works" link points. Defaults to the section anchor on the current page. */
+  href?: string;
+}
+
+const { trap, stateName, href = `#${trap.sectionId}` } = Astro.props;
+---
+
+<aside
+  aria-labelledby="state-trap-heading"
+  class="space-y-3 rounded-r-[12px] border-l-4 border-accent bg-surface-warm px-5 py-5 sm:px-7 sm:py-6"
+>
+  <p class="llc-helper !text-accent-ink">The {stateName} catch</p>
+  <h2 id="state-trap-heading" class="text-[1.375rem] sm:text-[1.625rem]">{trap.headline}</h2>
+  <p class="llc-section-copy text-ink-soft">{trap.body}</p>
+  <p class="llc-section-copy font-semibold text-ink-strong">{trap.action}</p>
+  <a
+    href={href}
+    class="inline-flex min-h-11 items-center gap-1.5 text-[15px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+  >
+    How {trap.name} works
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="h-3.5 w-3.5"
+    >
+      <path d="M3 8h10M9 4l4 4-4 4" />
+    </svg>
+  </a>
+</aside>

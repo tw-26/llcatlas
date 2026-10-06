@@ -295,6 +295,70 @@ export const oregon: StateOverride = {
       ],
     },
   ],
+  costPage: {
+    seoTitle: `Oregon LLC Cost (${GUIDE_YEAR}): $100 to Form, $100/Year`,
+    seoDescription:
+      'An Oregon LLC costs $100 to form, online or by mail, and $100 a year for the annual report. Plus the Portland and Multnomah County business taxes.',
+    intro:
+      "An Oregon LLC costs $100 to file, online or by mail, and $100 a year after that for the annual report, which Oregon also calls the renewal. The report is due every year on the anniversary of the date your LLC was filed, so your first one lands in year two. Oregon has no franchise tax for a default LLC, no sales tax, and no general state business license. The cost people miss is local: if you do business in Portland or anywhere in Multnomah County, you register for a business tax account within 60 days and file a return every year, even when you're under the exemption.",
+    formTotal: 100,
+    annualDisplay: '$100/yr',
+    yearOneTotal: 100,
+    yearTwoTotal: 100,
+    yearOneNote: 'Articles of Organization; first annual report is due in year two',
+    yearTwoNote: 'Annual report, plus Portland-area taxes if you work there',
+    schedule: [
+      { item: 'Articles of Organization', cost: '$100', due: 'When you form. Same fee online or by mail.' },
+      { item: 'Annual report (renewal)', cost: '$100', due: 'Every year on the anniversary of the date your LLC was filed.' },
+      {
+        item: 'Missed annual report',
+        cost: 'No late fee',
+        due: "Oregon's fee schedule lists no late fee. The state can dissolve the LLC after a 45-day notice.",
+      },
+      { item: 'Reinstatement', cost: 'Varies', due: 'Only if dissolved. A reinstatement fee plus every missed $100 renewal, within 5 years.' },
+      {
+        item: 'Portland and Multnomah County business taxes',
+        cost: '2.6% + 2%',
+        due: 'Of net business income, only if you operate there. Register within 60 days; the return is due April 15.',
+      },
+      { item: 'S-corp minimum excise tax', cost: '$150', due: 'Every year, only if the LLC elects S-corp status.' },
+    ],
+    verdict:
+      "File online for $100. It's the same fee as mail, online filings are processed in an estimated 1 to 3 business days, and Oregon doesn't sell an expedite, so there's nothing to upgrade. Be your own registered agent if you live in Oregon and are at an Oregon street address during business hours; pay $50 to $150 a year for one only if you live out of state or don't want your home on the agent line. Put your filing date on the calendar as the annual report due date every year. Missing it doesn't cost a late fee, it costs the LLC.",
+    faq: [
+      {
+        question: 'How much does an LLC cost in Oregon?',
+        answer:
+          "$100 to file the Articles of Organization, online or by mail, and $100 a year for the annual report starting on your first anniversary. That's the whole required state cost if you serve as your own registered agent. A commercial agent typically adds $50 to $150 a year.",
+      },
+      {
+        question: 'What is the Oregon LLC annual fee?',
+        answer:
+          "$100 a year, paid with the annual report (also called the renewal). It's due on the anniversary of the date your LLC was filed, and the state sends a notice about 45 days ahead. Not receiving the notice doesn't excuse a late report. A default Oregon LLC pays no franchise or minimum tax, so the $100 is the only recurring state charge.",
+      },
+      {
+        question: 'What happens if I miss the Oregon annual report?',
+        answer:
+          "Oregon's fee schedule doesn't list a late fee. Instead, the Secretary of State can administratively dissolve the LLC after giving you 45 days' notice to fix it. Within 5 years, most LLCs can reinstate online by paying a reinstatement fee plus each missed $100 annual fee.",
+      },
+      {
+        question: 'Do I owe Portland or Multnomah County taxes on my LLC?',
+        answer:
+          "Only if you do business there. Portland's Business License Tax is 2.6% of net business income and Multnomah County's Business Income Tax is 2%. For 2026, Portland exempts businesses with gross receipts under $75,000 ($100,000 from 2027) and the county exempts those under $100,000. You still register within 60 days and file a return each year to claim the exemption.",
+      },
+      {
+        question: 'How much is a registered agent in Oregon?',
+        answer:
+          "Free if you serve yourself: you need to live in Oregon and accept legal papers at an Oregon street address during business hours, and that address is public. A commercial registered agent usually costs $50 to $150 a year.",
+      },
+    ],
+    sourceUrls: [
+      'https://sos.oregon.gov/business/Documents/business-registry-forms/br-fee-schedule.pdf',
+      'https://sos.oregon.gov/business/pages/obr-annual-report-renewal.aspx',
+      'https://sos.oregon.gov/business/register/Pages/reinstate-a-business.aspx',
+      'https://www.portland.gov/revenue/business-tax',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Articles of Organization',
