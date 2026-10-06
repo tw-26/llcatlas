@@ -57,6 +57,7 @@ const parts = text.split(providerPattern);
       partnerName: provider.partnerName,
       pageType,
       position: placement,
+      sourcePath: Astro.url.pathname,
       state,
     });
 

@@ -135,7 +135,7 @@ export const llcServices: LlcService[] = [
       'The free first-year registered agent offer helps keep your home address off the filing, which is meaningful for home-based owners.',
     ctaLabel: 'Start with Bizee',
     affiliateUrl: affiliates.bizee,
-    sources: ['https://tidd.ly/3R7biWu'],
+    sources: [affiliates.bizee],
   },
   {
     slug: 'northwest',
@@ -200,7 +200,7 @@ export const llcServices: LlcService[] = [
       'Privacy is the core reason Northwest keeps showing up in LLC conversations. They explicitly sell the idea that their address goes on the public filing instead of yours.',
     ctaLabel: 'Start with Northwest',
     affiliateUrl: affiliates.northwest,
-    sources: ['https://tidd.ly/48iRAwH'],
+    sources: [affiliates.northwest],
   },
   {
     slug: 'zenbusiness',
@@ -270,7 +270,7 @@ export const llcServices: LlcService[] = [
       'Privacy is available if you add or bundle the registered agent, but it is not part of the cheapest package.',
     ctaLabel: 'Start with ZenBusiness',
     affiliateUrl: affiliates.zenbusiness,
-    sources: ['https://tidd.ly/43n8x64'],
+    sources: [affiliates.zenbusiness],
   },
   {
     slug: 'legalzoom',

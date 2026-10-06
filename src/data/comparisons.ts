@@ -267,19 +267,19 @@ export const comparisons: ServiceComparison[] = [
       sources: [
         {
           label: 'Northwest LLC formation offer',
-          url: 'https://tidd.ly/48iRAwH',
+          url: affiliates.northwest,
         },
         {
           label: 'Bizee LLC formation offer',
-          url: 'https://tidd.ly/3R7biWu',
+          url: affiliates.bizee,
         },
         {
           label: 'Northwest registered agent service',
-          url: 'https://tidd.ly/48iRAwH',
+          url: affiliates.northwest,
         },
         {
           label: 'Bizee registered agent service',
-          url: 'https://tidd.ly/3R7biWu',
+          url: affiliates.bizee,
         },
       ],
     },
@@ -512,11 +512,11 @@ export const comparisons: ServiceComparison[] = [
       sources: [
         {
           label: 'Northwest LLC cost page',
-          url: 'https://tidd.ly/48iRAwH',
+          url: affiliates.northwest,
         },
         {
           label: 'Northwest registered agent service',
-          url: 'https://tidd.ly/48iRAwH',
+          url: affiliates.northwest,
         },
         {
           label: 'LegalZoom LLC overview',

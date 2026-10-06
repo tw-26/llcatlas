@@ -21,28 +21,33 @@ const { serviceA, serviceB } = comparison;
 const winner = comparison.winner === 'A' ? serviceA : serviceB;
 const loser = comparison.winner === 'A' ? serviceB : serviceA;
 const winnerKey = comparison.winner === 'A' ? 'serviceA' : 'serviceB';
+const sourcePath = Astro.url.pathname;
 const serviceAQuickLinkAttributes = getAffiliateLinkAttributes({
   href: serviceA.affiliateUrl,
   partnerName: serviceA.name,
   pageType: 'comparison',
+  sourcePath,
   position: 'comparison-quick-table-service-a',
 });
 const serviceBQuickLinkAttributes = getAffiliateLinkAttributes({
   href: serviceB.affiliateUrl,
   partnerName: serviceB.name,
   pageType: 'comparison',
+  sourcePath,
   position: 'comparison-quick-table-service-b',
 });
 const loserHeroLinkAttributes = getAffiliateLinkAttributes({
   href: loser.affiliateUrl,
   partnerName: loser.name,
   pageType: 'comparison',
+  sourcePath,
   position: 'comparison-hero-secondary',
 });
 const loserFinalLinkAttributes = getAffiliateLinkAttributes({
   href: loser.affiliateUrl,
   partnerName: loser.name,
   pageType: 'comparison',
+  sourcePath,
   position: 'comparison-final-secondary',
 });
 const getResearchSourceAttributes = (sourceLabel: string, sourceUrl: string, index: number) => {
@@ -62,6 +67,7 @@ const getResearchSourceAttributes = (sourceLabel: string, sourceUrl: string, ind
     href: sourceUrl,
     partnerName: sourcePartner.name,
     pageType: 'comparison',
+    sourcePath,
     position: `comparison-source-${index + 1}`,
   });
 };

@@ -9,14 +9,53 @@
  * so the lookup stays type-safe.
  */
 
+import type { USStateCode } from './states/types';
+
 export type AffiliatePartner = 'bizee' | 'northwest' | 'zenbusiness' | 'legalzoom';
 
+const AWIN_PUBLISHER_ID = '2866567';
+
+const awinAdvertiserIds = {
+  bizee: '88819',
+  northwest: '66946',
+  zenbusiness: '102801',
+} as const;
+
+/**
+ * Builds a direct Awin tracking link. Use full links rather than `tidd.ly`
+ * short links so `clickref` parameters reach Awin's transaction report.
+ */
+export const buildAwinLink = (advertiserId: string, destination: string): string => {
+  const url = new URL('https://www.awin1.com/cread.php');
+  url.searchParams.set('awinmid', advertiserId);
+  url.searchParams.set('awinaffid', AWIN_PUBLISHER_ID);
+  url.searchParams.set('ued', destination);
+  return url.toString();
+};
+
 export const affiliates: Record<AffiliatePartner, string> = {
-  bizee: 'https://tidd.ly/3R7biWu',
-  northwest: 'https://tidd.ly/48iRAwH',
-  zenbusiness: 'https://tidd.ly/43n8x64',
+  bizee: buildAwinLink(awinAdvertiserIds.bizee, 'https://orders.bizee.com/form-order-now.php'),
+  northwest: buildAwinLink(
+    awinAdvertiserIds.northwest,
+    'https://www.northwestregisteredagent.com/incorporation-service-signup?e=LLC',
+  ),
+  zenbusiness: buildAwinLink(
+    awinAdvertiserIds.zenbusiness,
+    'https://www.zenbusiness.com/shop/llc/business-state',
+  ),
   legalzoom: 'https://www.legalzoom.com/',
 };
+
+/**
+ * Northwest registered-agent-only order with the state preselected. Pays the
+ * registered agent commission, not the formation one, so use it only on pages
+ * where the reader is buying an agent.
+ */
+export const getNorthwestRegisteredAgentUrl = (state: USStateCode): string =>
+  buildAwinLink(
+    awinAdvertiserIds.northwest,
+    `https://www.northwestregisteredagent.com/signup?st=${state}`,
+  );
 
 export const affiliateStatus: Record<AffiliatePartner, 'affiliate' | 'plain'> = {
   bizee: 'affiliate',
