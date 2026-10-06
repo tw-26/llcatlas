@@ -53,7 +53,13 @@ Export a `StateOverride` named in camelCase (e.g. `newJersey`). Match Washington
 - `seoDescription`: one sentence with the real fee and the state's main trap. Aim for under 160 characters.
 - `intro`: filing agency, document name, fee, the ongoing obligations, and the one practical warning for this state.
 - `steps`: 6–8 steps in filing order, each with the specific state rules, not generic advice.
-- `costBreakdown`: every required and optional state cost, plus two emphasized totals ("bare minimum DIY" and "typical first year with commercial agent").
+- `costBreakdown`: every required and optional state cost, plus two emphasized totals ("bare minimum DIY" and "typical first year with commercial agent"). This table renders on the cost page, not the guide.
+- `costPage`: drives `/llc/{slug}/cost/` and the cost summary on the guide. Required for every ready state (the test enforces it). Copy the shape of Washington's block:
+  - `seoTitle`: `` `{State} LLC Cost (${GUIDE_YEAR}): $X to Form, $Y/Year` ``, where X is `formTotal` and Y appears in `annualDisplay`.
+  - `formTotal`: required state fees to form, cheapest filing method. `annualDisplay`: the recurring cost as it should read in a summary box (`'$70/yr'`, `'$32 every 2 years'`, `'$0'`).
+  - `yearOneTotal`: what the reader pays in year one if they follow `verdict` and serve as their own agent. `yearTwoTotal`: required cost in year two. Short notes for each.
+  - `schedule` (4–6 rows of what you pay and when), one decisive `verdict`, 4–5 cost-intent `faq` entries, and 3–4 `sourceUrls` copied exactly from `officialLinks`.
+- `trap` (optional): the one state-specific cost or filing first-time founders miss, shown as a callout under the quick facts. `sectionId` must match a `sections` id.
 - `faq`: 10–14 questions phrased the way people search: cost, filing fee, how long, agency, document name, registered agent, being your own agent, operating agreement, annual report, publication, business license, taxes, non-residents, BOI. Add any from the GSC queries noted in step 1.
 - `comparisonRows`: this state, 2–3 neighboring states, plus Wyoming and Delaware. Only use numbers you verified or that already appear in another ready guide. Neighbors that are ready guides get linked automatically.
 - `taxHighlights` (3–5), `proscons` (4–5 each), `officialLinks` (5+, all https, pointing to the exact pages you used).
@@ -74,7 +80,7 @@ Internal links are automatic once the state is ready: homepage selector, `/best-
 ## 5. Check
 
 - Run `npx vitest run src/data/states`. Fix every failure; don't loosen the test.
-- Run `npm run build` and confirm `/llc/{slug}/` is generated.
+- Run `npm run build` and confirm `/llc/{slug}/` and `/llc/{slug}/cost/` are generated.
 
 ## 6. Report back
 
@@ -83,7 +89,7 @@ End with:
 1. **Fact sheet**: the table from step 2 with values and source URLs.
 2. **Needs your eyes**: every unverified or conflicting fact, and anything that changes on a known date (e.g. a new tax rate on January 1).
 3. **Before you deploy**: open the 3–5 most important source links and confirm the filing fee, annual report fee and due date, and any franchise tax minimum.
-4. **After you deploy**: request indexing for `https://llcatlas.com/llc/{slug}/` in Google Search Console.
+4. **After you deploy**: request indexing for `https://llcatlas.com/llc/{slug}/` and `https://llcatlas.com/llc/{slug}/cost/` in Google Search Console.
 
 Never describe a fact as verified if you didn't read it on an official page in this session.
 
