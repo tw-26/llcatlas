@@ -44,6 +44,10 @@ export const california: StateOverride = {
       url: 'https://www.sos.ca.gov/business-programs/business-entities/faqs',
     },
     {
+      label: 'Private service companies, including registered corporate agents',
+      url: 'https://www.sos.ca.gov/business-programs/private-service-companies',
+    },
+    {
       label: 'Agent for service of process law (Corporations Code 17701.13)',
       url: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CORP&sectionNum=17701.13',
     },
@@ -480,7 +484,7 @@ export const california: StateOverride = {
     ],
     paidAgent: [
       "A paid agent in California has to be a corporation that has filed a 1505 certificate with the Secretary of State, listing its California office and the employees allowed to accept court papers. Your filing then shows only its name, which keeps your address off the agent line. Before you file, get the agent's exact registered name from the provider and check it on bizfile's Business Search, because the form has to match. Mainstream providers charge $50 to $200 a year.",
-      "Northwest charges $125 a year with no per-document fees and scans the mail it receives for you. It doesn't change anything else in California: you still owe the $800 annual tax and the $20 Statement of Information. If you live in California and already have a business address, you don't need it.",
+      "Northwest is a registered 1505 corporate agent in California. On the form, select the corporate agent option and enter its name exactly as NORTHWEST REGISTERED AGENT, INC., with no address. It charges $125 a year with no per-document fees and scans the mail it receives for you. It doesn't change anything else in California: you still owe the $800 annual tax and the $20 Statement of Information. If you live in California and already have a business address, you don't need it.",
     ],
     verdict:
       "If you live in California and have a business address that isn't your home, be your own agent for service of process and keep the $125. Everyone else, including anyone who would list a home address or lives outside California, should hire a 1505 corporate agent. Our pick is Northwest: $125 a year, no per-document fees, and only its name on your filing instead of your address.",

@@ -37,6 +37,7 @@ export const oregon: StateOverride = {
     },
     { label: 'Annual report or renewal', url: 'https://sos.oregon.gov/business/pages/obr-annual-report-renewal.aspx' },
     { label: 'Reinstate a dissolved business', url: 'https://sos.oregon.gov/business/register/Pages/reinstate-a-business.aspx' },
+    { label: 'Business Registry filing fees (ORS 56.140)', url: 'https://www.oregonlegislature.gov/bills_laws/ors/ors056.html' },
     {
       label: 'Registered agents and service of process',
       url: 'https://sos.oregon.gov/business/pages/registered-agents-service-of-process.aspx',
@@ -144,7 +145,7 @@ export const oregon: StateOverride = {
     "Most Oregon LLCs are pass-through entities, so profit is taxed on the owners' Oregon returns at 4.75% to 9.9% (2026). There is no LLC franchise tax and no sales tax. Portland and Multnomah County add local taxes on net business income for businesses that operate there.",
   annualReportDue: 'Every year on the anniversary of the date the LLC was filed',
   annualReportNote:
-    '$100 per year. The state mails or emails a renewal notice about 45 days ahead. If you miss it, the Secretary of State can dissolve the LLC after a 45-day notice; reinstatement within 5 years costs a reinstatement fee plus every missed $100 renewal.',
+    '$100 per year. The state mails or emails a renewal notice about 45 days ahead. If you miss it, the Secretary of State can dissolve the LLC after a 45-day notice; reinstatement within 5 years costs a $100 reinstatement fee plus every missed $100 renewal.',
   requiresOperatingAgreement: false,
   requiresPublication: false,
   steps: [
@@ -223,7 +224,7 @@ export const oregon: StateOverride = {
         {
           label: 'Reinstatement',
           detail:
-            'Within 5 years of dissolution, most LLCs can reinstate online by updating their information and paying a reinstatement fee plus each missed $100 annual fee, as long as the name is still available. Reinstatement applies back to the dissolution date. After 5 years, you need special forms and proof the business kept operating.',
+            'Within 5 years of dissolution, most LLCs can reinstate online by updating their information and paying a $100 reinstatement fee plus each missed $100 annual fee, as long as the name is still available. Reinstatement applies back to the dissolution date. After 5 years, you need special forms and proof the business kept operating.',
         },
       ],
       paragraphs: [
@@ -323,7 +324,7 @@ export const oregon: StateOverride = {
         cost: 'No late fee',
         due: "Oregon's fee schedule lists no late fee. The state can dissolve the LLC after a 45-day notice.",
       },
-      { item: 'Reinstatement', cost: 'Varies', due: 'Only if dissolved. A reinstatement fee plus every missed $100 renewal, within 5 years.' },
+      { item: 'Reinstatement', cost: '$100 + missed renewals', due: 'Only if dissolved. $100 plus every missed $100 renewal, within 5 years.' },
       {
         item: 'Portland and Multnomah County business taxes',
         cost: '2.6% + 2%',
@@ -347,7 +348,7 @@ export const oregon: StateOverride = {
       {
         question: 'What happens if I miss the Oregon annual report?',
         answer:
-          "Oregon's fee schedule doesn't list a late fee. Instead, the Secretary of State can administratively dissolve the LLC after giving you 45 days' notice to fix it. Within 5 years, most LLCs can reinstate online by paying a reinstatement fee plus each missed $100 annual fee.",
+          "Oregon's fee schedule doesn't list a late fee. Instead, the Secretary of State can administratively dissolve the LLC after giving you 45 days' notice to fix it. Within 5 years, most LLCs can reinstate online by paying a $100 reinstatement fee plus each missed $100 annual fee. One missed year costs $200 to fix.",
       },
       {
         question: 'Do I owe Portland or Multnomah County taxes on my LLC?',
@@ -409,7 +410,7 @@ export const oregon: StateOverride = {
       {
         label: 'No agent',
         detail:
-          'Grounds for administrative dissolution after a 45-day notice. Reinstatement within 5 years is a reinstatement fee plus every missed $100 annual fee.',
+          'Grounds for administrative dissolution after a 45-day notice. Reinstatement within 5 years is $100 plus every missed $100 annual fee.',
       },
       {
         label: 'If nobody can be served',
@@ -419,7 +420,7 @@ export const oregon: StateOverride = {
     ],
     lapse: [
       "Yes. Oregon requires every LLC to keep a registered agent and registered office in the state at all times. The agent receives lawsuits, and the Corporation Division mails renewal and late notices to the registered office unless you've given it a separate mailing address. If a process server can't find your agent, they can serve the Secretary of State instead, and the state doesn't tell you or your agent. The Secretary of State warns this can end in a default judgment against your LLC.",
-      "If your agent quits, they file a signed resignation with the state and mail you a copy, and the appointment ends on the 31st day after it's filed. Having no agent, or not telling the state your agent changed, is grounds for administrative dissolution. Oregon sends written notice first and gives you 45 days to fix it. Reinstating within five years means paying a reinstatement fee plus every missed $100 annual fee. The state's fee schedule doesn't list the reinstatement fee itself.",
+      "If your agent quits, they file a signed resignation with the state and mail you a copy, and the appointment ends on the 31st day after it's filed. Having no agent, or not telling the state your agent changed, is grounds for administrative dissolution. Oregon sends written notice first and gives you 45 days to fix it. Reinstating within five years means paying a $100 reinstatement fee plus every missed $100 annual fee, so one missed year costs $200.",
     ],
     selfAgent: [
       "You can be your own agent if you live in Oregon and have a physical Oregon street address where you keep a business office and can be handed papers in person during normal business hours. You, as the owner, can serve; the LLC can't name itself. The Secretary of State says you don't have to pay a third party. It's free.",
@@ -507,7 +508,7 @@ export const oregon: StateOverride = {
     },
     {
       item: 'Reinstatement after administrative dissolution',
-      cost: 'Reinstatement fee + missed $100 renewals',
+      cost: '$100 + missed $100 renewals',
       required: 'Only if dissolved',
       notes: 'Online within 5 years of dissolution',
     },
@@ -579,7 +580,7 @@ export const oregon: StateOverride = {
     {
       question: 'When is the Oregon LLC annual report due?',
       answer:
-        "Every year on the anniversary of the date your Articles were filed. It costs $100. The state sends a notice about 45 days ahead. Not receiving it doesn't excuse a late report. If you don't file, the Secretary of State can dissolve the LLC after a 45-day notice. Reinstatement within 5 years means paying a reinstatement fee plus every missed $100 renewal.",
+        "Every year on the anniversary of the date your Articles were filed. It costs $100. The state sends a notice about 45 days ahead. Not receiving it doesn't excuse a late report. If you don't file, the Secretary of State can dissolve the LLC after a 45-day notice. Reinstatement within 5 years means paying a $100 reinstatement fee plus every missed $100 renewal.",
     },
     {
       question: 'Does Oregon require newspaper publication for an LLC?',
