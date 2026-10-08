@@ -34,7 +34,7 @@ export const buildAwinLink = (advertiserId: string, destination: string): string
 };
 
 export const affiliates: Record<AffiliatePartner, string> = {
-  bizee: buildAwinLink(awinAdvertiserIds.bizee, 'https://orders.bizee.com/form-order-now.php'),
+  bizee: buildAwinLink(awinAdvertiserIds.bizee, 'https://orders.bizee.com/form-order-now.php?entityType=LLC'),
   northwest: buildAwinLink(
     awinAdvertiserIds.northwest,
     'https://www.northwestregisteredagent.com/incorporation-service-signup?e=LLC',
@@ -55,6 +55,13 @@ export const getNorthwestRegisteredAgentUrl = (state: USStateCode): string =>
   buildAwinLink(
     awinAdvertiserIds.northwest,
     `https://www.northwestregisteredagent.com/signup?st=${state}`,
+  );
+
+/** Bizee LLC order with the state preselected (`entityState` is the parameter Bizee reads). */
+export const getBizeeOrderUrl = (state: USStateCode): string =>
+  buildAwinLink(
+    awinAdvertiserIds.bizee,
+    `https://orders.bizee.com/form-order-now.php?entityType=LLC&entityState=${state}`,
   );
 
 export const affiliateStatus: Record<AffiliatePartner, 'affiliate' | 'plain'> = {

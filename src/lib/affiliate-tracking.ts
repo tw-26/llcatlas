@@ -29,7 +29,8 @@ export const getAffiliatePageType = (pathname: string): AffiliatePageType => {
   if (
     pathname === '/best-llc-services/' ||
     pathname === '/best-llc-services' ||
-    pathname.includes('-vs-')
+    pathname.includes('-vs-') ||
+    /-review\/?$/.test(pathname)
   ) {
     return 'comparison';
   }

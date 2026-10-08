@@ -169,7 +169,7 @@ export const nevada: StateOverride = {
         {
           label: 'Registered agent',
           detail:
-            "Required, at a Nevada street address. If you don't live in Nevada, that means a commercial agent. Renewal runs about $119 to $125 a year with the services we track.",
+            "Required, at a Nevada street address. If you don't live in Nevada, that means a commercial agent. Renewal runs about $125 to $149 a year with the services we track.",
         },
         {
           label: 'Taxes',
@@ -303,7 +303,7 @@ export const nevada: StateOverride = {
       {
         question: 'How much does an LLC cost in Nevada?',
         answer:
-          "$425 to form: $75 for the Articles of Organization, $150 for the Initial List, and $200 for the State Business License. You can't file the Articles alone. After that, it's $350 a year. A commercial registered agent adds about $119 to $125 a year with the services we track.",
+          "$425 to form: $75 for the Articles of Organization, $150 for the Initial List, and $200 for the State Business License. You can't file the Articles alone. After that, it's $350 a year. A commercial registered agent adds about $125 to $149 a year with the services we track.",
       },
       {
         question: 'What is the Nevada LLC annual fee?',
@@ -323,7 +323,7 @@ export const nevada: StateOverride = {
       {
         question: 'How much is a registered agent in Nevada?',
         answer:
-          "Free if you serve yourself: you need a Nevada street address where you're available during business hours, and that address goes on the public record. A commercial registered agent runs about $119 to $125 a year with the services we track, and out-of-state owners need one.",
+          "Free if you serve yourself: you need a Nevada street address where you're available during business hours, and that address goes on the public record. A commercial registered agent runs about $125 to $149 a year with the services we track, and out-of-state owners need one.",
       },
     ],
     sourceUrls: [
@@ -339,7 +339,7 @@ export const nevada: StateOverride = {
     seoDescription:
       'Every Nevada LLC needs an agent at a Nevada street address. Who can serve themselves, what a commercial agent costs, and the $60 filing to switch.',
     intro:
-      "Every Nevada LLC needs a registered agent with a physical Nevada street address, available during normal business hours to receive legal papers. If you live in Nevada and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you'll pay a commercial registered agent, about $119 to $125 a year with the services we track. Switching agents later costs $60, and if your agent quits, you have 31 days to replace it before the LLC goes into default.",
+      "Every Nevada LLC needs a registered agent with a physical Nevada street address, available during normal business hours to receive legal papers. If you live in Nevada and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you'll pay a commercial registered agent, about $125 to $149 a year with the services we track. Switching agents later costs $60, and if your agent quits, you have 31 days to replace it before the LLC goes into default.",
     facts: [
       { label: 'What Nevada calls it', detail: 'Registered agent (NRS Chapter 77 and NRS 86.231).' },
       {
@@ -383,7 +383,7 @@ export const nevada: StateOverride = {
       "If you live outside Nevada and have no address there, you can't be your own agent. You can name a friend or relative who lives in Nevada, but they take on the job: staying available at that address and forwarding lawsuits and state notices to you quickly.",
     ],
     paidAgent: [
-      "A commercial registered agent gives your LLC a Nevada street address, receives lawsuits and state notices, and forwards them to you. Any agent serving 10 or more entities has to register with the Secretary of State, and when you name one, the filing lists only its name; its address comes from that registration. The services we track charge $119 to $125 a year.",
+      "A commercial registered agent gives your LLC a Nevada street address, receives lawsuits and state notices, and forwards them to you. Any agent serving 10 or more entities has to register with the Secretary of State, and when you name one, the filing lists only its name; its address comes from that registration. The services we track charge $125 to $149 a year.",
       "Northwest charges $125 a year with no per-document fees, and its Nevada address goes on the public record instead of yours. It won't make your LLC anonymous: Nevada still publishes your managers or managing members on the Initial and Annual Lists, whoever your agent is. If you live in Nevada and already have a business address, you don't need it.",
     ],
     verdict:
@@ -408,7 +408,7 @@ export const nevada: StateOverride = {
       {
         question: 'How much does a registered agent cost in Nevada?',
         answer:
-          'Nothing if you serve yourself. The services we track charge $119 to $125 a year; Northwest charges $125 with no per-document fees. Changing agents costs $60 in state fees.',
+          'Nothing if you serve yourself. The services we track charge $125 to $149 a year; Northwest charges $125 with no per-document fees. Changing agents costs $60 in state fees.',
       },
       {
         question: 'Can I use a P.O. box for my Nevada registered agent?',
@@ -449,7 +449,7 @@ export const nevada: StateOverride = {
     { item: 'Name reservation', cost: '$25', required: 'Optional', notes: 'Holds the name for 90 days' },
     {
       item: 'Registered agent service',
-      cost: '$0 if you qualify / about $119-$125/yr commercial',
+      cost: '$0 if you qualify / about $125-$149/yr commercial',
       required: 'Yes (agent); commercial optional for residents',
       notes: 'Non-residents need a commercial agent',
     },
@@ -513,7 +513,7 @@ export const nevada: StateOverride = {
     {
       question: 'How much does it cost to start an LLC in Nevada?',
       answer:
-        "$425 in state fees: $75 for the Articles of Organization, $150 for the Initial List of Managers or Managing Members, and $200 for the State Business License, all filed together. After that, it's $350 a year for the Annual List and business license renewal. A commercial registered agent adds about $119 to $125 a year with the services we track, and most businesses also pay a city or county license fee.",
+        "$425 in state fees: $75 for the Articles of Organization, $150 for the Initial List of Managers or Managing Members, and $200 for the State Business License, all filed together. After that, it's $350 a year for the Annual List and business license renewal. A commercial registered agent adds about $125 to $149 a year with the services we track, and most businesses also pay a city or county license fee.",
     },
     {
       question: 'What is the Nevada LLC filing fee?',

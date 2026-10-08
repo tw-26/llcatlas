@@ -1,4 +1,5 @@
 import { comparisons } from '../../data/comparisons';
+import { reviews } from '../../data/reviews';
 import { states } from '../../data/states';
 import {
   getPublishedStatePages,
@@ -151,12 +152,32 @@ const stateCostEntries: OgImageEntry[] = states
     }),
   );
 
+const stateRegisteredAgentEntries: OgImageEntry[] = states
+  .filter((state) => state.contentStatus === 'ready' && state.registeredAgentPage)
+  .map((state) =>
+    createEntry({
+      path: `/llc/${state.slug}/registered-agent/`,
+      title: state.registeredAgentPage!.seoTitle,
+      description: state.registeredAgentPage!.seoDescription,
+      eyebrow: `${state.name} registered agent`,
+    }),
+  );
+
 const comparisonEntries: OgImageEntry[] = comparisons.map((comparison) =>
   createEntry({
     path: `/${comparison.slug}/`,
     title: comparison.meta.title,
     description: comparison.meta.description,
     eyebrow: 'Service comparison',
+  }),
+);
+
+const reviewEntries: OgImageEntry[] = reviews.map((review) =>
+  createEntry({
+    path: `/${review.slug}/`,
+    title: review.seoTitle,
+    description: review.seoDescription,
+    eyebrow: 'Service review',
   }),
 );
 
@@ -200,7 +221,9 @@ export const ogImageEntries: OgImageEntry[] = [
   ...staticEntries,
   ...stateGuideEntries,
   ...stateCostEntries,
+  ...stateRegisteredAgentEntries,
   ...comparisonEntries,
+  ...reviewEntries,
   ...taxStateEntries,
   ...professionEntries,
   ...comboEntries,

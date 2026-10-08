@@ -260,7 +260,7 @@ export const delaware: StateOverride = {
         {
           label: 'Registered agent',
           detail:
-            "Mandatory, and you can't do it yourself unless you're a Delaware resident or the LLC has a Delaware office. Commercial agents typically renew around $119 to $125 a year with the services we track. You'll usually need an agent in your home state too, which you can often be yourself.",
+            "Mandatory, and you can't do it yourself unless you're a Delaware resident or the LLC has a Delaware office. Commercial agents typically renew around $125 to $149 a year with the services we track. You'll usually need an agent in your home state too, which you can often be yourself.",
         },
         {
           label: 'Taxes',
@@ -360,7 +360,7 @@ export const delaware: StateOverride = {
       {
         question: 'How much does an LLC cost in Delaware?',
         answer:
-          "$110 to file the Certificate of Formation, then a $400 annual tax every June 1 for the year before. If the business operates in Delaware, add a state business license, usually $75 a year. If you don't live in Delaware, add a commercial registered agent (about $119 to $125 a year with the services we track) and your home state's foreign registration fees.",
+          "$110 to file the Certificate of Formation, then a $400 annual tax every June 1 for the year before. If the business operates in Delaware, add a state business license, usually $75 a year. If you don't live in Delaware, add a commercial registered agent (about $125 to $149 a year with the services we track) and your home state's foreign registration fees.",
       },
       {
         question: 'When is the Delaware $400 LLC tax due, and what if I pay late?',
@@ -380,7 +380,7 @@ export const delaware: StateOverride = {
       {
         question: 'How much is a registered agent in Delaware?',
         answer:
-          "Free if you're a Delaware resident or the LLC has a Delaware office and serves as its own agent. Everyone else needs a commercial agent, typically about $119 to $125 a year with the services we track. The agent also receives the annual tax notice, so pick one that forwards mail reliably.",
+          "Free if you're a Delaware resident or the LLC has a Delaware office and serves as its own agent. Everyone else needs a commercial agent, typically about $125 to $149 a year with the services we track. The agent also receives the annual tax notice, so pick one that forwards mail reliably.",
       },
     ],
     sourceUrls: [
@@ -396,7 +396,7 @@ export const delaware: StateOverride = {
     seoDescription:
       'Every Delaware LLC needs an agent at a Delaware street address. Who can be their own, what a paid agent costs, the $50 switch, and why non-residents pay twice.',
     intro:
-      "Every Delaware LLC needs a registered agent at a Delaware street address, where someone is generally present to accept legal papers. If you live in Delaware and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you can't serve, so you'll pay a commercial agent, about $119 to $125 a year with the services we track. That agent also receives the statement for your $400 annual tax. Switching agents later costs $50.",
+      "Every Delaware LLC needs a registered agent at a Delaware street address, where someone is generally present to accept legal papers. If you live in Delaware and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you can't serve, so you'll pay a commercial agent, about $125 to $149 a year with the services we track. That agent also receives the statement for your $400 annual tax. Switching agents later costs $50.",
     facts: [
       { label: 'What Delaware calls it', detail: 'Registered agent, at a registered office (6 Del. C. § 18-104).' },
       {
@@ -437,7 +437,7 @@ export const delaware: StateOverride = {
       "If you live outside Delaware, you can't be your own agent. You can name a friend or relative who lives there, but they have to agree first and take on the job: staying reachable at a Delaware address, forwarding lawsuits and the tax statement quickly, and keeping your LLC's contact person on file, as the statute requires of every agent.",
     ],
     paidAgent: [
-      "A commercial agent gives your LLC a Delaware street address, receives legal papers and state mail, and forwards them to you, usually as same-day scans. The services we track charge $119 to $125 a year. Delaware requires any agent serving more than 50 entities to hold a Delaware business license and keep an office open during business hours with a person there. The Division of Corporations publishes a list of agents but makes no promises about them, so treat it as a starting point.",
+      "A commercial agent gives your LLC a Delaware street address, receives legal papers and state mail, and forwards them to you, usually as same-day scans. The services we track charge $125 to $149 a year. Delaware requires any agent serving more than 50 entities to hold a Delaware business license and keep an office open during business hours with a person there. The Division of Corporations publishes a list of agents but makes no promises about them, so treat it as a starting point.",
       "Northwest charges $125 a year with no per-document fees, and its Delaware address goes on the public record instead of yours. In Delaware the agent also forwards your annual tax statement, so a reliable one protects you from a missed June 1 as well as a missed lawsuit. If you live in Delaware and already have a business address, you don't need it.",
     ],
     verdict:
@@ -462,7 +462,7 @@ export const delaware: StateOverride = {
       {
         question: 'How much does a registered agent cost in Delaware?',
         answer:
-          'Nothing if you serve yourself. The services we track charge $119 to $125 a year. Northwest charges $125 a year with no per-document fees. Changing agents costs $50 in state fees.',
+          'Nothing if you serve yourself. The services we track charge $125 to $149 a year. Northwest charges $125 a year with no per-document fees. Changing agents costs $50 in state fees.',
       },
       {
         question: 'Can I use a P.O. box or virtual office for my Delaware registered agent?',
@@ -492,7 +492,7 @@ export const delaware: StateOverride = {
     { item: 'Name reservation', cost: '$75', required: 'Optional', notes: 'Holds the name for 120 days' },
     {
       item: 'Registered agent service',
-      cost: '$0 if you qualify / about $119-$125/yr commercial',
+      cost: '$0 if you qualify / about $125-$149/yr commercial',
       required: 'Yes (agent); commercial optional for residents',
       notes: 'Non-residents must hire one',
     },
@@ -552,7 +552,7 @@ export const delaware: StateOverride = {
     {
       question: 'How much does it cost to start an LLC in Delaware?',
       answer:
-        "$110 to file the Certificate of Formation. After that, every Delaware LLC pays a $400 annual tax by June 1 for the prior year. If the business operates in Delaware, add a state business license, usually $75 a year. If you don't live in Delaware, add a commercial registered agent (about $119 to $125 a year with the services we track) plus your home state's foreign registration fees.",
+        "$110 to file the Certificate of Formation. After that, every Delaware LLC pays a $400 annual tax by June 1 for the prior year. If the business operates in Delaware, add a state business license, usually $75 a year. If you don't live in Delaware, add a commercial registered agent (about $125 to $149 a year with the services we track) plus your home state's foreign registration fees.",
     },
     {
       question: 'What is the Delaware LLC filing fee?',

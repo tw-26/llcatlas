@@ -1,0 +1,288 @@
+---
+import AffiliateButton from './affiliate-button.astro';
+import SiteLayout from '../layouts/site-layout.astro';
+import type { ProviderReview, ReviewCall } from '../data/reviews';
+
+interface Props {
+  review: ProviderReview;
+}
+
+const { review } = Astro.props;
+
+const pageUrl = `https://llcatlas.com/${review.slug}/`;
+
+const lastVerifiedLabel = new Date(`${review.lastVerified}T00:00:00Z`).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+
+const callLabel: Record<ReviewCall, string> = {
+  buy: 'Buy',
+  skip: 'Skip',
+  depends: 'Only if needed',
+};
+const callClass: Record<ReviewCall, string> = {
+  buy: 'bg-accent-soft text-accent-ink',
+  skip: 'bg-surface-subtle text-ink-soft border border-rule',
+  depends: 'bg-surface-warm text-ink-strong border border-accent-soft',
+};
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: review.h1,
+    description: review.seoDescription,
+    author: { '@type': 'Organization', name: 'LLCAtlas', url: 'https://llcatlas.com' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+      logo: { '@type': 'ImageObject', url: 'https://llcatlas.com/logo.svg' },
+    },
+    datePublished: review.lastVerified,
+    dateModified: review.lastVerified,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+    about: { '@type': 'Organization', name: review.partnerName },
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://llcatlas.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Best LLC services', item: 'https://llcatlas.com/best-llc-services/' },
+      { '@type': 'ListItem', position: 3, name: review.h1, item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: review.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+---
+
+<SiteLayout title={review.seoTitle} description={review.seoDescription} ogType="article" structuredData={structuredData}>
+  <section class="space-y-8">
+    <div class="space-y-6">
+      <nav aria-label="Breadcrumb" class="text-[14px] text-ink-muted">
+        <a href="/best-llc-services/" class="underline decoration-rule-strong underline-offset-4 hover:decoration-ink-soft">
+          Best LLC services
+        </a>
+        <span aria-hidden="true" class="mx-1.5">/</span>
+        <span>{review.partnerName} review</span>
+      </nav>
+      <h1>{review.h1}</h1>
+      <p class="text-[13px] uppercase tracking-[0.08em] text-ink-muted">
+        Last verified <time datetime={review.lastVerified}>{lastVerifiedLabel}</time>
+      </p>
+      <p class="llc-section-copy text-ink-soft">{review.intro}</p>
+    </div>
+
+    <div class="llc-card-highlight space-y-5 !rounded-[1.5rem] !p-6 sm:!p-8">
+      <div class="space-y-3">
+        <p class="llc-helper">Our verdict</p>
+        <h2>{review.verdict.headline}</h2>
+        <p class="llc-section-copy text-ink-soft">{review.verdict.body}</p>
+      </div>
+      <div class="space-y-3">
+        <AffiliateButton href={review.cta.href} label={review.cta.label} partnerName={review.partnerName} placement="hero" size="lg" />
+        <p class="text-base leading-7 text-ink-soft">{review.cta.note}</p>
+      </div>
+      <p class="text-[12px] leading-5 text-ink-muted">Affiliate link &mdash; LLCAtlas may earn a commission.</p>
+    </div>
+
+    <dl class="grid gap-px overflow-hidden rounded-[14px] border border-rule bg-rule sm:grid-cols-3">
+      {review.costSummary.map((item) => (
+        <div class="bg-surface px-5 py-5 sm:px-6">
+          <dt class="llc-helper">{item.label}</dt>
+          <dd class="mt-2 text-2xl font-semibold leading-snug text-ink-strong tabular-nums">{item.value}</dd>
+          <dd class="mt-2 text-base leading-7 text-ink-soft">{item.note}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section id="plans" class="scroll-mt-24 space-y-5">
+    <div class="space-y-4">
+      <h2>Which {review.partnerName} plan to buy</h2>
+      <p class="llc-section-copy">{review.plansIntro}</p>
+    </div>
+    <div class="grid gap-5 md:grid-cols-3">
+      {review.plans.map((plan) => (
+        <article class={['space-y-4', plan.call === 'buy' ? 'llc-card-highlight' : 'llc-card'].join(' ')}>
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3>{plan.name}</h3>
+              <p class="mt-1 text-lg font-semibold text-ink-strong tabular-nums">{plan.price}</p>
+            </div>
+            <span class={['shrink-0 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em]', callClass[plan.call]].join(' ')}>
+              {callLabel[plan.call]}
+            </span>
+          </div>
+          <ul class="llc-bullet-list text-ink-soft">
+            {plan.includes.map((item) => <li>{item}</li>)}
+          </ul>
+          <p class="border-t border-rule pt-4 text-[1.0625rem] leading-[1.7] text-ink-strong">{plan.note}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="checkout" class="scroll-mt-24 space-y-5">
+    <div class="space-y-4">
+      <h2>What to decline at checkout</h2>
+      <p class="llc-section-copy">{review.checkoutIntro}</p>
+    </div>
+    <ul class="llc-card !space-y-0 !p-0 divide-y divide-rule">
+      {review.checkout.map((item) => (
+        <li class="grid gap-2 px-5 py-5 sm:grid-cols-[minmax(0,14rem)_1fr] sm:gap-6 sm:px-6">
+          <div class="space-y-2">
+            <p class="font-semibold text-ink-strong">{item.offer}</p>
+            <p class="text-[15px] text-ink-soft tabular-nums">{item.price}</p>
+            <span class={['inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em]', callClass[item.call]].join(' ')}>
+              {callLabel[item.call]}
+            </span>
+          </div>
+          <p class="text-[1.0625rem] leading-[1.72] text-ink-soft">{item.note}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="renewals" class="scroll-mt-24 space-y-5">
+    <div class="space-y-4">
+      <h2>What renews, and how to stop it</h2>
+      <p class="llc-section-copy">{review.renewalsIntro}</p>
+    </div>
+    <ul class="llc-card !space-y-0 !p-0 divide-y divide-rule">
+      {review.renewals.map((row) => (
+        <li class="grid gap-2 px-5 py-5 sm:grid-cols-[minmax(0,14rem)_1fr] sm:gap-6 sm:px-6">
+          <div class="space-y-1">
+            <p class="font-semibold text-ink-strong">{row.item}</p>
+            <p class="text-lg font-semibold text-ink-strong tabular-nums">{row.cost}</p>
+            <p class="text-[15px] text-ink-soft">{row.when}</p>
+          </div>
+          <p class="text-[1.0625rem] leading-[1.72] text-ink-soft">{row.howToAvoid}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="grid gap-y-8 border-y border-rule py-7 md:grid-cols-2 md:gap-x-12 md:gap-y-0 md:divide-x md:divide-rule">
+    <div class="space-y-4 md:pr-2">
+      <h2 class="text-xl">{review.partnerName} fits if</h2>
+      <ul class="llc-bullet-list text-ink-soft">
+        {review.goodFit.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+    <div class="space-y-4 md:pl-12">
+      <h2 class="text-xl">Look elsewhere if</h2>
+      <ul class="llc-bullet-list text-ink-soft">
+        {review.poorFit.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <h2>How {review.partnerName} compares</h2>
+    <div class="grid gap-5 md:grid-cols-2">
+      {review.matchups.map((matchup) => (
+        <article class="llc-card-subtle space-y-3">
+          <h3>{matchup.heading}</h3>
+          <p class="text-[1.0625rem] leading-[1.72] text-ink-soft">{matchup.body}</p>
+          <a
+            href={matchup.href}
+            class="inline-flex min-h-11 items-center gap-1.5 text-[15px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+          >
+            {matchup.linkLabel}
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="llc-card-highlight space-y-5 !rounded-[1.5rem] !p-6 sm:!p-8">
+    <p class="llc-helper">Bottom line</p>
+    <h2>Should you use {review.partnerName}?</h2>
+    <p class="llc-section-copy text-ink-soft">{review.finalVerdict}</p>
+    <AffiliateButton href={review.cta.href} label={review.cta.label} partnerName={review.partnerName} placement="final" size="lg" />
+    <p class="text-[12px] leading-5 text-ink-muted">Affiliate link &mdash; LLCAtlas may earn a commission.</p>
+  </section>
+
+  <section class="space-y-5">
+    <h2>FAQ</h2>
+    <div class="space-y-5">
+      {review.faq.map((item) => (
+        <details class="group llc-card !p-0">
+          <summary class="flex cursor-pointer items-start justify-between gap-4 px-5 py-5 text-lg font-semibold text-ink-strong sm:px-6">
+            <span>{item.question}</span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="mt-2 h-3.5 w-3.5 shrink-0 text-ink-muted transition group-open:rotate-180"
+            >
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="border-t border-rule px-5 py-5 sm:px-6">
+            <p class="llc-section-copy text-ink-soft">{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="grid gap-8 border-t border-rule pt-8 md:grid-cols-2">
+    <div class="space-y-3">
+      <h2 class="text-xl">How we checked</h2>
+      <p class="text-base leading-7 text-ink-soft">
+        Prices come from {review.partnerName}'s own pages and order form on {lastVerifiedLabel}. What we couldn't confirm:
+      </p>
+      <ul class="llc-bullet-list text-ink-soft">
+        {review.gaps.map((gap) => <li>{gap}</li>)}
+      </ul>
+      <ul class="!space-y-0 divide-y divide-rule border-y border-rule">
+        {review.sources.map((source) => (
+          <li>
+            <a
+              href={source.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex min-h-11 items-center py-3 text-[15px] font-semibold text-ink-strong underline decoration-transparent underline-offset-4 transition hover:decoration-ink-soft"
+            >
+              {source.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="space-y-3">
+      <h2 class="text-xl">Related</h2>
+      <ul class="!space-y-0 divide-y divide-rule border-y border-rule">
+        {review.related.map((link) => (
+          <li>
+            <a href={link.href} class="group flex min-h-11 flex-col justify-center gap-0.5 py-3">
+              <span class="text-[15px] font-semibold text-ink-strong underline decoration-transparent underline-offset-4 transition group-hover:decoration-ink-soft">
+                {link.label}
+              </span>
+              <span class="text-[14px] leading-6 text-ink-soft">{link.description}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</SiteLayout>

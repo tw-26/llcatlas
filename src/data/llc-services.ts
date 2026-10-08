@@ -41,6 +41,7 @@ export type LlcService = {
   ctaLabel: string;
   affiliateUrl: string;
   sources: string[];
+  reviewHref?: string;
 };
 
 export type ServiceComparison = {
@@ -78,11 +79,11 @@ export const llcServices: LlcService[] = [
     headlinePrice: 0,
     headlinePriceLabel: '$0 + state fee',
     advertisedPriceNote:
-      'Bizee advertises a free LLC filing tier and currently says each formation package includes one free year of registered agent service.',
+      'Bizee advertises a free LLC filing tier and says each formation package includes one free year of registered agent service and one free month of virtual address service. Bizee prices re-checked October 2026.',
     registeredAgentFirstYear: 0,
     registeredAgentLabel: 'Included free for year 1',
-    registeredAgentRenewal: 119,
-    registeredAgentRenewalLabel: '$119/yr after year 1',
+    registeredAgentRenewal: 149,
+    registeredAgentRenewalLabel: '$149/yr after year 1',
     processingTime: 'Varies by state and checkout selections',
     bestFor: 'Founders who care most about year-one cost',
     checkoutExperience: 'Heavy',
@@ -101,8 +102,13 @@ export const llcServices: LlcService[] = [
     commonUpsells: [
       {
         label: 'Registered agent renewal',
-        cost: '$119/yr',
-        notes: 'Kicks in after the free first year if you keep the service.',
+        cost: '$149/yr',
+        notes: 'Charged automatically to the card on file after the free first year unless you appoint a new agent and tell Bizee before it ends.',
+      },
+      {
+        label: 'Virtual address',
+        cost: '$29/mo after the free first month',
+        notes: 'Included with every package. Cancel it before the free month ends if you do not need a mailing address.',
       },
       {
         label: 'Standard plan upgrade',
@@ -118,12 +124,12 @@ export const llcServices: LlcService[] = [
     pros: [
       'Lowest verified year-one total in this group.',
       'First-year registered agent service is currently bundled with formation.',
-      'Stand-alone registered agent renewal is cheaper than ZenBusiness or LegalZoom.',
+      'Registered agent renewal is cheaper than ZenBusiness or LegalZoom.',
     ],
     cons: [
+      'Registered agent renews at $149/yr, $24 more than Northwest.',
+      'The included virtual address costs $29/mo after the free first month.',
       'The sales flow still leans hard on upgrades.',
-      'The free plan keeps only the bare minimum included.',
-      'If you hate checkout friction, Northwest is easier to trust.',
     ],
     ourTake: [
       'If you want the cheapest legally complete path and you are willing to say no to the upsells, Bizee currently wins on the numbers.',
@@ -136,6 +142,7 @@ export const llcServices: LlcService[] = [
     ctaLabel: 'Start with Bizee',
     affiliateUrl: affiliates.bizee,
     sources: [affiliates.bizee],
+    reviewHref: '/bizee-review/',
   },
   {
     slug: 'northwest',
@@ -422,9 +429,9 @@ export const choiceRecommendations: ChoiceRecommendation[] = [
   },
   {
     prompt: 'I want a registered agent only',
-    recommendation: 'Bizee or Northwest, depending on what you value',
+    recommendation: 'Northwest Registered Agent',
     details:
-      'Bizee\'s current standalone registered agent price is lower, while Northwest still has the stronger privacy-first and support-first positioning.',
+      'Northwest charges $125 a year with no per-document fees. Bizee\'s standalone registered agent is $149 a year.',
   },
   {
     prompt: 'I only trust a household name',

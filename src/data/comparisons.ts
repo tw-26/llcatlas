@@ -158,7 +158,7 @@ export const comparisons: ServiceComparison[] = [
         'First-year registered agent service is included with formation.',
         'The checkout is cleaner and less upgrade-driven than Bizee.',
         'Privacy is central to the product instead of a side benefit.',
-        'Registered agent renewal is $125 per year, close to Bizee while coming with a stronger support story.',
+        'Registered agent renewal is $125 per year, $24 less than Bizee.',
       ],
       cons: [
         'Bizee is cheaper in year one if its free registered agent bundle still applies.',
@@ -172,11 +172,11 @@ export const comparisons: ServiceComparison[] = [
       name: 'Bizee',
       shortName: 'Bizee',
       yearOneTotal: 0,
-      yearTwoTotal: 119,
+      yearTwoTotal: 149,
       headlinePrice: '$0 + state fee',
       registeredAgentIncluded: true,
       registeredAgentCost: 'Included free for year 1',
-      registeredAgentRenewal: '$119/yr',
+      registeredAgentRenewal: '$149/yr',
       processingSpeed: 'Varies by state and checkout selections',
       upsellLevel: 'Heavy',
       privacyProtection: true,
@@ -184,15 +184,15 @@ export const comparisons: ServiceComparison[] = [
       pros: [
         'Lowest verified year-one cost in the current LLCAtlas service data.',
         'First-year registered agent service is currently bundled with formation.',
-        'Registered agent renewal is slightly cheaper than Northwest.',
+        'Standard ($199) bundles EIN filing and an operating agreement if you want those done for you.',
       ],
       cons: [
+        'Registered agent renews at $149 per year, $24 more than Northwest.',
+        'The included virtual address becomes $29 per month after the free first month.',
         'The checkout leans harder on upgrades.',
-        'The free plan keeps the included feature set bare-bones.',
-        'The better price comes with more buying friction.',
       ],
       affiliateUrl: affiliates.bizee,
-      lastVerified: '2026-05-23',
+      lastVerified: '2026-10-07',
     },
     winner: 'A',
     winnerReason:
@@ -207,14 +207,15 @@ export const comparisons: ServiceComparison[] = [
       whyWinnerWins: [
         'Northwest wins because the user experience is calmer. The whole LLC formation market is full of teaser pricing and add-ons; Northwest is the easier recommendation when the user is anxious and does not want to decode every checkout screen.',
         'The privacy story is stronger. Both providers can help keep a home address off the filing by acting as registered agent, but Northwest makes privacy part of its core pitch instead of treating it like one more feature in a bundle.',
-        'The renewal gap is small enough that the checkout quality matters. Bizee renews registered agent service at $119 per year in the current data, while Northwest is $125 per year. Saving $6 per year is not worth choosing a rougher buying path for most first-time founders.',
+        'Bizee\'s price lead ends after year one. Bizee renews registered agent service at $149 per year; Northwest renews at $125. By the end of year two, Bizee has saved you $15, and every year after that Northwest is $24 cheaper.',
         'Bizee still deserves credit. If the user is comfortable ignoring upsells and wants the lowest verified year-one cost, Bizee is the rational budget pick. That is why this page does not bury the price advantage.',
       ],
       costNarrative: [
         'Northwest starts at $39 plus the state fee and includes the first year of registered agent service. That makes the practical year-one service cost $39 before state fees for most first-time formations.',
         'Bizee starts at $0 plus the state fee and currently includes one free year of registered agent service. On raw year-one math, Bizee wins.',
-        'Year two is nearly a tie. Bizee registered agent renewal is currently listed at $119 per year. Northwest renewal is $125 per year. That $6 difference is not enough to override the qualitative differences for most users.',
-        'The real decision is not whether $0 is less than $39. It is whether saving $39 upfront is worth a heavier checkout and a thinner included package. For a careful first-time founder, Northwest is usually the better default.',
+        'Year two flips. Bizee registered agent renewal is $149 per year. Northwest renewal is $125 per year. Over two years, Bizee costs $149 and Northwest costs $164, a $15 difference. From year three on, Northwest is cheaper.',
+        'Bizee also includes a free first month of virtual address service, which becomes $29 per month if you keep it. Cancel it in the first month unless you need a mailing address.',
+        'The real decision is not whether $0 is less than $39. It is whether saving $15 over two years is worth a heavier checkout and a higher renewal. For a careful first-time founder, Northwest is usually the better default.',
       ],
       finalVerdict:
         'Northwest is the better pick for most first-time founders comparing these two. Bizee is the cheaper budget play, and it is a valid choice if you can ignore upsells. But if you want the service we would point an anxious first-time LLC owner to, choose Northwest.',
@@ -232,7 +233,7 @@ export const comparisons: ServiceComparison[] = [
         {
           question: 'Which has cheaper registered agent renewal?',
           answer:
-            'Bizee is slightly cheaper in the current data: $119 per year versus Northwest at $125 per year. The difference is only $6 per year, so it should not be the main deciding factor.',
+            'Northwest: $125 per year versus Bizee at $149 per year. Bizee charges the renewal automatically to the card on file unless you appoint a new agent and tell Bizee before the year ends.',
         },
         {
           question: 'Which has fewer upsells?',
@@ -252,7 +253,7 @@ export const comparisons: ServiceComparison[] = [
         'Northwest vs Bizee: Bizee is cheaper in year one, but Northwest is the safer default for privacy, cleaner checkout, and lower-stress LLC formation.',
       primaryKeyword: 'northwest vs bizee',
       h1: `Northwest vs Bizee (${GUIDE_YEAR})`,
-      lastUpdated: '2026-05-23',
+      lastUpdated: '2026-10-07',
     },
     methodology: {
       lastResearched: '2026-05-23',
@@ -286,12 +287,12 @@ export const comparisons: ServiceComparison[] = [
     detailedRows: [
       { feature: 'Formation price', serviceA: '$39 + state fee', serviceB: '$0 + state fee' },
       { feature: 'Registered agent year 1', serviceA: 'Included for 1 year', serviceB: 'Included free for year 1' },
-      { feature: 'Registered agent renewal', serviceA: '$125/yr', serviceB: '$119/yr' },
+      { feature: 'Registered agent renewal', serviceA: '$125/yr', serviceB: '$149/yr' },
       { feature: 'Checkout pressure', serviceA: 'Low', serviceB: 'Higher; more upgrade-driven' },
       { feature: 'Best reason to choose it', serviceA: 'Cleaner, lower-stress default', serviceB: 'Lowest verified year-one cost' },
       { feature: 'Main drawback', serviceA: 'Costs $39 more upfront', serviceB: 'More upsell friction' },
       { feature: 'Real year-1 total', serviceA: '$39 + state fee', serviceB: '$0 + state fee', isTotal: true },
-      { feature: 'Real year-2 total', serviceA: '$125', serviceB: '$119', isTotal: true },
+      { feature: 'Real year-2 total', serviceA: '$125', serviceB: '$149', isTotal: true },
     ],
     winnerAdvantages: [
       {
@@ -305,9 +306,9 @@ export const comparisons: ServiceComparison[] = [
           'Both services can serve as registered agent, but Northwest has built its brand around privacy and not selling customer data. That matters when the user is forming from a home address.',
       },
       {
-        heading: 'The renewal difference is too small to drive the decision',
+        heading: 'Northwest is cheaper from year two on',
         body:
-          'Bizee renewal is currently $119 and Northwest is $125. If year two is nearly a tie, the better checkout and trust story should carry more weight.',
+          'Northwest renews at $125 a year and Bizee at $149. Bizee\'s $39 head start shrinks to $15 by the end of year two and is gone in year three.',
       },
     ],
     loserAdvantages: [
@@ -323,6 +324,11 @@ export const comparisons: ServiceComparison[] = [
       },
     ],
     relatedGuides: [
+      {
+        href: '/bizee-review/',
+        label: 'Read the full Bizee review',
+        description: 'Which Bizee plan to buy, which checkout add-ons to skip, and what renews after year one.',
+      },
       {
         href: '/best-llc-services/',
         label: 'See the full LLC service ranking',
@@ -641,7 +647,7 @@ export const comparisons: ServiceComparison[] = [
       whyWinnerWins: [
         'Bizee wins on the number that matters for a first-time founder: real year-one cost before state fees. Its entry offer is $0 plus state fee and currently includes registered agent service for the first year.',
         'ZenBusiness still advertises a $0 Starter package, but the registered agent is not included on that path. Once the registered agent is added, the practical year-one cost moves above Bizee.',
-        'Registered agent renewal also favors Bizee in the current LLCAtlas data. Bizee lists $119 per year after year one, while ZenBusiness renews at $199 per year.',
+        'Registered agent renewal also favors Bizee. Bizee charges $149 per year after year one, while ZenBusiness renews at $199 per year.',
         'The tradeoff is buying friction. Bizee is cheaper, but the user needs to stay alert and avoid extras that do not solve a real formation problem.',
       ],
       costNarrative: [
@@ -666,7 +672,7 @@ export const comparisons: ServiceComparison[] = [
         {
           question: 'Which has cheaper registered agent renewal?',
           answer:
-            'Bizee is cheaper in the current data: $119 per year after the first year versus ZenBusiness at $199 per year.',
+            'Bizee: $149 per year after the first year versus ZenBusiness at $199 per year.',
         },
         {
           question: 'Which one should a first-time founder choose?',
@@ -681,7 +687,7 @@ export const comparisons: ServiceComparison[] = [
         'Bizee vs ZenBusiness: Bizee wins on real year-one LLC formation cost because registered agent service is currently bundled.',
       primaryKeyword: 'bizee vs zenbusiness',
       h1: `Bizee vs ZenBusiness (${GUIDE_YEAR})`,
-      lastUpdated: '2026-06-02',
+      lastUpdated: '2026-10-07',
     },
     methodology: {
       lastResearched: '2026-04-26',
@@ -707,12 +713,12 @@ export const comparisons: ServiceComparison[] = [
     detailedRows: [
       { feature: 'Formation price', serviceA: '$0 + state fee', serviceB: '$0 + state fee' },
       { feature: 'Registered agent year 1', serviceA: 'Included free for year 1', serviceB: '$99 on Starter' },
-      { feature: 'Registered agent renewal', serviceA: '$119/yr', serviceB: '$199/yr' },
+      { feature: 'Registered agent renewal', serviceA: '$149/yr', serviceB: '$199/yr' },
       { feature: 'Checkout pressure', serviceA: 'Higher; more upgrade-driven', serviceB: 'Moderate' },
       { feature: 'Best reason to choose it', serviceA: 'Lowest real year-one cost', serviceB: 'More familiar platform feel' },
       { feature: 'Main drawback', serviceA: 'More upsell friction', serviceB: 'Registered agent adds cost' },
       { feature: 'Real year-1 total', serviceA: '$0 + state fee', serviceB: '$99 + state fee', isTotal: true },
-      { feature: 'Real year-2 total', serviceA: '$119', serviceB: '$199', isTotal: true },
+      { feature: 'Real year-2 total', serviceA: '$149', serviceB: '$199', isTotal: true },
     ],
     winnerAdvantages: [
       {
@@ -723,7 +729,7 @@ export const comparisons: ServiceComparison[] = [
       {
         heading: 'The renewal gap matters too',
         body:
-          'Bizee renewal is currently $119 per year in the LLCAtlas data. ZenBusiness renewal is $199 per year. That gap compounds if the user keeps the service for several years.',
+          'Bizee renewal is $149 per year. ZenBusiness renewal is $199 per year. That $50 gap repeats every year you keep the service.',
       },
     ],
     loserAdvantages: [
@@ -739,6 +745,11 @@ export const comparisons: ServiceComparison[] = [
       },
     ],
     relatedGuides: [
+      {
+        href: '/bizee-review/',
+        label: 'Read the full Bizee review',
+        description: 'Which Bizee plan to buy, which checkout add-ons to skip, and what renews after year one.',
+      },
       {
         href: '/best-llc-services/',
         label: 'See the full LLC service ranking',

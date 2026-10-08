@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { affiliates, getNorthwestRegisteredAgentUrl } from '../data/affiliates';
+import { affiliates, getBizeeOrderUrl, getNorthwestRegisteredAgentUrl } from '../data/affiliates';
 import { getAffiliateLinkAttributes, getPageClickRef, withAwinClickRefs } from './affiliate-links';
 
 describe('affiliate links', () => {
@@ -16,6 +16,15 @@ describe('affiliate links', () => {
     const url = new URL(affiliates.northwest);
     expect(url.searchParams.get('ued')).toBe(
       'https://www.northwestregisteredagent.com/incorporation-service-signup?e=LLC',
+    );
+  });
+
+  it('opens Bizee on the LLC order form, with the state when given', () => {
+    expect(new URL(affiliates.bizee).searchParams.get('ued')).toBe(
+      'https://orders.bizee.com/form-order-now.php?entityType=LLC',
+    );
+    expect(new URL(getBizeeOrderUrl('TX')).searchParams.get('ued')).toBe(
+      'https://orders.bizee.com/form-order-now.php?entityType=LLC&entityState=TX',
     );
   });
 

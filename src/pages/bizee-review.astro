@@ -1,0 +1,8 @@
+---
+import ReviewPageLayout from '../components/review-page-layout.astro';
+import { getReview } from '../data/reviews';
+
+const review = getReview('bizee-review');
+---
+
+<ReviewPageLayout review={review} />

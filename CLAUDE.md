@@ -70,6 +70,7 @@ Full writer brief, with examples and a self-edit checklist: `.claude/voice.md`. 
 - `/self-employment-tax/calculator/`, `/self-employment-tax/[state]/`, `/self-employment-tax/1099/[profession]/`, `/self-employment-tax/1099/[profession]/[state]/` — tax calculator pages. Data in `src/data/tax/`.
 - `/s-corp/election-calculator/`, `/s-corp/reasonable-compensation/` — S-corp calculators.
 - `/best-llc-services/`, `/[service-a]-vs-[service-b]/` — comparison (money) pages. Data in `src/data/comparisons.ts`, `src/data/llc-services.ts`.
+- `/[provider]-review/` — single-provider reviews (money pages, tracked as `data-page-type="comparison"`). Data in `src/data/reviews/{provider}.ts`, registered in `src/data/reviews/index.ts`, rendered by `src/components/review-page-layout.astro` from a three-line page in `src/pages/`. Shared prices come from `llc-services.ts`; `reviews.test.ts` fails if they drift.
 - `/llc-vs-s-corp/`, `/llc-vs-sole-proprietorship/`, `/best-state/` — decision pages.
 - `/calculators/*` — legacy routes. They are noindex meta-refresh redirects to the hub routes. Don't link to them or add new ones.
 - New calculators live inside their topic hub, never under `/calculators/` or `/tools/`.

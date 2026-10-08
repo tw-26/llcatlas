@@ -420,7 +420,7 @@ export const washington: StateOverride = {
         {
           label: '"$0" formation services',
           detail:
-            "Bizee and ZenBusiness advertise $0 plus the state fee, so you pay the $200 either way. Bizee includes the first year of registered agent service, then charges $119 a year. ZenBusiness's $0 Starter plan has no registered agent; adding one costs $99 the first year, then $199 a year.",
+            "Bizee and ZenBusiness advertise $0 plus the state fee, so you pay the $200 either way. Bizee includes the first year of registered agent service, then charges $149 a year. ZenBusiness's $0 Starter plan has no registered agent; adding one costs $99 the first year, then $199 a year.",
         },
       ],
       paragraphs: [
