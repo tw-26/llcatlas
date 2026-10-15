@@ -6,7 +6,7 @@ export const maryland: StateOverride = {
   seoTitle: `How to Start an LLC in Maryland (${GUIDE_YEAR}): $100–$150 Fee, Steps & Timeline`,
   seoDescription:
     'Form a Maryland LLC for $100 (plus 3% online), or $150 to skip the 6-8 week wait. Then the $300 annual report due April 15 and the resident agent rules.',
-  lastUpdated: '2026-09-25',
+  lastUpdated: '2026-10-14',
   intro:
     "A Maryland LLC costs $100 to file with standard review, which takes 6-8 weeks, or $150 with expedited review. Paying online adds a 3% fee. You file Articles of Organization with the State Department of Assessments and Taxation (SDAT), not the Secretary of State, and Maryland calls the required agent a resident agent. There's no publication requirement. The cost to plan around is the $300 Annual Report / Personal Property Return, due every April 15. After approval, get a free EIN, open a business bank account, and check whether your business needs a Trader's License or industry permit. Maryland doesn't require an operating agreement, but writing one is still worth it.",
   whatYoullNeed:
@@ -19,6 +19,14 @@ export const maryland: StateOverride = {
     "If you don't want your home address on SDAT records, use a professional Maryland resident agent instead of listing yourself.",
   officialLinks: [
     { label: 'File your Maryland LLC online', url: 'https://businessexpress.maryland.gov/' },
+    {
+      label: 'Maryland Corporations and Associations Article',
+      url: 'https://mgaleg.maryland.gov/2026RS/Statute_Web/gca/gca.pdf',
+    },
+    {
+      label: 'Maryland LLC resident agent (Corporations and Associations § 4A-210)',
+      url: 'https://mgaleg.maryland.gov/2025RS/Statute_Web/gca/4A-210.pdf',
+    },
     { label: 'Search Maryland business names', url: 'https://egov.maryland.gov/BusinessExpress/EntitySearch' },
     {
       label: 'Download Maryland Articles of Organization',
@@ -133,7 +141,7 @@ export const maryland: StateOverride = {
     {
       title: 'Choose a Maryland resident agent',
       description:
-        'Maryland calls this role a resident agent, not a statutory agent. The agent can be a Maryland resident age 18 or older, or a corporation or LLC formed in Maryland, and must have a physical Maryland street address. P.O. boxes do not qualify. You can be your own resident agent if you are a Maryland resident with a real Maryland address, but your address becomes public and you need to be reachable during normal business hours. A professional resident agent is the cleaner default for home-based founders, non-Maryland residents, and anyone who wants fewer address headaches.',
+        'Maryland calls this role a resident agent. The agent must be an individual who lives in Maryland, or a Maryland corporation, LLC, or limited partnership, and you need their written consent. The LLC also needs a principal office in Maryland. You can serve yourself if you live in Maryland. Changing the agent costs $25. If the agent resigns and you have not named a successor, the resignation takes effect 10 days after it is filed with SDAT.',
     },
     {
       title: 'File Articles of Organization with SDAT',
@@ -428,6 +436,104 @@ export const maryland: StateOverride = {
       'https://egov.maryland.gov/BusinessExpress/Payment/FeesSchedule',
       'https://dat.maryland.gov/businesses/Pages/default.aspx',
       'https://dat.maryland.gov/businesses/Pages/Frequently-Asked-Forfeiture-Questions.aspx',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-14',
+    seoTitle: `Maryland Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Maryland calls this a resident agent, and the principal office has to be in Maryland too. Who qualifies, and the $25 filing to switch.',
+    intro:
+      "Maryland calls this a resident agent. Every Maryland LLC needs one, and it also needs a principal office in Maryland. The agent must live in Maryland, or be a Maryland corporation, LLC, or limited partnership, and must consent in writing. If you live in Maryland and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you can't serve, so you'll pay a commercial agent, usually $100 to $150 a year. Switching agents costs $25. If the agent resigns and you haven't named a successor, the resignation takes effect 10 days after it is filed.",
+    facts: [
+      {
+        label: 'What Maryland calls it',
+        detail: 'Resident agent. Maryland does not use “statutory agent” or “registered agent” on the filing.',
+      },
+      {
+        label: 'Who can serve',
+        detail:
+          'An individual who lives in Maryland, or a Maryland corporation, limited liability company, or limited partnership (Corporations and Associations § 1-101). A company that is only registered in Maryland, and formed somewhere else, does not qualify.',
+      },
+      {
+        label: 'Principal office',
+        detail:
+          'Separate from the agent. Every Maryland LLC must also have a principal office in Maryland (§ 4A-210). The Articles list both.',
+      },
+      {
+        label: 'Consent',
+        detail:
+          'You need the agent’s written consent before naming them (§ 1-208). File the consent with SDAT unless SDAT waives that. If it is waived, certify that you have it, keep a copy, and provide it if asked.',
+      },
+      {
+        label: 'Change of agent',
+        detail:
+          '$25. A statement signed by an authorized person, filed with SDAT. It is effective when SDAT accepts it. The same $25 covers a change of the principal office.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail:
+          'No fee (§ 1-208). The agent files a signed resignation. It takes effect when filed if you have already named a successor. If you have not, it takes effect 10 days after filing, unless the resignation names a later date.',
+      },
+      {
+        label: 'Service',
+        detail: 'Legal papers served on the resident agent are service on the LLC.',
+      },
+    ],
+    lapse: [
+      'Yes. Maryland requires every LLC to have a resident agent, and a principal office in the state. Lawsuits are served on the resident agent. If that person is gone and nobody has replaced them, papers have nowhere reliable to land.',
+      'A resignation takes effect the day it is filed if you have already named a successor. If you have not, it takes effect 10 days later. That is a short window. Name the next agent before the current one files. Maryland’s forfeiture process, the one that takes away the right to do business and the name, is tied to unpaid taxes and a missed annual report, not to a separate missing-agent clock in § 4A-210.',
+    ],
+    selfAgent: [
+      "You can be your own agent if you live in Maryland. It's free. You sign a written consent, and the Articles list your name and address. The LLC still needs a principal office in Maryland, which can be the same place.",
+      "What it costs you is privacy. That address goes on SDAT's public record. If it is your home, anyone who looks up the LLC can find where you live, and legal papers are served there. If you have a shop or office in Maryland, use that address and skip the fee.",
+      "If you live outside Maryland, you can't be your own agent, and you still need a Maryland principal office. A friend or relative who lives in Maryland can serve, but they have to consent in writing. A commercial agent has to be a Maryland corporation, LLC, or limited partnership, not a company that was formed in another state and only registered here.",
+    ],
+    paidAgent: [
+      "A commercial agent gives your LLC a Maryland address, receives legal papers, and forwards them to you, usually as same-day scans. Mainstream providers charge $100 to $150 a year. The company itself has to be formed in Maryland. A firm based elsewhere qualifies only through a Maryland corporation, LLC, or limited partnership.",
+      "Northwest charges $125 a year with no per-document fees, and its Maryland address goes on the public record instead of yours. That's what you're paying for: a Maryland agent and someone who will scan a lawsuit the day it arrives. If you live in Maryland and already have a business address, you don't need it. You still need a Maryland principal office either way.",
+    ],
+    verdict:
+      "If you live in Maryland and have a business address that isn't your home, be your own resident agent and keep the $125. Everyone else, including every founder who lives outside Maryland, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours. You still need a principal office in Maryland.",
+    changeAgent: [
+      'File a statement with SDAT, signed by an authorized person, designating the new resident agent. The fee is $25, and the change is effective when SDAT accepts it. The same filing can change the principal office.',
+      "Get the new agent's written consent first. Don't cancel the old agent until SDAT's record shows the new one. If the old agent resigns before that, you have 10 days before the resignation takes effect.",
+    ],
+    faq: [
+      {
+        question: 'Do I need a registered agent in Maryland?',
+        answer:
+          'Yes. Maryland calls the role a resident agent. Every Maryland LLC has to have one, plus a principal office in Maryland. The agent must live in Maryland or be a Maryland corporation, LLC, or limited partnership.',
+      },
+      {
+        question: 'Can I be my own resident agent in Maryland?',
+        answer:
+          "Yes, if you live in Maryland. It's free, and you sign a written consent. The address goes on SDAT's record. You still need a principal office in Maryland. Non-residents can't serve as their own agent.",
+      },
+      {
+        question: 'How much does a resident agent cost in Maryland?',
+        answer:
+          'Nothing if you serve yourself. Mainstream commercial agents charge $100 to $150 a year. Northwest charges $125 a year with no per-document fees. Changing agents costs $25. A resignation has no fee.',
+      },
+      {
+        question: 'Does Maryland require a principal office and a resident agent?',
+        answer:
+          'Yes, both, and both have to be in Maryland. The principal office is the LLC’s office. The resident agent is the person or Maryland company that accepts legal papers. They can be the same address. They are not the same job.',
+      },
+      {
+        question: 'How do I change my resident agent in Maryland?',
+        answer:
+          'Get the new agent’s written consent, then file a statement with SDAT signed by an authorized person. The fee is $25, and it is effective when SDAT accepts it.',
+      },
+      {
+        question: 'What happens if my Maryland resident agent resigns?',
+        answer:
+          'They file a signed resignation. There is no fee. It takes effect when filed if you already named a successor, and 10 days after filing if you did not. Appoint the next agent before that window closes.',
+      },
+    ],
+    sourceUrls: [
+      'https://mgaleg.maryland.gov/2026RS/Statute_Web/gca/gca.pdf',
+      'https://mgaleg.maryland.gov/2025RS/Statute_Web/gca/4A-210.pdf',
     ],
   },
   costBreakdown: [

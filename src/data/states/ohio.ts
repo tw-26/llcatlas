@@ -6,7 +6,7 @@ export const ohio: StateOverride = {
   seoTitle: `How to Start an LLC in Ohio (${GUIDE_YEAR}): $99 Fee, Steps & Timeline`,
   seoDescription:
     'File an Ohio LLC (Form 610) for $99, approved in 3-7 business days, with no annual report to file after. Statutory agent rules and the add-ons to skip.',
-  lastUpdated: '2026-09-23',
+  lastUpdated: '2026-10-14',
   intro:
     "An Ohio LLC costs $99 to file. You file Articles of Organization (Form 610) with the Ohio Secretary of State and appoint a statutory agent, which is Ohio's term for a registered agent. Standard Ohio LLCs don't file an annual report, and there's no newspaper publication requirement. The main decision is whether to be your own statutory agent, which is free but puts your address on the public record.",
   whatYoullNeed:
@@ -22,6 +22,14 @@ export const ohio: StateOverride = {
     { label: 'Check Ohio name availability', url: 'https://businesssearch.ohiosos.gov/' },
     { label: 'Download Form 610', url: 'https://www.ohiosos.gov/assets/610.pdf' },
     { label: 'Ohio business filing forms and fee schedule', url: 'https://www.ohiosos.gov/business/business-filing-forms' },
+    {
+      label: 'Ohio business filing forms and fees',
+      url: 'https://www.ohiosos.gov/businesses/filing-forms--fee-schedule/',
+    },
+    {
+      label: 'Statutory agent for an Ohio LLC (ORC 1706.09)',
+      url: 'https://codes.ohio.gov/ohio-revised-code/section-1706.09',
+    },
     { label: 'Required filings to keep an Ohio business active', url: 'https://www.ohiosos.gov/business/keep-your-active-status' },
     { label: 'Ohio Commercial Activity Tax (CAT)', url: 'https://tax.ohio.gov/business/ohio-business-taxes/commercial-activities' },
     {
@@ -62,7 +70,7 @@ export const ohio: StateOverride = {
     {
       title: 'Appoint a statutory agent',
       description:
-        'Ohio calls this role a statutory agent, but it is the same concept most states call a registered agent. The agent must be an Ohio resident or a business with an Ohio address. PO boxes and virtual mailbox addresses (commercial mail receiving agencies) do not qualify, and the agent must sign an acceptance on the form. You can serve as your own agent if you are an Ohio resident and you are comfortable putting your address on the public filing. If the agent or address changes later, file the update within 30 days.',
+        'Ohio calls this role a statutory agent. It is the same job most states call a registered agent. The agent must be an Ohio resident, or a business authorized in Ohio whose usual place of business is an Ohio address open during normal business hours. A P.O. box does not qualify, and the agent must sign an acceptance. You can serve yourself if you live in Ohio. Changing the agent costs $25. If you let the agent lapse, the Secretary of State mails a notice, and the articles are canceled 30 days later unless you fix it.',
     },
     {
       title: 'File Form 610 with the Ohio Secretary of State',
@@ -132,6 +140,112 @@ export const ohio: StateOverride = {
       'https://www.ohiosos.gov/business/business-filing-forms',
       'https://www.ohiosos.gov/business/keep-your-active-status',
       'https://tax.ohio.gov/business/ohio-business-taxes/commercial-activities',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-14',
+    seoTitle: `Ohio Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Ohio calls this a statutory agent. Who can be their own, what a paid agent costs, and the $25 filing to switch before the LLC is canceled.',
+    intro:
+      "Ohio calls this a statutory agent. Every Ohio LLC needs one: an Ohio resident, or a business authorized in Ohio with an Ohio address where legal papers can be delivered. The agent has to sign an acceptance. If you live in Ohio and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you can't serve, so you'll pay a commercial agent, usually $49 to $250 a year. Switching agents costs $25. If the agent lapses, the Secretary of State mails a notice, and the articles are canceled 30 days later unless you fix it.",
+    facts: [
+      {
+        label: 'What Ohio calls it',
+        detail: 'Statutory agent (ORC 1706.09). Ohio does not use “registered agent” on the filing.',
+      },
+      {
+        label: 'Who can serve',
+        detail:
+          'An Ohio resident, or a corporation, LLC, or other business entity that has an Ohio address and is authorized to do business in Ohio.',
+      },
+      {
+        label: 'Address rule',
+        detail:
+          'An individual lists the street address of their Ohio residence. A company lists its usual place of business: a place customarily open during normal business hours, with someone there who can accept service. A P.O. box does not qualify, even if it has a street address attached.',
+      },
+      {
+        label: 'Acceptance',
+        detail: 'The agent signs a written acceptance of the appointment. The Secretary of State will not accept the Articles without it.',
+      },
+      {
+        label: 'Change of agent',
+        detail: '$25. Statutory Agent Update, Form 521, online through Ohio Business Central or by mail.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail:
+          'The agent files a signed notice and mails you a copy on or before that filing date. Their authority ends 30 days after the notice is filed. Form 521 covers a resignation, and the fee schedule lists it at $25.',
+      },
+      {
+        label: 'If the agent lapses',
+        detail:
+          'The Secretary of State mails notice to the email on file, or to the address on the resignation. You have 30 days from that mailing to fix it. After that, the articles are canceled.',
+      },
+      {
+        label: 'Reinstatement',
+        detail: '$25, Form 525A, and only within two years of the cancellation. The filing has to appoint an agent again.',
+      },
+      {
+        label: 'If nobody is there',
+        detail:
+          'If the agent cannot be found, or the LLC has no agent, the person suing can serve the Secretary of State. That takes an affidavit, four copies of the papers, and a $5 fee. The Secretary of State then sends a copy to the LLC by certified mail.',
+      },
+    ],
+    lapse: [
+      'Yes. Ohio requires every LLC to continuously keep a statutory agent in the state. Lawsuits and notices are delivered to that agent’s Ohio address, or to the agent in person if the agent is an individual. If the agent cannot be found, or the LLC has no agent, the person suing can serve the Secretary of State instead, after filing an affidavit and paying $5. The Secretary of State mails a copy to the LLC by certified mail. If nobody opens it, the case can move forward without you knowing about it.',
+      'If the agent dies, resigns, or moves out of Ohio, appoint a new one right away. If you don’t keep an agent, or you don’t file an address change, the Secretary of State mails a notice. You have 30 days from that mailing to fix it. After that, the articles are canceled. You can reinstate within two years by filing Form 525A, appointing an agent, and paying $25.',
+    ],
+    selfAgent: [
+      "You can be your own agent if you live in Ohio. You list the street address of your Ohio residence, and you sign the acceptance. It's free.",
+      "What it costs you is privacy and availability. That address goes on the Secretary of State's public record, and a process server can deliver papers there. If they can't find you, they can serve the Secretary of State instead. If the address is your home, anyone who looks up the LLC can find where you live. If you have a shop or office in Ohio that is open during normal business hours, a company you control can serve instead and keep your home off the form.",
+      "If you live outside Ohio, you can't be your own agent. You can name a friend or relative who lives there, but they have to sign the acceptance and stay at that Ohio address. If they resign, their authority ends 30 days after they file, and you need a replacement before the Secretary of State's 30-day cancellation clock runs out.",
+    ],
+    paidAgent: [
+      "A commercial agent gives your LLC an Ohio address that stays open during normal business hours, receives legal papers, and forwards them to you, usually as same-day scans. Mainstream providers charge $49 to $250 a year. The company has to be authorized to do business in Ohio. A P.O. box, even one with a street address, does not qualify as its place of business.",
+      "Northwest charges $125 a year with no per-document fees, and its Ohio address goes on the public record instead of yours. That's what you're paying for: an in-state address someone is actually at, and a scan of a lawsuit the day it arrives. If you live in Ohio and already have a business address, you don't need it.",
+    ],
+    verdict:
+      "If you live in Ohio and have a business address that isn't your home, be your own statutory agent and keep the $125. Everyone else, including every founder who lives outside Ohio, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      'File a Statutory Agent Update, Form 521, with the Ohio Secretary of State. The fee is $25. You can file it online through Ohio Business Central. The form appoints the new agent and includes their signed acceptance. It also revokes the old appointment.',
+      "Sign up with the new agent first, since the filing needs their acceptance and Ohio address. Don't cancel the old agent until the Secretary of State's record shows the new one. If the old agent resigns, you have 30 days from their filing before their authority ends, and a separate 30-day clock starts if the Secretary of State has to mail you a notice.",
+    ],
+    faq: [
+      {
+        question: 'Do I need a registered agent in Ohio?',
+        answer:
+          'Yes. Ohio calls the role a statutory agent. Every Ohio LLC has to appoint one and keep one. If you don’t, the Secretary of State mails a notice and cancels the articles 30 days later. Reinstatement costs $25 and has to be filed within two years.',
+      },
+      {
+        question: 'Can I be my own statutory agent in Ohio?',
+        answer:
+          "Yes, if you live in Ohio. You list the street address of your Ohio residence and sign an acceptance. It's free. The address goes on the public record. Non-residents can't serve as their own agent.",
+      },
+      {
+        question: 'How much does a statutory agent cost in Ohio?',
+        answer:
+          'Nothing if you serve yourself. Mainstream commercial agents charge $49 to $250 a year. Northwest charges $125 a year with no per-document fees. Changing agents costs $25.',
+      },
+      {
+        question: 'Can I use a P.O. box for my Ohio statutory agent?',
+        answer:
+          'No. An individual has to list the street address of their Ohio residence. A company’s place of business has to be open during normal business hours with someone there to accept service. Ohio says a P.O. box does not qualify, even if it has a street address attached.',
+      },
+      {
+        question: 'How do I change my statutory agent in Ohio?',
+        answer:
+          'Sign up with the new agent, then file Form 521, Statutory Agent Update. The fee is $25, and the new agent has to sign an acceptance. You can file it online through Ohio Business Central.',
+      },
+      {
+        question: 'What happens if my Ohio statutory agent resigns?',
+        answer:
+          'They file a signed notice and must mail you a copy on or before the day they file. Their authority ends 30 days later. Appoint a new agent before then. If you don’t, the Secretary of State mails a notice, and the articles are canceled 30 days after that mailing unless you fix it.',
+      },
+    ],
+    sourceUrls: [
+      'https://codes.ohio.gov/ohio-revised-code/section-1706.09',
+      'https://www.ohiosos.gov/businesses/filing-forms--fee-schedule/',
     ],
   },
   costBreakdown: [

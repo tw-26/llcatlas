@@ -6,7 +6,7 @@ export const michigan: StateOverride = {
   seoTitle: `How to Start an LLC in Michigan (${GUIDE_YEAR}): $50 Fee, Steps & Timeline`,
   seoDescription:
     'Form a Michigan LLC with LARA for $50, approved in up to 10 business days. Then the $25 Annual Statement due February 15, resident agent rules, and what to skip.',
-  lastUpdated: '2026-09-23',
+  lastUpdated: '2026-10-14',
   intro:
     "A Michigan LLC costs $50 to file. You file Articles of Organization (Form CSCL/CD-700) through LARA's MiBusiness Registry Portal, not the Secretary of State, and LARA says standard review can take up to 10 business days. Michigan calls the required agent a resident agent, and they need a Michigan street address. There's no publication requirement. The one ongoing state filing is the $25 Annual Statement, due every February 15.",
   whatYoullNeed:
@@ -35,6 +35,22 @@ export const michigan: StateOverride = {
     {
       label: 'Michigan LLC Act filing fees (MCL 450.5101)',
       url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-450-5101',
+    },
+    {
+      label: 'Michigan resident agent and registered office (MCL 450.4207)',
+      url: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-450-4207',
+    },
+    {
+      label: 'Change a Michigan LLC resident agent (LARA)',
+      url: 'https://www.michigan.gov/lara/bureau-list/cscl/corps/limited-liability-co/filling-requirements-continued/limited-liability-company-changes',
+    },
+    {
+      label: 'Certificate of Change of Registered Office and/or Resident Agent (CSCL/CD-520)',
+      url: 'https://www.michigan.gov/lara/-/media/Project/Websites/lara/cscl/NonImages_new/Corps/forms/corporation/520-0725.pdf',
+    },
+    {
+      label: 'LARA filing fees, including resident agent change',
+      url: 'https://www.michigan.gov/-/media/Project/Websites/lara/cscl/Folder6/Filing_Fees.pdf?rev=db2522dff4d445a581c925e6f840d3f8',
     },
     {
       label: 'Michigan 2026 individual income tax rate (Treasury)',
@@ -112,7 +128,7 @@ export const michigan: StateOverride = {
     {
       title: 'Appoint a resident agent (Michigan’s term — not statutory agent)',
       description:
-        'Michigan calls this role a resident agent. On your Articles, you will list the resident agent and a "registered office" — a physical Michigan street address, no P.O. boxes. You can serve as your own resident agent if you are a Michigan resident, you have a qualifying Michigan street address, and you are comfortable with that address being part of the permanent public record. If you live outside Michigan or do not want your home address public, hire a commercial resident agent service. Whatever other states call this role, on your Michigan filing use the term "resident agent."',
+        'Michigan calls this role a resident agent. The agent must be a Michigan resident whose home or business office is the registered office, or a corporation or LLC authorized in Michigan whose business office is that address. The form rejects a P.O. box. You can serve yourself if you live in Michigan. That address stays on the public record. Changing agents later is a $5 filing, Form CSCL/CD-520. Whatever other states call this role, on your Michigan filing use the term "resident agent."',
     },
     {
       title: 'File Form CSCL/CD-700 with LARA',
@@ -205,6 +221,107 @@ export const michigan: StateOverride = {
       'https://www.michigan.gov/lara/bureau-list/cscl/corps/michigan-business-roadmap/annual-reports-and-annual-statements',
       'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-450-5101',
       'https://www.michigan.gov/taxes/citytax/what-cities-impose-an-income-tax',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-14',
+    seoTitle: `Michigan Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Michigan calls this a resident agent. Who can be their own, what a paid agent costs, and the $5 filing to switch.',
+    intro:
+      "Michigan calls this a resident agent. Every Michigan LLC needs one, and a registered office in Michigan that is the agent's home or business office. A P.O. box doesn't qualify. If you live in Michigan and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you can't serve, so you'll pay a commercial agent, usually $99 to $249 a year. Switching agents costs $5.",
+    facts: [
+      {
+        label: 'What Michigan calls it',
+        detail: 'Resident agent, at a registered office (MCL 450.4207). Michigan does not use “statutory agent” on the filing.',
+      },
+      {
+        label: 'Who can serve',
+        detail:
+          'A Michigan resident whose home or business office is the registered office, or a Michigan corporation or LLC, or a foreign corporation or LLC authorized in Michigan, whose business office is that same address.',
+      },
+      {
+        label: 'Address rule',
+        detail:
+          'A Michigan street address. LARA’s change form says a post office box may not be the registered office. The office can be the LLC’s place of business, but it does not have to be.',
+      },
+      {
+        label: 'Change of agent',
+        detail:
+          '$5. Certificate of Change of Registered Office and/or Change of Resident Agent, Form CSCL/CD-520. LARA’s fee schedule says it can be filed online.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail:
+          '$5. Resignation of Resident Agent, Form CSCL/CD-521, on the domestic LLC fee schedule. Appoint a replacement on Form 520 so the LLC is not left without an agent.',
+      },
+      {
+        label: 'Annual Statement',
+        detail:
+          'Due February 15. It reports the resident agent’s name and the registered office address. An LLC formed after September 30 skips the first February 15.',
+      },
+      {
+        label: 'If nobody is there',
+        detail:
+          'If the LLC has no agent, or the agent cannot be found or served with reasonable diligence, the person suing can deliver or send by registered mail a summons and complaint to LARA, the administrator.',
+      },
+    ],
+    lapse: [
+      'Yes. Michigan requires every LLC to continuously keep a resident agent and a registered office in the state. The agent is who lawsuits and official notices are served on. If the LLC has no agent, or the agent cannot be found, the person suing can send a summons and complaint to LARA by registered mail. If nobody is watching for that, the case can move forward without you knowing about it.',
+      'The Annual Statement, due every February 15, has to name the current agent and registered office. That is a separate $25 filing from a change of agent. A change itself is Form CSCL/CD-520 and costs $5. If your agent resigns, they file Form CSCL/CD-521, also $5 on the LLC fee schedule. Name a new agent before there is a gap.',
+    ],
+    selfAgent: [
+      "You can be your own agent if you live in Michigan and the registered office is your home or your business office. It's free. You name yourself on the Articles of Organization.",
+      "What it costs you is privacy and availability. The address goes on LARA's public record, and a process server has to be able to find you there. If they can't, they can serve LARA instead. If that address is your home, anyone who looks up the LLC can find where you live. If you have a shop or office in Michigan where someone is reliably there, use that address and skip the fee.",
+      "If you live outside Michigan, you can't be your own agent. You can name a friend or relative who lives there, but they take on the job of being findable at that address and forwarding lawsuits. If they resign, replace them before the LLC is left with no agent.",
+    ],
+    paidAgent: [
+      "A commercial agent gives your LLC a Michigan street address, receives legal papers and state mail, and forwards them to you, usually as same-day scans. Mainstream providers charge $99 to $249 a year. The company has to be a Michigan corporation or LLC, or a foreign one authorized to do business here, and its business office has to be the registered office.",
+      "Northwest charges $125 a year with no per-document fees, and its Michigan address goes on the public record instead of yours. That's what you're paying for: a reliable in-state address and someone who will scan a lawsuit the day it arrives. If you live in Michigan and already have a business address, you don't need it.",
+    ],
+    verdict:
+      "If you live in Michigan and have a business address that isn't your home, be your own resident agent and keep the $125. Everyone else, including every founder who lives outside Michigan, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      'File Form CSCL/CD-520, Certificate of Change of Registered Office and/or Change of Resident Agent, with LARA. The fee is $5, and the domestic LLC fee schedule says the form can be filed online. A manager signs it if the LLC is manager-managed. A member signs it if the members still manage it. The agent can sign only if the filing changes the office address and not the agent. The form does not accept a P.O. box.',
+      "Sign up with the new agent first, since the form needs their name and Michigan street address. Don't cancel the old agent until LARA's record shows the new one.",
+    ],
+    faq: [
+      {
+        question: 'Do I need a registered agent in Michigan?',
+        answer:
+          'Yes. Michigan calls the role a resident agent. Every Michigan LLC has to keep one, and a Michigan registered office, for as long as the LLC exists. If there is no agent, or the agent cannot be found, a lawsuit can be served on LARA instead.',
+      },
+      {
+        question: 'Can I be my own resident agent in Michigan?',
+        answer:
+          "Yes, if you live in Michigan and the registered office is your home or your business office. It's free. The address goes on the public record. A P.O. box doesn't qualify. Non-residents can't serve as their own agent.",
+      },
+      {
+        question: 'How much does a resident agent cost in Michigan?',
+        answer:
+          'Nothing if you serve yourself. Mainstream commercial agents charge $99 to $249 a year. Northwest charges $125 a year with no per-document fees. Changing agents costs $5.',
+      },
+      {
+        question: 'Can I use a P.O. box for my Michigan resident agent?',
+        answer:
+          'No. The registered office has to be a Michigan street address, and it has to be the agent’s home or, for a company, its business office. LARA’s change form says a post office box may not be designated as the registered office.',
+      },
+      {
+        question: 'How do I change my resident agent in Michigan?',
+        answer:
+          'Sign up with the new agent, then file Form CSCL/CD-520 with LARA. The fee is $5. A manager or member signs it, depending on who manages the LLC. Keep the old agent until LARA shows the change.',
+      },
+      {
+        question: 'What happens if my Michigan resident agent resigns?',
+        answer:
+          'They file Form CSCL/CD-521. LARA’s domestic LLC fee schedule charges $5 for that resignation. Appoint a new agent on Form CSCL/CD-520, also $5, before the LLC is left without one. With no agent, a lawsuit can be served on LARA.',
+      },
+    ],
+    sourceUrls: [
+      'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-450-4207',
+      'https://www.michigan.gov/-/media/Project/Websites/lara/cscl/Folder6/Filing_Fees.pdf?rev=db2522dff4d445a581c925e6f840d3f8',
+      'https://www.michigan.gov/lara/bureau-list/cscl/corps/limited-liability-co/filling-requirements-continued/limited-liability-company-changes',
+      'https://www.michigan.gov/lara/-/media/Project/Websites/lara/cscl/NonImages_new/Corps/forms/corporation/520-0725.pdf',
     ],
   },
   costBreakdown: [

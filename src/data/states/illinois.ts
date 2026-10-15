@@ -6,7 +6,7 @@ export const illinois: StateOverride = {
   seoTitle: `How to Start an LLC in Illinois (${GUIDE_YEAR}): $150 Fee, Steps & Timeline`,
   seoDescription:
     'Start an Illinois LLC for $150. Real steps, the $75 annual report due before your anniversary month, the 1.5% replacement tax, and Chicago license rules.',
-  lastUpdated: '2026-10-05',
+  lastUpdated: '2026-10-14',
   intro:
     "An Illinois LLC costs $150 to form. You file Articles of Organization (Form LLC-5.5) with the Illinois Secretary of State, Department of Business Services, and online filings take about 10 business days. After that, the only required state filing is a $75 annual report, due before the first day of the month you formed in, every year starting the year after you form. There's no newspaper publication and no general state business license. Because the annual report deadline follows your formation month instead of a fixed calendar date, it's easy to lose track of. If your LLC is taxed as a partnership or an S corporation, Illinois charges a 1.5% replacement tax on the LLC's net income on top of the 4.95% personal income tax. A default single-member LLC doesn't pay it.",
   whatYoullNeed:
@@ -26,6 +26,34 @@ export const illinois: StateOverride = {
     {
       label: 'LLC forms and fees, including expedited fees (Illinois SOS)',
       url: 'https://www.ilsos.gov/publications/business_services/llc.html',
+    },
+    {
+      label: 'LLC forms and fees (Illinois SOS)',
+      url: 'https://www.ilsos.gov/publications/business-services/llc.html',
+    },
+    {
+      label: 'Change an LLC registered agent online (Illinois SOS)',
+      url: 'https://www.ilsos.gov/departments/business-services/agent-change/llcagentchange.html',
+    },
+    {
+      label: 'Statement of Change of Registered Agent (Form LLC-1.36/1.37)',
+      url: 'https://www.ilsos.gov/publications/pdf_publications/llc136_137.pdf',
+    },
+    {
+      label: 'Registered office and registered agent (805 ILCS 180/1-35)',
+      url: 'https://www.ilga.gov/documents/legislation/ilcs/documents/080501800K1-35.htm',
+    },
+    {
+      label: 'Service of process (805 ILCS 180/1-50)',
+      url: 'https://www.ilga.gov/documents/legislation/ilcs/documents/080501800K1-50.htm',
+    },
+    {
+      label: 'Grounds for administrative dissolution (805 ILCS 180/35-25)',
+      url: 'https://www.ilga.gov/documents/legislation/ilcs/documents/080501800K35-25.htm',
+    },
+    {
+      label: 'Administrative dissolution procedure (805 ILCS 180/35-30)',
+      url: 'https://www.ilga.gov/documents/legislation/ilcs/documents/080501800K35-30.htm',
     },
     {
       label: 'File an LLC annual report online',
@@ -137,7 +165,7 @@ export const illinois: StateOverride = {
     {
       title: 'Choose a registered agent with an Illinois street address',
       description:
-        'Every Illinois LLC must keep a registered agent and registered office in Illinois. The agent can be an Illinois resident (including you) or a business authorized to operate in Illinois. The registered office needs a full street address with city and county, so a PO box alone won\'t work. That address is public. A commercial registered agent usually costs $50 to $150 a year and keeps your home address off the record.',
+        'Every Illinois LLC must keep a registered agent and registered office in Illinois. The agent can be an Illinois resident (including you) or a business authorized to transact business in Illinois. The LLC cannot be its own agent. The registered office needs an Illinois street address, so a P.O. box alone will not work. That address is public. A commercial registered agent usually costs $50 to $150 a year and keeps your home address off the record. Changing agents later is a separate $25 filing.',
     },
     {
       title: 'File Articles of Organization (Form LLC-5.5) online',
@@ -310,6 +338,116 @@ export const illinois: StateOverride = {
       'https://tax.illinois.gov/research/taxrates/income.html',
     ],
   },
+  registeredAgentPage: {
+    lastVerified: '2026-10-14',
+    seoTitle: `Illinois Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Every Illinois LLC needs an agent at an Illinois street address. Who can be their own, what a paid agent costs, and the $25 filing to switch.',
+    intro:
+      "Every Illinois LLC needs a registered agent: an Illinois resident, or a business authorized to transact business in Illinois, with an Illinois street address where legal papers can be delivered. The LLC cannot be its own agent. If you live in Illinois and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you can't serve, so you'll pay a commercial agent, usually $50 to $150 a year. Switching agents later costs $25.",
+    facts: [
+      {
+        label: 'What Illinois calls it',
+        detail: 'Registered agent, at a registered office (805 ILCS 180/1-35). Illinois doesn’t use “statutory agent” or “resident agent.”',
+      },
+      {
+        label: 'Who can serve',
+        detail:
+          'An individual who lives in Illinois, or another person authorized to transact business in Illinois. A business acting as agent must be registered with the Secretary of State. The LLC cannot be its own agent.',
+      },
+      {
+        label: 'Address rule',
+        detail:
+          'An Illinois street address. A P.O. box alone is rejected. You may add a P.O. box with a ZIP+4 to the street address. The registered office and the agent’s business office must be the same address. The form limits that address to 30 characters, including spaces.',
+      },
+      {
+        label: 'Change of agent',
+        detail:
+          '$25. Form LLC-1.36/1.37, or online if the LLC is in good standing. Standard review is within 10 days. 24-hour service is $75 total ($25 plus a $50 expedite fee), excluding weekends and holidays. This filing does not change the principal office.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail:
+          'They file Form LLC-1.35 ($5) and must mail you a copy by registered or certified mail at least 10 days before they file. The resignation cannot take effect sooner than 30 days after that filing.',
+      },
+      {
+        label: '60-day replacement',
+        detail:
+          'Put a new agent on record within 60 days of the resignation notice. If you don’t, the Secretary of State marks the LLC delinquent and not in good standing. The state’s form states a $100 penalty, and the office will not accept other filings until the agent is replaced.',
+      },
+      {
+        label: 'Administrative dissolution',
+        detail:
+          'Failing to appoint and keep an agent is grounds for dissolution (805 ILCS 180/35-25). After the delinquency notice, you have 60 days to fix it.',
+      },
+      { label: 'Reinstatement', detail: '$200, on Form LLC 35.40, plus any missed annual reports and penalties.' },
+      {
+        label: 'If nobody is there',
+        detail:
+          'Lawsuits are served on the registered agent. If the LLC has no agent, or the agent cannot be found at the registered office, the person suing can serve the Secretary of State instead (805 ILCS 180/1-50).',
+      },
+    ],
+    lapse: [
+      'Yes. Illinois requires every LLC to continuously keep a registered agent and registered office in the state (805 ILCS 180/1-35). The agent is where lawsuits and state notices are delivered. If the LLC has no agent, or the agent cannot be found at the registered office, the person suing you can serve the Secretary of State instead. If nobody opens that mail, the case can move forward without you knowing about it.',
+      'If your agent resigns, they have to mail you notice at least 10 days before they file it, and the resignation cannot take effect sooner than 30 days after filing. You then have 60 days from the resignation notice to put a new agent on record. Miss that and the Secretary of State marks the LLC delinquent and not in good standing. The change-of-agent form states a $100 penalty, and the office will not accept other filings until you replace the agent. Failing to keep an agent is also grounds for administrative dissolution: after a delinquency notice, you have 60 days to fix it. Reinstatement costs $200, plus any missed annual reports and penalties.',
+    ],
+    selfAgent: [
+      "You can be your own agent if you live in Illinois and have an Illinois street address where legal papers can be delivered. It's free, and you name yourself on the Articles of Organization. The LLC cannot name itself as its own agent.",
+      "What it costs you is privacy and availability. The address you list goes on the Secretary of State's public record, and a process server has to be able to find someone there. If they can't, they can serve the Secretary of State instead. If that address is your home, anyone who looks up your LLC can find where you live. If you have a shop or office in Illinois where someone is reliably there, use that address and skip the fee.",
+      "If you live outside Illinois, you can't be your own agent. You can name a friend or relative who lives there, but they take on the job: staying findable at that address and forwarding lawsuits quickly. If they resign, you have 60 days from their notice to replace them before the LLC is marked delinquent.",
+    ],
+    paidAgent: [
+      "A commercial agent gives your LLC an Illinois street address, receives legal papers and state mail, and forwards them to you, usually as same-day scans. Mainstream providers charge $50 to $150 a year. The business has to be authorized to transact business in Illinois and registered with the Secretary of State.",
+      "Northwest charges $125 a year with no per-document fees, and its Illinois address goes on the public record instead of yours. That's what you're paying for: a reliable in-state address and someone who will scan a lawsuit the day it arrives. If you live in Illinois and already have a business address, you don't need it.",
+    ],
+    verdict:
+      "If you live in Illinois and have a business address that isn't your home, be your own registered agent and keep the $125. Everyone else, including every founder who lives outside Illinois, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      "File a Statement of Change of Registered Agent and/or Registered Office, Form LLC-1.36/1.37. The fee is $25. If the LLC is in good standing, you can file it online; the Secretary of State reviews a standard filing within 10 days. 24-hour service costs $75 total ($25 plus a $50 expedite fee), excluding weekends and holidays, and is paid by card. Paper filings go in duplicate to the Department of Business Services in Springfield. The filing does not change your principal office, and the annual report cannot update the agent.",
+      "Sign up with the new agent first, since the form needs their name and Illinois street address, and that address has to be their business office. Don't cancel the old agent until the Secretary of State's record shows the new one. A delinquent LLC cannot file the change until it is back in good standing.",
+    ],
+    faq: [
+      {
+        question: 'Do I need a registered agent in Illinois?',
+        answer:
+          'Yes. Every Illinois LLC has to name a registered agent on its Articles of Organization and keep one for as long as the LLC exists. The LLC cannot be its own agent. Going without one lets someone serve the Secretary of State instead, and it is grounds for administrative dissolution. Reinstatement costs $200.',
+      },
+      {
+        question: 'Can I be my own registered agent in Illinois?',
+        answer:
+          "Yes, if you live in Illinois and have an Illinois street address where legal papers can be delivered. It's free. The address goes on the public record. Non-residents can't serve as their own agent, and the LLC can't name itself.",
+      },
+      {
+        question: 'How much does a registered agent cost in Illinois?',
+        answer:
+          'Nothing if you serve yourself. Mainstream commercial agents charge $50 to $150 a year. Northwest charges $125 a year with no per-document fees. Changing agents costs $25 in state fees, or $75 total if you pay for 24-hour service.',
+      },
+      {
+        question: 'Can I use a P.O. box for my Illinois registered agent?',
+        answer:
+          'Not by itself. Illinois requires a street address. A P.O. box alone is rejected. You may add a P.O. box with a ZIP+4 onto the street address. The registered office and the agent’s business office have to be the same place.',
+      },
+      {
+        question: 'How do I change my registered agent in Illinois?',
+        answer:
+          'Sign up with the new agent, then file Form LLC-1.36/1.37 or the online change if the LLC is in good standing. The fee is $25, reviewed within 10 days. 24-hour service is $75 total. The annual report cannot update the agent.',
+      },
+      {
+        question: 'What happens if my Illinois registered agent resigns?',
+        answer:
+          'They must mail you notice by registered or certified mail at least 10 days before filing Form LLC-1.35 with the Secretary of State. The resignation cannot take effect sooner than 30 days after that filing. Put a new agent on record within 60 days. If you don’t, the LLC is marked delinquent, the state’s form states a $100 penalty, and other filings are blocked until you replace the agent.',
+      },
+    ],
+    sourceUrls: [
+      'https://www.ilga.gov/documents/legislation/ilcs/documents/080501800K1-35.htm',
+      'https://www.ilga.gov/documents/legislation/ilcs/documents/080501800K1-50.htm',
+      'https://www.ilga.gov/documents/legislation/ilcs/documents/080501800K35-25.htm',
+      'https://www.ilsos.gov/departments/business-services/agent-change/llcagentchange.html',
+      'https://www.ilsos.gov/publications/pdf_publications/llc136_137.pdf',
+      'https://www.ilsos.gov/publications/business-services/llc.html',
+      'https://www.ilga.gov/documents/legislation/ilcs/documents/080501800K35-30.htm',
+    ],
+  },
   costBreakdown: [
     {
       item: 'Articles of Organization (Form LLC-5.5)',
@@ -395,7 +533,7 @@ export const illinois: StateOverride = {
     {
       question: 'Does Illinois require a registered agent?',
       answer:
-        'Yes. Every Illinois LLC must continuously keep a registered agent and registered office in Illinois. The agent must be an Illinois resident or a business authorized to operate in Illinois, and the office needs an Illinois street address.',
+        'Yes. Every Illinois LLC must continuously keep a registered agent and registered office in Illinois. The agent must be an Illinois resident or a business authorized to transact business in Illinois, and the office needs an Illinois street address. The LLC cannot be its own agent.',
     },
     {
       question: 'Can I be my own registered agent in Illinois?',

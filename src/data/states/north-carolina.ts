@@ -6,7 +6,7 @@ export const northCarolina: StateOverride = {
   seoTitle: `How to Start an LLC in North Carolina (${GUIDE_YEAR}): $125 Fee, Steps & Timeline`,
   seoDescription:
     'Form a North Carolina LLC for $125, approved in 5-10 business days. Then the $200 annual report due every April 15 that most guides bury, and what to skip.',
-  lastUpdated: '2026-09-23',
+  lastUpdated: '2026-10-14',
   intro:
     "A North Carolina LLC costs $125 to file. You file Articles of Organization (Form L-01) with the NC Secretary of State and appoint a registered agent with a physical NC street address. There's no publication requirement, no Commercial Activity Tax, and no franchise tax for default-taxed LLCs. The cost that adds up is the $200 annual report, due every April 15 starting the year after you form. Put that date on your calendar the day your LLC is approved.",
   whatYoullNeed:
@@ -38,6 +38,22 @@ export const northCarolina: StateOverride = {
     {
       label: 'NC Business Registration fee schedule (incl. expedite and online fees)',
       url: 'https://www.sosnc.gov/fees/by_title/_Business_Registration',
+    },
+    {
+      label: 'NC LLC fee schedule',
+      url: 'https://www.sosnc.gov/fees/by_title/_Business_Registration_limited_liability_companies',
+    },
+    {
+      label: 'NC LLC forms, including registered agent change and resignation',
+      url: 'https://www.sosnc.gov/forms/by_title/_Business_Registration_Limited_Liability_Companies',
+    },
+    {
+      label: 'Registered office and registered agent (N.C. Gen. Stat. Chapter 55D, Article 4)',
+      url: 'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_55D/Article_4.html',
+    },
+    {
+      label: 'North Carolina Limited Liability Company Act (Chapter 57D)',
+      url: 'https://ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_57D.html',
     },
     {
       label: 'NC individual income tax rates (NCDOR)',
@@ -112,7 +128,7 @@ export const northCarolina: StateOverride = {
     {
       title: 'Appoint a registered agent (NC’s term — not statutory agent)',
       description:
-        'NC uses the term "registered agent" under N.C. Gen. Stat. § 55D-30. The agent must have a physical NC street address — P.O. boxes do not qualify because the statute requires a "business office." You can serve as your own registered agent if you are an NC resident, 18 or older, with a qualifying NC street address, and available during business hours. The catch is that the address goes on the public Articles permanently. If you work from home or live outside NC, hire a commercial registered agent. Whatever other states call this role on their forms, on your NC filing it is "registered agent."',
+        'NC uses the term "registered agent" under N.C. Gen. Stat. § 55D-30. The agent must be an NC resident, or a corporation or LLC authorized in NC, and the registered office must be a street address that is also the agent\'s business office. A mailing address can be different. You can serve as your own registered agent if you live in NC and that street address is your business office. The address goes on the public Articles. If you work from home or live outside NC, hire a commercial registered agent. Changing agents later is a $5 filing. Whatever other states call this role, on your NC filing it is "registered agent."',
     },
     {
       title: 'File Articles of Organization (Form L-01) with the NC SOS',
@@ -196,6 +212,119 @@ export const northCarolina: StateOverride = {
       'https://www.sosnc.gov/fees/by_title/_Business_Registration',
       'https://www.sosnc.gov/divisions/business_registration/annual_report_due_dates',
       'https://www.sosnc.gov/divisions/business_registration/annual_report',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-14',
+    seoTitle: `North Carolina Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Every North Carolina LLC needs an agent at an NC street address. Who can be their own, what a paid agent costs, and the $5 filing to switch.',
+    intro:
+      "Every North Carolina LLC needs a registered agent: an NC resident, or a corporation or LLC authorized to do business in NC, whose business office is the LLC's registered office. That office needs a North Carolina street address. If you live in North Carolina and have a business address that isn't your home, be your own agent and pay nothing. If you live anywhere else, you can't serve, so you'll pay a commercial agent, usually $100 to $300 a year. Switching agents later costs $5.",
+    facts: [
+      {
+        label: 'What North Carolina calls it',
+        detail: 'Registered agent, at a registered office (N.C. Gen. Stat. § 55D-30 and § 57D-2-40).',
+      },
+      {
+        label: 'Who can serve',
+        detail:
+          'An individual who lives in North Carolina, a North Carolina corporation or LLC, or a foreign corporation or LLC authorized to do business in North Carolina. The agent’s business office and the registered office must be the same address.',
+      },
+      {
+        label: 'The agent’s only legal duty',
+        detail: 'Forward to the LLC, at its last known address, any notice, process, or demand served on the agent (§ 55D-30(b)).',
+      },
+      {
+        label: 'Address rule',
+        detail:
+          'A North Carolina street address, plus the county. A mailing address can be different from the street address. The change form asks for both.',
+      },
+      {
+        label: 'Consent',
+        detail: 'The new agent’s written consent goes on the statement of change or is attached to it.',
+      },
+      {
+        label: 'Change of agent',
+        detail:
+          '$5. Statement of Change of Registered Office and/or Registered Agent (Form BE-06). You can also make the change on the annual report instead of filing BE-06.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail:
+          'No fee. Form BE-07. The agent certifies they mailed or delivered written notice to the LLC. The appointment ends on the 31st day after the statement is filed. The Secretary of State mails a copy to the LLC.',
+      },
+      {
+        label: '60-day rule',
+        detail:
+          'Going 60 days without an agent or registered office is grounds for administrative dissolution. So is failing to tell the Secretary of State within 60 days that the agent changed, resigned, or the office was discontinued (§ 57D-6-06).',
+      },
+      {
+        label: 'After the state’s notice',
+        detail: 'You have 60 days from the mailed notice to fix it. If you don’t, the Secretary of State dissolves the LLC.',
+      },
+      {
+        label: 'Reinstatement',
+        detail:
+          '$100 to apply. If another entity has taken the name by then, you have to change the LLC’s name before the state will reinstate it.',
+      },
+    ],
+    lapse: [
+      "Yes. North Carolina requires every LLC to continuously keep a registered agent and registered office in the state. The agent's only duty under the statute is to forward lawsuits and notices to the LLC's last known address. If the LLC has no agent, or the agent cannot with due diligence be found at the registered office, the Secretary of State becomes the agent for service. The person suing delivers two copies to the Secretary of State, who mails one to the LLC. If nobody is there to open that mail, the case can move forward without you knowing about it.",
+      "Two clocks run if the agent drops off. Going 60 days without an agent, or waiting more than 60 days to tell the state about a change or resignation, is grounds for administrative dissolution. The Secretary of State then mails a notice, and you have 60 days from that mailing to fix it. After that, the LLC is dissolved. Applying for reinstatement costs $100, and if another business has taken the name, you have to rename the LLC first.",
+    ],
+    selfAgent: [
+      "You can be your own agent if you live in North Carolina and the registered office is your business office at a North Carolina street address. It's free. You name yourself on the Articles of Organization, and the new-agent form needs your written consent.",
+      "What it costs you is privacy and availability. The address goes on the public Articles, and a process server has to be able to find you there. If they can't, they can serve the Secretary of State instead. If that address is your home, anyone who looks up your LLC can find where you live. If you have a shop or office in North Carolina where someone is reliably there, use that address and skip the fee.",
+      "If you live outside North Carolina, you can't be your own agent. You can name a friend or relative who lives there, but they take on the job: forwarding anything served on them to the LLC's last known address, and giving you written notice if they resign. Their resignation takes effect on the 31st day after they file it, and you need a replacement on record before the 60-day clock runs out.",
+    ],
+    paidAgent: [
+      "A commercial agent gives your LLC a North Carolina street address, receives legal papers and state mail, and forwards them to you, usually as same-day scans. Mainstream providers charge $100 to $300 a year. The agent has to be a North Carolina corporation or LLC, or a foreign one authorized to do business here, and its business office has to be the registered office.",
+      "Northwest charges $125 a year with no per-document fees, and its North Carolina address goes on the public record instead of yours. That's what you're paying for: a reliable in-state address and someone who will scan a lawsuit the day it arrives. If you live in North Carolina and already have a business address, you don't need it.",
+    ],
+    verdict:
+      "If you live in North Carolina and have a business address that isn't your home, be your own registered agent and keep the $125. Everyone else, including every founder who lives outside North Carolina, should hire a commercial agent. Our pick is Northwest: $125 a year, no per-document fees, and its address on the public record instead of yours.",
+    changeAgent: [
+      "File Form BE-06, Statement of Change of Registered Office and/or Registered Agent, with the Secretary of State. The fee is $5. The form names the current office and agent, the new agent, the new street address and county, and includes the new agent's written consent. After the change, the registered office and the agent's business office have to be the same address. If this year's annual report isn't filed yet, you can put the change on that report instead of filing BE-06.",
+      "Sign up with the new agent first, since the filing needs their written consent. Don't cancel the old agent until the Secretary of State's record shows the new one. Tell the state within 60 days of the change. Waiting longer is grounds for administrative dissolution.",
+    ],
+    faq: [
+      {
+        question: 'Do I need a registered agent in North Carolina?',
+        answer:
+          'Yes. Every North Carolina LLC has to name a registered agent on its Articles of Organization and keep one for as long as the LLC exists. Going 60 days without one is grounds for administrative dissolution. After the state’s notice, you have 60 days to fix it. Reinstatement costs $100.',
+      },
+      {
+        question: 'Can I be my own registered agent in North Carolina?',
+        answer:
+          "Yes, if you live in North Carolina and the registered office is your business office at a North Carolina street address. It's free. The address goes on the public Articles. Non-residents can't serve as their own agent.",
+      },
+      {
+        question: 'How much does a registered agent cost in North Carolina?',
+        answer:
+          'Nothing if you serve yourself. Mainstream commercial agents charge $100 to $300 a year. Northwest charges $125 a year with no per-document fees. Changing agents costs $5.',
+      },
+      {
+        question: 'Can I use a P.O. box for my North Carolina registered agent?',
+        answer:
+          'Not as the registered office. North Carolina requires a street address, and that address has to be the agent’s business office. A mailing address can be different from the street address, and the change form asks for both.',
+      },
+      {
+        question: 'How do I change my registered agent in North Carolina?',
+        answer:
+          'Sign up with the new agent, then file Form BE-06 with their written consent. The fee is $5. If you haven’t filed this year’s annual report yet, you can make the change on that report instead. File within 60 days of the change.',
+      },
+      {
+        question: 'What happens if my North Carolina registered agent resigns?',
+        answer:
+          'They file Form BE-07, which has no fee, and certify that they mailed or delivered written notice to you. The resignation takes effect on the 31st day after filing. Name a new agent before then. Going 60 days without one, or waiting more than 60 days to tell the state, is grounds for administrative dissolution.',
+      },
+    ],
+    sourceUrls: [
+      'https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_55D/Article_4.html',
+      'https://ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_57D.html',
+      'https://www.sosnc.gov/fees/by_title/_Business_Registration_limited_liability_companies',
+      'https://www.sosnc.gov/forms/by_title/_Business_Registration_Limited_Liability_Companies',
     ],
   },
   costBreakdown: [
@@ -302,7 +431,7 @@ export const northCarolina: StateOverride = {
     {
       question: 'Can I be my own registered agent in NC?',
       answer:
-        'Yes, if you are an NC resident at least 18 years old with a physical NC street address (no P.O. boxes) and available during business hours. The tradeoff is privacy and reliability. Your address becomes part of the permanent public record on your Articles, anyone can look it up, and if you are not there when a process server shows up, you can miss a lawsuit. If you work from home, travel, or just do not want your address tied to a business filing, use a commercial registered agent.',
+        'Yes, if you live in North Carolina and the registered office is your business office at a North Carolina street address. The address goes on the public Articles. If a process server cannot find you there, they can serve the Secretary of State instead. If you work from home, travel, or do not want your address on the filing, use a commercial registered agent.',
     },
     {
       question: 'Can I use my home address for my NC LLC?',
