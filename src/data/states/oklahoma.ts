@@ -6,7 +6,7 @@ export const oklahoma: StateOverride = {
   seoTitle: `How to Start an LLC in Oklahoma (${GUIDE_YEAR}): $100 Fee, Steps & Timeline`,
   seoDescription:
     'Form an Oklahoma LLC for $100. A $25 annual certificate is due every formation anniversary, and the only reminder goes to the email on file.',
-  lastUpdated: '2026-10-05',
+  lastUpdated: '2026-10-15',
   intro:
     "An Oklahoma LLC costs $100 to form. You file Articles of Organization with the Oklahoma Secretary of State's Business Filing Department, online at sos.ok.gov or on paper. Paying by credit card adds a 4% service charge, so $104. There's no publication requirement, and Oklahoma LLCs don't pay franchise tax. The one recurring state cost is the $25 annual certificate, due every year on the anniversary of the date your Articles were filed. The Secretary of State sends the notice for it only to the email address on your filing. If that address changes or the notice lands in spam, nothing else reminds you. Miss it by more than 60 days and the LLC falls out of good standing. After three years unpaid, the state treats the Articles as canceled.",
   whatYoullNeed:
@@ -41,6 +41,10 @@ export const oklahoma: StateOverride = {
     {
       label: 'Title 18, Section 2012.1: cancellation after three years (Oklahoma Statutes)',
       url: 'https://govt.westlaw.com/okjc/Document/ND5C47E00624611DD82E3CAD89E409C48?contextData=%28sc.Default%29&originationContext=documenttoc&transitionType=CategoryPageItem&viewType=FullText',
+    },
+    {
+      label: 'Title 18, Section 2010: registered agent (Oklahoma Statutes)',
+      url: 'https://govt.westlaw.com/okjc/Document/N1708BDE0610E11EF9E51932447236549?contextData=%28sc.Default%29&originationContext=documenttoc&transitionType=StatuteNavigator&viewType=FullText',
     },
     {
       label: 'Oklahoma Tax Commission: franchise tax ended after tax year 2023',
@@ -134,7 +138,7 @@ export const oklahoma: StateOverride = {
     {
       title: 'Choose a registered agent with an Oklahoma street address',
       description:
-        'Every Oklahoma LLC must keep a registered agent and registered office in Oklahoma. The agent can be an individual Oklahoma resident, a corporation, LLC, or limited partnership registered with the Secretary of State, or the LLC itself. The registered office must be a street address with an office open during regular business hours to accept legal papers. PO boxes don\'t qualify, and the address is public. If you name yourself or the LLC and work from home, your home address goes on the record.',
+        'Every Oklahoma LLC must keep a registered agent and a registered office in Oklahoma. The agent can be the LLC itself, an Oklahoma resident, or a domestic or qualified foreign corporation, LLC, or partnership. The registered office has to be that agent’s business office, open during regular business hours. Changing the agent is $25 online. A resignation is also $25: the agent notifies the LLC at least 30 days before filing, and it takes effect 30 days after the filing. If no new agent is in place by then, the Secretary of State is the agent until you name one.',
     },
     {
       title: 'Pick the principal address and an email you will keep',
@@ -278,6 +282,91 @@ export const oklahoma: StateOverride = {
       'https://sos.ok.gov/business/faq.aspx',
       'https://govt.westlaw.com/okjc/Document/N3D55DBE0624711DD82E3CAD89E409C48?contextData=%28sc.Default%29&originationContext=documenttoc&transitionType=DocumentItem&viewType=FullText',
       'https://oklahoma.gov/business/operate/licenses-and-permits.html',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-15',
+    seoTitle: `Oklahoma Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Every Oklahoma LLC needs a registered agent at an Oklahoma business office. The LLC can name itself. Changing the agent or filing a resignation is $25.',
+    intro:
+      "Every Oklahoma LLC has to keep a registered agent and a registered office in Oklahoma. The agent can be the LLC itself, an Oklahoma resident, or a domestic or qualified foreign corporation, LLC, or partnership. The office has to be that agent's business office, and it has to be open during regular business hours. If you live in Oklahoma and have a business address that isn't your home, serve yourself, or name the LLC, and pay nothing. Everyone else should hire one. A commercial agent usually costs $50 to $150 a year. Changing the agent is $25 online.",
+    facts: [
+      { label: 'What Oklahoma calls it', detail: 'Registered agent, at a registered office (18 O.S. § 2010).' },
+      {
+        label: 'Who can serve',
+        detail:
+          'The LLC itself, an individual who lives in Oklahoma, or a domestic or qualified foreign corporation, LLC, or partnership, including a limited liability partnership.',
+      },
+      {
+        label: 'Address rule',
+        detail:
+          'The agent’s business office has to be identical to the registered office, and that office has to be open during regular business hours.',
+      },
+      {
+        label: 'Change of agent',
+        detail:
+          '$25 online for a Change or Designation of Registered Agent and/or Registered Office. The same $25 covers a change of the principal office filed with it.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail:
+          '$25 online. The agent notifies the LLC at least 30 days before filing. The resignation takes effect 30 days after filing, or on a later date that is not past the 90th day.',
+      },
+      {
+        label: 'With no successor',
+        detail:
+          'If no new agent is designated before the resignation takes effect, the Secretary of State is the agent until you name one.',
+      },
+      {
+        label: 'Price',
+        detail: 'Serving yourself, or naming the LLC, is free. A commercial agent usually costs $50 to $150 a year.',
+      },
+    ],
+    lapse: [
+      "Yes. Oklahoma requires a registered agent. If the agent resigns and you have not named a successor by the effective date, the Secretary of State is deemed the agent until you file a new designation. That is not a person who will call you about a lawsuit. The resignation clock is 30 days after filing, and the agent has to warn the LLC at least 30 days before that filing, so you should have about two months from the first notice. File the $25 change before the Secretary of State is standing in.",
+    ],
+    selfAgent: [
+      "Serve yourself if you live in Oklahoma and the registered office is a business office that is open during regular business hours. You can also name the LLC itself, with that same office. The address is public. A home where nobody is there during the business day does not meet the office-hours rule, so don't use it.",
+    ],
+    paidAgent: [
+      "Hire one if you work from home, travel, or live outside Oklahoma. A commercial agent usually costs $50 to $150 a year. Northwest charges $125 a year. Naming the LLC as its own agent does not hide the principal place of business. The articles still require that address. Pay for an agent when the business office would otherwise be your house.",
+    ],
+    verdict:
+      "If you have a non-home Oklahoma office that is open during business hours, name yourself or name the LLC and pay nothing. If you work from home or live outside Oklahoma, use Northwest at $125 a year. Switching later is $25 online.",
+    changeAgent: [
+      "File the Change or Designation of Registered Agent online. The fee is $25. A resignation is a separate $25 filing. The resigning agent has to notify the LLC at least 30 days before that filing, and the resignation cannot take effect sooner than 30 days after the Secretary of State files it, or later than the 90th day. Appoint the new agent before that date. Otherwise the Secretary of State is the agent.",
+    ],
+    faq: [
+      {
+        question: 'Does Oklahoma require a registered agent?',
+        answer:
+          'Yes. Every Oklahoma LLC must maintain a registered agent and a registered office. The office is the agent’s business office, and it has to be open during regular business hours.',
+      },
+      {
+        question: 'Can my LLC be its own registered agent in Oklahoma?',
+        answer:
+          'Yes. The statute allows the LLC itself, an Oklahoma resident, or a domestic or qualified foreign corporation, LLC, or partnership. The registered office still has to be a business office that is open during the day.',
+      },
+      {
+        question: 'How much does it cost to change a registered agent in Oklahoma?',
+        answer:
+          'Twenty-five dollars online for a change or designation of the registered agent or registered office. A resignation is also $25.',
+      },
+      {
+        question: 'What happens if my Oklahoma registered agent resigns?',
+        answer:
+          'The agent has to notify the LLC at least 30 days before filing the resignation. It takes effect 30 days after filing, or on a later date up to the 90th day. If you have not named a new agent by then, the Secretary of State is the agent until you do.',
+      },
+      {
+        question: 'How much is a registered agent in Oklahoma?',
+        answer:
+          'Free if you serve yourself or name the LLC, at an Oklahoma business office that is open during the day. A commercial agent usually costs $50 to $150 a year. Northwest charges $125 a year.',
+      },
+    ],
+    sourceUrls: [
+      'https://www.sos.ok.gov/business/forms.aspx',
+      'https://govt.westlaw.com/okjc/Document/N1708BDE0610E11EF9E51932447236549?contextData=%28sc.Default%29&originationContext=documenttoc&transitionType=StatuteNavigator&viewType=FullText',
     ],
   },
   costBreakdown: [

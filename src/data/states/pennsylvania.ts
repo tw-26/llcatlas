@@ -6,7 +6,7 @@ export const pennsylvania: StateOverride = {
   seoTitle: `How to Start an LLC in Pennsylvania (${GUIDE_YEAR}): $125 Fee, Steps & Timeline`,
   seoDescription:
     'File a Pennsylvania LLC for $125, approved in about 3-5 business days. Then the new $7 annual report due September 30, registered office rules, and local taxes.',
-  lastUpdated: '2026-09-23',
+  lastUpdated: '2026-10-15',
   intro:
     "A Pennsylvania LLC costs $125 to file. You file a Certificate of Organization with the Pennsylvania Department of State through Business Filing Services, along with the required New Entity Docketing Statement. Instead of appointing an agent, you list a Pennsylvania registered office: either your own address or a Commercial Registered Office Provider (CROP). There's no publication requirement for LLC formation. The ongoing filing is the new $7 annual report, due every September 30.",
   whatYoullNeed:
@@ -43,6 +43,14 @@ export const pennsylvania: StateOverride = {
     {
       label: 'Commercial Registered Office Provider list',
       url: 'https://www.pa.gov/agencies/dos/programs/business/information-services/commercial-registered-office-providers',
+    },
+    {
+      label: 'Pennsylvania statement of change of registered office',
+      url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dos/programs/business/forms/offsite-forms/15-1507%5F5507%5F8625%5F8825-Statement-of-Chng-of-Registered-Office.pdf',
+    },
+    {
+      label: 'Pennsylvania change of registered office by agent',
+      url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dos/programs/business/forms/offsite-forms/15-108-Chge-of-Reg-Off-by-Agnt.pdf',
     },
     {
       label: 'Pennsylvania Personal Income Tax (Department of Revenue)',
@@ -120,9 +128,9 @@ export const pennsylvania: StateOverride = {
         'Your name must be distinguishable on Pennsylvania Department of State records and include an LLC designator such as "limited liability company," "company," "limited," or an accepted abbreviation like LLC, L.L.C., Ltd., or Co. Do not use words that imply a different entity type, like Corporation or Inc. Restricted words tied to banking, insurance, public utilities, education, or licensed professional services may require approval or special handling. Search the Pennsylvania business database before you file. If you are not ready to form yet, a name reservation is optional and holds the name for 120 days for $70.',
     },
     {
-      title: 'Decide on a registered office or CROP',
+      title: 'Choose a registered office or a CROP instead of a registered agent',
       description:
-        'Pennsylvania does not ask you to appoint a statutory agent. Every LLC must list either a real Pennsylvania registered office street address or the name and county of venue of a Commercial Registered Office Provider. A P.O. Box alone does not work. You can use your own Pennsylvania street address, but it becomes part of the public filing and someone needs to reliably receive legal papers there. A CROP is the cleaner default if you work from home, live outside Pennsylvania, or want your address off the public record. Have a contract with the CROP before listing it.',
+        'Pennsylvania does not use a registered agent. Every LLC lists a registered office: a Pennsylvania street address or rural route, or the name and county of a Commercial Registered Office Provider you have a contract with. A P.O. box alone does not work. Listing a CROP without a contract can mean civil and criminal penalties. Changing the registered office is a $5 filing. If the provider drops you, the old address stays the venue address until you file a new office.',
     },
     {
       title: 'File the Certificate of Organization',
@@ -216,6 +224,100 @@ export const pennsylvania: StateOverride = {
       'https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports',
       'https://www.pa.gov/agencies/dos/programs/business/information-services/commercial-registered-office-providers',
       'https://www.pa.gov/agencies/dos/programs/business/information-services/expedited-services',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-15',
+    seoTitle: `Pennsylvania Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Pennsylvania uses a registered office or a Commercial Registered Office Provider, not a registered agent. A street address is free. Changing it costs $5.',
+    intro:
+      "Pennsylvania requires a registered office in the state. That is a Pennsylvania street address or rural route, or the name and county of a Commercial Registered Office Provider you already have a contract with. A post office box alone is rejected. If you live in Pennsylvania and have a business address that isn't your home, list that address and pay nothing. If you work from home or live anywhere else, hire a CROP. Northwest Registered Agent LLC is on the Department of State's provider list, at $125 a year. Changing the office later is a $5 filing.",
+    facts: [
+      {
+        label: 'What Pennsylvania calls it',
+        detail: 'A registered office, or a Commercial Registered Office Provider (CROP) in place of an address. 15 Pa.C.S. § 135 and § 109.',
+      },
+      {
+        label: 'Address rule',
+        detail:
+          'An actual Pennsylvania street address or rural route box number. A post office box alone is not acceptable.',
+      },
+      {
+        label: 'CROP rule',
+        detail:
+          'You may list a CROP and its county of venue instead of an address. Have a contract first. Listing a provider without a contract can mean civil and criminal penalties.',
+      },
+      {
+        label: 'Change of office',
+        detail: '$5, on the Department of State statement of change of registered office.',
+      },
+      {
+        label: 'Change filed by the provider',
+        detail:
+          'Also $5. The provider has to give the company a copy. If that relationship ends, the old address stays the venue address until you file a new office.',
+      },
+      {
+        label: 'Where a CROP does not work',
+        detail:
+          'A CROP cannot be used on a filing that requires a principal place of business, including a fictitious name registration.',
+      },
+      {
+        label: 'Who is on the list',
+        detail:
+          'The Department of State publishes the CROP list. Northwest Registered Agent LLC is on it, at 502 West 7th Street, Suite 100, Erie, Erie County.',
+      },
+      {
+        label: 'Price',
+        detail: 'Your own Pennsylvania street address is free. A CROP usually costs $49 to $300 a year.',
+      },
+    ],
+    lapse: [
+      "The Department of State requires every association to keep a registered office on file. If you listed a CROP and that contract ends, the old address remains the address for venue until you file a new office. Lawsuits and official mail can still go to that old address. File the $5 change as soon as the provider drops you, or as soon as you move.",
+    ],
+    selfAgent: [
+      "Use your own address if you have a Pennsylvania street address or rural route that isn't your home, and someone there can receive mail. That address goes on the public filing. A post office box by itself does not qualify. You do not appoint yourself as a registered agent. You list the office.",
+    ],
+    paidAgent: [
+      "Hire a CROP if you work from home, move often, or live outside Pennsylvania. Sign the contract before you put the provider's name on the certificate. A CROP usually costs $49 to $300 a year. Northwest charges $125 a year, and Northwest Registered Agent LLC is already on the state's provider list in Erie County. A CROP does not replace a principal place of business on filings that ask for one.",
+    ],
+    verdict:
+      "If you have a non-home Pennsylvania street address, list it and skip the provider. If you work from home or live outside Pennsylvania, use Northwest at $125 a year and sign the contract before you file. Switching the office later costs $5.",
+    changeAgent: [
+      "File the statement of change of registered office. The fee is $5. If the provider is the one moving its office, it files its own $5 change and has to send you a copy. Name a new office before you rely on the old one. The old address stays the venue address until the new filing is accepted.",
+    ],
+    faq: [
+      {
+        question: 'Does Pennsylvania require a registered agent?',
+        answer:
+          'Pennsylvania requires a registered office. You list a Pennsylvania street address or rural route, or you list a Commercial Registered Office Provider and its county. The Department of State says a CROP is not the same thing as a registered agent.',
+      },
+      {
+        question: 'Can I use my home address as the registered office?',
+        answer:
+          "You can if it is a real Pennsylvania street address or rural route. A post office box alone is rejected. The address is public. If you don't want your home on the filing, hire a CROP and sign a contract first.",
+      },
+      {
+        question: 'How much does it cost to change a Pennsylvania registered office?',
+        answer:
+          'Five dollars. That is the fee for a change filed by the company and for a change filed by the provider. If the provider drops you, file a new office. The old address stays the venue address until you do.',
+      },
+      {
+        question: 'What happens if I list a CROP without a contract?',
+        answer:
+          'The Department of State says listing a CROP address without a contract can subject the filer to civil and criminal penalties. Get the contract before the name goes on the certificate.',
+      },
+      {
+        question: 'How much is a registered agent in Pennsylvania?',
+        answer:
+          'Your own street address is free. A Commercial Registered Office Provider usually costs $49 to $300 a year. Northwest charges $125 a year and is on the state CROP list.',
+      },
+    ],
+    sourceUrls: [
+      'https://www.pa.gov/agencies/dos/programs/business/information-services/commercial-registered-office-providers',
+      'https://www.pa.gov/agencies/dos/programs/business/fees-and-payments',
+      'https://www.pa.gov/content/dam/copapwp-pagov/en/dos/programs/business/forms/offsite-forms/15-1507%5F5507%5F8625%5F8825-Statement-of-Chng-of-Registered-Office.pdf',
+      'https://www.pa.gov/content/dam/copapwp-pagov/en/dos/programs/business/forms/offsite-forms/15-108-Chge-of-Reg-Off-by-Agnt.pdf',
     ],
   },
   costBreakdown: [

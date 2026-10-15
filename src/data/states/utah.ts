@@ -6,7 +6,7 @@ export const utah: StateOverride = {
   seoTitle: `How to Start an LLC in Utah (${GUIDE_YEAR}): $59 Fee, Steps & Timeline`,
   seoDescription:
     'Start a Utah LLC for $59 online, often approved the same day. Then the $18 annual renewal, the postcard that triggers it, and when a service is worth it.',
-  lastUpdated: '2026-10-05',
+  lastUpdated: '2026-10-15',
   intro:
     "A Utah LLC costs $59 to file. You file a Certificate of Organization with the Utah Division of Corporations and Commercial Code, online through its Business Registration system, and most online filings are processed immediately. There's no publication requirement and no state franchise tax on a standard LLC. The one recurring state filing is the annual renewal (Utah also calls it the annual report): $18 a year, due in the month you formed, starting the year after. That fee is low enough that people forget the filing exists. The Division mails a reminder postcard to your registered agent, not to you, and an LLC that misses enough renewals ends up expired and has to pay to reinstate.",
   whatYoullNeed:
@@ -47,6 +47,14 @@ export const utah: StateOverride = {
     {
       label: 'Registered agent address rule (Utah Code 16-1a-403)',
       url: 'https://le.utah.gov/xcode/Title16/Chapter1A/16-1a-S403.html',
+    },
+    {
+      label: 'Utah registered agent law (Title 16, Chapter 1a, Part 4)',
+      url: 'https://le.utah.gov/xcode/Title16/Chapter1A/C16-1a-P4_2026050620261001.pdf',
+    },
+    {
+      label: 'Utah commercial registered agent filings',
+      url: 'https://commerce.utah.gov/corporations/business-entities/commercial-registered-agent/',
     },
     {
       label: 'LLC name requirements (Utah Code 16-1a-303)',
@@ -138,7 +146,7 @@ export const utah: StateOverride = {
     {
       title: 'Choose a registered agent with a Utah street address',
       description:
-        "Every Utah LLC needs a registered agent at a street address in Utah. A PO box alone doesn't work. You can be your own agent if you have a Utah address and are reliably there during business hours. That address shows up on the Division's public business search. The agent also receives the Division's renewal postcard every year. A commercial registered agent usually costs $50 to $150 a year and keeps your home address off the record.",
+        'Every Utah LLC needs a registered agent with a street address in Utah. A mailing address can be listed separately. You can name a commercial agent, name yourself at that street address, or name an office inside the LLC and give that office a mailing address. Changing the agent on one LLC is $13. A commercial agent changing its own address pays $52, and that filing updates every entity that lists them. The agent also gets the Division’s renewal postcard.',
     },
     {
       title: 'File the Certificate of Organization online',
@@ -280,6 +288,103 @@ export const utah: StateOverride = {
       'https://commerce.utah.gov/corporations/renewal-process/',
       'https://commerce.utah.gov/corporations/faqs/how-to-renew-a-business/',
       'https://commerce.utah.gov/2021/11/15/business-licensing/',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-15',
+    seoTitle: `Utah Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Every Utah LLC needs a registered agent at a Utah street address. Changing one company costs $13. A commercial agent address change is $52.',
+    intro:
+      "Every Utah LLC has to keep a registered agent. The current rules took effect October 1, 2026. The agent needs a street address in Utah. A mailing address can be different. You can name a commercial agent, name yourself at that street address, or name an office inside the LLC and give that office a mailing address. If you live in Utah and have a business address that isn't your home, serve yourself. Everyone else should hire one. A commercial agent usually costs $50 to $150 a year. Changing the agent on one LLC is $13.",
+    facts: [
+      {
+        label: 'What Utah calls it',
+        detail: 'Registered agent. Utah Code Title 16, Chapter 1a, Part 4, in effect October 1, 2026.',
+      },
+      {
+        label: 'Who you can name',
+        detail:
+          'A commercial registered agent, by name. Or a noncommercial agent, by name and street address. Or an office or position inside the LLC, plus that office’s mailing address.',
+      },
+      {
+        label: 'Address rule',
+        detail: 'A street address in Utah. If mail goes somewhere else, list that mailing address too.',
+      },
+      {
+        label: 'Consent',
+        detail: 'Designating the agent affirms that the agent has consented. You do not file a separate acceptance.',
+      },
+      {
+        label: 'Change of agent',
+        detail:
+          '$13 per record to change the agent on one entity. A commercial agent changing its own address pays $52, and that one filing updates every entity that lists the agent.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail:
+          'Effective at 12:01 a.m. on the 31st day, or sooner if a new agent is designated. The agent has to notify the LLC. A commercial agent ending its listing follows the same 31st-day clock.',
+      },
+      {
+        label: 'Public list',
+        detail:
+          'The Division publishes a daily list of filings that name each registered agent, and keeps each day’s list up for at least 14 days.',
+      },
+      {
+        label: 'With no agent',
+        detail:
+          'Service can go by certified or registered mail to the principal office. It is effective on receipt, on the return receipt, or five days after deposit if the address was right.',
+      },
+      {
+        label: 'What the agent must do',
+        detail: 'Forward process and notices, and keep the agent information current. That is the whole duty.',
+      },
+    ],
+    lapse: [
+      "Yes. Utah requires the LLC to maintain a registered agent. If there is no agent, or the agent cannot be served, a lawsuit can be mailed to the principal office and becomes effective five days after it is deposited. The renewal postcard also goes to the agent, so a stale agent address is how people miss the $18 renewal. Name a replacement before a resignation hits 12:01 a.m. on the 31st day.",
+    ],
+    selfAgent: [
+      "Serve yourself if you have a Utah street address that isn't your home. You can also name an office or position inside the LLC and give that office a mailing address, which is the option for a company that wants the role tied to a job rather than a person. The street address is public. The Division's daily filing list names the agent for at least 14 days.",
+    ],
+    paidAgent: [
+      "Hire a commercial agent if you work from home or live outside Utah. A commercial agent has to keep a physical place of business in Utah. The usual price is $50 to $150 a year. Northwest charges $125 a year. That is several times Utah's $18 renewal, so pay it for the address and the postcard, not because the state fee is high. Changing one LLC later is $13.",
+    ],
+    verdict:
+      "If you have a non-home Utah street address, be your own agent. If you work from home or live outside Utah, use Northwest at $125 a year. Switching one company later costs $13.",
+    changeAgent: [
+      "File a statement of change. Designating the new agent affirms that the new agent consented. The Division charges $13 for one entity. If you are the commercial agent and your own address changed, the commercial change is $52 and it updates every entity on your list. Do that before the old address is where the renewal postcard and the lawsuits go.",
+    ],
+    faq: [
+      {
+        question: 'Does Utah require a registered agent?',
+        answer:
+          'Yes. Every Utah LLC has to maintain a registered agent under Title 16, Chapter 1a, Part 4. Those sections took effect October 1, 2026.',
+      },
+      {
+        question: 'Can I be my own registered agent in Utah?',
+        answer:
+          "Yes. Name yourself and give a Utah street address, or name an office inside the LLC and give that office a mailing address. A separate mailing address is allowed. Use a commercial agent if the only address you have is your home.",
+      },
+      {
+        question: 'How much does it cost to change a registered agent in Utah?',
+        answer:
+          'Thirteen dollars per record for one entity. A commercial registered agent changing its own address pays $52, and that filing updates every entity the agent represents.',
+      },
+      {
+        question: 'What happens if my Utah registered agent resigns?',
+        answer:
+          'The resignation is effective at 12:01 a.m. on the 31st day after it is filed, or earlier if you designate a new agent. The resigning agent has to notify the LLC. If nobody is in place, service can be mailed to the principal office and counts five days after it is sent.',
+      },
+      {
+        question: 'How much is a registered agent in Utah?',
+        answer:
+          'Free if you serve yourself at a Utah street address. A commercial agent usually costs $50 to $150 a year. Northwest charges $125 a year.',
+      },
+    ],
+    sourceUrls: [
+      'https://le.utah.gov/xcode/Title16/Chapter1A/C16-1a-P4_2026050620261001.pdf',
+      'https://commerce.utah.gov/corporations/business-entities/commercial-registered-agent/',
+      'https://le.utah.gov/xcode/Title16/Chapter1A/16-1a-S403.html',
     ],
   },
   costBreakdown: [

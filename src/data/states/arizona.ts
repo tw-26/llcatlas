@@ -6,7 +6,7 @@ export const arizona: StateOverride = {
   seoTitle: `How to Start an LLC in Arizona (${GUIDE_YEAR}): $50-$85 Fee, Publication & Steps`,
   seoDescription:
     'Form an Arizona LLC for $50 by mail or $85 online. No annual report, but you may owe newspaper publication within 60 days and need a TPT license.',
-  lastUpdated: '2026-10-05',
+  lastUpdated: '2026-10-15',
   intro:
     "The base filing fee for an Arizona LLC is $50. The Arizona Corporation Commission (ACC) states that online LLC formation costs $85, which is the $50 fee plus its $35 expedited-processing charge. Filing by mail at regular processing is $50. You file Articles of Organization with the ACC's Corporations Division, online through Arizona Business Center, the portal that replaced eCorp on January 12, 2026. Arizona LLCs file no annual report and pay the ACC no yearly fee. Two things catch first-time founders here. First, within 60 days of approval, notice of your LLC must be published. If your statutory agent's street address is in Maricopa or Pima County, the ACC posts it online for free. Anywhere else, you buy three consecutive newspaper notices in that county. Second, if you sell goods or do another taxable activity, you need a transaction privilege tax (TPT) license from the Arizona Department of Revenue. Forming the LLC doesn't get you one.",
   whatYoullNeed:
@@ -38,7 +38,11 @@ export const arizona: StateOverride = {
     { label: 'ACC public notice database', url: 'https://arizonabusinesscenter.azcc.gov/publicnotice' },
     { label: 'A.R.S. 29-3201: Articles of Organization and publication', url: 'https://www.azleg.gov/ars/29/03201.htm' },
     { label: 'A.R.S. 29-3115: Statutory agent', url: 'https://www.azleg.gov/ars/29/03115.htm' },
+    { label: 'A.R.S. 29-3116: Change of statutory agent', url: 'https://www.azleg.gov/ars/29/03116.htm' },
+    { label: 'A.R.S. 29-3117: Resignation of statutory agent', url: 'https://www.azleg.gov/ars/29/03117.htm' },
+    { label: 'A.R.S. 29-3213: LLC filing fees', url: 'https://www.azleg.gov/ars/29/03213.htm' },
     { label: 'A.R.S. 29-3708: Administrative dissolution', url: 'https://www.azleg.gov/ars/29/03708.htm' },
+    { label: 'A.R.S. 29-3709: Reinstatement', url: 'https://www.azleg.gov/ars/29/03709.htm' },
     { label: 'ADOR: TPT license', url: 'https://azdor.gov/business/transaction-privilege-tax/tpt-license' },
     {
       label: 'ADOR: Do I need a TPT license?',
@@ -136,7 +140,7 @@ export const arizona: StateOverride = {
     {
       title: 'Choose a statutory agent, and know that its county decides publication',
       description:
-        "Arizona calls the registered agent a statutory agent. It must be an Arizona resident who is at least 18, with an Arizona street address and mailing address, or a business authorized to do business in Arizona. The LLC can't be its own agent, but you can be. The agent's addresses are public. The agent must accept the appointment: online, Arizona Business Center emails them, and if they don't accept within 72 hours the filing is automatically rejected. Tell your agent to watch for that email. The county of the agent's street address also decides whether you buy newspaper notices later (step 6).",
+        "Arizona calls this a statutory agent. It must be an Arizona resident, or an Arizona corporation or LLC, or a foreign corporation or LLC authorized in Arizona, with a place of business or residence in the state. The appointment is not effective until the agent accepts it. The county of the agent's street address decides whether you buy newspaper notices later: a county of more than 800,000 people is posted by the ACC, and everywhere else you publish three times.",
     },
     {
       title: 'Decide member-managed or manager-managed',
@@ -332,6 +336,106 @@ export const arizona: StateOverride = {
       'https://azcc.gov/faqs/BusinessServicesFAQs',
       'https://www.azleg.gov/ars/29/03201.htm',
       'https://azdor.gov/transaction-privilege-tax/tpt-license/license-fees-cancellation-and-other-changes',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-15',
+    seoTitle: `Arizona Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Arizona calls it a statutory agent. A statement of change is $5. Sixty days without an agent starts dissolution, and the agent’s county decides publication.',
+    intro:
+      "Every Arizona LLC needs a statutory agent with a place of business or residence in Arizona. That can be an Arizona resident, an Arizona corporation or LLC, or a foreign corporation or LLC that is authorized here. The appointment does not count until the agent accepts it. If you live in Arizona and have a business address that isn't your home, serve yourself. Everyone else should hire one. A commercial agent usually costs $50 to $150 a year. Changing the agent is a $5 statement of change. The county of the agent's street address also decides whether you pay for newspaper publication.",
+    facts: [
+      { label: 'What Arizona calls it', detail: 'Statutory agent (A.R.S. § 29-3115).' },
+      {
+        label: 'Who can serve',
+        detail:
+          'An individual who lives in Arizona, a domestic corporation or LLC, or a foreign corporation or LLC authorized to transact business in Arizona. The agent needs a place of business or a residence in the state.',
+      },
+      {
+        label: 'Acceptance',
+        detail:
+          'The appointment is not effective until the agent signs an acceptance, unless the agent already signed the document that appoints them.',
+      },
+      {
+        label: 'Change of agent',
+        detail:
+          '$5 for a statement of change (A.R.S. § 29-3213). The new agent’s appointment waits on a signed acceptance too, unless they signed the statement.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail:
+          'Effective on the earlier of the 31st day or the appointment of a new agent. The agent has to notify the company. An agent can resign even if the LLC is not in good standing.',
+      },
+      {
+        label: '60-day rule',
+        detail:
+          'Tell the ACC within 60 days after a change or a resignation. Missing that, or going 60 consecutive days without an agent or a principal address, is grounds for administrative dissolution.',
+      },
+      {
+        label: 'After the notice',
+        detail: 'The ACC sends notice. The LLC has 60 days to cure. After that, the ACC dissolves it.',
+      },
+      {
+        label: 'Reinstatement',
+        detail:
+          'Apply within six years. The application is $100 plus the fees and penalties that would have come due. If no reinstatement application is on file, the name can be released after six months.',
+      },
+      {
+        label: 'Publication',
+        detail:
+          'Within 60 days of approval, publish three times in a newspaper in the county of the agent’s street address. If that county has more than 800,000 people, the ACC posts the notice instead.',
+      },
+    ],
+    lapse: [
+      "Yes. Arizona requires a statutory agent. Sixty consecutive days without an agent, or without a principal address, is grounds for administrative dissolution. So is failing to tell the ACC within 60 days that the agent changed or resigned. You get a notice and 60 days to fix it. Reinstatement is a $100 application, on top of the fees that would have been due, and you have six years to file it. Wait past six months without an application and the name can be taken.",
+    ],
+    selfAgent: [
+      "Serve yourself if you live in Arizona and have an address that isn't your home. You need a place of business or a residence in the state, and you have to accept the appointment in writing. The county of that street address is the publication county. In a county of more than 800,000 people, the ACC posts the notice. Everywhere else, you buy three newspaper notices within 60 days. A commercial agent in a large county is the usual way to skip the newspaper.",
+    ],
+    paidAgent: [
+      "Hire one if you work from home, live outside Arizona, or want the agent's street address in a county of more than 800,000 people so the ACC posts the publication. A commercial statutory agent usually costs $50 to $150 a year. Northwest charges $125 a year. The agent does not hide the member or manager names. The articles still list them. The agent's only duties are to forward process, give notice of a resignation, and keep the agent information current.",
+    ],
+    verdict:
+      "If you live in Arizona and have a non-home address in a county of more than 800,000 people, be your own agent and let the ACC post the notice. If your county is smaller, or you work from home, or you live outside Arizona, use Northwest at $125 a year and put the agent in a large county. Switching later is $5.",
+    changeAgent: [
+      "File a statement of change. The fee is $5. The new agent has to sign an acceptance unless they signed the statement itself. Tell the ACC within 60 days. Missing that window is a dissolution ground.",
+    ],
+    faq: [
+      {
+        question: 'Does Arizona require a registered agent?',
+        answer:
+          'Yes. Arizona calls it a statutory agent. The agent must have a place of business or residence in Arizona, and the appointment is not effective until the agent accepts it.',
+      },
+      {
+        question: 'Can I be my own statutory agent in Arizona?',
+        answer:
+          "Yes, if you live in Arizona. You accept the appointment in writing. The county of your street address decides publication: more than 800,000 people and the ACC posts it, otherwise you publish in a newspaper three times within 60 days.",
+      },
+      {
+        question: 'How much does it cost to change a statutory agent in Arizona?',
+        answer:
+          'Five dollars for a statement of change. The new agent still has to accept the appointment. You have 60 days to tell the ACC about the change.',
+      },
+      {
+        question: 'What happens if my Arizona statutory agent resigns?',
+        answer:
+          'The resignation takes effect on the 31st day, or sooner if you appoint a new agent. The agent has to notify the company. If you go 60 days without an agent, or you wait more than 60 days to tell the ACC, the Commission can start administrative dissolution.',
+      },
+      {
+        question: 'How much is a statutory agent in Arizona?',
+        answer:
+          'Free if you serve yourself. A commercial agent usually costs $50 to $150 a year. Northwest charges $125 a year. Pick one with a street address in a county of more than 800,000 people if you want the ACC to post your publication.',
+      },
+    ],
+    sourceUrls: [
+      'https://www.azleg.gov/ars/29/03115.htm',
+      'https://www.azleg.gov/ars/29/03116.htm',
+      'https://www.azleg.gov/ars/29/03117.htm',
+      'https://www.azleg.gov/ars/29/03201.htm',
+      'https://www.azleg.gov/ars/29/03213.htm',
+      'https://www.azleg.gov/ars/29/03708.htm',
+      'https://www.azleg.gov/ars/29/03709.htm',
     ],
   },
   costBreakdown: [

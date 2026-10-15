@@ -6,7 +6,7 @@ export const indiana: StateOverride = {
   seoTitle: `How to Start an LLC in Indiana (${GUIDE_YEAR}): $95 Fee, Steps & Timeline`,
   seoDescription:
     'Form an Indiana LLC on INBiz for $95, often approved within hours. Then the $32 Business Entity Report every two years, registered agent rules, and what to skip.',
-  lastUpdated: '2026-09-23',
+  lastUpdated: '2026-10-15',
   intro:
     "An Indiana LLC costs $95 to file online. You file Articles of Organization through INBiz, the state's business portal, and appoint a registered agent. There's no newspaper publication rule and no annual report. The only recurring state filing is a Business Entity Report every two years. The main decision is whether you're comfortable putting your own address on the public record as your registered agent. After approval, get a free EIN from the IRS. Indiana doesn't require an operating agreement, but writing one is still worth it because it sets ownership and management rules on paper.",
   whatYoullNeed:
@@ -24,6 +24,18 @@ export const indiana: StateOverride = {
     { label: 'Indiana Register: business filing fee rule', url: 'https://www.in.gov/sos/business/files/20250326-IR-075250155FNA.pdf' },
     { label: 'Indiana Business Entity Report filing rules', url: 'https://inbiz.in.gov/business-filings/business-entityreport' },
     { label: 'Indiana filing fee statute (IC 23-0.5-9)', url: 'https://iga.in.gov/ic/2026/Title_23/Article_0.5/Chapter_9.pdf' },
+    {
+      label: 'Indiana registered agent statute (IC 23-0.5)',
+      url: 'https://iga.in.gov/laws/current/ic/titles/23',
+    },
+    {
+      label: 'Indiana registered agent filing rules (75 IAC 8)',
+      url: 'https://iar.iga.in.gov/code/2026/75/8',
+    },
+    {
+      label: 'Statement of Change of Registered Agent (Indiana)',
+      url: 'https://forms.in.gov/Download.aspx?id=13558',
+    },
     {
       label: 'Indiana 2026 principal office and CMRA address changes',
       url: 'https://www.in.gov/sos/business/hb-1593-and-hb-1666-filing-process-changes/',
@@ -95,7 +107,7 @@ export const indiana: StateOverride = {
     {
       title: 'Appoint a registered agent with an Indiana street address',
       description:
-        'Indiana uses the term registered agent, not statutory agent. The registered agent must be either an Indiana resident or a business authorized to do business in Indiana, and the registered office must be a physical Indiana street address. No P.O. boxes. You can act as your own registered agent if you live in Indiana and are available during business hours, but the LLC itself cannot serve as its own agent. For most home-based founders, this is the one step where paying for help actually solves a real problem: privacy.',
+        'Indiana uses the term registered agent. The agent must be an individual, a general partnership, an Indiana business, or a business registered in Indiana, at an Indiana street address. The LLC cannot be its own agent. A P.O. box alone is rejected unless it is paired with a rural route. You can serve yourself if you live in Indiana. Changing the agent has no state fee; filing it online on INBiz adds $1. Going 60 days without an agent is grounds for administrative dissolution.',
     },
     {
       title: 'File the Articles of Organization through INBiz',
@@ -185,6 +197,103 @@ export const indiana: StateOverride = {
     sourceUrls: [
       'https://www.in.gov/sos/business/files/20250326-IR-075250155FNA.pdf',
       'https://inbiz.in.gov/business-filings/business-entityreport',
+      'https://iga.in.gov/ic/2026/Title_23/Article_0.5/Chapter_9.pdf',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-15',
+    seoTitle: `Indiana Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Every Indiana LLC needs an agent at an Indiana street address. The LLC cannot be its own agent. Online changes cost $1, and 60 days without an agent starts dissolution.',
+    intro:
+      "Every Indiana LLC has to keep a registered agent at an Indiana street address. The agent can be you, another person, a partnership, or a business that is formed or registered in Indiana. The LLC cannot be its own agent. If you live in Indiana and have a business address that isn't your home, serve yourself and pay nothing. Everyone else should hire one. A commercial agent runs about $100 to $125 a year. Changing the agent has no state fee. Filing that change online on INBiz adds $1.",
+    facts: [
+      { label: 'What Indiana calls it', detail: 'Registered agent, at a registered office (IC 23-0.5-4).' },
+      {
+        label: 'Who can serve',
+        detail:
+          'An individual, a general partnership, a business formed in Indiana, or a business registered to do business in Indiana. The LLC cannot name itself.',
+      },
+      {
+        label: 'Address rule',
+        detail:
+          'An Indiana street address. The change form rejects a P.O. box unless it is paired with a rural route. The signer has to represent that the agent consented.',
+      },
+      {
+        label: 'Change of agent',
+        detail:
+          'No statutory filing fee (IC 23-0.5-9-32). An online filing on INBiz adds a $1 enhanced-access fee (75 IAC 8-3-8).',
+      },
+      {
+        label: 'If the agent resigns',
+        detail:
+          'No statutory fee; the online filing is $1. It takes effect on the 31st day after filing, or sooner if you name a new agent. The agent has to tell the LLC the filing date.',
+      },
+      {
+        label: '60-day rule',
+        detail:
+          'Tell the Secretary of State within 60 days when the agent or office changes, the agent resigns, or the office is discontinued. Missing that is grounds for administrative dissolution.',
+      },
+      {
+        label: 'With no agent',
+        detail:
+          '60 consecutive days without an agent is also grounds. If there is no agent, or the agent cannot be served, papers can go by registered or certified mail to the principal office on the latest biennial report. Service is effective on receipt, on the signed return receipt, or five days after mailing if the address was right.',
+      },
+      {
+        label: 'After the notice',
+        detail:
+          'The Secretary of State sends written notice. The LLC has 60 days to cure. After that, the state signs a certificate of administrative dissolution.',
+      },
+      {
+        label: 'What the agent must do',
+        detail: 'Forward process, notices, and demands, and keep the agent information on file current. That is the whole job.',
+      },
+    ],
+    lapse: [
+      "Yes. Indiana requires a registered agent the whole time the LLC exists. If the LLC goes 60 consecutive days without one, or doesn't tell the Secretary of State within 60 days that the agent changed or resigned, the state can start administrative dissolution. You get a written notice and 60 days to fix it. If nobody is there to accept service, a lawsuit can be mailed to the principal office on your latest Business Entity Report and becomes effective five days after it is deposited, even if you never open it.",
+    ],
+    selfAgent: [
+      "Serve yourself if you live in Indiana and have a street address that isn't your home, and someone can accept mail there. The address is public, and the form asks you to confirm the agent consented. Don't list a P.O. box by itself. A box works only with a rural route. The LLC cannot be its own agent, so naming the company and hoping that counts will get the filing refused.",
+    ],
+    paidAgent: [
+      "Hire one if you work from home, travel, or live outside Indiana. Commercial agents list with the Secretary of State, and the usual price is about $100 to $125 a year. Northwest charges $125 a year, which is the top of that range and still cheaper than missing a lawsuit or a dissolution notice. You still give the agent a way to reach you. Indiana requires the LLC to provide the agent with a communications contact.",
+    ],
+    verdict:
+      "If you live in Indiana and have a non-home business address, be your own agent. If you work from home or live anywhere else, use Northwest at $125 a year. The state fee to switch later is $0, or $1 if you file the change on INBiz.",
+    changeAgent: [
+      "File a statement of change. There is no statutory fee. INBiz adds $1 for the electronic filing. The form covers a commercial agent or a noncommercial one, and the signer represents that the new agent consented. A commercial agent that quits its listing ends at 12:01 a.m. on the 31st day after that termination is filed. Name a replacement before that morning.",
+    ],
+    faq: [
+      {
+        question: 'Does Indiana require a registered agent?',
+        answer:
+          'Yes. Every Indiana LLC has to maintain a registered agent and registered office in Indiana. The agent is an individual, a general partnership, an Indiana business, or a business registered in Indiana. The LLC cannot be its own agent.',
+      },
+      {
+        question: 'Can I be my own registered agent in Indiana?',
+        answer:
+          "Yes, if you have an Indiana street address you are willing to publish and someone there can accept legal mail. A P.O. box alone is not enough unless it includes a rural route. If that address is your home, hire an agent instead.",
+      },
+      {
+        question: 'How much does it cost to change a registered agent in Indiana?',
+        answer:
+          'The statute charges no fee for a statement of change or a resignation. Filing either one online on INBiz adds a $1 enhanced-access fee.',
+      },
+      {
+        question: 'What happens if my Indiana registered agent resigns?',
+        answer:
+          'The resignation takes effect on the 31st day after it is filed, or earlier if you appoint a new agent. The resigning agent has to tell you the filing date. If you do nothing, 60 days without an agent is grounds for administrative dissolution.',
+      },
+      {
+        question: 'How much is a registered agent in Indiana?',
+        answer:
+          'Free if you serve yourself at an Indiana street address. A commercial agent is usually $100 to $125 a year. Northwest charges $125 a year.',
+      },
+    ],
+    sourceUrls: [
+      'https://iga.in.gov/laws/current/ic/titles/23',
+      'https://iar.iga.in.gov/code/2026/75/8',
+      'https://forms.in.gov/Download.aspx?id=13558',
       'https://iga.in.gov/ic/2026/Title_23/Article_0.5/Chapter_9.pdf',
     ],
   },

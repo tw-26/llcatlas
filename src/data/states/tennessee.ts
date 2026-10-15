@@ -6,7 +6,7 @@ export const tennessee: StateOverride = {
   seoTitle: `How to Start an LLC in Tennessee (${GUIDE_YEAR}): $300 Fee, Steps & Timeline`,
   seoDescription:
     'File a Tennessee LLC on TNCaB for $300, often approved same day. Then the $300 annual report due April 1 and the franchise tax single-member LLCs still owe.',
-  lastUpdated: '2026-09-23',
+  lastUpdated: '2026-10-15',
   intro:
     "A Tennessee LLC costs $50 per member to file, with a $300 minimum and a $3,000 maximum, so any LLC with six or fewer members pays $300. You file Articles of Organization with the Tennessee Secretary of State through TNCaB, the state's online filing system, and online filings are processed immediately. There's no publication requirement. Every year you file an Annual Report using the same fee formula and the same $300 minimum. Tennessee has no personal income tax, but LLCs are generally subject to franchise and excise tax, including a $100 minimum franchise tax, so budget beyond the formation filing.",
   whatYoullNeed:
@@ -21,6 +21,7 @@ export const tennessee: StateOverride = {
     { label: 'File your Tennessee LLC online (TNCaB)', url: 'https://tncab.tnsos.gov/' },
     { label: 'Check Tennessee name availability', url: 'https://tncab.tnsos.gov/business-entity-search' },
     { label: 'Tennessee SOS forms and fees', url: 'https://sos.tn.gov/businesses/forms-and-fees' },
+    { label: 'Tennessee SOS business FAQs', url: 'https://sos.tn.gov/businesses/faqs' },
     {
       label: 'File your Tennessee Annual Report (TNCaB)',
       url: 'https://sos.tn.gov/businesses/pages/create-an-account-in-tncab-to-file-an-annual-report',
@@ -109,7 +110,7 @@ export const tennessee: StateOverride = {
     {
       title: 'Appoint a Tennessee registered agent',
       description:
-        'Tennessee uses the term registered agent, with a registered office for the address. The agent must have a physical Tennessee street address; PO boxes and addresses that fail deliverability checks can get the filing rejected. You can serve yourself, use another Tennessee resident, use a Tennessee-authorized business entity, or in Tennessee the LLC itself may serve as its own registered agent. The tradeoff is privacy: the registered office address becomes public.',
+        'Tennessee requires a registered agent and a registered office in the state at all times. The office has to be a physical Tennessee address. A post office box, route number, or box number alone is a reason the Secretary of State rejects a filing. Changing the agent is Form SS-4534 and costs $20. A resignation is Form SS-4420 and also costs $20. Being without a registered agent is one of the reasons the Secretary of State lists for administrative dissolution.',
     },
     {
       title: 'File Articles of Organization through TNCaB',
@@ -215,6 +216,96 @@ export const tennessee: StateOverride = {
       'https://sos.tn.gov/businesses/pages/create-an-account-in-tncab-to-file-an-annual-report',
       'https://www.tn.gov/revenue/taxes/franchise---excise-tax.html',
       'https://www.tn.gov/revenue/for-businesses/for-new-businesses/licenses-permits-registration.html',
+    ],
+  },
+  registeredAgentPage: {
+    lastVerified: '2026-10-15',
+    seoTitle: `Tennessee Registered Agent (${GUIDE_YEAR}): Rules, Cost & Who to Use`,
+    seoDescription:
+      'Every Tennessee LLC needs a registered agent at a physical Tennessee address. Changing the agent is Form SS-4534 and costs $20. A missing agent is a dissolution reason.',
+    intro:
+      "Every Tennessee LLC has to keep a registered agent and a registered office in Tennessee. The Secretary of State describes the agent as a person or company that agrees to accept legal mail. The office has to be a physical Tennessee address. A post office box, route number, or box number alone is a reason a filing gets rejected. If you live in Tennessee and have a business address that isn't your home, serve yourself. Everyone else should hire one. A commercial agent usually costs $50 to $300 a year. Changing the agent is $20.",
+    facts: [
+      {
+        label: 'What Tennessee calls it',
+        detail: 'Registered agent, at a registered office. Required for every entity except a general partnership.',
+      },
+      {
+        label: 'Who can serve',
+        detail: 'A person or company that agrees to accept legal mail for the LLC.',
+      },
+      {
+        label: 'Address rule',
+        detail:
+          'A physical Tennessee address. The Secretary of State rejects a registered office that is only a post office box, a route number, or a box number.',
+      },
+      {
+        label: 'Change of agent',
+        detail:
+          '$20. On the domestic LLC forms list, that filing is SS-4534, Statement of Change of Registered Agent/Office by Entity or Agent.',
+      },
+      {
+        label: 'If the agent resigns',
+        detail: '$20, on Form SS-4420, Statement of Resignation of Registered Agent.',
+      },
+      {
+        label: 'Office-only change by the agent',
+        detail: 'Form SS-4535, Statement of Change of Registered Office by Registered Agent, is also $20.',
+      },
+      {
+        label: 'With no agent',
+        detail:
+          'The Secretary of State lists being without a registered agent as a reason for administrative dissolution, along with a missed annual report.',
+      },
+      {
+        label: 'Reinstatement',
+        detail: 'Application for Reinstatement Following Administrative Dissolution, Form SS-9410, is $70.',
+      },
+    ],
+    lapse: [
+      "Yes. Tennessee requires the registered agent and the registered office the whole time the LLC exists. The Secretary of State lists being without a registered agent as a reason for administrative dissolution, in the same list as failing to file the annual report. Reinstatement after that is Form SS-9410 and costs $70. Keep a person at a physical Tennessee address who will actually open the legal mail.",
+    ],
+    selfAgent: [
+      "Serve yourself if you have a physical Tennessee address that isn't your home and you will accept legal mail there. A post office box, route number, or box number alone will get the filing rejected. The address is public.",
+    ],
+    paidAgent: [
+      "Hire one if you work from home or live outside Tennessee. A professional agent usually costs $50 to $300 a year. Northwest charges $125 a year, which sits in the cheap half of that range. The $20 change form is cheap. The $300 annual report is not, so don't let a missing agent become one more reason the LLC goes inactive.",
+    ],
+    verdict:
+      "If you have a non-home Tennessee street address, be your own agent. If you work from home or live outside Tennessee, use Northwest at $125 a year. Switching later is $20 on Form SS-4534.",
+    changeAgent: [
+      "File Form SS-4534, Statement of Change of Registered Agent/Office by Entity or Agent. The fee is $20. The Secretary of State's FAQ also says a change of registered agent or principal address can be done as Articles of Amendment for the same $20. Use SS-4534 when the only change is the agent or the registered office. A resignation is the separate $20 Form SS-4420.",
+    ],
+    faq: [
+      {
+        question: 'Does Tennessee require a registered agent?',
+        answer:
+          'Yes. Every Tennessee LLC has to maintain a registered agent and a registered office in Tennessee at all times. General partnerships are the exception, not LLCs.',
+      },
+      {
+        question: 'Can I be my own registered agent in Tennessee?',
+        answer:
+          'Yes, if you will accept legal mail at a physical Tennessee address. A post office box, route number, or box number alone is rejected. If that address is your home, hire an agent.',
+      },
+      {
+        question: 'How much does it cost to change a registered agent in Tennessee?',
+        answer:
+          'Twenty dollars. Form SS-4534 covers a change of registered agent or registered office by the entity or by the agent. A resignation, Form SS-4420, is also $20.',
+      },
+      {
+        question: 'What happens if my Tennessee LLC has no registered agent?',
+        answer:
+          'The Secretary of State lists being without a registered agent as a reason for administrative dissolution. Reinstatement after an administrative dissolution is Form SS-9410 and costs $70.',
+      },
+      {
+        question: 'How much is a registered agent in Tennessee?',
+        answer:
+          'Free if you serve yourself at a physical Tennessee address. A professional agent usually costs $50 to $300 a year. Northwest charges $125 a year.',
+      },
+    ],
+    sourceUrls: [
+      'https://sos.tn.gov/businesses/forms-and-fees',
+      'https://sos.tn.gov/businesses/faqs',
     ],
   },
   costBreakdown: [
