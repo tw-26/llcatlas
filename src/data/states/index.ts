@@ -1,6 +1,7 @@
 import { arizona } from './arizona';
 import { california } from './california';
 import { buildDefaultState } from './defaults';
+import { feeFactsBySlug } from './fee-facts';
 import { delaware } from './delaware';
 import { georgia } from './georgia';
 import { illinois } from './illinois';
@@ -28,6 +29,7 @@ export type {
   CostBreakdownItem,
   CostScheduleItem,
   StateCostPage,
+  StateFeeFacts,
   StateRegisteredAgentPage,
   FaqItem,
   GuideSection,
@@ -75,14 +77,18 @@ export const findRegisteredAgentStepIndex = (steps: Step[]) => steps.findIndex((
 export const states: StateData[] = stateSeeds.map((seed) => {
   const base = buildDefaultState(seed);
   const override = stateOverrides[seed.slug];
+  const merged = override
+    ? {
+        ...base,
+        ...override,
+        proscons: override.proscons ?? base.proscons,
+      }
+    : base;
+  const feeFacts = feeFactsBySlug[seed.slug];
 
-  if (!override) {
-    return base;
+  if (!feeFacts || merged.costPage) {
+    return merged;
   }
 
-  return {
-    ...base,
-    ...override,
-    proscons: override.proscons ?? base.proscons,
-  };
+  return { ...merged, feeFacts };
 });

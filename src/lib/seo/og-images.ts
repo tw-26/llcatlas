@@ -83,6 +83,13 @@ const staticEntries: OgImageEntry[] = [
     eyebrow: 'Formation strategy',
   }),
   createEntry({
+    path: '/llc/cost-by-state/',
+    title: `LLC Filing Fees and Annual Fees by State (${GUIDE_YEAR}) | LLCAtlas`,
+    description:
+      'LLC filing fees and annual fees for all 50 states and DC, with year-1 and year-2 totals from official fee schedules.',
+    eyebrow: 'Fees by state',
+  }),
+  createEntry({
     path: '/llc-vs-s-corp/',
     title: 'LLC vs S-Corp: Which Tax Setup Makes Sense? | LLCAtlas',
     description:

@@ -59,6 +59,29 @@ export type CostScheduleItem = {
   due: string;
 };
 
+/**
+ * Fee line for `/llc/cost-by-state/` when the state has no cost guide yet.
+ * Every figure must be read on the official page in `sourceUrl`.
+ */
+export type StateFeeFacts = {
+  /** Date these fees were checked against `sourceUrl` (YYYY-MM-DD). */
+  lastVerified: string;
+  sourceUrl: string;
+  sourceLabel: string;
+  /** Cheapest required fee to form, as it should read in the table. */
+  filingDisplay: string;
+  /** Recurring state fee, including how often it is due. */
+  annualDisplay: string;
+  /** When that recurring filing is due. */
+  annualDue: string;
+  /** State cost to form now, serving as your own agent. */
+  yearOneTotal: number;
+  /** Required state cost the following year. $0 when nothing is due yet. */
+  yearTwoTotal: number;
+  /** One caveat when the two totals hide a second fee. */
+  note?: string;
+};
+
 /** Content for `/llc/{slug}/cost/`. Every number must come from data already verified in the guide. */
 export type StateCostPage = {
   seoTitle: string;
@@ -153,6 +176,8 @@ export type StateData = {
   sections: GuideSection[];
   trap?: StateTrap;
   costPage?: StateCostPage;
+  /** Set only for states that are not ready guides. The fees table reads this. */
+  feeFacts?: StateFeeFacts;
   registeredAgentPage?: StateRegisteredAgentPage;
   costBreakdown: CostBreakdownItem[];
   faq: FaqItem[];

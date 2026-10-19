@@ -1,0 +1,302 @@
+---
+import AffiliateCard from '../../components/affiliate-card.astro';
+import SiteLayout from '../../layouts/site-layout.astro';
+import { affiliates } from '../../data/affiliates';
+import { llcServices } from '../../data/llc-services';
+import { GUIDE_YEAR } from '../../data/site';
+import { FEE_TABLE_PATH, FEE_TABLE_UPDATED, getLlcFeeTable } from '../../data/states/fee-table';
+
+const rows = getLlcFeeTable();
+const northwest = llcServices.find((service) => service.slug === 'northwest');
+const northwestName = northwest?.name ?? 'Northwest Registered Agent';
+
+const formatMoney = (value: number) =>
+  new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: Number.isInteger(value) ? 0 : 2,
+    maximumFractionDigits: Number.isInteger(value) ? 0 : 2,
+  }).format(value);
+
+const byYearOne = [...rows].sort(
+  (left, right) => left.yearOneTotal - right.yearOneTotal || left.name.localeCompare(right.name),
+);
+const byYearTwo = [...rows].sort(
+  (left, right) => right.yearTwoTotal - left.yearTwoTotal || left.name.localeCompare(right.name),
+);
+const cheapest = byYearOne[0];
+const priciestToForm = [...rows].sort(
+  (left, right) => right.yearOneTotal - left.yearOneTotal || left.name.localeCompare(right.name),
+)[0];
+const priciestToKeep = byYearTwo[0];
+const cheapestFive = byYearOne.slice(0, 5);
+
+const title = `LLC Filing Fees and Annual Fees by State (${GUIDE_YEAR}) | LLCAtlas`;
+const description = `LLC filing fees and annual fees for all 50 states and DC in ${GUIDE_YEAR}. ${cheapest.name} is ${formatMoney(cheapest.yearOneTotal)} to file. ${priciestToKeep.name} costs ${formatMoney(priciestToKeep.yearTwoTotal)} the next year.`;
+const pageUrl = `https://llcatlas.com${FEE_TABLE_PATH}`;
+const updatedLabel = new Date(`${FEE_TABLE_UPDATED}T00:00:00Z`).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+const citeLine = `LLCAtlas, “LLC Filing Fees and Annual Fees by State (${GUIDE_YEAR}),” ${pageUrl}, updated ${updatedLabel}.`;
+
+const faqItems = [
+  {
+    question: 'What is the cheapest state to form an LLC?',
+    answer: `${cheapest.name} has the lowest year-1 state cost in this table, ${formatMoney(cheapest.yearOneTotal)}. A low filing fee is not a reason to form there if you live somewhere else. You would still register and pay in your home state.`,
+  },
+  {
+    question: 'How much does an LLC cost?',
+    answer: `The state fee to file runs from ${formatMoney(cheapest.yearOneTotal)} in ${cheapest.name} to ${formatMoney(priciestToForm.yearOneTotal)} in ${priciestToForm.name}, if you serve as your own registered agent. The second year is a different bill. ${priciestToKeep.name} is ${formatMoney(priciestToKeep.yearTwoTotal)}. A formation service adds its own fee on top of the state fee.`,
+  },
+  {
+    question: 'Which state has the highest LLC annual fee?',
+    answer: `${priciestToKeep.name} is the highest year-2 state cost in this table, at ${formatMoney(priciestToKeep.yearTwoTotal)}. Massachusetts is $500 to file and $500 every year after. New York's articles are $200, then publication in two newspapers can cost several hundred dollars more.`,
+  },
+  {
+    question: 'Do I pay the annual fee in the first year?',
+    answer:
+      'Usually not. Year 1 in this table is the fee to form. Year 2 is the next required state fee. Some states, including California and Delaware, do charge a tax in the first year, and those amounts are already in the year-1 column.',
+  },
+  {
+    question: 'Should I form my LLC in the cheapest state?',
+    answer:
+      'No, unless you live or operate there. Form in your home state. An out-of-state LLC still has to register as a foreign LLC where you actually work, and you pay both states.',
+  },
+];
+
+const relatedLinks = [
+  { label: 'Which state to form your LLC in', href: '/best-state/' },
+  { label: 'Compare LLC formation services', href: '/best-llc-services/' },
+  { label: 'California LLC cost', href: '/llc/california/cost/' },
+  { label: 'Delaware LLC cost', href: '/llc/delaware/cost/' },
+  { label: 'Wyoming LLC cost', href: '/llc/wyoming/cost/' },
+  { label: 'Texas LLC cost', href: '/llc/texas/cost/' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `LLC filing fees and annual fees by state in ${GUIDE_YEAR}`,
+    description,
+    datePublished: FEE_TABLE_UPDATED,
+    dateModified: FEE_TABLE_UPDATED,
+    author: { '@type': 'Organization', name: 'LLCAtlas', url: 'https://llcatlas.com/' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com/',
+      logo: { '@type': 'ImageObject', url: 'https://llcatlas.com/logo.svg' },
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: `LLC filing fees and annual fees by state (${GUIDE_YEAR})`,
+    description:
+      'Filing fee, annual fee, due date, and year-1 and year-2 state cost for an LLC in all 50 states and the District of Columbia.',
+    url: pageUrl,
+    dateModified: FEE_TABLE_UPDATED,
+    temporalCoverage: String(GUIDE_YEAR),
+    spatialCoverage: { '@type': 'Country', name: 'United States' },
+    creator: { '@type': 'Organization', name: 'LLCAtlas', url: 'https://llcatlas.com/' },
+    license: pageUrl,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+---
+
+<SiteLayout title={title} description={description} ogType="article" structuredData={structuredData}>
+  <section class="space-y-8">
+    <div class="space-y-6">
+      <p class="llc-helper">LLC cost by state</p>
+      <h1>LLC filing fees and annual fees by state</h1>
+      <p class="text-[13px] uppercase tracking-[0.08em] text-ink-muted">
+        Updated <time datetime={FEE_TABLE_UPDATED}>{updatedLabel}</time>
+      </p>
+      <p class="llc-section-copy text-ink-soft">
+        File in the state where you live. {cheapest.name} is the cheapest year-1 state cost here, at {formatMoney(cheapest.yearOneTotal)}.
+        {priciestToForm.name} is {formatMoney(priciestToForm.yearOneTotal)} to form.
+        {priciestToKeep.name} costs {formatMoney(priciestToKeep.yearTwoTotal)} the next year.
+        A lower fee in another state does not help if you still have to register and pay at home.
+      </p>
+    </div>
+
+    <div class="llc-card-highlight space-y-6 !rounded-[1.5rem] !p-6 sm:!p-8">
+      <div class="space-y-3">
+        <p class="llc-helper">The verdict</p>
+        <h2>Your home state still wins</h2>
+        <p class="llc-section-copy text-ink-soft">
+          Kentucky is $40 to file and $15 a year. Massachusetts is $500 to file and $500 every year after that.
+          California's row shows {formatMoney(rows.find((row) => row.slug === 'california')?.yearOneTotal ?? 0)} for a first tax year in 2027–2029.
+          Form in 2026 and California year 1 is $890, then $800 a year. New York's articles are $200, and the required newspaper publication is extra.
+          <a href="/best-state/" class="font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 hover:decoration-ink-soft">
+            Read when Wyoming or Delaware is actually worth it
+          </a>.
+        </p>
+      </div>
+      <dl class="grid gap-4 border-t border-accent-soft pt-5 sm:grid-cols-3">
+        <div class="space-y-1">
+          <dt class="llc-helper">Cheapest to file</dt>
+          <dd class="text-lg font-semibold text-ink-strong">{cheapest.name}, {formatMoney(cheapest.yearOneTotal)}</dd>
+        </div>
+        <div class="space-y-1">
+          <dt class="llc-helper">Most expensive to file</dt>
+          <dd class="text-lg font-semibold text-ink-strong">{priciestToForm.name}, {formatMoney(priciestToForm.yearOneTotal)}</dd>
+        </div>
+        <div class="space-y-1">
+          <dt class="llc-helper">Most expensive year 2</dt>
+          <dd class="text-lg font-semibold text-ink-strong">{priciestToKeep.name}, {formatMoney(priciestToKeep.yearTwoTotal)}</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-3">
+      <h2>The fee table</h2>
+      <p class="llc-section-copy text-ink-soft">
+        Year 1 is the state cost to form now, serving as your own registered agent. Year 2 is the required state fee the next year.
+        Where a report is not due yet, year 2 is $0 and the annual column shows what you pay when it comes due.
+        States with a cost guide use that guide's totals.
+        The five lowest year-1 totals: {cheapestFive.map((row) => `${row.name} ${formatMoney(row.yearOneTotal)}`).join(', ')}.
+      </p>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[52rem] border-collapse text-left text-base">
+        <caption class="sr-only">
+          LLC filing fee, annual fee, due date, and year-1 and year-2 cost for all 50 states and the District of Columbia
+        </caption>
+        <thead>
+          <tr class="border-b border-rule">
+            <th scope="col" class="llc-table-head sticky left-0 bg-surface px-4 py-4 text-left">State</th>
+            <th scope="col" class="llc-table-head px-4 py-4 text-right">Filing fee</th>
+            <th scope="col" class="llc-table-head px-4 py-4 text-right">Annual fee</th>
+            <th scope="col" class="llc-table-head px-4 py-4 text-left">Due</th>
+            <th scope="col" class="llc-table-head px-4 py-4 text-right">Year 1</th>
+            <th scope="col" class="llc-table-head px-4 py-4 text-right">Year 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            rows.map((row) => (
+              <tr class="border-b border-rule align-top">
+                <th scope="row" class="sticky left-0 bg-surface px-4 py-4 text-left font-semibold text-ink-strong">
+                  {row.costPath ? (
+                    <a href={row.costPath} class="underline decoration-rule-strong underline-offset-4 hover:decoration-ink-soft">
+                      {row.name}
+                    </a>
+                  ) : (
+                    row.name
+                  )}
+                  {row.note && <span class="mt-1 block text-sm font-normal leading-6 text-ink-muted">{row.note}</span>}
+                </th>
+                <td class="px-4 py-4 text-right tabular-nums text-ink-soft">{row.filingDisplay}</td>
+                <td class="px-4 py-4 text-right tabular-nums text-ink-soft">{row.annualDisplay}</td>
+                <td class="px-4 py-4 text-ink-soft">{row.annualDue}</td>
+                <td class="px-4 py-4 text-right font-semibold tabular-nums text-ink-strong">{formatMoney(row.yearOneTotal)}</td>
+                <td class="px-4 py-4 text-right font-semibold tabular-nums text-ink-strong">{formatMoney(row.yearTwoTotal)}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="text-base leading-7 text-ink-muted">
+      Totals leave out a paid registered agent, a formation service, and local licenses. On a phone, swipe the table sideways for year 1 and year 2.
+    </p>
+  </section>
+
+  <section class="llc-card space-y-3 !p-6 sm:!p-8">
+    <h2>Cite this table</h2>
+    <p class="text-base leading-7 text-ink-soft">
+      <cite>{citeLine}</cite>
+    </p>
+    <p class="text-base leading-7 text-ink-soft">
+      Direct link: <a href={FEE_TABLE_PATH} class="font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4">{pageUrl}</a>
+    </p>
+  </section>
+
+  <AffiliateCard
+    partnerName={northwestName}
+    href={affiliates.northwest}
+    stateName="your state"
+    placement="inline"
+    eyebrow="If you want help filing"
+    heading={`${northwestName} files it. The state fee is still due.`}
+    description={`${northwestName} is ${northwest?.headlinePriceLabel ?? '$39 + state fee'} to form, and the first year of registered agent service is included. Renewal is ${northwest?.registeredAgentRenewalLabel ?? '$125 a year'}. Use them if you don't want your home address on the filing. If you can be your own agent, skip the service and pay only the state fee in the table.`}
+    buttonLabel={`Start with ${northwestName}`}
+    benefits={[
+      'Acts as your registered agent, so your home address stays off the public filing',
+      'No upsells or surprise fees at checkout',
+      'First year of registered agent service included',
+    ]}
+    ctaNote="The state fee in the table is still due on top."
+  />
+
+  <section class="space-y-4">
+    <h2>Official sources</h2>
+    <p class="llc-section-copy text-ink-soft">
+      Each fee was read on the state page linked here. Linked state names in the table go to a full cost guide.
+    </p>
+    <ul class="grid gap-2 sm:grid-cols-2">
+      {
+        rows.map((row) => (
+          <li class="text-base leading-7">
+            <span class="text-ink-strong">{row.name}.</span>{' '}
+            <a
+              href={row.sourceUrl}
+              class="text-ink-soft underline decoration-rule-strong underline-offset-4 hover:text-ink-strong"
+              rel="noopener"
+            >
+              {row.sourceLabel}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="space-y-3">
+    <h2>Related</h2>
+    <ul class="!space-y-0 divide-y divide-rule border-y border-rule">
+      {
+        relatedLinks.map((link) => (
+          <li>
+            <a href={link.href} class="flex min-h-11 items-center py-3 text-base font-semibold text-ink-strong underline decoration-transparent underline-offset-4 hover:decoration-ink-soft">
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="space-y-6">
+    <h2>Questions</h2>
+    <div class="divide-y divide-rule border-y border-rule">
+      {
+        faqItems.map((item) => (
+          <details class="group py-4">
+            <summary class="cursor-pointer text-lg font-semibold text-ink-strong">{item.question}</summary>
+            <p class="llc-section-copy pt-3 text-ink-soft">{item.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+</SiteLayout>

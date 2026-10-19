@@ -44,6 +44,7 @@ const linkForStateName = (name: string): string | null => {
 
 const hasTaxPage = getPublishedStatePages().some((page) => getStateSlug(page.state) === state.slug);
 const relatedLinks = [
+  { label: 'LLC filing fees and annual fees by state', href: '/llc/cost-by-state/' },
   { label: `How to start an LLC in ${state.name}`, href: guidePath },
   ...(hasTaxPage
     ? [{ label: `${state.name} self-employment tax calculator`, href: `/self-employment-tax/${state.slug}/` }]

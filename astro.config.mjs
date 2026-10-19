@@ -12,6 +12,7 @@ const SITE_URL = 'https://llcatlas.com';
 const readyStateUrls = new Set([
   ...READY_STATE_SLUGS.flatMap((slug) => [`${SITE_URL}/llc/${slug}/`, `${SITE_URL}/llc/${slug}/cost/`]),
   ...REGISTERED_AGENT_PAGE_SLUGS.map((slug) => `${SITE_URL}/llc/${slug}/registered-agent/`),
+  `${SITE_URL}/llc/cost-by-state/`,
 ]);
 
 // https://astro.build/config
