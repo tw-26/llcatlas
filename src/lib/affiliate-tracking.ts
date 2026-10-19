@@ -29,6 +29,8 @@ export const getAffiliatePageType = (pathname: string): AffiliatePageType => {
   if (
     pathname === '/best-llc-services/' ||
     pathname === '/best-llc-services' ||
+    pathname === '/best-registered-agent-service/' ||
+    pathname === '/best-registered-agent-service' ||
     pathname.includes('-vs-') ||
     /-review\/?$/.test(pathname)
   ) {

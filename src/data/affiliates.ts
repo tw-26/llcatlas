@@ -47,6 +47,15 @@ export const affiliates: Record<AffiliatePartner, string> = {
 };
 
 /**
+ * Northwest registered-agent signup with no state preselected. Same product as
+ * the state links below, not the formation order.
+ */
+export const northwestRegisteredAgentUrl = buildAwinLink(
+  awinAdvertiserIds.northwest,
+  'https://www.northwestregisteredagent.com/signup',
+);
+
+/**
  * Northwest registered-agent-only order with the state preselected. Pays the
  * registered agent commission, not the formation one, so use it only on pages
  * where the reader is buying an agent.

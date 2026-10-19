@@ -43,6 +43,8 @@ const isHomePage = currentPath === '/';
 const isComparisonPage = currentPath === '/best-llc-services/' || currentPath === '/best-llc-services';
 const isBestStatePage = currentPath === '/best-state/' || currentPath === '/best-state';
 const isFeeTablePage = currentPath === '/llc/cost-by-state/' || currentPath === '/llc/cost-by-state';
+const isAgentHubPage =
+  currentPath === '/best-registered-agent-service/' || currentPath === '/best-registered-agent-service';
 const isStateGuidePage = currentPath.startsWith('/llc/');
 const homeLinkClass = isHomePage ? 'font-semibold text-ink-strong' : 'transition hover:text-ink-strong';
 const stateLinkClass = isStateGuidePage ? 'font-semibold text-ink-strong' : 'transition hover:text-ink-strong';
@@ -54,7 +56,7 @@ const primaryNavCta = isStateGuidePage
 const isPrivacyPage = currentPath === '/privacy/' || currentPath === '/privacy';
 const contentWidthClass = isHomePage
   ? 'mx-auto max-w-6xl'
-  : isBestStatePage || isFeeTablePage
+  : isBestStatePage || isFeeTablePage || isAgentHubPage
     ? 'w-full'
     : isPrivacyPage
       ? 'lg:max-w-[892px]'

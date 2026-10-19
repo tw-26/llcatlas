@@ -13,6 +13,7 @@ import {
 } from '../../data/tax/combo-pages';
 import { getProfessionPreset } from '../../data/tax/profession-presets';
 import { getPublishedProfessionPages } from '../../data/tax/profession-pages';
+import { registeredAgentPick } from '../../data/registered-agent-hub';
 import { GUIDE_YEAR } from '../../data/site';
 
 export type OgImageEntry = {
@@ -81,6 +82,12 @@ const staticEntries: OgImageEntry[] = [
     description:
       'The best state to form an LLC is usually your home state. See when Wyoming, Delaware, or Nevada actually make sense before you file.',
     eyebrow: 'Formation strategy',
+  }),
+  createEntry({
+    path: '/best-registered-agent-service/',
+    title: `Best Registered Agent Service (${GUIDE_YEAR}) | LLCAtlas`,
+    description: `Use Northwest at ${registeredAgentPick.priceLabel} if you need a paid registered agent. Be your own if you qualify, and open the rules for your state.`,
+    eyebrow: 'Registered agent',
   }),
   createEntry({
     path: '/llc/cost-by-state/',

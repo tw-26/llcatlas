@@ -325,6 +325,11 @@ export const comparisons: ServiceComparison[] = [
     ],
     relatedGuides: [
       {
+        href: '/best-registered-agent-service/',
+        label: 'Best registered agent service',
+        description: 'If you only need an agent, Northwest is $125 a year. Be your own when you qualify.',
+      },
+      {
         href: '/bizee-review/',
         label: 'Read the full Bizee review',
         description: 'Which Bizee plan to buy, which checkout add-ons to skip, and what renews after year one.',

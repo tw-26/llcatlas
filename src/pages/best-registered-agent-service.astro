@@ -1,0 +1,273 @@
+---
+import AffiliateButton from '../components/affiliate-button.astro';
+import SiteLayout from '../layouts/site-layout.astro';
+import { GUIDE_YEAR } from '../data/site';
+import { getStateRegisteredAgentPath, states } from '../data/states';
+import {
+  REGISTERED_AGENT_HUB_PATH,
+  REGISTERED_AGENT_HUB_UPDATED,
+  registeredAgentHubFaq,
+  registeredAgentPick,
+  registeredAgentPriceRows,
+} from '../data/registered-agent-hub';
+
+const title = `Best Registered Agent Service (${GUIDE_YEAR}) | LLCAtlas`;
+const description = `Use Northwest at ${registeredAgentPick.priceLabel} if you need a paid registered agent. Be your own if you qualify, and open the rules for your state.`;
+const pageUrl = `https://llcatlas.com${REGISTERED_AGENT_HUB_PATH}`;
+const lastUpdatedLabel = new Date(`${REGISTERED_AGENT_HUB_UPDATED}T00:00:00Z`).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+
+const agentStates = states
+  .filter((state) => state.contentStatus === 'ready' && state.registeredAgentPage)
+  .sort((left, right) => left.name.localeCompare(right.name));
+
+const relatedLinks = [
+  { label: 'Compare LLC formation services', href: '/best-llc-services/' },
+  { label: 'Northwest vs Bizee', href: '/northwest-vs-bizee/' },
+  { label: 'Which state to form your LLC in', href: '/best-state/' },
+  { label: 'Wyoming registered agent', href: '/llc/wyoming/registered-agent/' },
+  { label: 'Texas registered agent', href: '/llc/texas/registered-agent/' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `Best Registered Agent Service (${GUIDE_YEAR})`,
+    description,
+    author: { '@type': 'Organization', name: 'LLCAtlas', url: 'https://llcatlas.com' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LLCAtlas',
+      url: 'https://llcatlas.com',
+      logo: { '@type': 'ImageObject', url: 'https://llcatlas.com/logo.svg' },
+    },
+    datePublished: REGISTERED_AGENT_HUB_UPDATED,
+    dateModified: REGISTERED_AGENT_HUB_UPDATED,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://llcatlas.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Best registered agent service', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: registeredAgentHubFaq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+---
+
+<SiteLayout title={title} description={description} ogType="article" structuredData={structuredData}>
+  <section class="space-y-8">
+    <div class="space-y-4">
+      <p class="llc-helper">Registered agent</p>
+      <h1>Best registered agent service</h1>
+      <p class="text-[13px] uppercase tracking-[0.08em] text-ink-muted">
+        Prices checked <time datetime={REGISTERED_AGENT_HUB_UPDATED}>{lastUpdatedLabel}</time>
+      </p>
+      <p class="llc-section-copy text-ink-soft">
+        Be your own registered agent if you have a street address in the state and can be there
+        during business hours. If you can't, use {registeredAgentPick.name} at {registeredAgentPick.priceLabel}.
+        That is the lowest renewal below, and it does not charge per document.
+      </p>
+    </div>
+
+    <div class="llc-card-highlight space-y-5 !rounded-[1.5rem] !p-6 sm:!p-8">
+      <div class="space-y-3">
+        <p class="llc-helper">The verdict</p>
+        <h2>Be your own if you can. Otherwise, Northwest at {registeredAgentPick.priceLabel}.</h2>
+        <p class="llc-section-copy text-ink-soft">
+          You qualify to serve yourself when a physical street address in the formation state is
+          staffed during business hours. That address goes on the public filing. Hire Northwest if
+          the address would be your home, you travel, or you don't live in the state.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <AffiliateButton
+          href={registeredAgentPick.href}
+          label="Get a registered agent from Northwest"
+          partnerName={registeredAgentPick.name}
+          placement="hero"
+          size="lg"
+        />
+        <a href="#your-state" class="inline-flex min-h-11 items-center text-[15px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4">
+          Check the rules in your state
+        </a>
+      </div>
+      <p class="text-[12px] leading-5 text-ink-muted">Affiliate link. LLCAtlas may earn a commission.</p>
+    </div>
+  </section>
+
+  <section class="space-y-4">
+    <h2>What a registered agent actually does</h2>
+    <p class="llc-section-copy">
+      A registered agent is the person or company named on the state filing to receive lawsuits and
+      official mail. Every state requires one where the LLC is formed, and another in each state
+      where it registers to do business. The agent does not form the LLC, file your taxes, or run
+      the company.
+    </p>
+    <p class="llc-section-copy">
+      You are paying for an in-state street address that is staffed during business hours, and for
+      someone to tell you when a paper arrives. Miss a lawsuit and a court can enter a judgment
+      without you. Miss a state notice and the state can dissolve the LLC.
+    </p>
+  </section>
+
+  <section id="be-your-own" class="scroll-mt-24 space-y-4">
+    <h2>When you don't need a paid one</h2>
+    <p class="llc-section-copy">
+      Serve yourself, for free, when all three are true. A street address in that state, not a PO
+      box. Someone there during business hours. And you are willing to publish the address. The
+      state page below has the exact rule, including states that call the role a statutory agent
+      or a resident agent.
+    </p>
+    <p class="llc-section-copy">
+      If the only address you have is your home, hire an agent. The home address becomes public,
+      and a process server can come to the door. Don't buy a formation package just to get a free
+      year of agent service if the LLC already exists.
+    </p>
+  </section>
+
+  <section class="space-y-5">
+    <div class="space-y-4">
+      <h2>What a paid agent costs</h2>
+      <p class="llc-section-copy">
+        Compare the renewal. Northwest is {registeredAgentPick.priceLabel} every year. ZenBusiness
+        is cheaper for one year, then more. Bizee's first year is free only when Bizee also forms
+        the LLC. LegalZoom charges the most for the same job. Any state fee to appoint or change
+        an agent is extra, and it is listed on the state page.
+      </p>
+    </div>
+    <div class="overflow-x-auto rounded-[1.25rem] border border-rule">
+      <table class="w-full min-w-[40rem] border-collapse text-left text-base">
+        <caption class="sr-only">
+          Registered agent price comparison for Northwest, Bizee, ZenBusiness, and LegalZoom
+        </caption>
+        <thead>
+          <tr class="border-b border-rule">
+            <th scope="col" class="llc-table-head px-4 py-4 text-left">Service</th>
+            <th scope="col" class="llc-table-head px-4 py-4 text-left">Price</th>
+            <th scope="col" class="llc-table-head px-4 py-4 text-left">Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            registeredAgentPriceRows.map((row) => (
+              <tr class="border-b border-rule align-top">
+                <th scope="row" class="px-4 py-4 text-left font-semibold text-ink-strong">
+                  {row.name}
+                  <span class="mt-1 block text-sm font-normal leading-6 text-ink-muted">{row.note}</span>
+                </th>
+                <td class="px-4 py-4 tabular-nums text-ink-soft">{row.priceLabel}</td>
+                <td class="px-4 py-4 font-semibold text-ink-strong">{row.verdict}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="text-base leading-7 text-ink-muted">
+      Northwest also includes a domain, a website, and a phone line at this price. You don't need
+      those to have a registered agent. You are paying for the address and the mail scan. If you
+      still need the LLC filed, compare formation services instead of buying an agent by itself.
+    </p>
+    <AffiliateButton
+      href={registeredAgentPick.href}
+      label="Get a registered agent from Northwest"
+      partnerName={registeredAgentPick.name}
+      placement="inline"
+      size="lg"
+    />
+  </section>
+
+  <section id="your-state" class="scroll-mt-24 space-y-5">
+    <div class="space-y-4">
+      <h2>Registered agent rules by state</h2>
+      <p class="llc-section-copy">
+        Who can serve, what the state charges to change agents, and whether a home address is a
+        bad idea. These are the states with a verified page.
+      </p>
+    </div>
+    <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        agentStates.map((state) => (
+          <li>
+            <a
+              href={getStateRegisteredAgentPath(state.slug)}
+              class="flex min-h-11 items-center justify-between gap-3 rounded-[14px] border border-rule px-4 py-3 text-[15px] font-semibold text-ink-strong transition hover:border-rule-strong hover:bg-surface-subtle"
+            >
+              <span>{state.name} {state.agentTerm}</span>
+              <span aria-hidden="true" class="text-ink-muted">→</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="llc-section-copy text-ink-soft">
+      If your state is not listed, the choice is the same. Be your own agent if you qualify.
+      Otherwise use Northwest. The state-specific writeup is not published yet.
+    </p>
+  </section>
+
+  <section class="space-y-5">
+    <h2>Questions</h2>
+    <div class="space-y-5">
+      {
+        registeredAgentHubFaq.map((item) => (
+          <details class="group llc-card !p-0">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 px-5 py-5 text-lg font-semibold text-ink-strong sm:px-6">
+              <span>{item.question}</span>
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-2 h-3.5 w-3.5 shrink-0 text-ink-muted transition group-open:rotate-180"
+              >
+                <path d="M4 6l4 4 4-4" />
+              </svg>
+            </summary>
+            <div class="border-t border-rule px-5 py-5 sm:px-6">
+              <p class="llc-section-copy text-ink-soft">{item.answer}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="space-y-3">
+    <h2>Related</h2>
+    <ul class="!space-y-0 divide-y divide-rule border-y border-rule">
+      {
+        relatedLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="flex min-h-11 items-center py-3 text-[15px] font-semibold text-ink-strong underline decoration-transparent underline-offset-4 transition hover:decoration-ink-soft"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</SiteLayout>

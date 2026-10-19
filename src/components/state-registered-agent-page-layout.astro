@@ -41,11 +41,11 @@ const recommendationCta = getAffiliateLinkAttributes({
 });
 
 const relatedLinks = [
+  { label: 'Best registered agent service', href: '/best-registered-agent-service/' },
   { label: `How to start an LLC in ${state.name}`, href: guidePath },
   ...(costPath ? [{ label: `${state.name} LLC cost`, href: costPath }] : []),
   { label: 'Which state to form your LLC in', href: '/best-state/' },
   { label: 'Compare LLC services by real year-one cost', href: '/best-llc-services/' },
-  { label: 'Northwest vs Bizee', href: '/northwest-vs-bizee/' },
 ];
 
 const lastVerifiedLabel = new Date(`${page.lastVerified}T00:00:00Z`).toLocaleDateString('en-US', {
