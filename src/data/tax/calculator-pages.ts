@@ -49,18 +49,18 @@ export const CALCULATOR_STATE_PAGES: CalculatorStatePage[] = [
     state: 'NY',
     targetKeyword: '1099 Tax Calculator New York',
     metaDescription:
-      'Free 2026 New York self-employment tax calculator. Estimate federal, SE, and NY state tax (4-10.9%) for freelancers and 1099 workers. Note: NYC local tax not included.',
+      'Free 2026 New York self-employment tax calculator. Estimate federal, SE, and NY state tax (3.9-10.9%) for freelancers and 1099 workers. Note: NYC local tax not included.',
     intro:
-      'New York self-employment income is taxed at federal, SE, and state levels. New York State has 9 graduated tax brackets ranging from 4% to 10.9% (top rate applies to income over $25 million). Note: this calculator estimates state tax only - New York City imposes its own additional income tax (2.907-3.876%) and Yonkers has a local surcharge, neither of which is modeled here. Use the calculator below to estimate your federal + state + SE tax for 2026.',
+      'New York self-employment income is taxed at federal, SE, and state levels. New York State has 9 graduated tax brackets ranging from 3.9% to 10.9% for 2026 (top rate applies to income over $25 million). Note: this calculator estimates state tax only - New York City imposes its own additional income tax (2.907-3.876%) and Yonkers has a local surcharge, neither of which is modeled here. Use the calculator below to estimate your federal + state + SE tax for 2026.',
     enabled: true,
   },
   {
     state: 'GA',
     targetKeyword: '1099 Tax Calculator Georgia',
     metaDescription:
-      'Free 2026 Georgia self-employment tax calculator. Estimate federal, SE, and GA flat 5.39% state tax for 1099 freelancers and contractors. Quarterly payments included.',
+      'Free 2026 Georgia self-employment tax calculator. Estimate federal, SE, and GA flat 4.99% state tax for 1099 freelancers and contractors. Quarterly payments included.',
     intro:
-      'Georgia has a flat 5.39% individual income tax rate that applies to all taxable income. Combined with federal income tax (10-37%) and self-employment tax (15.3% on net earnings), Georgia 1099 workers and freelancers typically owe 25-35% of gross income in total tax. Use the calculator below to estimate your 2026 federal + state + SE tax and quarterly estimated payments.',
+      'Georgia has a flat 4.99% individual income tax rate for 2026 (cut from 5.19% retroactive to January 1, 2026), with a $15,000 standard deduction ($30,000 married filing jointly). Combined with federal income tax (10-37%) and self-employment tax (15.3% on net earnings), Georgia 1099 workers and freelancers typically owe 25-35% of gross income in total tax. Use the calculator below to estimate your 2026 federal + state + SE tax and quarterly estimated payments.',
     enabled: true,
   },
   {
@@ -69,25 +69,25 @@ export const CALCULATOR_STATE_PAGES: CalculatorStatePage[] = [
     metaDescription:
       'Free 2026 Illinois self-employment tax calculator. Estimate federal, SE, and IL flat 4.95% state tax for 1099 freelancers. Includes quarterly estimated payments.',
     intro:
-      'Illinois has a flat 4.95% individual income tax with no standard deduction (uses a $2,850 personal exemption instead). Self-employed workers and 1099 contractors owe Illinois state tax in addition to federal income tax (10-37%) and self-employment tax (15.3%). Use the calculator below to estimate your full 2026 tax liability and quarterly estimated payment amounts.',
+      'Illinois has a flat 4.95% individual income tax with no standard deduction (uses a $2,925 personal exemption instead). Self-employed workers and 1099 contractors owe Illinois state tax in addition to federal income tax (10-37%) and self-employment tax (15.3%). Use the calculator below to estimate your full 2026 tax liability and quarterly estimated payment amounts.',
     enabled: true,
   },
   {
     state: 'NC',
     targetKeyword: '1099 Tax Calculator North Carolina',
     metaDescription:
-      'Free 2026 North Carolina self-employment tax calculator. Estimate federal, SE, and NC flat 4.25% state tax for 1099 freelancers and contractors. Includes quarterly payments.',
+      'Free 2026 North Carolina self-employment tax calculator. Estimate federal, SE, and NC flat 3.99% state tax for 1099 freelancers and contractors. Includes quarterly payments.',
     intro:
-      'North Carolina has a flat 4.25% individual income tax rate (reduced from 4.5% effective January 1, 2025, with further reduction to 3.99% scheduled for 2026). Self-employed workers in NC owe state tax on top of federal income tax (10-37%) and self-employment tax (15.3% on net earnings). Use the calculator below to estimate your 2026 total tax liability and quarterly estimated payment amounts.',
+      'North Carolina has a flat 3.99% individual income tax rate for 2026 (down from 4.25% in 2025), with a $12,750 standard deduction. Self-employed workers in NC owe state tax on top of federal income tax (10-37%) and self-employment tax (15.3% on net earnings). Use the calculator below to estimate your 2026 total tax liability and quarterly estimated payment amounts.',
     enabled: true,
   },
   {
     state: 'OH',
     targetKeyword: '1099 Tax Calculator Ohio',
     metaDescription:
-      'Free 2026 Ohio self-employment tax calculator. Estimate federal, SE, and OH state tax (0-3.5%) for 1099 freelancers. Note: local city taxes not included. Quarterly payments.',
+      'Free 2026 Ohio self-employment tax calculator. Estimate federal, SE, and OH state tax (0-2.75%) for 1099 freelancers. Note: local city taxes not included. Quarterly payments.',
     intro:
-      'Ohio has a 3-bracket graduated income tax with a 0% rate up to $26,050, then 2.75% up to $100,000, then 3.5% above. Many Ohio cities and school districts impose local income taxes (averaging 1.49%) - these are not modeled in this calculator. Use the calculator below to estimate your federal, SE, and Ohio state tax for 2026.',
+      'For 2026 Ohio taxes income above $26,050 at a single 2.75% rate; income below that is taxed at 0%. Many Ohio cities and school districts impose local income taxes - these are not modeled in this calculator. Use the calculator below to estimate your federal, SE, and Ohio state tax for 2026.',
     enabled: true,
   },
   {
@@ -114,7 +114,7 @@ export const CALCULATOR_STATE_PAGES: CalculatorStatePage[] = [
     metaDescription:
       'Free 2026 Washington State self-employment tax calculator. WA has no income tax on SE earnings - estimate federal and SE tax for 1099 freelancers. Quarterly payments.',
     intro:
-      'Washington State has no general individual income tax, which makes tax planning straightforward for freelancers and 1099 contractors. (Note: WA does impose a 7% capital gains tax on amounts over ~$270,000, but this does not apply to self-employment income.) You still owe federal income tax based on your bracket and 15.3% self-employment tax on net earnings. Use the calculator below to estimate your federal and SE tax for 2026.',
+      'Washington State has no general individual income tax, which makes tax planning straightforward for freelancers and 1099 contractors. (Washington does tax long-term capital gains over $278,000 at 7%, and 9% above $1 million, but that does not apply to self-employment income.) You still owe federal income tax based on your bracket and 15.3% self-employment tax on net earnings. Use the calculator below to estimate your federal and SE tax for 2026.',
     enabled: true,
   },
   {
@@ -123,7 +123,7 @@ export const CALCULATOR_STATE_PAGES: CalculatorStatePage[] = [
     metaDescription:
       'Free 2026 Michigan self-employment tax calculator. Estimate federal, SE, and MI flat 4.25% state tax for 1099 freelancers. Note: Detroit local tax not included.',
     intro:
-      'Michigan has a flat 4.25% individual income tax rate with a $5,800 personal exemption per filer. Some Michigan cities (notably Detroit at 2.4%) impose local income taxes - these are not modeled in this calculator. Use the calculator below to estimate your 2026 federal income tax, self-employment tax, and Michigan state tax, along with quarterly estimated payment amounts.',
+      'Michigan has a flat 4.25% individual income tax rate with a $5,900 personal exemption per filer. Some Michigan cities (notably Detroit at 2.4%) impose local income taxes - these are not modeled in this calculator. Use the calculator below to estimate your 2026 federal income tax, self-employment tax, and Michigan state tax, along with quarterly estimated payment amounts.',
     enabled: true,
   },
   {
@@ -141,7 +141,7 @@ export const CALCULATOR_STATE_PAGES: CalculatorStatePage[] = [
     metaDescription:
       'Free 2026 Arizona self-employment tax calculator. Estimate federal, SE, and AZ flat 2.5% state tax for 1099 freelancers and gig workers. Quarterly payments included.',
     intro:
-      'Arizona has one of the lowest flat income tax rates in the nation at 2.5%, with a standard deduction matching the federal amount ($15,000 single / $30,000 married filing jointly). This makes Arizona a tax-friendly state for self-employed workers compared to high-tax states like California. Use the calculator below to estimate your 2026 federal + state + SE tax.',
+      'Arizona has one of the lowest flat income tax rates in the nation at 2.5%, with a standard deduction matching the federal amount ($16,100 single / $32,200 married filing jointly for 2026). This makes Arizona a tax-friendly state for self-employed workers compared to high-tax states like California. Use the calculator below to estimate your 2026 federal + state + SE tax.',
     enabled: true,
   },
   {
@@ -166,18 +166,18 @@ export const CALCULATOR_STATE_PAGES: CalculatorStatePage[] = [
     state: 'MD',
     targetKeyword: '1099 Tax Calculator Maryland',
     metaDescription:
-      'Free 2026 Maryland self-employment tax calculator. Estimate federal, SE, and MD state tax (2-5.75%) for 1099 freelancers. Note: county taxes (avg 2.51%) not included.',
+      'Free 2026 Maryland self-employment tax calculator. Estimate federal, SE, and MD state tax (2-6.5%) for 1099 freelancers. Note: county income taxes not included.',
     intro:
-      'Maryland has 8 graduated income tax brackets ranging from 2% to 5.75%. Maryland counties impose additional local income taxes averaging 2.51% on top of state tax - these local taxes are not modeled in this calculator. Self-employed workers in Maryland owe federal income tax (10-37%) and 15.3% self-employment tax in addition to state tax. Use the calculator below to estimate your 2026 federal + state + SE tax.',
+      'Maryland has 10 graduated income tax brackets ranging from 2% to 6.5% (the 6.25% and 6.5% brackets start at $500,000 and $1 million single). Maryland counties impose additional local income taxes on top of state tax - these local taxes are not modeled in this calculator. Self-employed workers in Maryland owe federal income tax (10-37%) and 15.3% self-employment tax in addition to state tax. Use the calculator below to estimate your 2026 federal + state + SE tax.',
     enabled: true,
   },
   {
     state: 'IN',
     targetKeyword: '1099 Tax Calculator Indiana',
     metaDescription:
-      'Free 2026 Indiana self-employment tax calculator. Estimate federal, SE, and IN flat 3% state tax for 1099 freelancers. Note: county taxes (avg 0.49%) not included.',
+      'Free 2026 Indiana self-employment tax calculator. Estimate federal, SE, and IN flat 2.95% state tax for 1099 freelancers. Note: county income taxes not included.',
     intro:
-      'Indiana has a flat 3.0% individual income tax rate (reduced from 3.05% effective January 1, 2025). Most Indiana counties impose additional local income taxes averaging 0.49% - these are not modeled in this calculator. Self-employed workers in Indiana owe state tax in addition to federal income tax (10-37%) and 15.3% self-employment tax. Use the calculator below to estimate your 2026 tax liability.',
+      'Indiana has a flat 2.95% individual income tax rate for 2026 (down from 3.0%). Every Indiana county also levies a local income tax - these are not modeled in this calculator. Self-employed workers in Indiana owe state tax in addition to federal income tax (10-37%) and 15.3% self-employment tax. Use the calculator below to estimate your 2026 tax liability.',
     enabled: true,
   },
   {
@@ -195,7 +195,7 @@ export const CALCULATOR_STATE_PAGES: CalculatorStatePage[] = [
     metaDescription:
       'Free 2026 Missouri self-employment tax calculator. Estimate federal, SE, and MO state tax (0-4.7%) for 1099 freelancers. Note: KC/St. Louis local taxes not included.',
     intro:
-      'Missouri has 8 narrow income tax brackets with a top rate of 4.7% (reduced from 4.8% effective January 1, 2025). The first $1,313 of income is exempt. Kansas City and St. Louis impose 1% local earnings taxes - these are not modeled in this calculator. Use the calculator below to estimate your federal + Missouri state + SE tax for 2026.',
+      'Missouri has 8 narrow income tax brackets with a top rate of 4.7%. The first $1,348 of income is exempt. Kansas City and St. Louis impose 1% local earnings taxes - these are not modeled in this calculator. Use the calculator below to estimate your federal + Missouri state + SE tax for 2026.',
     enabled: true,
   },
   {
@@ -204,7 +204,7 @@ export const CALCULATOR_STATE_PAGES: CalculatorStatePage[] = [
     metaDescription:
       'Free 2026 Wisconsin self-employment tax calculator. Estimate federal, SE, and WI state tax (3.5-7.65%) for 1099 freelancers and contractors. Quarterly payments included.',
     intro:
-      'Wisconsin has 4 graduated income tax brackets ranging from 3.5% to 7.65%. The top 7.65% rate kicks in at $323,290 (single) or $431,060 (married filing jointly). Self-employed workers in Wisconsin owe state tax in addition to federal income tax (10-37%) and 15.3% self-employment tax. Use the calculator below to estimate your full 2026 tax liability.',
+      'Wisconsin has 4 graduated income tax brackets ranging from 3.5% to 7.65%. For 2026 a 4.4% bracket replaced part of the old 5.3% bracket, and the top 7.65% rate kicks in at $332,720 (single) or $443,630 (married filing jointly). Self-employed workers in Wisconsin owe state tax in addition to federal income tax (10-37%) and 15.3% self-employment tax. Use the calculator below to estimate your full 2026 tax liability.',
     enabled: true,
   },
   {
@@ -213,16 +213,16 @@ export const CALCULATOR_STATE_PAGES: CalculatorStatePage[] = [
     metaDescription:
       'Free 2026 Minnesota self-employment tax calculator. Estimate federal, SE, and MN state tax (5.35-9.85%) for 1099 freelancers and contractors. Quarterly payments included.',
     intro:
-      'Minnesota has 4 graduated income tax brackets ranging from 5.35% to 9.85%. The top rate kicks in at $198,630 (single) or $330,410 (married filing jointly). Self-employed workers in Minnesota owe state tax in addition to federal income tax (10-37%) and 15.3% self-employment tax. Use the calculator below to estimate your 2026 federal + state + SE tax.',
+      'Minnesota has 4 graduated income tax brackets ranging from 5.35% to 9.85%. For 2026 the top rate kicks in at $203,150 (single) or $337,930 (married filing jointly). Self-employed workers in Minnesota owe state tax in addition to federal income tax (10-37%) and 15.3% self-employment tax. Use the calculator below to estimate your 2026 federal + state + SE tax.',
     enabled: true,
   },
   {
     state: 'SC',
     targetKeyword: '1099 Tax Calculator South Carolina',
     metaDescription:
-      'Free 2026 South Carolina self-employment tax calculator. Estimate federal, SE, and SC state tax (0-6.2%) for 1099 freelancers and contractors. Quarterly payments included.',
+      'Free 2026 South Carolina self-employment tax calculator. Estimate federal, SE, and SC state tax (1.99-5.21%) for 1099 freelancers and contractors. Quarterly payments included.',
     intro:
-      'South Carolina has 3 income tax brackets ranging from 0% to 6.2% (top rate reduced from 6.4%, with further reductions to 6.0% scheduled). Income below $3,560 is exempt. South Carolina is moving toward a simpler 2-rate structure (1.99% / 5.21%) starting tax year 2026. Use the calculator below to estimate your federal + SC state + SE tax for 2026.',
+      'For 2026 South Carolina has two rates: 1.99% on taxable income up to $30,000 and 5.21% above (H. 4216, retroactive to January 1, 2026). It also replaced the federal standard deduction with its own SC Income Adjusted Deduction ($15,000 single, $30,000 married filing jointly), which shrinks at higher incomes. Use the calculator below to estimate your federal + SC state + SE tax for 2026.',
     enabled: true,
   },
   {

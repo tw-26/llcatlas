@@ -12,7 +12,7 @@ import {
 } from '../../../../data/tax/combo-pages';
 import { getStateName, getStateSlug } from '../../../../data/tax/calculator-pages';
 import { getProfessionPreset } from '../../../../data/tax/profession-presets';
-import { STATE_RULES_2025 } from '../../../../data/tax/state-rules-2025';
+import { STATE_RULES_2026 } from '../../../../data/tax/state-rules-2026';
 
 export async function getStaticPaths() {
   return getPublishedComboPages().map((combo) => ({
@@ -32,7 +32,7 @@ const { combo } = Astro.props as Props;
 const preset = getProfessionPreset(combo.profession);
 const stateName = getStateName(combo.state);
 const stateSlug = getStateSlug(combo.state);
-const stateRules = STATE_RULES_2025[combo.state];
+const stateRules = STATE_RULES_2026[combo.state];
 
 const keyword = getComboKeyword(combo.profession, combo.state);
 const title = `${keyword} 2026 | Free SE Tax Estimator`;

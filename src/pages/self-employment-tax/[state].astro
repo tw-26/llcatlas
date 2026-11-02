@@ -10,7 +10,7 @@ import {
 } from '../../data/tax/calculator-pages';
 import { getPublishedComboPages } from '../../data/tax/combo-pages';
 import { getProfessionPreset } from '../../data/tax/profession-presets';
-import { STATE_RULES_2025 } from '../../data/tax/state-rules-2025';
+import { STATE_RULES_2026 } from '../../data/tax/state-rules-2026';
 
 export async function getStaticPaths() {
   return getPublishedStatePages().map((page) => ({
@@ -26,7 +26,7 @@ interface Props {
 const { pageConfig } = Astro.props as Props;
 const stateName = getStateName(pageConfig.state);
 const stateSlug = getStateSlug(pageConfig.state);
-const stateRules = STATE_RULES_2025[pageConfig.state];
+const stateRules = STATE_RULES_2026[pageConfig.state];
 
 const title = `${pageConfig.targetKeyword} 2026 | Free SE Tax Estimator`;
 const description = pageConfig.metaDescription;
