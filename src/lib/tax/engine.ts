@@ -1,5 +1,5 @@
 import { federalRules2026 } from '../../data/tax/rules-2026';
-import { STATE_RULES_2025 } from '../../data/tax/state-rules-2025';
+import { STATE_RULES_2026 } from '../../data/tax/state-rules-2026';
 import type {
   TaxInput,
   TaxResult,
@@ -102,7 +102,7 @@ export function calculateStateIncomeTax(
   input: TaxInput,
   fedResult: FederalIncomeTaxResult
 ): StateIncomeTaxResult {
-  const stateRules = STATE_RULES_2025[input.state];
+  const stateRules = STATE_RULES_2026[input.state];
 
   if (!stateRules.hasIncomeTax || !stateRules.taxesSelfEmploymentIncome) {
     return {

@@ -249,7 +249,7 @@ export default function TaxCalculator({
             </div>
 
             <p className="mt-6 text-xs leading-relaxed text-slate-500">
-              Results are estimates based on 2026 federal and 2025 state tax rules. State tax
+              Results are estimates based on 2026 federal and 2026 state tax rules. State tax
               calculations use a simplified model - actual state tax may differ due to
               state-specific deductions, credits, or local taxes not modeled here. This is not tax
               advice. Consult a CPA for your specific situation.

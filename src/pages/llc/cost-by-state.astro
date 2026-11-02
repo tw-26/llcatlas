@@ -103,7 +103,8 @@ const structuredData = [
     url: pageUrl,
     dateModified: FEE_TABLE_UPDATED,
     temporalCoverage: String(GUIDE_YEAR),
-    spatialCoverage: { '@type': 'Country', name: 'United States' },
+    // Google's Dataset validator accepts Text or Place here, not schema.org subtypes like Country.
+    spatialCoverage: { '@type': 'Place', name: 'United States' },
     creator: { '@type': 'Organization', name: 'LLCAtlas', url: 'https://llcatlas.com/' },
     license: pageUrl,
   },

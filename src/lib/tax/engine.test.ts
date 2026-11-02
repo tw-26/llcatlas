@@ -214,7 +214,7 @@ describe('calculateStateIncomeTax', () => {
   function makeFedResult(input: {
     netSelfEmploymentIncome: number;
     filingStatus: 'single' | 'married_joint' | 'married_separate' | 'head_of_household';
-    state: 'TX' | 'CA' | 'CO' | 'FL' | 'NY' | 'PA' | 'MS' | 'ID';
+    state: 'TX' | 'CA' | 'CO' | 'FL' | 'NY' | 'PA' | 'MS' | 'ID' | 'GA' | 'SC';
   }) {
     const seTax = calculateSelfEmploymentTax(input);
     return calculateFederalIncomeTax(input, seTax);
@@ -243,11 +243,11 @@ describe('calculateStateIncomeTax', () => {
     const fed = makeFedResult(input);
     const result = calculateStateIncomeTax(input, fed);
 
-    // CO uses federal SD ($15,000 single in our data)
-    // Taxable: AGI (74,348.18) - 15,000 = 59,348.18
-    // Tax: 59,348.18 x 0.044 = 2,611.32
+    // CO uses the 2026 federal SD ($16,100 single)
+    // Taxable: AGI (74,348.18) - 16,100 = 58,248.18
+    // Tax: 58,248.18 x 0.044 = 2,562.92
     expect(result.hasIncomeTax).toBe(true);
-    expectClose(result.total, 2611.32, 2);
+    expectClose(result.total, 2562.92, 2);
   });
 
   it('applies flat rate for Pennsylvania (3.07%, no SD or PE)', () => {
@@ -267,7 +267,7 @@ describe('calculateStateIncomeTax', () => {
 
     // CA SD: $5,540
     // State taxable: 74,348.18 - 5,540 = 68,808.18
-    // Bracket math (2025 CA single):
+    // Bracket math (2026 CA single):
     //   1% x 11,079 = 110.79
     //   2% x (26,264 - 11,079) = 303.70
     //   4% x (41,452 - 26,264) = 607.52
@@ -291,16 +291,16 @@ describe('calculateStateIncomeTax', () => {
     expect(result.surtaxes[0].amount).toBeGreaterThan(0);
   });
 
-  it('handles 2-bracket structure for Mississippi (0% then 4.4%)', () => {
+  it('handles 2-bracket structure for Mississippi (0% then 4.0% in 2026)', () => {
     const input = { netSelfEmploymentIncome: 50000, filingStatus: 'single' as const, state: 'MS' as const };
     const fed = makeFedResult(input);
     const result = calculateStateIncomeTax(input, fed);
 
     // MS SD: 2,300, PE: 6,000
-    // State taxable: AGI (~46,461) - 2,300 - 6,000 = ~38,161
-    // Tax: 0% x 10,000 + 4.4% x (38,161 - 10,000) = 0 + 1,239.10 ~= $1,239
+    // State taxable: AGI (46,467.61) - 2,300 - 6,000 = 38,167.61
+    // Tax: 0% x 10,000 + 4.0% x (38,167.61 - 10,000) = 1,126.70
     expect(result.hasIncomeTax).toBe(true);
-    expectClose(result.total, 1239, 5);
+    expectClose(result.total, 1126.70, 2);
   });
 
   it('handles 2-bracket structure for Idaho (0% threshold then flat)', () => {
@@ -308,11 +308,30 @@ describe('calculateStateIncomeTax', () => {
     const fed = makeFedResult(input);
     const result = calculateStateIncomeTax(input, fed);
 
-    // Idaho SD: 15,000
-    // State taxable: AGI (~46,461) - 15,000 = ~31,461
-    // Tax: 0% x 4,673 + 5.695% x (31,461 - 4,673) = 0 + 1,525.68
+    // Idaho uses the 2026 federal SD: 16,100
+    // State taxable: AGI (46,467.61) - 16,100 = 30,367.61
+    // Tax: 0% x 4,811 + 5.3% x (30,367.61 - 4,811) = 1,354.50
     expect(result.hasIncomeTax).toBe(true);
-    expectClose(result.total, 1525.68, 5);
+    expectClose(result.total, 1354.50, 2);
+  });
+
+  it('applies Georgia 2026 flat 4.99% with the $15,000 standard deduction', () => {
+    const input = { netSelfEmploymentIncome: 80000, filingStatus: 'single' as const, state: 'GA' as const };
+    const fed = makeFedResult(input);
+    const result = calculateStateIncomeTax(input, fed);
+
+    // Taxable: 74,348.18 - 15,000 = 59,348.18; tax: x 0.0499 = 2,961.47
+    expectClose(result.total, 2961.47, 2);
+  });
+
+  it('matches the SCDOR H. 4216 formula for South Carolina 2026 (5.21% minus $966 at $30,000+)', () => {
+    const input = { netSelfEmploymentIncome: 80000, filingStatus: 'single' as const, state: 'SC' as const };
+    const fed = makeFedResult(input);
+    const result = calculateStateIncomeTax(input, fed);
+
+    // SCIAD $15,000 (phase-out not modeled). Taxable: 74,348.18 - 15,000 = 59,348.18
+    // SCDOR: 59,348.18 x 5.21% - 966 = 2,126.04 (same as 1.99% on 30,000 + 5.21% above)
+    expectClose(result.total, 59348.18 * 0.0521 - 966, 1);
   });
 });
 

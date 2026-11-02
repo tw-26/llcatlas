@@ -23,7 +23,7 @@ export type TaxInput = {
   /** Optional spouse's W-2 income (only relevant for married_joint filers - affects SS wage base separately for each spouse and AGI for state tax) */
   spouseW2Wages?: number;
 
-  /** Tax year - defaults to 2026 federal / 2025 state if not specified */
+  /** Tax year - defaults to 2026 federal / 2026 state if not specified */
   taxYear?: number;
 };
 
