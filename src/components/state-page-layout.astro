@@ -3,6 +3,7 @@ import AffiliateCard from './affiliate-card.astro';
 import StateTrapCallout from './state-trap-callout.astro';
 import SiteLayout from '../layouts/site-layout.astro';
 import { affiliates } from '../data/affiliates';
+import { llcServices } from '../data/llc-services';
 import { GUIDE_YEAR as guideYear } from '../data/site';
 import {
   findRegisteredAgentStepIndex,
@@ -24,7 +25,7 @@ const costPage = state.costPage ?? null;
 const costPagePath = getStateCostPath(state.slug);
 const registeredAgentPath = state.registeredAgentPage ? getStateRegisteredAgentPath(state.slug) : null;
 const registeredAgentStepIndex = findRegisteredAgentStepIndex(state.steps);
-const faqItems = state.faq ?? [];
+const faqItems = [...(state.faq ?? [])];
 const officialLinks = state.officialLinks ?? [];
 const taxHighlights = state.taxHighlights ?? [];
 const comparisonRows = state.comparisonRows ?? [];
@@ -165,6 +166,60 @@ const linkForStateName = (name: string): string | null => {
   const target = readyStateByName.get(name);
   return target ? getStatePath(target.slug) : null;
 };
+
+// "Best LLC service in {state}": the same three services priced against this state's own fees.
+const serviceBySlug = new Map(llcServices.map((service) => [service.slug, service]));
+const comparedServiceSlugs = ['northwest', 'bizee', 'zenbusiness'] as const;
+const serviceRows = costPage && !isResearchPending
+  ? comparedServiceSlugs.flatMap((slug) => {
+      const service = serviceBySlug.get(slug);
+      if (!service) return [];
+      return [{
+        slug,
+        name: service.name,
+        yearOne: service.realYearOneTotal + costPage.yearOneTotal,
+        yearTwo: service.registeredAgentRenewal + costPage.yearTwoTotal,
+        reviewHref: service.reviewHref,
+      }];
+    })
+  : [];
+const northwestRow = serviceRows.find((row) => row.slug === 'northwest');
+const bizeeRow = serviceRows.find((row) => row.slug === 'bizee');
+const hasServiceSection = Boolean(costPage && northwestRow && bizeeRow);
+const bestServiceHeading = `Best LLC service in ${state.name}`;
+// First year in which Northwest's running total is no higher than Bizee's (state fees cancel out).
+const northwestBreakEvenYear = (() => {
+  if (!northwestRow || !bizeeRow) return null;
+  let northwestTotal = northwestRow.yearOne;
+  let bizeeTotal = bizeeRow.yearOne;
+  for (let year = 1; year <= 10; year += 1) {
+    if (year > 1) {
+      northwestTotal += northwestRow.yearTwo;
+      bizeeTotal += bizeeRow.yearTwo;
+    }
+    if (northwestTotal <= bizeeTotal) return year;
+  }
+  return null;
+})();
+const yearWords = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+const bestServiceSummary = hasServiceSection && northwestRow && bizeeRow
+  ? [
+      `Northwest. In ${state.name} it costs ${formatCurrency(northwestRow.yearOne)} in year one with the state fees included, then ${formatCurrency(northwestRow.yearTwo)} a year.`,
+      northwestRow.yearOne > bizeeRow.yearOne
+        ? `Bizee is ${formatCurrency(northwestRow.yearOne - bizeeRow.yearOne)} cheaper up front, but its registered agent renews at ${formatCurrency(bizeeRow.yearTwo - (costPage?.yearTwoTotal ?? 0))} a year against Northwest's ${formatCurrency(northwestRow.yearTwo - (costPage?.yearTwoTotal ?? 0))}${northwestBreakEvenYear ? `, so Northwest is cheaper overall by year ${yearWords[northwestBreakEvenYear]}` : ''}.`
+        : '',
+      "Northwest's checkout also doesn't push add-ons you don't need.",
+    ].filter(Boolean).join(' ')
+  : '';
+const selfFileNote = costPage
+  ? `Skip the service if you live in ${state.name} and have a business address you don't mind on the public record. Filing yourself costs ${formatCurrency(costPage.formTotal)} and the service adds nothing the state requires. The service is worth it when you work from home and want your address off the filing, or you live outside ${state.name}.`
+  : '';
+if (hasServiceSection) {
+  faqItems.push({
+    question: `What is the best LLC service in ${state.name}?`,
+    answer: `${bestServiceSummary} ${selfFileNote}`,
+  });
+}
 
 const lastUpdatedIso = state.lastUpdated;
 const schemaDate = lastUpdatedIso ?? `${guideYear}-01-01`;
@@ -325,11 +380,14 @@ const structuredData = [
 
     {stateTrap && <StateTrapCallout trap={stateTrap} stateName={state.name} />}
 
-    {guideSections.length > 0 && (
+    {(guideSections.length > 0 || hasServiceSection) && (
       <nav aria-labelledby="guide-sections-heading" class="space-y-3">
         <p id="guide-sections-heading" class="llc-helper">Also in this guide</p>
         <ul class="!space-y-0 grid gap-x-8 sm:grid-cols-2">
-          {guideSections.map((section) => (
+          {[
+            ...(hasServiceSection ? [{ id: 'best-llc-service', heading: bestServiceHeading }] : []),
+            ...guideSections,
+          ].map((section) => (
             <li class="border-b border-rule">
               <a
                 href={`#${section.id}`}
@@ -484,6 +542,84 @@ const structuredData = [
       )
     }
   </section>
+
+  {hasServiceSection && (
+    <section id="best-llc-service" class="space-y-5 scroll-mt-24">
+      <div class="space-y-4">
+        <h2>{bestServiceHeading}</h2>
+        <p class="llc-section-copy">{bestServiceSummary}</p>
+      </div>
+
+      <div class="llc-card overflow-hidden !p-0">
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-rule">
+            <caption class="sr-only">
+              What each LLC service costs in {state.name}, including state fees
+            </caption>
+            <thead class="bg-surface-subtle">
+              <tr>
+                <th scope="col" class="llc-table-head px-5 py-4 text-left">Service</th>
+                <th scope="col" class="llc-table-head px-5 py-4 text-right">Year one</th>
+                <th scope="col" class="llc-table-head px-5 py-4 text-right">Each year after</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-rule bg-surface">
+              {serviceRows.map((row) => (
+                <tr class={row.slug === 'northwest' ? 'bg-surface-warm' : undefined}>
+                  <th scope="row" class="px-5 py-4 text-left font-semibold text-ink-strong">
+                    <div class="flex items-center gap-3">
+                      {row.reviewHref ? (
+                        <a
+                          href={row.reviewHref}
+                          class="whitespace-nowrap underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+                        >
+                          {row.name}
+                        </a>
+                      ) : (
+                        <span class="whitespace-nowrap">{row.name}</span>
+                      )}
+                      {row.slug === 'northwest' && (
+                        <span class="rounded-full bg-accent-soft px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.06em] text-accent-ink whitespace-nowrap">
+                          Our pick
+                        </span>
+                      )}
+                    </div>
+                  </th>
+                  <td class="whitespace-nowrap px-5 py-4 text-right tabular-nums text-ink-soft">{formatCurrency(row.yearOne)}</td>
+                  <td class="whitespace-nowrap px-5 py-4 text-right tabular-nums text-ink-soft">{formatCurrency(row.yearTwo)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="text-[14px] leading-6 text-ink-muted">
+        Cheapest plan with a registered agent, plus {state.name}'s required state fees. Expedite
+        and optional add-ons not included.
+      </p>
+
+      <p class="llc-section-copy">{selfFileNote}</p>
+
+      <a
+        href="/best-llc-services/"
+        class="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink-strong underline decoration-rule-strong underline-offset-4 transition hover:decoration-ink-soft"
+      >
+        How we compared the LLC services
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-3.5 w-3.5"
+        >
+          <path d="M3 8h10M9 4l4 4-4 4" />
+        </svg>
+      </a>
+    </section>
+  )}
 
   <AffiliateCard
     partnerName={northwestPartnerName}

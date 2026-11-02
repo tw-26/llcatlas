@@ -6,7 +6,7 @@ export const georgia: StateOverride = {
   seoTitle: `How to Start an LLC in Georgia (${GUIDE_YEAR}): $100 Fee, Steps & Timeline`,
   seoDescription:
     'Start a Georgia LLC for $100 online. Real steps, the $60 annual registration due by April 1, local business license rules, and when a service is worth it.',
-  lastUpdated: '2026-09-23',
+  lastUpdated: '2026-11-01',
   intro:
     "A Georgia LLC costs $100 to file online, or $110 by mail. You file Articles of Organization with the Georgia Secretary of State, Corporations Division. There's no publication requirement and no franchise tax for a standard pass-through LLC. The one ongoing state cost is the annual registration: $60 a year as of 2026, due between January 1 and April 1. That window is the same for every LLC no matter when you formed, so an LLC formed in November owes its first registration by April 1 of the next year. Most Georgia businesses also need a city or county business license, called an occupation tax certificate, and the state filing doesn't replace it.",
   whatYoullNeed:
@@ -29,6 +29,7 @@ export const georgia: StateOverride = {
     { label: 'Georgia business forms (CD 030, Form 231)', url: 'https://sos.ga.gov/cgi-bin/corpforms.asp' },
     { label: 'Georgia business licenses (local)', url: 'https://georgia.org/small-business/get-business-license-georgia' },
     { label: 'Georgia Department of Revenue tax updates', url: 'https://dor.georgia.gov/taxes/important-tax-updates' },
+    { label: 'Georgia sales and use tax certificate (Department of Revenue)', url: 'https://dor.georgia.gov/sales-use-tax' },
     { label: 'Amended annual registration fee (eCorp)', url: 'https://ecorp.sos.ga.gov/ARForm' },
     {
       label: 'Registered office and agent (O.C.G.A. § 14-11-209)',
@@ -148,6 +149,181 @@ export const georgia: StateOverride = {
       title: 'Calendar the annual registration (January 1 to April 1)',
       description:
         'Every Georgia LLC files an annual registration with the Secretary of State between January 1 and April 1, starting the calendar year after it forms. The fee is $60 as of 2026, and you can prepay 2 or 3 years at once. Filing after April 1 adds a $25 penalty, and not filing can get the LLC administratively dissolved. If nothing has changed, the "One Click" option on eCorp is the quickest way to file.',
+    },
+  ],
+  sections: [
+    {
+      id: 'apply-for-llc-georgia-online',
+      heading: 'How to apply for an LLC in Georgia online (eCorp)',
+      summary:
+        "Applying for, registering, and filing an LLC in Georgia are the same thing: one Articles of Organization filing with the Secretary of State's Corporations Division. Online through eCorp it costs $100 by card and takes about 7 business days. Here is what the application asks for.",
+      facts: [
+        {
+          label: 'Start the application',
+          detail:
+            'Go to ecorp.sos.ga.gov, create a user account, and choose "create or register a business," then domestic limited liability company.',
+        },
+        {
+          label: 'LLC name',
+          detail:
+            'Must include "Limited Liability Company," "LLC," or "L.L.C." Check it in the eCorp business search first. If the name is taken, the filing comes back and you start over.',
+        },
+        {
+          label: 'Principal office',
+          detail:
+            "A mailing address for the LLC's principal office. It goes on the public record, so use a business address if you have one.",
+        },
+        {
+          label: 'Registered agent',
+          detail:
+            'The name and Georgia street address of your agent, where a person can be found during business hours. No P.O. boxes. This can be you, if you live in Georgia.',
+        },
+        {
+          label: 'Organizer',
+          detail: 'The name and address of each person filing the application. Usually that is you.',
+        },
+        {
+          label: 'Email address',
+          detail:
+            'Required. Georgia sends the approved Articles of Organization and annual registration notices here, so use one you check.',
+        },
+        {
+          label: 'Payment',
+          detail:
+            '$100 by Visa, Mastercard, American Express, or Discover. Two-business-day processing is $100 more, and same-day (submitted before noon on a weekday) is $250 more.',
+        },
+        {
+          label: 'Paper instead',
+          detail:
+            'Mail Form CD 030 with Transmittal Form 231 and a $110 check or money order. It takes about 15 business days. Only mail and in-person filings can buy one-hour processing, for $1,000 more.',
+        },
+      ],
+      paragraphs: [
+        "File online. It's $10 cheaper than paper, about twice as fast, and the approved Articles of Organization arrive by email. The LLC exists once they're approved. Then get your free EIN from the IRS and your city or county business license.",
+      ],
+      related: { label: 'See every Georgia LLC fee and when it is due', href: '/llc/georgia/cost/' },
+    },
+    {
+      id: 'georgia-llc-requirements',
+      heading: 'Georgia LLC requirements',
+      summary:
+        'Georgia asks for less than most states: one filing to form, one $60 filing a year to stay active, and a local business license. Here is the full list, and what Georgia does not require.',
+      facts: [
+        { label: 'Name', detail: 'Unique in Georgia and ending in LLC, L.L.C., or Limited Liability Company.' },
+        { label: 'Registered agent', detail: 'A Georgia street address where a person can be found during business hours, kept for as long as the LLC exists.' },
+        { label: 'Articles of Organization', detail: '$100 online or $110 by mail, filed with the Secretary of State.' },
+        { label: 'Annual registration', detail: '$60 every year between January 1 and April 1, starting the year after you form.' },
+        { label: 'Local business license', detail: 'An occupation tax certificate from your city, or your county if you are in an unincorporated area.' },
+        { label: 'Sales tax certificate', detail: 'Only if you sell taxable goods, through the Georgia Tax Center.' },
+        {
+          label: 'Not required',
+          detail:
+            "An operating agreement (write one anyway), newspaper publication, a Georgia resident owner, a statewide business license, or a franchise tax.",
+        },
+      ],
+      related: { label: 'Who can be a Georgia registered agent', href: '/llc/georgia/registered-agent/' },
+    },
+    {
+      id: 'free-llc-georgia',
+      heading: 'Is there a free way to form an LLC in Georgia?',
+      summary:
+        "No. The Secretary of State charges $100 online, and Georgia has no fee waiver for LLCs. Formation services that advertise a $0 LLC still pass the $100 state fee on to you.",
+      facts: [
+        {
+          label: 'Cheapest complete path',
+          detail:
+            'File online yourself for $100, be your own registered agent if you have a Georgia street address, write your own operating agreement, and get your EIN free from the IRS. Total: $100, then $60 a year.',
+        },
+        {
+          label: 'Actually free',
+          detail: 'The EIN, serving as your own registered agent, and the operating agreement if you write it yourself.',
+        },
+        {
+          label: 'Not free',
+          detail:
+            'The $60 annual registration every year, your city or county occupation tax certificate, and any expedite fee.',
+        },
+        {
+          label: '"$0" formation services',
+          detail:
+            "Bizee and ZenBusiness advertise $0 plus the state fee, so you pay the $100 either way. Bizee includes the first year of registered agent service, then charges $149 a year. ZenBusiness's $0 Starter plan has no registered agent; adding one costs $99 the first year, then $199 a year.",
+        },
+      ],
+      paragraphs: [
+        "If you live in Georgia and have an address you don't mind on the public record, file yourself online for $100. The eCorp form is short and asks for nothing you don't already have. If you work from home and want your address off the record, a service that includes the first year of registered agent service costs little more than the state fee in year one. Compare the renewal price, not the headline.",
+      ],
+      related: { label: 'Compare LLC services by real year-one cost', href: '/best-llc-services/' },
+    },
+    {
+      id: 'georgia-llc-taxes',
+      heading: 'Georgia LLC taxes: what you will actually pay',
+      summary:
+        "Georgia doesn't tax a standard LLC itself. The profit passes through to your personal return, where you pay federal income tax, 15.3% federal self-employment tax, and Georgia's flat 4.99% income tax (2026).",
+      facts: [
+        {
+          label: 'Federal self-employment tax',
+          detail:
+            '15.3% on your net self-employment earnings (12.4% Social Security up to the annual wage base, plus 2.9% Medicare). This is usually the biggest tax a new solo LLC owner pays.',
+        },
+        {
+          label: 'Georgia income tax',
+          detail:
+            'Flat 4.99% for 2026 on your Georgia taxable income, including LLC profit. The rate has dropped each of the last few years, so recheck it each tax year.',
+        },
+        { label: 'Franchise tax', detail: 'None for a standard pass-through LLC.' },
+        {
+          label: 'Sales and use tax',
+          detail:
+            'If you sell taxable tangible goods, register for a sales and use tax certificate with the Department of Revenue through the Georgia Tax Center before your first sale. Forming the LLC does not register you.',
+        },
+        {
+          label: 'Local occupation tax',
+          detail:
+            "Georgia's local business license is technically a tax, set by your city or county. Some base it on employees or gross receipts. Check your local government's page.",
+        },
+        {
+          label: 'Annual registration',
+          detail: '$60 a year to the Secretary of State. It is a filing fee, not a tax, but miss it and the LLC can be dissolved.',
+        },
+      ],
+      paragraphs: [
+        "Forming an LLC doesn't lower your taxes on its own. A single-member Georgia LLC is taxed exactly like a sole proprietorship. The tax lever comes later: once your profit is steadily around $60,000 or more, electing S-corp status can cut self-employment tax by more than the extra payroll and accounting cost.",
+      ],
+      related: { label: 'Run the S-corp math for your LLC', href: '/s-corp/election-calculator/' },
+    },
+    {
+      id: 'georgia-llc-annual-registration',
+      heading: 'Renewing a Georgia LLC: the $60 annual registration',
+      summary:
+        'Georgia LLCs renew once a year with an annual registration: $60, due between January 1 and April 1, starting the calendar year after you form. The deadline is the same for every LLC.',
+      facts: [
+        {
+          label: 'One Click (fastest)',
+          detail:
+            'If nothing has changed and you are current on fees, use One Click Annual Registration on the Secretary of State site. No eCorp login needed. The receipt and updated registration arrive by email.',
+        },
+        {
+          label: 'Online with changes',
+          detail:
+            'Log in to eCorp and choose "Annual Registration With Changes" to update your principal office, registered agent, or officers while you renew. Changing the agent on this filing avoids the separate $20 amendment.',
+        },
+        {
+          label: 'By mail',
+          detail:
+            'Print and mail the annual registration form. It adds a $10 service charge, and the envelope must be postmarked by April 1.',
+        },
+        { label: 'Prepay', detail: 'You can pay 2 or 3 years at once and skip the next renewals.' },
+        { label: 'Late', detail: 'A $25 penalty after April 1.' },
+        {
+          label: 'Not filed',
+          detail:
+            'The Secretary of State can administratively dissolve the LLC. Reinstating costs a $250 filing fee, or $260 with the service charge.',
+        },
+      ],
+      paragraphs: [
+        'Form in November or December and your first renewal is due only a few months later, by April 1. Put it on your calendar the day the LLC is approved. If you use a commercial registered agent, it will usually remind you, but the filing is still yours to make.',
+      ],
+      related: { label: 'Georgia LLC cost, year one and year two', href: '/llc/georgia/cost/' },
     },
   ],
   costPage: {
@@ -380,6 +556,16 @@ export const georgia: StateOverride = {
       question: 'How do I apply for an LLC in Georgia online?',
       answer:
         'Create an account at ecorp.sos.ga.gov, choose "create or register a business," and select domestic limited liability company. Enter the name, principal office mailing address, registered agent, organizer, and an email address, then pay $100 by card. Online filings take about 7 business days, or pay $100 more for two-business-day processing. Online is $10 cheaper and about twice as fast as mailing Form CD 030, so there is no reason to file on paper.',
+    },
+    {
+      question: 'Can I get an LLC in Georgia for free?',
+      answer:
+        "No. The state filing fee is $100 online and Georgia has no waiver. Services advertising a \"$0 LLC\" still charge you the $100 state fee. The cheapest complete path is filing yourself online for $100 and serving as your own registered agent, then paying the $60 annual registration each year.",
+    },
+    {
+      question: 'How much does it cost to renew an LLC in Georgia?',
+      answer:
+        '$60 a year for the annual registration, due between January 1 and April 1. It is $10 more by mail, and $25 more after April 1. You can prepay 2 or 3 years at once.',
     },
     {
       question: 'What is the formation document called in Georgia?',

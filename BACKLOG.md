@@ -19,6 +19,15 @@ Work top to bottom inside each month. If something is blocked, skip it and come 
 - Tax calculator pages: low volume, better positions (10–20). S-corp calculators: position ~80.
 - Zero backlinks. $150 in commissions so far.
 
+**GSC (Oct 4 – Oct 31, 2026, 28 days;** `research/gsc-2026-11-01/`**)**
+
+- 22.8K impressions (+80% vs the previous 28 days), 6 clicks. Position 56 across the top 1,000 queries, weighted by impressions (62 before). 94% of impressions are at position 30 or worse, so there are almost no clicks yet.
+- 91% of impressions are desktop. Deep-position impressions are inflated by rank trackers and scrapers; mobile averages position 43. Some queries are AI assistants searching Google (the Bizee review shows at position 7 for one).
+- Most of October's ~66 new pages have no impressions: all 10 batch 1 guides, 18 of 21 cost pages, 15 of 21 registered agent pages. The live pages are technically fine (index/follow, canonical, in the sitemap); GSC lists 78 URLs as not indexed. The Illinois registered agent page got 374 impressions at 54 within 2 weeks, so the format ranks once it's indexed.
+- Georgia is now the top page (3.7K impressions) but ranks 68. Washington, Virginia, and Maryland (which got query-gap passes) sit at 43–53.
+- Cost queries improved from 80+ to 37–60 ("wyoming llc filing fee" 26, "wyoming llc cost" 37, "ohio llc cost" 38), but the guides rank for them, not the cost pages.
+- Commercial: "best llc service in indiana" and variants ~220 impressions at ~20; `/best-llc-services/` moved from 52 to 25.
+
 **Ahrefs, Sep 23 (**`research/ahrefs-2026-09/`**)**
 
 - Ten states have at least one weak site (DR under 40) in the top 10 for "how to start an llc in {state}": California, Utah, Texas, Delaware, Montana, Arizona, Nevada, Illinois, Oregon, Oklahoma.
@@ -124,16 +133,43 @@ Work top to bottom inside each month. If something is blocked, skip it and come 
 
 
 
-## November — All ready states covered, fees table live, outreach starts
+## November — Get October's pages indexed, start earning links, fix the pages that already rank
 
-- [ ] Registered agent pages for the other 11 ready states: Illinois, North Carolina, Maryland, Michigan, Ohio, Arizona, Indiana, Pennsylvania, Utah, Oklahoma, Tennessee.
-- [ ] Build `/best-registered-agent-service/`: one recommended winner, what a registered agent actually does, when you don't need a paid one, price comparison, and a state picker linking to every registered agent page. Target: "best registered agent service" (600, difficulty 1). Closes with Northwest.
-- [ ] Build `/llc/cost-by-state/` by mid-November: one table with filing fee, annual fee, annual deadline, and year-1 and year-2 totals for all 50 states + DC, with a short verdict (cheapest states, most expensive, and why your home state usually still wins). Title: "LLC Filing Fees and Annual Fees by State ({year})". Targets "llc annual fees by state", "llc filing fees by state", "llc cost by state", and "llc fees by state" (~1,000/month combined). Link to `/best-state/` for "cheapest state to form an llc".
+The October pages are live, but most aren't indexed yet (GSC, Nov 1: 78 URLs not indexed). Until they're indexed and the site has links, new pages add little. Work top to bottom.
+
+### 1. Indexing (week of Nov 2, then 10 minutes a day)
+
+- [ ] In GSC → Pages → "Why pages aren't indexed", write down the count for each reason. Expected and fine: "Page with redirect" and "Alternate page with proper canonical" (the `/calculators/*` legacy routes), "Excluded by noindex" (non-ready states). The ones that matter: "Discovered – currently not indexed" (Google hasn't crawled the page yet; authority problem) and "Crawled – currently not indexed" (Google crawled the page and passed on it; if cost or registered agent pages are here, they look too similar to the guide and need more state-specific content).
+- [ ] Request indexing for about 10 URLs a day (GSC's daily cap), in this order: Wyoming, Texas, Delaware, California registered agent pages → Texas, California, Delaware guides → `/llc/cost-by-state/`, `/best-registered-agent-service/` → Wyoming, Georgia, Washington cost pages → the remaining batch 1 guides → the remaining registered agent and cost pages. Log the date requested next to each.
+- [ ] Nov 16: re-check the Pages report. If "Discovered – currently not indexed" hasn't dropped, add links to the stuck pages from the five pages Google crawls most (Virginia, Georgia, Washington, Wyoming, Michigan guides), e.g. a "Neighboring states" block on each guide.
+
+### 2. Outreach for the fees table (starts now; it was due the week of Oct 18)
+
+- [ ] 5 pitches this week, then 3–5 a week through December. Exact steps, template, and first targets are under "Outreach targets" below. Log every pitch in the table there.
+- [ ] Reddit: 3 real answers a week (see "Every week"). This is the only off-Google traffic until links land.
+
+### 3. Fix the pages that already get impressions
+
+- [ ] Georgia guide query-gap pass (3.7K impressions, position 68, the worst of the guides that get traffic). Cover the "apply / application / file online" wording ("llc application georgia", "apply for llc in georgia", "file for llc in ga online": ~160 impressions at ~70), "free llc georgia" (29 at 77), and "georgia llc taxes" (20 at 83). Same approach as the Washington, Virginia, and Maryland passes. Request re-indexing.
+- [ ] Wyoming guide query-gap pass (2.3K impressions, position 53). National demand from out-of-state founders: "wyoming llc formation" (101 at 62), "wyoming llc requirements" (45 at 56), "wyoming llc taxes" (35 at 69). Leave the fee queries to the Wyoming cost page.
+- [ ] Add a "Best LLC service in {state}" section to every ready guide: one recommended service and the real year-1 total in that state (state fee + service fee + registered agent renewal) for Northwest, Bizee, and ZenBusiness. The state fee makes each variant different. Start with Indiana ("best llc service in indiana" and variants: ~220 impressions at ~20, the best commercial ranking on the site), then California and Washington. First check in GSC which page ranks for the Indiana query, and put the section on that page.
+- [ ] `/best-llc-services/`: "best llc service" (187 at 31) and "best llc formation service" (79 at 39). Put the winner and the price in the title, e.g. "Best LLC Service ({year}): Northwest at $39 + State Fee", and answer "which one" in the first paragraph.
+- [ ] `/northwest-vs-legalzoom/`: add a registered agent price section ("legalzoom vs northwest registered agent", "legalzoom registered agent price/review": ~180 impressions at 45–70). It closes with Northwest's registered agent signup. LegalZoom stays a plain link.
+- [ ] `/llc-vs-sole-proprietorship/`: answer "is an llc a sole proprietorship" (109 at 83) in one line near the top.
+- [ ] Don't add more cost content to the guides. Cost queries now rank 37–60 through the guides only because the cost pages aren't indexed. Get the cost pages indexed (step 1) and let them take over those queries.
+
+### 4. Then new pages
+
+- [ ] Batch 2 guides, cut to the 5 biggest registered agent openings: Colorado (2.0K), New York (1.5K), New Mexico (1.4K), New Jersey (1.1K), Missouri (1.0K). Each ships with its cost and registered agent pages. New York needs the publication requirement front and center. Wisconsin, Alabama, South Carolina, Idaho, and Arkansas move to December, after Florida.
+- [ ] Update `/best-llc-services/` and the 4 comparison pages with current pricing, and link them to the registered agent pages and `/bizee-review/`.
+
+### Done in October (moved from November)
+
+- [x] Registered agent pages for the other 11 ready states: Illinois, North Carolina, Maryland, Michigan, Ohio, Arizona, Indiana, Pennsylvania, Utah, Oklahoma, Tennessee. (Oct 15)
+- [x] Build `/best-registered-agent-service/`: one recommended winner, what a registered agent actually does, when you don't need a paid one, price comparison, and a state picker linking to every registered agent page. Target: "best registered agent service" (600, difficulty 1). Closes with Northwest. (Oct 18)
+- [x] Build `/llc/cost-by-state/` (Oct 18): one table with filing fee, annual fee, annual deadline, and year-1 and year-2 totals for all 50 states + DC, with a short verdict (cheapest states, most expensive, and why your home state usually still wins). Title: "LLC Filing Fees and Annual Fees by State ({year})". Targets "llc annual fees by state", "llc filing fees by state", "llc cost by state", and "llc fees by state" (~1,000/month combined). Link to `/best-state/` for "cheapest state to form an llc".
   - States without a ready guide only need fee data: filing fee, annual fee, due date, and the official fee schedule link, verified against the state site. Store them in the state override with a verified date, and add a test that fails if the table shows an unverified state. Don't write the full guide just to fill the table.
   - Add a "cite this table" line with a direct link and an "Updated {date}" stamp. That's how the linking blogs use these pages.
-- [ ] Start outreach the same week the table goes live (list below). Links take weeks to count; the goal is to have some counting by January.
-- [ ] New state guides, batch 2, picked by guide volume plus registered agent volume. Each ships with its cost and registered agent pages: Colorado, New Mexico, Missouri, New York, Wisconsin, New Jersey, Alabama, South Carolina, Idaho, Arkansas. New York needs the publication requirement front and center.
-- [ ] Update `/best-llc-services/` and the 4 comparison pages with current pricing, and link them to the new registered agent pages and `/bizee-review/`.
 
 ---
 
@@ -179,6 +215,33 @@ Work top to bottom inside each month. If something is blocked, skip it and come 
 From Ahrefs (Sep and Oct): sites that already link to LLC fee or cost pages. Full list with linking pages in `research/ahrefs-2026-10/2b_fees_by_state_linkers.csv`.
 
 **The pitch.** Most of these blogs cite a fee number mid-article and link to whatever table they found. Pitch the specific number on their page, with their outdated figure, and offer the current one. Delaware's annual tax rising from $300 to $400 in 2026 is a ready example. Don't ask for a link to the homepage.
+
+**How to send one pitch (about 15 minutes):**
+
+1. Open the article from `2b_fees_by_state_linkers.csv` and search it for the fee table it links to (usually llcuniversity.com) and every fee number it quotes.
+2. Check those numbers against `/llc/cost-by-state/`. You need one specific, verifiable error: Delaware's annual tax shown as $300 (it's $400 since 2026) is the most common. If you find nothing outdated, pitch only the "Updated {date}, verified against official state sites" angle, and put that site lower on the list.
+3. Find a real person: the article's byline → their LinkedIn or author page; otherwise the site's editorial or content email (look for "write for us", "editorial", "corrections", or the contact page). Hunter.io's free tier finds the email pattern. Skip "info@" forms unless there's nothing else.
+4. Send the email below. Plain text, no attachments, no link exchange, no guest-post offer.
+5. Log it in the table below. Follow up once after 7 days with one line ("Bumping this in case it got buried. The Delaware figure is still $300 on the page."). Then stop.
+
+**Template:**
+
+> Subject: Outdated Delaware LLC fee in "{article title}"
+>
+> Hi {first name},
+>
+> Your article "{article title}" lists Delaware's LLC annual tax as $300. Delaware raised it to $400 for 2026 ({link to the official Delaware source in the state's `officialLinks`}).
+>
+> The table you link for state fees hasn't caught that yet. I keep a 50-state + DC table of filing and annual fees, each checked against the state's own fee schedule and dated: https://llcatlas.com/llc/cost-by-state/
+>
+> If it's useful, feel free to cite it next to the corrected number. Either way, the Delaware figure is worth fixing.
+>
+> {name}
+> LLCAtlas
+
+**Worked example, first pitch:** legalclarity.org, "How Much Does It Cost to Get Your LLC? Full Breakdown" (https://legalclarity.org/how-much-does-it-cost-to-get-your-llc-full-breakdown/). On Nov 1 it said "Delaware: $300 annual tax" and cited LLC University for annual fees. The template fits it as written. legalclarity has three more articles linking to fee tables (Massachusetts cost, cost of forming an LLC, registered agent cost); mention them in the same email rather than sending four.
+
+**First 5 this week:** legalclarity.org (above), propertyware.com (rental-property LLC; links "LLC Annual Fees by State"), joinhomebase.com (how to register a business; "LLC annual fees", says $15–$800+), bench.co (LLC taxes; "additional annual fees"), upcounsel.com (Arizona LLC cost; pitch `/llc/arizona/cost/` instead of the table).
 
 1. legalclarity.org (DR 76). Links to all four of the top fee pages from four different articles. Pitch first.
 2. lendio.com (DR 75). Links to two fee pages.
